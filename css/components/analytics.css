@@ -1,0 +1,111 @@
+/* ==========================================================
+   analytics.css — Vista Dot Plot Responsiva para Pantalla / TV
+   ========================================================== */
+
+.analytics-shell {
+  flex: 1 1 auto;
+  min-height: 0;
+  height: 100%;
+  margin: 8px 10px 6px;
+  background: var(--k-surface);
+  border: 1px solid var(--k-line);
+  box-shadow: 0 2px 10px rgba(22, 24, 47, 0.06);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 14px 18px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.analytics-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  flex: 0 0 auto;
+}
+
+.analytics-header h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--k-ink);
+  letter-spacing: -0.01em;
+}
+
+.analytics-header p {
+  font-size: 0.72rem;
+  color: var(--k-muted);
+}
+
+/* Contenedor responsivo sin scroll forzado */
+.analytics-chart-container {
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  height: 100%;
+  background: #FBFCFE;
+  border: 1px solid var(--k-line-soft);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+}
+
+#analytics-svg-wrap {
+  width: 100%;
+  height: 100%;
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+}
+
+.analytics-svg {
+  width: 100%;
+  height: 100%;
+  flex: 1 1 auto;
+  display: block;
+}
+
+/* Puntos interactivos */
+.dot-node {
+  cursor: pointer;
+  transition: r 0.12s ease, stroke 0.12s ease;
+}
+.dot-node:hover {
+  r: 7 !important;
+  stroke: var(--k-lime);
+  stroke-width: 2.5px;
+}
+
+/* Tooltip emergente preciso */
+.analytics-tooltip {
+  position: absolute;
+  pointer-events: none;
+  background: var(--k-plum);
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  z-index: 100;
+  display: none;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.analytics-tooltip .tt-title {
+  font-weight: 700;
+  color: #fff;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+  padding-bottom: 3px;
+  margin-bottom: 4px;
+}
+
+.analytics-tooltip b {
+  color: var(--k-lime);
+}

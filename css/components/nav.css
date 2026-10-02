@@ -1,0 +1,89 @@
+/* ==========================================================
+   nav.css — barra superior (marca + título + bloque oscuro)
+   Markup: js/components/nav.js
+   ========================================================== */
+
+.nav {
+  height: var(--nav-h);
+  flex: 0 0 auto;
+  background: var(--k-surface);
+  border-bottom: 1px solid var(--k-line);
+  display: flex;
+  align-items: stretch;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 22px 0 20px;
+}
+
+.kbt-mark { width: 30px; height: 30px; flex: 0 0 auto; }
+
+.kbt-word {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.32rem;
+  font-weight: 600;
+  color: var(--k-indigo);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.nav-sep { width: 1px; background: var(--k-line); margin: 14px 0; }
+
+.nav-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 22px;
+  min-width: 0;
+}
+
+.nav-title h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.86rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--k-ink);
+  white-space: nowrap;
+}
+
+.nav-title p {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--k-muted);
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nav-spacer { flex: 1 1 auto; }
+
+.nav-block-dark {
+  background: var(--k-plum);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 20px;
+  min-width: 190px;
+}
+
+.nav-block-dark .lbl {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #9C8FA0;
+}
+
+.nav-block-dark .val {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1.15;
+  font-variant-numeric: tabular-nums;
+}

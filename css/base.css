@@ -1,0 +1,19 @@
+/* ==========================================================
+   base.css — reset y documento raíz
+   El visor nunca scrollea la página: altura fija a 100vh.
+   ========================================================== */
+
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--k-paper);
+  color: var(--k-ink);
+  display: flex;
+  flex-direction: column;
+}
