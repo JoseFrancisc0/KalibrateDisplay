@@ -17,7 +17,7 @@
 .table-scroll {
   flex: 1 1 auto;
   min-height: 0;
-  overflow-y: auto;
+  overflow-y: scroll !important;
   overflow-x: hidden;
   scrollbar-gutter: stable;
   scrollbar-width: thin;

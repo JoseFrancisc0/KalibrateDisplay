@@ -54,7 +54,7 @@ function setVista(vista) {
     if (tabbar) tabbar.style.display = 'none';
     if (railMatriz) railMatriz.style.display = 'none';
     if (railAnalisis) railAnalisis.style.display = 'flex';
-    poblarSelectorCorredoresAnalisis();
+    poblarFiltrosAnalisis();
   }
 
   actualizarIndicadorModo();
@@ -74,24 +74,144 @@ function actualizarIndicadorModo() {
   }
 }
 
-// Poblar el dropdown de corredores en la vista de análisis
-function poblarSelectorCorredoresAnalisis() {
-  const sel = document.getElementById('sel-analisis-corredor');
-  if (!sel || !state.corredores || state.corredores.length === 0) return;
+// 3. Poblado y Gestión de Filtros de Análisis
+function poblarFiltrosAnalisis() {
+  if (!state.rawData?.estaciones) return;
+  const estaciones = state.rawData.estaciones;
 
-  const valorActual = state.analisisCorredor || 'TODOS';
-  sel.innerHTML = `<option value="TODOS">Todos los corredores</option>`;
+  // A. Corredores
+  const selCorr = document.getElementById('sel-analisis-corredor');
+  if (selCorr && selCorr.options.length <= 1) {
+    const corredoresSet = new Set();
+    estaciones.forEach(e => {
+      if (e.corredor && e.corredor.trim()) corredoresSet.add(e.corredor.trim().toUpperCase());
+    });
+    Array.from(corredoresSet).sort().forEach(c => {
+      const opt = document.createElement('option');
+      opt.value = c;
+      opt.textContent = c;
+      selCorr.appendChild(opt);
+    });
+  }
 
-  state.corredores.forEach(corr => {
-    const opt = document.createElement('option');
-    opt.value = corr;
-    opt.textContent = corr;
-    if (corr === valorActual) opt.selected = true;
-    sel.appendChild(opt);
-  });
+  // B. Departamentos
+  const selDepto = document.getElementById('sel-analisis-depto');
+  if (selDepto && selDepto.options.length <= 1) {
+    const deptosSet = new Set();
+    estaciones.forEach(e => {
+      if (e.departamento && e.departamento.trim()) deptosSet.add(e.departamento.trim().toUpperCase());
+    });
+    Array.from(deptosSet).sort().forEach(d => {
+      const opt = document.createElement('option');
+      opt.value = d;
+      opt.textContent = d;
+      selDepto.appendChild(opt);
+    });
+  }
+
+  // C. GPC Groups
+  const selGpc = document.getElementById('sel-analisis-gpc');
+  if (selGpc && selGpc.options.length <= 1) {
+    const gpcSet = new Set();
+    estaciones.forEach(e => {
+      if (e.gpc_group && e.gpc_group.trim()) gpcSet.add(e.gpc_group.trim().toUpperCase());
+    });
+    Array.from(gpcSet).sort().forEach(g => {
+      const opt = document.createElement('option');
+      opt.value = g;
+      opt.textContent = g;
+      selGpc.appendChild(opt);
+    });
+  }
+
+  // D. Inicialización única del catálogo de marcas
+  if (!state.analisisMarcasDisponibles || state.analisisMarcasDisponibles.length === 0) {
+    const marcasSet = new Set();
+    estaciones.forEach(e => {
+      const comps = e.actores?.filter(a => a.tipo_actor === 'COMPETENCIA' && !a.es_competidor_propio) || [];
+      comps.forEach(c => {
+        let m = (c.marca || '').trim().toUpperCase();
+        if (m && m !== 'SIN MARCA') {
+          if (m === 'WP' || m === 'WHITE PRODUCTS' || m === 'WHITE PRODUCT') m = 'WP';
+          marcasSet.add(m);
+        }
+      });
+    });
+    state.analisisMarcasDisponibles = Array.from(marcasSet).sort();
+    if (!state.analisisMarcasSeleccionadas) {
+      state.analisisMarcasSeleccionadas = new Set(state.analisisMarcasDisponibles);
+    }
+  }
+
+  construirChecklistMarcasDOM();
 }
 
-// 3. Controles de Análisis Ponderado
+function construirChecklistMarcasDOM() {
+  const container = document.getElementById('checklist-marcas-items');
+  if (!container) return;
+
+  container.innerHTML = '';
+  state.analisisMarcasDisponibles.forEach(marca => {
+    const isChecked = state.analisisMarcasSeleccionadas.has(marca);
+    const labelDisplay = (marca === 'PRIMAX') ? 'PRIMAX (DEALERS)' : (marca === 'WP' ? 'WHITE PRODUCTS' : marca);
+
+    const row = document.createElement('label');
+    row.className = 'multiselect-item';
+    row.innerHTML = `
+      <input type="checkbox" value="${marca}" ${isChecked ? 'checked' : ''} onchange="onToggleMarcaCheck('${marca}', this.checked)">
+      <span>${labelDisplay}</span>
+    `;
+    container.appendChild(row);
+  });
+
+  actualizarBotonMarcasLabel();
+}
+
+function actualizarBotonMarcasLabel() {
+  const lbl = document.getElementById('label-marcas-count');
+  if (lbl) {
+    lbl.textContent = 'BRANDS';
+  }
+}
+
+// Handlers del Checklist de Marcas
+function toggleDropdownMarcas() {
+  const drop = document.getElementById('dropdown-marcas-content');
+  if (drop) {
+    drop.style.display = (drop.style.display === 'none' || !drop.style.display) ? 'block' : 'none';
+  }
+}
+
+function marcarTodasMarcas(marcar) {
+  if (marcar) {
+    state.analisisMarcasSeleccionadas = new Set(state.analisisMarcasDisponibles);
+  } else {
+    state.analisisMarcasSeleccionadas = new Set();
+  }
+  construirChecklistMarcasDOM();
+  render();
+}
+
+function onToggleMarcaCheck(marca, isChecked) {
+  if (isChecked) {
+    state.analisisMarcasSeleccionadas.add(marca);
+  } else {
+    state.analisisMarcasSeleccionadas.delete(marca);
+  }
+  actualizarBotonMarcasLabel();
+  render();
+}
+
+// Cerrar el popup de marcas al hacer click fuera
+document.addEventListener('click', (e) => {
+  const wrap = document.getElementById('section-filtro-marcas');
+  const drop = document.getElementById('dropdown-marcas-content');
+  if (wrap && drop && !wrap.contains(e.target)) {
+    drop.style.display = 'none';
+  }
+});
+
+// Handlers de Selectores
 function cambiarProductoAnalisis() {
   const sel = document.getElementById('sel-analisis-prod');
   if (sel) state.analisisProducto = sel.value;
@@ -105,6 +225,18 @@ function cambiarCorredorAnalisis() {
   render();
 }
 
+function cambiarDeptoAnalisis() {
+  const sel = document.getElementById('sel-analisis-depto');
+  if (sel) state.analisisDepartamento = sel.value;
+  render();
+}
+
+function cambiarGpcAnalisis() {
+  const sel = document.getElementById('sel-analisis-gpc');
+  if (sel) state.analisisGpcGroup = sel.value;
+  render();
+}
+
 function cambiarModoAnalisis(modo) {
   state.analisisModo = modo;
   
@@ -115,6 +247,12 @@ function cambiarModoAnalisis(modo) {
   if (bComp) bComp.classList.toggle('active', modo === 'COMPETENCIA');
   if (bCoesti) bCoesti.classList.toggle('active', modo === 'COESTI');
   if (bMarca) bMarca.classList.toggle('active', modo === 'MARCA');
+
+  // Mostrar el filtro de marcas principalmente para PROMEDIO MARCAS
+  const secMarcas = document.getElementById('section-filtro-marcas');
+  if (secMarcas) {
+    secMarcas.style.opacity = (modo === 'MARCA') ? '1' : '0.45';
+  }
 
   render();
 }
@@ -172,7 +310,6 @@ function render() {
     metaInfo.innerText = `Última actualización: ${state.rawData.actualizado_al} · Estaciones monitoreadas: ${lista.length}`;
   }
 
-  // Si estamos en Análisis Ponderado, renderiza el gráfico
   if (state.vistaActiva === 'ANALISIS') {
     renderAnalisis(state.rawData.estaciones);
     return;
@@ -205,6 +342,8 @@ async function iniciar() {
     state.analisisProducto = 'Diesel';
     state.analisisModo = 'COMPETENCIA';
     state.analisisCorredor = 'TODOS';
+    state.analisisDepartamento = 'TODOS';
+    state.analisisGpcGroup = 'TODOS';
 
     recalcularCapacidad();
     render();
@@ -213,13 +352,26 @@ async function iniciar() {
   }
 }
 
+// Reemplaza el bloque de resize al final de js/app.js por este:
+let ultAncho = window.innerWidth;
+let ultAlto  = window.innerHeight;
 let rt;
+
 window.addEventListener('resize', () => {
   clearTimeout(rt);
   rt = setTimeout(() => {
-    if (state.vistaActiva === 'MATRIZ') recalcularCapacidad();
+    // Si la dimensión de la ventana no cambió realmente, ignorar (evita loop por scrollbars)
+    if (window.innerWidth === ultAncho && window.innerHeight === ultAlto) {
+      return;
+    }
+    ultAncho = window.innerWidth;
+    ultAlto  = window.innerHeight;
+
+    if (state.vistaActiva === 'MATRIZ') {
+      recalcularCapacidad();
+    }
     render();
-  }, 150);
+  }, 120);
 });
 
 document.addEventListener('fullscreenchange', () => {
@@ -236,7 +388,12 @@ Object.assign(window, {
   onSeleccionarCorredor,
   cambiarProductoAnalisis,
   cambiarCorredorAnalisis,
+  cambiarDeptoAnalisis,
+  cambiarGpcAnalisis,
   cambiarModoAnalisis,
+  toggleDropdownMarcas,
+  marcarTodasMarcas,
+  onToggleMarcaCheck,
   render
 });
 

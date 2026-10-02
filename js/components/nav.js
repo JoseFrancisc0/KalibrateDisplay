@@ -1,30 +1,25 @@
 /* ==========================================================
-   components/nav.js — barra superior.
-   Estilos: css/components/nav.css
-   Se monta en #cmp-nav (que ya lleva la clase .nav).
+   nav.js — barra de navegación superior (Header)
    ========================================================== */
-
-import { kbtMarkSVG } from '../icons.js';
 
 export function navHTML() {
   return `
-    <div class="nav-brand">
-      ${kbtMarkSVG()}
-      <span class="kbt-word">Kalibrate</span>
-    </div>
+    <header class="top-nav">
+      <div class="nav-left">
+        <span class="brand-coesti">COESTI</span>
+        <div class="nav-divider"></div>
+        <div class="nav-title-group">
+          <h1 class="nav-title">BITÁCORA PRICING · OPERACIÓN DIRECTA</h1>
+          <span class="nav-meta" id="meta-info">Última actualización: —</span>
+        </div>
+      </div>
 
-    <div class="nav-sep"></div>
-
-    <div class="nav-title">
-      <h1>Bitácora Pricing · Operación Directa</h1>
-      <p id="meta-info">Sincronizando información de Lakehouse...</p>
-    </div>
-
-    <div class="nav-spacer"></div>
-
-    <div class="nav-block-dark">
-      <span class="lbl">Estaciones monitoreadas</span>
-      <span class="val" id="nav-total">—</span>
-    </div>
+      <div class="nav-right">
+        <div class="nav-kpi-card">
+          <span class="nav-kpi-label">ESTACIONES MONITOREADAS</span>
+          <b class="nav-kpi-val" id="nav-total">—</b>
+        </div>
+      </div>
+    </header>
   `;
 }

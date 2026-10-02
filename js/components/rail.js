@@ -78,11 +78,45 @@ export function railHTML() {
       </div>
 
       <div class="rail-section">
-        <div class="rail-label">Corredor</div>
+        <div class="rail-label">Segmentación Geográfica</div>
+        <div class="select-stack">
+          <div class="select-wrap">
+            <select id="sel-analisis-corredor" onchange="cambiarCorredorAnalisis()">
+              <option value="TODOS">Todos los corredores</option>
+            </select>
+          </div>
+          <div class="select-wrap">
+            <select id="sel-analisis-depto" onchange="cambiarDeptoAnalisis()">
+              <option value="TODOS">Todos los departamentos</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="rail-section">
+        <div class="rail-label">GPC Group</div>
         <div class="select-wrap">
-          <select id="sel-analisis-corredor" onchange="cambiarCorredorAnalisis()">
-            <option value="TODOS">Todos los corredores</option>
+          <select id="sel-analisis-gpc" onchange="cambiarGpcAnalisis()">
+            <option value="TODOS">Todos los GPC Groups</option>
           </select>
+        </div>
+      </div>
+
+      <!-- Checklist Desplegable de Marcas (Solo impacta PROMEDIO MARCAS pero persiste) -->
+      <div class="rail-section" id="section-filtro-marcas">
+        <div class="rail-label">Filtrar Marcas</div>
+        <div class="multiselect-wrap">
+          <button type="button" class="multiselect-btn" id="btn-toggle-marcas" onclick="toggleDropdownMarcas()">
+            <span id="label-marcas-count">BRANDS</span>
+            <span class="multiselect-arrow">▾</span>
+          </button>
+          <div class="multiselect-dropdown" id="dropdown-marcas-content" style="display:none;">
+            <div class="multiselect-actions">
+              <button type="button" onclick="marcarTodasMarcas(true)">Todas</button>
+              <button type="button" onclick="marcarTodasMarcas(false)">Ninguna</button>
+            </div>
+            <div class="multiselect-list" id="checklist-marcas-items"></div>
+          </div>
         </div>
       </div>
 

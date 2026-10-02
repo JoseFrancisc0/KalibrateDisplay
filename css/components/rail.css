@@ -18,7 +18,7 @@
 .rail-panel {
   display: flex;
   flex-direction: column;
-  gap: 13px;
+  gap: 11px;
   width: 100%;
   flex: 0 0 auto;
 }
@@ -36,7 +36,7 @@
   letter-spacing: 0.17em;
   text-transform: uppercase;
   color: #A08FA6;
-  margin-bottom: 7px;
+  margin-bottom: 6px;
   display: flex;
   align-items: center;
   gap: 7px;
@@ -46,6 +46,13 @@
   flex: 1 1 auto;
   height: 1px;
   background: rgba(255, 255, 255, 0.13);
+}
+
+.select-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
 }
 
 .btn-group-vertical {
@@ -90,7 +97,7 @@
 
 .search-input {
   width: 100%;
-  padding: 9px 10px 9px 30px;
+  padding: 8px 10px 8px 30px;
   font-family: 'Inter', sans-serif;
   font-size: 0.78rem;
   font-weight: 500;
@@ -123,9 +130,9 @@
 
 .select-wrap select {
   width: 100%;
-  padding: 8px 10px;
+  padding: 7px 9px;
   font-family: 'Inter', sans-serif;
-  font-size: 0.74rem;
+  font-size: 0.72rem;
   font-weight: 600;
   color: #fff;
   background: rgba(255, 255, 255, 0.08);
@@ -140,13 +147,100 @@
   color: #fff;
 }
 
+/* Checklist Dropdown de Marcas */
+.multiselect-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.multiselect-btn {
+  width: 100%;
+  padding: 7px 9px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-left: 3px solid var(--k-emerald);
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+}
+.multiselect-arrow { font-size: 0.75rem; color: #A08FA6; }
+
+.multiselect-dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  width: 100%;
+  background: #1C203E;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.55);
+  z-index: 100;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.multiselect-actions {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 8px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.multiselect-actions button {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #D6CBD9;
+  font-size: 0.64rem;
+  font-weight: 600;
+  padding: 4px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+.multiselect-actions button:hover {
+  background: var(--k-emerald);
+  color: var(--k-plum);
+}
+
+.multiselect-list {
+  max-height: 180px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.multiselect-list::-webkit-scrollbar { width: 4px; }
+.multiselect-list::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 2px; }
+
+.multiselect-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.68rem;
+  color: #E2DBE5;
+  cursor: pointer;
+  user-select: none;
+}
+.multiselect-item input[type="checkbox"] {
+  cursor: pointer;
+  accent-color: var(--k-emerald);
+}
+
 .rail-legend {
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 9px;
+  padding: 8px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 5px;
   width: 100%;
   box-sizing: border-box;
 }
@@ -162,22 +256,22 @@
 
 .rail-watermark {
   flex: 1 1 auto;
-  min-height: 40px;
+  min-height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
   pointer-events: none;
   overflow: hidden;
-  margin: 10px 0;
+  margin: 6px 0;
 }
 .rail-watermark svg {
-  width: 78%;
-  max-height: 74%;
+  width: 70%;
+  max-height: 65%;
 }
 
 .rail-foot {
   margin-top: auto;
-  padding-top: 10px;
+  padding-top: 8px;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
   font-size: 0.65rem;
   line-height: 1.4;

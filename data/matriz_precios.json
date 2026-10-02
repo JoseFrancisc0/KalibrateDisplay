@@ -1,5 +1,5 @@
 {
-  "actualizado_al": "2026-10-02T12:27:37",
+  "actualizado_al": "2026-10-02T14:49:38",
   "combustibles_orden": [
     "Diesel",
     "Regular",
@@ -195,6 +195,8 @@
         }
       ],
       "zona": "Centro",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. 28 DE JULIO 2200",
       "own_lat": -12.062044143676758,
       "own_lon": -77.01868438720703
@@ -379,6 +381,8 @@
       ],
       "corredor": "Corredor Lima Norte",
       "zona": "Norte",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "MZ D. LOTE 1, URB. PROGRESIVA LAS ORQUIDEAS II ETAPA",
       "own_lat": -11.9849986623247,
       "own_lon": -77.12201295
@@ -483,6 +487,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "CUZCO",
+      "gpc_group": "COESTI",
       "direccion": "Mz, A, Lote 20, Urb. Parque Industrial, Distrito De Wanchaq",
       "own_lat": -13.533167839050293,
       "own_lon": -71.94985961914062
@@ -621,6 +627,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. BENAVIDES 2116",
       "own_lat": -12.127751350402832,
       "own_lon": -77.01033782958984
@@ -826,6 +834,8 @@
         }
       ],
       "zona": "Norte",
+      "departamento": "TRUJILLO",
+      "gpc_group": "COESTI",
       "direccion": "SUB LOTE 1B GRUPO A SECTOR V - FRENTE A CARRETERA PANAMERICANA NORTE",
       "own_lat": -8.181298911,
       "own_lon": -78.98814279
@@ -1030,6 +1040,8 @@
         }
       ],
       "zona": "Norte",
+      "departamento": "TRUJILLO",
+      "gpc_group": "COESTI",
       "direccion": "AV. AMERICA NORTE 1902 URB. PRIMAVERA",
       "own_lat": -8.09762,
       "own_lon": -79.029956
@@ -1239,6 +1251,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "AREQUIPA",
+      "gpc_group": "COESTI",
       "direccion": "AV. JESUS 1400",
       "own_lat": -16.417055130004883,
       "own_lon": -71.5059585571289
@@ -1387,6 +1401,8 @@
         }
       ],
       "zona": "Centro",
+      "departamento": "LIMA",
+      "gpc_group": "OMEGA",
       "direccion": "Av. Cuba N° 116-120, esquina con Av. Arenales 990",
       "own_lat": -12.074440956115723,
       "own_lon": -77.03742218017578
@@ -1637,6 +1653,8 @@
         }
       ],
       "zona": "Centro",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. AREQUIPA 3325 CON AV. REP. DE COLOMBIA 105",
       "own_lat": -12.098681449890137,
       "own_lon": -77.03218078613281
@@ -1871,6 +1889,8 @@
         }
       ],
       "zona": "Norte",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV ARGENTINA  4247   CALLAO",
       "own_lat": -12.048475,
       "own_lon": -77.101501
@@ -1959,6 +1979,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. LA PAZ Y AV. ARMENDARIZ 575",
       "own_lat": -12.13501,
       "own_lon": -77.025222
@@ -2219,6 +2241,8 @@
         }
       ],
       "zona": "Centro",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. NICOLAS ARRIOLA 710   URB. SANTA CATALINA",
       "own_lat": -12.083207130432129,
       "own_lon": -77.01359558105469
@@ -2282,6 +2306,8 @@
         }
       ],
       "zona": "Centro",
+      "departamento": "JUNIN",
+      "gpc_group": "COESTI",
       "direccion": "PROLONGACION DE LA AVENIDA MANUEL PRADO NRO 1483 LADO NORTE",
       "own_lat": -11.147988319396973,
       "own_lon": -75.9901351928711
@@ -2507,6 +2533,8 @@
       ],
       "corredor": "Corredor Carretera Central",
       "zona": "Centro",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. NICOLAS AYLLON 2570",
       "own_lat": -12.06019401550293,
       "own_lon": -76.97639465332031
@@ -2683,6 +2711,8 @@
         }
       ],
       "zona": "Centro",
+      "departamento": "LIMA",
+      "gpc_group": "OMEGA",
       "direccion": "Av. Nicolás Ayllón 2237-2239-2241",
       "own_lat": -12.062458038330078,
       "own_lon": -76.98181915283203
@@ -2878,6 +2908,8 @@
         }
       ],
       "zona": "Centro",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. PROCERES DE LA IND. ESQ. AV EL SOL  CDRA.27",
       "own_lat": -11.984991073608398,
       "own_lon": -77.00723266601562
@@ -3077,6 +3109,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "ICA",
+      "gpc_group": "COESTI",
       "direccion": "CARRETERA PANAMERICA SUR KM 460.5 VISTA ALEGRE ",
       "own_lat": -14.903644,
       "own_lon": -74.982895
@@ -3282,6 +3316,8 @@
         }
       ],
       "zona": "Centro",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. AVIACION CDRA 15 SN OVALO ARRIOLA",
       "own_lat": -12.078788757324219,
       "own_lon": -77.01081085205078
@@ -3406,6 +3442,8 @@
         }
       ],
       "zona": "Doris Macedo - Norte Chico",
+      "departamento": "LIMA",
+      "gpc_group": "OMEGA",
       "direccion": "Antigua Panamericana Norte Mz. Urbana 001, Lote 01, AAHH Leticia",
       "own_lat": -10.7932520269999,
       "own_lon": -77.7294534899
@@ -3560,6 +3598,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "Av. El sol 697, esquina AV REP. PANAMA",
       "own_lat": -12.13891,
       "own_lon": -77.017956
@@ -3744,6 +3784,8 @@
         }
       ],
       "zona": "Selva",
+      "departamento": "PUCALLPA",
+      "gpc_group": "CODESA",
       "direccion": "CARRETERA FEDERICO BASADRE KM 13 - CORONEL PORTILLO",
       "own_lat": -8.406944274902344,
       "own_lon": -74.6402587890625
@@ -3926,6 +3968,8 @@
         }
       ],
       "zona": "Centro",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. TINGO MARIA 1711",
       "own_lat": -12.065324783325195,
       "own_lon": -77.06026458740234
@@ -4126,6 +4170,8 @@
         }
       ],
       "zona": "Norte",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "CALLE DERECHA 898 CDRA 9 ESQUINA CAMAL VIEJO",
       "own_lat": -11.493066,
       "own_lon": -77.202113
@@ -4376,6 +4422,8 @@
         }
       ],
       "zona": "Centro",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. CANADA 1189 CON CALLE VICTOR ALZAMORA",
       "own_lat": -12.08368968963623,
       "own_lon": -77.0125961303711
@@ -4516,6 +4564,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "LIMA",
+      "gpc_group": "OMEGA",
       "direccion": "AA HH Villa de la Paz, Manzana C, Lote 17",
       "own_lat": -12.23942304,
       "own_lon": -76.91265908
@@ -4716,6 +4766,8 @@
         }
       ],
       "zona": "Norte",
+      "departamento": "ANCASH",
+      "gpc_group": "COESTI",
       "direccion": "OTR.SECTOR RURAL VALLE TABON LOTE. 5B FND. SANTA CATALINA ANCASH - CASMA - COMANDANTE NOEL.",
       "own_lat": -9.452862739562988,
       "own_lon": -78.34046173095703
@@ -4901,6 +4953,8 @@
         }
       ],
       "zona": "Centro",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. JAVIER PRADO OESTE 1895",
       "own_lat": -12.095104217529297,
       "own_lon": -77.0501708984375
@@ -5050,6 +5104,8 @@
         }
       ],
       "zona": "Norte",
+      "departamento": "PIURA",
+      "gpc_group": "COESTI",
       "direccion": "AV. PROGRESO 1702 CASTILLA",
       "own_lat": -5.21502,
       "own_lon": -80.623983
@@ -5235,6 +5291,8 @@
         }
       ],
       "zona": "Centro",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. NICOLAS ARRIOLA 295 URB. SANTA CATALINA",
       "own_lat": -12.087335586547852,
       "own_lon": -77.0163345336914
@@ -5373,6 +5431,8 @@
         }
       ],
       "zona": "Norte",
+      "departamento": "PIURA",
+      "gpc_group": "COESTI",
       "direccion": "AV. LUIS MONTERO S/N (ANTES AV. SAN PEDRO 339) URB. MIRAFLORES I ETAPA",
       "own_lat": -5.19769,
       "own_lon": -80.618599
@@ -5518,6 +5578,8 @@
         }
       ],
       "zona": "Selva",
+      "departamento": "PUCALLPA",
+      "gpc_group": "CODESA",
       "direccion": "Av. Centenario 488 (lote 1 Mz 180)",
       "own_lat": -8.3832,
       "own_lon": -74.544163
@@ -5649,13 +5711,13 @@
           "distancia_km": 2.28,
           "combustibles": {
             "Diesel": {
-              "precio": 25.5,
-              "diferencial": 0.59,
+              "precio": 25.25,
+              "diferencial": 0.84,
               "main_marker": false
             },
             "GLP": {
-              "precio": 6.69,
-              "diferencial": 0.1,
+              "precio": 6.49,
+              "diferencial": 0.3,
               "main_marker": false
             },
             "Premium": {
@@ -5664,8 +5726,8 @@
               "main_marker": false
             },
             "Regular": {
-              "precio": 21.29,
-              "diferencial": 0.76,
+              "precio": 21.09,
+              "diferencial": 0.96,
               "main_marker": false
             }
           }
@@ -5702,6 +5764,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "Panamericana Sur km 129",
       "own_lat": -13.006970405578613,
       "own_lon": -76.48169708251953
@@ -5945,6 +6009,8 @@
       ],
       "corredor": "Corredor Lima Norte",
       "zona": "Norte",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "CARRETERA PANAMERICAN NORTE KM 91",
       "own_lat": -11.497637,
       "own_lon": -77.302164
@@ -6044,18 +6110,18 @@
           "distancia_km": 2.11,
           "combustibles": {
             "Diesel": {
-              "precio": 24.97,
-              "diferencial": 0.02,
+              "precio": 24.77,
+              "diferencial": 0.22,
               "main_marker": false
             },
             "Premium": {
-              "precio": 22.87,
-              "diferencial": -0.18,
+              "precio": 23.87,
+              "diferencial": -1.18,
               "main_marker": false
             },
             "Regular": {
-              "precio": 21.97,
-              "diferencial": -0.62,
+              "precio": 22.97,
+              "diferencial": -1.62,
               "main_marker": false
             }
           }
@@ -6092,6 +6158,8 @@
       ],
       "corredor": "Corredor Arequipa",
       "zona": "Analista Sur",
+      "departamento": "AREQUIPA",
+      "gpc_group": "COESTI",
       "direccion": "VARIANTE DE UCHUMAYO KM. 06",
       "own_lat": -16.407723,
       "own_lon": -71.605553
@@ -6214,6 +6282,8 @@
       ],
       "corredor": "Corredor Piura",
       "zona": "Norte",
+      "departamento": "PIURA",
+      "gpc_group": "COESTI",
       "direccion": "AV. PROGRESO N° 3062",
       "own_lat": -5.227356,
       "own_lon": -80.631669
@@ -6394,6 +6464,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. DEFENSORES DEL MORRO 1391 H.U. EL MORRO",
       "own_lat": -12.175524711608887,
       "own_lon": -77.01759338378906
@@ -6546,6 +6618,8 @@
         }
       ],
       "zona": "Norte",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. UNIVERSITARIA ESQ. AV. MEXICO CALLE L, MZ. D, LOTE 34, 35 Y 36 URB.SANTA ISOLINA 2DA ETAPA",
       "own_lat": -11.9557765,
       "own_lon": -77.05953
@@ -6786,6 +6860,8 @@
         }
       ],
       "zona": "Norte",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "CALLE DOMINGO COLOMA 152 HUACHO - HUAURA - LIMA",
       "own_lat": -11.10648647,
       "own_lon": -77.60595755
@@ -6938,6 +7014,8 @@
         }
       ],
       "zona": "Selva",
+      "departamento": "PUCALLPA",
+      "gpc_group": "CODESA",
       "direccion": "AV. COLONIZACION ESQUINA CON CALLE 14 DE NOVIEMBRE MZ. 16 LOTE 1C",
       "own_lat": -8.38815975189209,
       "own_lon": -74.54805755615234
@@ -7118,6 +7196,8 @@
         }
       ],
       "zona": "Selva",
+      "departamento": "PUCALLPA",
+      "gpc_group": "CODESA",
       "direccion": "Av. Faustino Sanchez Carrion 1450",
       "own_lat": -8.371685,
       "own_lon": -74.554446
@@ -7246,13 +7326,13 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 21.52,
-              "diferencial": 0.97,
+              "precio": 21.49,
+              "diferencial": 1.0,
               "main_marker": false
             },
             "Regular": {
-              "precio": 20.46,
-              "diferencial": 0.33,
+              "precio": 20.39,
+              "diferencial": 0.4,
               "main_marker": false
             }
           }
@@ -7296,13 +7376,13 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 21.67,
-              "diferencial": 0.82,
+              "precio": 21.95,
+              "diferencial": 0.54,
               "main_marker": false
             },
             "Regular": {
-              "precio": 20.58,
-              "diferencial": 0.21,
+              "precio": 20.88,
+              "diferencial": -0.09,
               "main_marker": false
             }
           }
@@ -7376,6 +7456,8 @@
       ],
       "corredor": "Corredor Carretera Central",
       "zona": "Centro",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. NICOLAS DE PIEROLA SUR 3021 - Km 47.7 CARRETERA CENTRAL",
       "own_lat": -11.910690307617188,
       "own_lon": -76.58497619628906
@@ -7575,6 +7657,8 @@
         }
       ],
       "zona": "Norte",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV CHANCAY 513",
       "own_lat": -11.49876677,
       "own_lon": -77.2166714
@@ -7720,6 +7804,8 @@
       ],
       "corredor": "Corredor Chiclayo",
       "zona": "Norte",
+      "departamento": "CHICLAYO",
+      "gpc_group": "COESTI",
       "direccion": "MZ. A URB. EL CARMEN",
       "own_lat": -6.850192,
       "own_lon": -79.827641
@@ -7904,6 +7990,8 @@
         }
       ],
       "zona": "Norte",
+      "departamento": "PIURA",
+      "gpc_group": "COESTI",
       "direccion": "MZ. N   LT 15  18. URB. LOS JARDINES DE CORPIURA",
       "own_lat": -5.165272,
       "own_lon": -80.651238
@@ -8116,6 +8204,8 @@
         }
       ],
       "zona": "Centro",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. ARGENTINA 1801",
       "own_lat": -12.045866012573242,
       "own_lon": -77.06558227539062
@@ -8319,6 +8409,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. EL EJERCITO 412-422",
       "own_lat": -12.116541862487793,
       "own_lon": -77.04498291015625
@@ -8443,6 +8535,8 @@
         }
       ],
       "zona": "Norte",
+      "departamento": "PIURA",
+      "gpc_group": "COESTI",
       "direccion": "CARRETERA PIURA - LOS EJIDOS, PREDIO RC 18849, SANTA INA (P), SECTOR EJIDOS DEL NORTE",
       "own_lat": -5.15841092501966,
       "own_lon": -80.6215454319031
@@ -8743,6 +8837,8 @@
         }
       ],
       "zona": "Norte",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. LA MARINA 3112",
       "own_lat": -12.075369834899902,
       "own_lon": -77.09705352783203
@@ -8805,6 +8901,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "ICA",
+      "gpc_group": "INACTIVAS",
       "direccion": "AUTOPISTA PANAMERICANA SUR KM 204, FUNDO POZUELO NORTE",
       "own_lat": -13.57036,
       "own_lon": -76.177447
@@ -8867,6 +8965,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "LIMA",
+      "gpc_group": "INACTIVAS",
       "direccion": "AV. HUAYLAS 360 - CHORRILLOS",
       "own_lat": -12.167852401733398,
       "own_lon": -77.02564239501953
@@ -9087,6 +9187,8 @@
         }
       ],
       "zona": "Norte",
+      "departamento": "LIMA",
+      "gpc_group": "OMEGA",
       "direccion": "Av. Santa Rosa N° 135 y Av. La Marina N° 115, Urb. La Perla",
       "own_lat": -12.06607538,
       "own_lon": -77.11907744
@@ -9317,6 +9419,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. TOMAS MARSANO 1008 CON AV. ANGAMOS",
       "own_lat": -12.112807273864746,
       "own_lon": -77.01238250732422
@@ -9538,6 +9642,8 @@
       ],
       "corredor": "Corredor Piura",
       "zona": "Norte",
+      "departamento": "PIURA",
+      "gpc_group": "COESTI",
       "direccion": "LOTE P2 - 28 - A1, UBICACION RURAL VALLE MEDIO PIURA, SECTOR PIURA 2 C.P., PARCELA 17322",
       "own_lat": -5.121266183,
       "own_lon": -80.70077536
@@ -9676,6 +9782,8 @@
         }
       ],
       "zona": "Norte",
+      "departamento": "TRUJILLO",
+      "gpc_group": "COESTI",
       "direccion": "JR. UNIÓN 515 URB LA INTENDENCIA",
       "own_lat": -8.105382,
       "own_lon": -79.018627
@@ -9956,6 +10064,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV.  GUARDIA CIVIL 333",
       "own_lat": -12.183718,
       "own_lon": -77.00322800000001
@@ -10090,6 +10200,8 @@
         }
       ],
       "zona": "Norte",
+      "departamento": "TRUJILLO",
+      "gpc_group": "COESTI",
       "direccion": "AV. ESPANA 2623",
       "own_lat": -8.116684,
       "own_lon": -79.029342
@@ -10249,6 +10361,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "AREQUIPA",
+      "gpc_group": "COESTI",
       "direccion": "Av. Progreso 991",
       "own_lat": -16.396387,
       "own_lon": -71.518532
@@ -10454,6 +10568,8 @@
       ],
       "corredor": "Corredor Arequipa",
       "zona": "Analista Sur",
+      "departamento": "AREQUIPA",
+      "gpc_group": "COESTI",
       "direccion": "KM 06+239 VIA DE EVITAMIENTO IRRIGACION ZAMACOLA ZONA G",
       "own_lat": -16.352617263793945,
       "own_lon": -71.58024597167969
@@ -10543,6 +10659,8 @@
         }
       ],
       "zona": "Selva",
+      "departamento": "LORETO",
+      "gpc_group": "CODESA",
       "direccion": "JR. CALVO DE ARAUJO 801 IQUITOS",
       "own_lat": -3.7470614910125732,
       "own_lon": -73.25007629394531
@@ -10733,6 +10851,8 @@
         }
       ],
       "zona": "Norte",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. ELMER FAUCETT 384",
       "own_lat": -12.067181,
       "own_lon": -77.097179
@@ -10978,6 +11098,8 @@
       ],
       "corredor": "Corredor Carretera Central",
       "zona": "Centro",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. NICOLAS AYLLON 2162 CON CL. TOMAS ALVA EDISON",
       "own_lat": -12.063356399536133,
       "own_lon": -76.98164367675781
@@ -11183,6 +11305,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. TOMAS MARSANO 5010",
       "own_lat": -12.147967338562012,
       "own_lon": -76.98661041259766
@@ -11417,6 +11541,8 @@
         }
       ],
       "zona": "Centro",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. ALAMEDA DEL CORREGIDOR 1195",
       "own_lat": -12.091796875,
       "own_lon": -76.95277404785156
@@ -11546,6 +11672,8 @@
         }
       ],
       "zona": "Centro",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV JAVIER PRADO 2504 CON CALLE FLORA TRISTAN",
       "own_lat": -12.093535423278809,
       "own_lon": -77.05725860595703
@@ -11780,6 +11908,8 @@
       ],
       "corredor": "Corredor Arequipa",
       "zona": "Analista Sur",
+      "departamento": "AREQUIPA",
+      "gpc_group": "COESTI",
       "direccion": "AV. LIBERTADOR SAN MARTIN CON  AV. VIA DE EVITAMIENTO",
       "own_lat": -16.39284,
       "own_lon": -71.582994
@@ -12055,6 +12185,8 @@
         }
       ],
       "zona": "Centro",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. LOS FRUTALES 994, ESQUINA ARCOS DE LA FRONTERA",
       "own_lat": -12.073156356811523,
       "own_lon": -76.96479034423828
@@ -12260,6 +12392,8 @@
         }
       ],
       "zona": "Norte",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "ESQUINA AV LA PAZ Y CALLE GRAN MARISCAL AGUSTÍN GAMARRA MESSIA",
       "own_lat": -12.084067344665527,
       "own_lon": -77.0962905883789
@@ -12458,6 +12592,8 @@
       ],
       "corredor": "Corredor Lima Norte",
       "zona": "Norte",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AVENIDA NESSTOR GAMBETTA ESQUINA CON CALLE 01 MZ A LOTES 01 Y 02 PROGRAMA DE VIVIENDA ACUARIO",
       "own_lat": -11.964162,
       "own_lon": -77.126242
@@ -12728,6 +12864,8 @@
       ],
       "corredor": "Corredor Lima Norte",
       "zona": "Norte",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AVENIDA NESSTOR GAMBETTA ESQUINA CON CALLE 01 MZ A LOTES 01 Y 02 PROGRAMA DE VIVIENDA ACUARIO",
       "own_lat": -11.9849,
       "own_lon": -77.1248
@@ -12836,6 +12974,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "CUZCO",
+      "gpc_group": "COESTI",
       "direccion": "AV.  VELASCO ASTETE S/N",
       "own_lat": -13.539153099060059,
       "own_lon": -71.94486999511719
@@ -12950,8 +13090,8 @@
           "distancia_km": 0.14,
           "combustibles": {
             "Diesel": {
-              "precio": 25.59,
-              "diferencial": 1.56,
+              "precio": 25.29,
+              "diferencial": 1.86,
               "main_marker": false
             },
             "GLP": {
@@ -12959,13 +13099,13 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 23.59,
-              "diferencial": 1.7,
+              "precio": 23.99,
+              "diferencial": 1.3,
               "main_marker": false
             },
             "Regular": {
-              "precio": 21.8,
-              "diferencial": 0.69,
+              "precio": 21.99,
+              "diferencial": 0.5,
               "main_marker": false
             }
           }
@@ -13018,8 +13158,8 @@
               "main_marker": false
             },
             "Regular": {
-              "precio": 21.8,
-              "diferencial": 0.69,
+              "precio": 21.7,
+              "diferencial": 0.79,
               "main_marker": false
             }
           }
@@ -13061,6 +13201,8 @@
       ],
       "corredor": "Corredor Chiclayo",
       "zona": "Norte",
+      "departamento": "CHICLAYO",
+      "gpc_group": "COESTI",
       "direccion": "FDO LA ESPERANZA AV EVITAMIENTO S N",
       "own_lat": -6.7874860763549805,
       "own_lon": -79.86870574951172
@@ -13263,6 +13405,8 @@
       ],
       "corredor": "Corredor Piura",
       "zona": "Norte",
+      "departamento": "PIURA",
+      "gpc_group": "COESTI",
       "direccion": "MZ.A   SUB LOTE A  1  A   SECTOR PARCELA J DE LA ZONA INDUSTRIAL",
       "own_lat": -5.172424,
       "own_lon": -80.682885
@@ -13413,6 +13557,8 @@
         }
       ],
       "zona": "Centro",
+      "departamento": "LIMA",
+      "gpc_group": "OMEGA",
       "direccion": "Manzana G8, Lote 41, Programa Ciudad Mariscal Cáceres, Sector III",
       "own_lat": -11.946166038513184,
       "own_lon": -76.98444366455078
@@ -13605,6 +13751,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. MARISCAL CASTILLA 905",
       "own_lat": -12.135046005249023,
       "own_lon": -77.00724029541016
@@ -13788,6 +13936,8 @@
         }
       ],
       "zona": "Norte",
+      "departamento": "PIURA",
+      "gpc_group": "COESTI",
       "direccion": "AV. GRAU 1308",
       "own_lat": -5.19336,
       "own_lon": -80.637968
@@ -13963,6 +14113,8 @@
         }
       ],
       "zona": "Norte",
+      "departamento": "LIMA",
+      "gpc_group": "OMEGA",
       "direccion": "Av. República de Panamá Mz. 8, Parte de los Lotes 5 y 6. Sub-Lote 1",
       "own_lat": -12.055395,
       "own_lon": -77.13352
@@ -14253,6 +14405,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. JAVIER PRADO ESTE S/N CUADRA 44",
       "own_lat": -12.084494590759277,
       "own_lon": -76.97476959228516
@@ -14436,6 +14590,8 @@
         }
       ],
       "zona": "Norte",
+      "departamento": "TRUJILLO",
+      "gpc_group": "COESTI",
       "direccion": "MZ.A LOTE 1-A AA.HH HUANCHAQUITO BAJO (KM 2 CURVA HUANCHAQUITO)",
       "own_lat": -8.096188,
       "own_lon": -79.107952
@@ -14611,6 +14767,8 @@
         }
       ],
       "zona": "Centro",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. GRAU 1308 Y JR. HUANUCO 1101",
       "own_lat": -12.057760238647461,
       "own_lon": -77.0172119140625
@@ -14751,6 +14909,8 @@
         }
       ],
       "zona": "Centro",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. GREGORIO ESCOBEDO  418 JESUS MARIA",
       "own_lat": -12.08404541015625,
       "own_lon": -77.05191040039062
@@ -15026,6 +15186,8 @@
         }
       ],
       "zona": "Norte",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. TOMAS VALLE 1981",
       "own_lat": -12.012934,
       "own_lon": -77.0850853
@@ -15201,6 +15363,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "AREQUIPA",
+      "gpc_group": "COESTI",
       "direccion": "AV. PARRA 222",
       "own_lat": -16.411466,
       "own_lon": -71.544322
@@ -15319,6 +15483,8 @@
         }
       ],
       "zona": "Centro",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. JAVIER PRADO ESTE 1059",
       "own_lat": -12.090041160583496,
       "own_lon": -77.02057647705078
@@ -15534,6 +15700,8 @@
         }
       ],
       "zona": "Centro",
+      "departamento": "LIMA",
+      "gpc_group": "OMEGA",
       "direccion": "Av. Javier Prado. Mz. 0-6. Sub-Lote 3-B. Esquina Calle Toulon. Urb. La Riviera de Monterrico",
       "own_lat": -12.070646286010742,
       "own_lon": -76.95343780517578
@@ -15637,6 +15805,8 @@
         }
       ],
       "zona": "Selva",
+      "departamento": "PUCALLPA",
+      "gpc_group": "CODESA",
       "direccion": "AV. MIRAFLORES / ARBORIZACION NRO. 1439",
       "own_lat": -8.374478797,
       "own_lon": -74.567986249
@@ -15766,6 +15936,8 @@
       ],
       "corredor": "Corredor Arequipa Segundo",
       "zona": "Analista Sur",
+      "departamento": "AREQUIPA",
+      "gpc_group": "COESTI",
       "direccion": "AAHH PROGRESO KM 48  LT 9",
       "own_lat": -16.52931785583496,
       "own_lon": -71.77643585205078
@@ -15953,6 +16125,8 @@
         }
       ],
       "zona": "Fernando Romero - Zona Lima Sur 1",
+      "departamento": "LIMA",
+      "gpc_group": "OMEGA",
       "direccion": "Av. Alameda Los Horizontes 1070. Urb Los Cedros",
       "own_lat": -12.206130027770996,
       "own_lon": -77.010986328125
@@ -16125,6 +16299,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "ICA",
+      "gpc_group": "COESTI",
       "direccion": "CARRETERA PANAMERICANA SUR KM. 199",
       "own_lat": -13.416370391845703,
       "own_lon": -76.14036560058594
@@ -16318,6 +16494,8 @@
       ],
       "corredor": "Corredor Arequipa Segundo",
       "zona": "Analista Sur",
+      "departamento": "AREQUIPA",
+      "gpc_group": "COESTI",
       "direccion": "PANAMERICANA SUR KM 958 CRUCE LA JOYA",
       "own_lat": -16.4923038482666,
       "own_lon": -71.85887145996094
@@ -16513,6 +16691,8 @@
         }
       ],
       "zona": "Norte",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. LA MARINA 2185",
       "own_lat": -12.07853,
       "own_lon": -77.084373
@@ -16697,6 +16877,8 @@
         }
       ],
       "zona": "Selva",
+      "departamento": "LORETO",
+      "gpc_group": "CODESA",
       "direccion": "AV. LA MARINA 944 PUNCHANA",
       "own_lat": -3.731220006942749,
       "own_lon": -73.24056243896484
@@ -16896,6 +17078,8 @@
         }
       ],
       "zona": "Centro",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. JAVIER PRADO ESTE 6310 CON CL. LOS FORESTALES",
       "own_lat": -12.069990158081055,
       "own_lon": -76.95113372802734
@@ -17063,6 +17247,8 @@
         }
       ],
       "zona": "Norte",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. LA PAZ 915. ESQ. CON CALLE INCLAN",
       "own_lat": -12.086507797241211,
       "own_lon": -77.0916748046875
@@ -17268,6 +17454,8 @@
         }
       ],
       "zona": "Norte",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. LA PAZ 1200 ESQUINA CALLE FRANCISCO DE ZELA",
       "own_lat": -12.085177421569824,
       "own_lon": -77.09381866455078
@@ -17432,6 +17620,8 @@
         }
       ],
       "zona": "Norte",
+      "departamento": "TRUJILLO",
+      "gpc_group": "COESTI",
       "direccion": "AV. AMERICA SUR 2677   URB. LA PERLA",
       "own_lat": -8.125758,
       "own_lon": -79.025992
@@ -17572,6 +17762,8 @@
         }
       ],
       "zona": "Norte",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. LA PAZ 2326",
       "own_lat": -12.075915,
       "own_lon": -77.11469
@@ -17675,8 +17867,8 @@
           "distancia_km": 0.31,
           "combustibles": {
             "Diesel": {
-              "precio": 25.59,
-              "diferencial": 1.56,
+              "precio": 25.29,
+              "diferencial": 1.86,
               "main_marker": false
             },
             "GLP": {
@@ -17684,13 +17876,13 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 23.59,
-              "diferencial": 1.4,
+              "precio": 23.99,
+              "diferencial": 1.0,
               "main_marker": false
             },
             "Regular": {
-              "precio": 21.8,
-              "diferencial": 0.85,
+              "precio": 21.99,
+              "diferencial": 0.66,
               "main_marker": false
             }
           }
@@ -17718,8 +17910,8 @@
               "main_marker": false
             },
             "Regular": {
-              "precio": 21.8,
-              "diferencial": 0.85,
+              "precio": 21.7,
+              "diferencial": 0.95,
               "main_marker": false
             }
           }
@@ -17727,6 +17919,8 @@
       ],
       "corredor": "Corredor Chiclayo",
       "zona": "Norte",
+      "departamento": "CHICLAYO",
+      "gpc_group": "COESTI",
       "direccion": "INTERSECCION VIA DE EVITAMIENTO Y PROLONGACION BOLOGNESI S/N- ESQ LUIS HEYSEN",
       "own_lat": -6.786266803741455,
       "own_lon": -79.86768341064453
@@ -17922,6 +18116,8 @@
         }
       ],
       "zona": "Centro",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "Av Isabel La Católica N°. 077-083 esquina con Avenida Paseo de La Republica y Jr. Canta, Fundo Santa Teresa",
       "own_lat": -12.07042407989502,
       "own_lon": -77.03107452392578
@@ -18043,6 +18239,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "AREQUIPA",
+      "gpc_group": "COESTI",
       "direccion": "AV. ANDRES AVELINO CACERES MZ. C LOTE 1",
       "own_lat": -16.425954818725586,
       "own_lon": -71.53286743164062
@@ -18222,6 +18420,8 @@
         }
       ],
       "zona": "Norte",
+      "departamento": "TRUJILLO",
+      "gpc_group": "COESTI",
       "direccion": "AV. LARCO 1132",
       "own_lat": -8.124555,
       "own_lon": -79.039213
@@ -18442,6 +18642,8 @@
       ],
       "corredor": "Corredor Trujillo",
       "zona": "Norte",
+      "departamento": "TRUJILLO",
+      "gpc_group": "COESTI",
       "direccion": "AV. JOSE GABRIEL CONDORCANQUI 2492 LA ESPERANZA",
       "own_lat": -8.064554364,
       "own_lon": -79.05128944
@@ -18636,6 +18838,8 @@
         }
       ],
       "zona": "Norte",
+      "departamento": "PIURA",
+      "gpc_group": "COESTI",
       "direccion": "AV. SANCHEZ CERRO CON AV. SULLANA LT 9  10  11",
       "own_lat": -5.190952,
       "own_lon": -80.630581
@@ -18836,6 +19040,8 @@
         }
       ],
       "zona": "Centro",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. LURIGANCHO MZ. B LOTE 10 A,B,C,D, E Y SUB LOTE 10 F1",
       "own_lat": -12.016674041748047,
       "own_lon": -76.99507141113281
@@ -19035,6 +19241,8 @@
       ],
       "corredor": "Corredor Lima Sur",
       "zona": "Analista Sur",
+      "departamento": "LIMA",
+      "gpc_group": "OMEGA",
       "direccion": "Carretera Panamericana Sur, altura del km 34.500 y la Playa Arica",
       "own_lat": -12.296995162963867,
       "own_lon": -76.85682678222656
@@ -19180,6 +19388,8 @@
       ],
       "corredor": "Corredor Piura",
       "zona": "Norte",
+      "departamento": "PIURA",
+      "gpc_group": "COESTI",
       "direccion": "ZONA INDUSTRIAL MZ. 235 LOTE 11 Y 12",
       "own_lat": -5.183129,
       "own_lon": -80.647558
@@ -19356,6 +19566,8 @@
         }
       ],
       "zona": "Centro",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. BRASIL 4191 ESQ. CON AV. DEL EJERCITO",
       "own_lat": -12.097070693969727,
       "own_lon": -77.07158660888672
@@ -19506,6 +19718,8 @@
         }
       ],
       "zona": "Centro",
+      "departamento": "LIMA",
+      "gpc_group": "OMEGA",
       "direccion": "AV. MALECON CHECA EGUIGUREN175 - 181",
       "own_lat": -12.030322074890137,
       "own_lon": -77.01050567626953
@@ -19644,6 +19858,8 @@
         }
       ],
       "zona": "Centro",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. VICTOR MALASQUEZ. INT. MZ . LT. SECTOR COMUNIDAD CAMPESINA COLLANAC",
       "own_lat": -12.123780250549316,
       "own_lon": -76.87201690673828
@@ -19773,6 +19989,8 @@
         }
       ],
       "zona": "Centro",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. DEL EJERCITO 2199 ESQ. AV. SALAVERRY",
       "own_lat": -12.103384017944336,
       "own_lon": -77.05824279785156
@@ -19937,6 +20155,8 @@
         }
       ],
       "zona": "Centro",
+      "departamento": "JUNIN",
+      "gpc_group": "COESTI",
       "direccion": "AV. MIGUEL GRAU 1320",
       "own_lat": -11.541709899902344,
       "own_lon": -75.927490234375
@@ -20029,6 +20249,8 @@
         }
       ],
       "zona": "Norte",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "CAL. ALBERTO SECADA S/N (ESQUINA CON AV. MARCO POLO ) PROV. CONST. DEL CALLAO",
       "own_lat": -12.0634583333333,
       "own_lon": -77.1428638888889
@@ -20190,6 +20412,8 @@
       ],
       "corredor": "Corredor Piura",
       "zona": "Norte",
+      "departamento": "PIURA",
+      "gpc_group": "COESTI",
       "direccion": "CARRETERA SULLANA - TAMBOGRANDE KM 1021",
       "own_lat": -4.91643,
       "own_lon": -80.66377
@@ -20362,6 +20586,8 @@
         }
       ],
       "zona": "Selva",
+      "departamento": "LORETO",
+      "gpc_group": "CODESA",
       "direccion": "AV. QUIÑONEZ 843 SAN JUAN",
       "own_lat": -3.766014,
       "own_lon": -73.26566
@@ -20508,6 +20734,8 @@
         }
       ],
       "zona": "Norte",
+      "departamento": "PIURA",
+      "gpc_group": "COESTI",
       "direccion": "AV. PANAMERICANA Y COUNTRY SN",
       "own_lat": -5.182304,
       "own_lon": -80.631077
@@ -20722,6 +20950,8 @@
       ],
       "corredor": "Corredor Lima Norte",
       "zona": "Norte",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. REPUBLICA DE CROACIA MZ.N LT186",
       "own_lat": -11.835146,
       "own_lon": -77.112854
@@ -20830,6 +21060,8 @@
         }
       ],
       "zona": "Selva",
+      "departamento": "PUCALLPA",
+      "gpc_group": "CODESA",
       "direccion": "AV. YARINACOCHA ESQ. PROLONG. TUPAC AMARU MZ. 185 A LT. 36-37",
       "own_lat": -8.370795249938965,
       "own_lon": -74.5566177368164
@@ -21055,6 +21287,8 @@
         }
       ],
       "zona": "Norte",
+      "departamento": "TRUJILLO",
+      "gpc_group": "COESTI",
       "direccion": "Panamericana Norte KM 556",
       "own_lat": -8.147263,
       "own_lon": -79.011756
@@ -21255,6 +21489,8 @@
         }
       ],
       "zona": "Centro",
+      "departamento": "LIMA",
+      "gpc_group": "OMEGA",
       "direccion": "Local Industrial en Calle Contralmirante Nicolas Dueñas N° 380",
       "own_lat": -12.038541793823242,
       "own_lon": -77.06622314453125
@@ -21449,6 +21685,8 @@
       ],
       "corredor": "Corredor Lima Norte",
       "zona": "Norte",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV NESTOR GAMBETTA KM 8 - VENTANILLA - CALLAO",
       "own_lat": -11.90371338,
       "own_lon": -77.12901067
@@ -21624,6 +21862,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "AREQUIPA",
+      "gpc_group": "COESTI",
       "direccion": "AV. DOLORES S/N CON AV. EE.UU.",
       "own_lat": -16.429037,
       "own_lon": -71.523947
@@ -21914,6 +22154,8 @@
         }
       ],
       "zona": "Centro",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. LA MOLINA 580 CON CL. LAS MANDARINAS",
       "own_lat": -12.064398765563965,
       "own_lon": -76.96041107177734
@@ -22038,6 +22280,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. CAMINOS DEL INCA 2017 - SURCO",
       "own_lat": -12.1300630569458,
       "own_lon": -76.98173522949219
@@ -22100,8 +22344,8 @@
               "main_marker": true
             },
             "Diesel": {
-              "precio": 23.99,
-              "diferencial": 0.2,
+              "precio": 23.95,
+              "diferencial": 0.24,
               "main_marker": true
             },
             "Regular": {
@@ -22339,6 +22583,8 @@
       ],
       "corredor": "Corredor Carretera Central",
       "zona": "Centro",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "CARRETERA CENTRAL KM 19.5",
       "own_lat": -11.990645408630371,
       "own_lon": -76.82074737548828
@@ -22514,6 +22760,8 @@
         }
       ],
       "zona": "Norte",
+      "departamento": "LIMA",
+      "gpc_group": "OMEGA",
       "direccion": "Av. Las Palmeras. Mz. A-1. Lote 2-,3. Urb. El Parque del Naranjal",
       "own_lat": -11.978804588317871,
       "own_lon": -77.07250213623047
@@ -22565,8 +22813,8 @@
           "distancia_km": 0.82,
           "combustibles": {
             "Diesel": {
-              "precio": 24.95,
-              "diferencial": 0.04,
+              "precio": 24.45,
+              "diferencial": 0.54,
               "main_marker": true
             },
             "Premium": {
@@ -22707,6 +22955,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "ICA",
+      "gpc_group": "COESTI",
       "direccion": "CARRETERA PANAMERICANA SUR KM 446",
       "own_lat": -14.821587,
       "own_lon": -74.964929
@@ -22922,6 +23172,8 @@
         }
       ],
       "zona": "Centro",
+      "departamento": "LIMA",
+      "gpc_group": "OMEGA",
       "direccion": "Av. Nicolás Ayllón 2039, Parcela del Potrero Santa Lucia del Fundo Vasquez",
       "own_lat": -12.062932014465332,
       "own_lon": -76.98307037353516
@@ -23087,6 +23339,8 @@
         }
       ],
       "zona": "Centro",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. DEL EJERCITO 965, 967 Y 973, LOTES 1, 3, 16C, 17 Y 18 DE LA MZ. 68, URB. SAN FELIPE",
       "own_lat": -12.10041618347168,
       "own_lon": -77.0618667602539
@@ -23250,6 +23504,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "CUZCO",
+      "gpc_group": "COESTI",
       "direccion": "ALAMEDA PACHACUTEC D 6",
       "own_lat": -13.531468391418457,
       "own_lon": -71.96906280517578
@@ -23406,14 +23662,16 @@
               "main_marker": false
             },
             "Regular": {
-              "precio": 21.8,
-              "diferencial": 1.39,
+              "precio": 21.7,
+              "diferencial": 1.49,
               "main_marker": false
             }
           }
         }
       ],
       "zona": "Norte",
+      "departamento": "CHICLAYO",
+      "gpc_group": "COESTI",
       "direccion": "AV. BOLOGNESI CON AV. GRAU SN",
       "own_lat": -6.776786,
       "own_lon": -79.84461
@@ -23551,6 +23809,8 @@
         }
       ],
       "zona": "Norte",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. LA MARINA 2185",
       "own_lat": -12.078801,
       "own_lon": -77.081999
@@ -23809,6 +24069,8 @@
       ],
       "corredor": "Corredor Lima Sur",
       "zona": "Analista Sur",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "CARRETERA PANAMERICANA SUR KM. 30",
       "own_lat": -12.27548,
       "own_lon": -76.889283
@@ -24039,6 +24301,8 @@
         }
       ],
       "zona": "Centro",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. FAUSTINO SANCHEZ CARRION 471 CON JR. ESTADOS UNIDOS",
       "own_lat": -12.08906364440918,
       "own_lon": -77.05879211425781
@@ -24238,6 +24502,8 @@
         }
       ],
       "zona": "Norte",
+      "departamento": "TRUJILLO",
+      "gpc_group": "COESTI",
       "direccion": "INT. AV. AMERICA NORTE 1085 CON AV. 9 DE OCTUBRE",
       "own_lat": -8.094966,
       "own_lon": -79.021697
@@ -24418,6 +24684,8 @@
         }
       ],
       "zona": "Centro",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. ARICA 499, BRENA",
       "own_lat": -12.059394836425781,
       "own_lon": -77.04591369628906
@@ -24721,6 +24989,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "CARR PANAMERICANA SUR KM 97.5 ASIA LOTE 30, PARCELA LA QUERENCIA",
       "own_lat": -12.762859344482422,
       "own_lon": -76.59930419921875
@@ -24813,8 +25083,8 @@
               "main_marker": true
             },
             "Diesel": {
-              "precio": 23.99,
-              "diferencial": 0.2,
+              "precio": 23.95,
+              "diferencial": 0.24,
               "main_marker": true
             },
             "Regular": {
@@ -24992,6 +25262,8 @@
       ],
       "corredor": "Corredor Carretera Central",
       "zona": "Centro",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "CARRETERA CENTRAL KM. 16",
       "own_lat": -12.002620697021484,
       "own_lon": -76.84136962890625
@@ -25138,6 +25410,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "CALLE A. SCHEREIBER 124 CON CALLE SABOGAL AURORA -  MIRAFLORES",
       "own_lat": -12.1226277777778,
       "own_lon": -77.0110472222222
@@ -25363,6 +25637,8 @@
       ],
       "corredor": "Corredor Lima Norte",
       "zona": "Norte",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "Av. Ramon Castilla Nº 921",
       "own_lat": -10.745386,
       "own_lon": -77.765883
@@ -25518,6 +25794,8 @@
         }
       ],
       "zona": "Centro",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. BOLIVAR 1020 -PUEBLO LIBRE (MAGDALENA VIEJA)",
       "own_lat": -12.071999549865723,
       "own_lon": -77.0645523071289
@@ -25740,6 +26018,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. 28 DE JULIO 216, SAN LUIS CAÃETE (KM. 138  PAN. SUR) - CAÃETE - LIMA",
       "own_lat": -13.050200462341309,
       "own_lon": -76.43199920654297
@@ -25944,6 +26224,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "TACNA",
+      "gpc_group": "COESTI",
       "direccion": "AV. EJERCITO 1595/AV. MANUEL ODRÃA 1594 - TACNA",
       "own_lat": -18.019826889038086,
       "own_lon": -70.25774383544922
@@ -26245,6 +26527,8 @@
       ],
       "corredor": "Corredor Lima Norte",
       "zona": "Norte",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "CARRETERA PANAMERICANA NORTE KM 84.9",
       "own_lat": -11.5436055555556,
       "own_lon": -77.2797972222222
@@ -26541,6 +26825,8 @@
       ],
       "corredor": "Corredor Lima Sur",
       "zona": "Analista Sur",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "CAR. PANAMERICANA SUR KM 63.5 -CHILCA-CAÃETE- LIMA",
       "own_lat": -12.5084555555556,
       "own_lon": -76.7376861111111
@@ -26780,6 +27066,8 @@
         }
       ],
       "zona": "Centro",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. OSCAR R. BENAVIDES 1380 CON AV. NAC. UNIDAS",
       "own_lat": -12.04782772064209,
       "own_lon": -77.05955505371094
@@ -27045,6 +27333,8 @@
         }
       ],
       "zona": "Centro",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. COLONIAL 300 CON JR. ASCOPE",
       "own_lat": -12.046427726745605,
       "own_lon": -77.04583740234375
@@ -27229,6 +27519,8 @@
         }
       ],
       "zona": "Centro",
+      "departamento": "JUNIN",
+      "gpc_group": "COESTI",
       "direccion": "CARRETERA CENTRAL KM. 21 (ESQUINA CON AV. 8 DE DICIEMBRE - JUNIN - CONCEPCIÃN- CONCEPCIÃN",
       "own_lat": -11.91482925415039,
       "own_lon": -75.32465362548828
@@ -27411,18 +27703,18 @@
           "distancia_km": 3.37,
           "combustibles": {
             "Diesel": {
-              "precio": 24.97,
-              "diferencial": 0.02,
+              "precio": 24.77,
+              "diferencial": 0.22,
               "main_marker": false
             },
             "Premium": {
-              "precio": 22.87,
-              "diferencial": -0.28,
+              "precio": 23.87,
+              "diferencial": -1.28,
               "main_marker": false
             },
             "Regular": {
-              "precio": 21.97,
-              "diferencial": -0.68,
+              "precio": 22.97,
+              "diferencial": -1.68,
               "main_marker": false
             }
           }
@@ -27430,6 +27722,8 @@
       ],
       "corredor": "Corredor Arequipa",
       "zona": "Analista Sur",
+      "departamento": "AREQUIPA",
+      "gpc_group": "COESTI",
       "direccion": "VARIANTE DE UCHUMAYO KM. 05",
       "own_lat": -16.4057277777778,
       "own_lon": -71.5938972222222
@@ -27635,6 +27929,8 @@
       ],
       "corredor": "Corredor Arequipa",
       "zona": "Analista Sur",
+      "departamento": "AREQUIPA",
+      "gpc_group": "COESTI",
       "direccion": "VARIANTE DE UCHUMAYO KM 3.5-SEMIRURAL PACHACUTEC - CERRO COLORADO-AREQUIPA",
       "own_lat": -16.404738,
       "own_lon": -71.579
@@ -27824,6 +28120,8 @@
         }
       ],
       "zona": "Centro",
+      "departamento": "JUNIN",
+      "gpc_group": "COESTI",
       "direccion": "AV. JOSE CARLOS MARIATEGUI 600, CON JR AREQUIPA",
       "own_lat": -12.054498672485352,
       "own_lon": -75.22036743164062
@@ -27984,6 +28282,8 @@
       ],
       "corredor": "Corredor Trujillo",
       "zona": "Norte",
+      "departamento": "TRUJILLO",
+      "gpc_group": "COESTI",
       "direccion": "MZ. 5 LT.4  A.H.EL MILAGRO ST.1 HUANCHACO",
       "own_lat": -8.03249740600586,
       "own_lon": -79.06250762939453
@@ -28168,6 +28468,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "AREQUIPA",
+      "gpc_group": "COESTI",
       "direccion": "AV. AVIACIÃN 6.5 - AREQUIPA - CERRO COLORADO-AREQUIPA",
       "own_lat": -16.364465713500977,
       "own_lon": -71.56096649169922
@@ -28314,6 +28616,8 @@
         }
       ],
       "zona": "Norte",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. RAFAEL ESCARDO 250",
       "own_lat": -12.080697059631348,
       "own_lon": -77.09471130371094
@@ -28523,6 +28827,8 @@
         }
       ],
       "zona": "Norte",
+      "departamento": "TRUJILLO",
+      "gpc_group": "COESTI",
       "direccion": "AV ESPAÑA CON JR. MINERIA-TRUJILLO - LA LIBERTAD",
       "own_lat": -8.10518611111111,
       "own_lon": -79.0268555555556
@@ -28682,6 +28988,8 @@
         }
       ],
       "zona": "Norte",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. CHANCAY S/C ESQ. C/CALLE 3 DE OCTUBRE - URB. ROSARIO HUARAL - HUARAL - LIMA",
       "own_lat": -11.4974138888889,
       "own_lon": -77.2133055555556
@@ -28820,6 +29128,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "ICA",
+      "gpc_group": "COESTI",
       "direccion": "AV. LOS MAESTROS S/N CON ESQUINA CON LA AV. MANUEL SANTANA CHIRI ( REFERENCIA : AL FRENTE DEL MERCADO SANTO DOMINGO).",
       "own_lat": -14.088289260864258,
       "own_lon": -75.72357177734375
@@ -28871,8 +29181,8 @@
           "distancia_km": 2.63,
           "combustibles": {
             "Diesel": {
-              "precio": 25.89,
-              "diferencial": 2.2,
+              "precio": 25.19,
+              "diferencial": 2.9,
               "main_marker": true
             },
             "GLP": {
@@ -28881,13 +29191,13 @@
               "main_marker": true
             },
             "Premium": {
-              "precio": 25.69,
-              "diferencial": 0.3,
+              "precio": 24.99,
+              "diferencial": 1.0,
               "main_marker": true
             },
             "Regular": {
-              "precio": 22.99,
-              "diferencial": 0.2,
+              "precio": 22.49,
+              "diferencial": 0.7,
               "main_marker": true
             }
           }
@@ -29054,6 +29364,8 @@
       ],
       "corredor": "Corredor Chiclayo",
       "zona": "Norte",
+      "departamento": "CHICLAYO",
+      "gpc_group": "COESTI",
       "direccion": "PANAMERICANA NORTE KM. 777",
       "own_lat": -6.728576,
       "own_lon": -79.8896388888889
@@ -29241,6 +29553,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. JORGE CHAVEZ N° 870 - 877, ESQ. AV. ROOSVELT",
       "own_lat": -12.14687728881836,
       "own_lon": -77.01167297363281
@@ -29451,6 +29765,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. AVIACION 4524 - SURQUILLO",
       "own_lat": -12.119728088378906,
       "own_lon": -76.99870300292969
@@ -29676,6 +29992,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. SAN JUAN 112 CON AV MORRO SOLAR",
       "own_lat": -12.127419471740723,
       "own_lon": -76.97750091552734
@@ -29844,6 +30162,8 @@
         }
       ],
       "zona": "Centro",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. FRANCISCO PIZARRO 1207 - RÃMAC",
       "own_lat": -12.030875205993652,
       "own_lon": -77.04218292236328
@@ -30065,6 +30385,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV.JOSE CARLOS MARIATEGUI ESQ. CON AV.REVOLUCIÃN SECTOR 3 GRUPO 15 MZ. A LTE. 12 Y 13 - VILLA EL SALVADOR - Lima",
       "own_lat": -12.2206944444444,
       "own_lon": -76.9325416666667
@@ -30266,6 +30588,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. LIMA NÂº. 2000 P.J. POETA JOSÃ GALVEZ (MZ. 159, LTE. 4)  VILLA MARIA DEL TRIUNFO -LIMA",
       "own_lat": -12.2238305555556,
       "own_lon": -76.9084416666667
@@ -30404,6 +30728,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. SAN LUIS 2480",
       "own_lat": -12.098325729370117,
       "own_lon": -76.99524688720703
@@ -30638,6 +30964,8 @@
       ],
       "corredor": "Corredor Lima Norte",
       "zona": "Norte",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. LEONCIO PRADO NÂ° 780 (PAN NORTE KM. 34.5) LIMA, LIMA, PUENTE PIEDRA",
       "own_lat": -11.8409555555556,
       "own_lon": -77.1033944444444
@@ -30776,6 +31104,8 @@
         }
       ],
       "zona": "Norte",
+      "departamento": "ANCASH",
+      "gpc_group": "COESTI",
       "direccion": "MZ.A LT.2 CAR. PANAM. NORTE KM.425 PROG.VIV. HUP VILLA MARIA SUB LT.B2 NUEVO CHIMBOTE - SANTA - ANCASH - REF. A 3 CDRAS. DE PLAZA VEA",
       "own_lat": -9.120734214782715,
       "own_lon": -78.54006958007812
@@ -30965,6 +31295,8 @@
         }
       ],
       "zona": "Norte",
+      "departamento": "PIURA",
+      "gpc_group": "COESTI",
       "direccion": "AV. LORETO 779",
       "own_lat": -5.196075,
       "own_lon": -80.629901
@@ -31148,6 +31480,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. REP. DE PANAMÃ 5160 - SURQUILLO",
       "own_lat": -12.116049766540527,
       "own_lon": -77.01858520507812
@@ -31393,6 +31727,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "ICA",
+      "gpc_group": "COESTI",
       "direccion": "AV. PROLONGACION GRAU CDRA. 2, DISTRI. PARCONA, PROV. ICA DPTO. ICA.",
       "own_lat": -14.0614444444444,
       "own_lon": -75.7223055555556
@@ -31571,6 +31907,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. PASEO DE LA REPUBLICA 5545 CON AV. RICARDO PALMA",
       "own_lat": -12.1194722222222,
       "own_lon": -77.0252305555556
@@ -31795,6 +32133,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "ICA",
+      "gpc_group": "COESTI",
       "direccion": "AV. FERMIN TANGUIS MZ C LT1, CON CALLE 5",
       "own_lat": -13.711201667785645,
       "own_lon": -76.18035888671875
@@ -32087,6 +32427,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. JOSÃ GÃLVEZ BARRENECHEA 1105, URB. CORPAC, SN. BORJA",
       "own_lat": -12.107460975646973,
       "own_lon": -77.01019287109375
@@ -32342,6 +32684,8 @@
         }
       ],
       "zona": "Centro",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. PROCERES DE LA INDEPENDENCIA NRO 701 - 709",
       "own_lat": -12.0199556350708,
       "own_lon": -77.00489807128906
@@ -32577,6 +32921,8 @@
         }
       ],
       "zona": "Norte",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. INDUSTRIAL MZ F LT 5 URB. LAS VEGAS ESQUINA AV. SAN JUAN",
       "own_lat": -11.86419738,
       "own_lon": -77.06762116
@@ -32806,6 +33152,8 @@
       ],
       "corredor": "Corredor Lima Sur",
       "zona": "Analista Sur",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "CAR. PANAMERICANA SUR KM. 40 MZA. D LTE. 2 LIMA, LIMA, PUNTA HERMOSA",
       "own_lat": -12.3167055555556,
       "own_lon": -76.8317694444444
@@ -32993,6 +33341,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. MCAL. ANDRES A. CÃCERES 110, MIRAFLORES",
       "own_lat": -12.1199666666667,
       "own_lon": -77.0235194444444
@@ -33262,6 +33612,8 @@
         }
       ],
       "zona": "Norte",
+      "departamento": "PIURA",
+      "gpc_group": "COESTI",
       "direccion": "MALECON MARIA AUXILIADORA LOTE 34 MIRAFLORES",
       "own_lat": -5.18317,
       "own_lon": -80.624084
@@ -33447,6 +33799,8 @@
         }
       ],
       "zona": "Centro",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "JR. SALAVERRY 478-480",
       "own_lat": -12.094255447387695,
       "own_lon": -77.0746078491211
@@ -33691,6 +34045,8 @@
       ],
       "corredor": "Corredor Trujillo",
       "zona": "Norte",
+      "departamento": "TRUJILLO",
+      "gpc_group": "COESTI",
       "direccion": "OVALO LA MARINA AV. LA MARINA Y CARRETERA INDUSTRIAL KM. 559",
       "own_lat": -8.1314,
       "own_lon": -79.0213138888889
@@ -33895,6 +34251,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "AREQUIPA",
+      "gpc_group": "COESTI",
       "direccion": "CALLE GRANDE NÂº 239-YANAHUARA-AREQUIPA",
       "own_lat": -16.39225196838379,
       "own_lon": -71.55096435546875
@@ -34124,6 +34482,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "TACNA",
+      "gpc_group": "COESTI",
       "direccion": "INTERSECCION DE AV. INDUSTRIAL 415 C/AV. TARATA Y PSJE. S/N - Tacna - TACNA",
       "own_lat": -18.00119972229004,
       "own_lon": -70.25289916992188
@@ -34299,6 +34659,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. TOMAS MARSANO 4080 CON AV. SURCO",
       "own_lat": -12.138907432556152,
       "own_lon": -76.99436950683594
@@ -34534,6 +34896,8 @@
         }
       ],
       "zona": "Norte",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. TOMAS VALLE CDRA 7 CON AV. BETA",
       "own_lat": -12.0104277777778,
       "own_lon": -77.0701805555556
@@ -34693,6 +35057,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "AREQUIPA",
+      "gpc_group": "COESTI",
       "direccion": "AV. JOSE A. QUINONES CON CL. S N MZ. 1 LTS. 1-4 URB VALENCIA",
       "own_lat": -16.3965416666667,
       "own_lon": -71.5474
@@ -34822,6 +35188,8 @@
         }
       ],
       "zona": "Norte",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. UNIVERSITARIA Y ANTUNEZ DE MAYOLO  MZ. B LTE. 1 Y 2 -SAN MARTIN DE PORRES",
       "own_lat": -11.9957888888889,
       "own_lon": -77.0850277777778
@@ -35000,6 +35368,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "MATEO PUMACAHUA MZA D- LOTE 5 - VILLA EL SALVADOR",
       "own_lat": -12.193288,
       "own_lon": -76.96425
@@ -35275,6 +35645,8 @@
         }
       ],
       "zona": "Centro",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. PROCERES DE LA INDEPENDENCIA 3299 CON AV. EL BOSQUE",
       "own_lat": -11.979803085327148,
       "own_lon": -77.00518035888672
@@ -35462,6 +35834,8 @@
       ],
       "corredor": "Corredor Arequipa",
       "zona": "Analista Sur",
+      "departamento": "AREQUIPA",
+      "gpc_group": "COESTI",
       "direccion": "CARRETERA AREQUIPA YURA KM. 11 LAS CANTERAS MZ. A LOTE 1",
       "own_lat": -16.32752799987793,
       "own_lon": -71.59432220458984
@@ -35544,6 +35918,8 @@
         }
       ],
       "zona": "Selva",
+      "departamento": "PUCALLPA",
+      "gpc_group": "CODESA",
       "direccion": "JR. GUILLERMO SISLEY N° 1200",
       "own_lat": -8.379609107971191,
       "own_lon": -74.53665161132812
@@ -35665,6 +36041,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "AREQUIPA",
+      "gpc_group": "COESTI",
       "direccion": "ASOCIACION DE MICROEMPRESARIOS DE LA IRRIGACION MAJES “AMEIM” MZ. T, LOTE 6 Y 7",
       "own_lat": -16.343569,
       "own_lon": -72.193631
@@ -35828,6 +36206,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. ANGAMOS ESTE N° 2398, URB. LA CALERA DE LA MERCED",
       "own_lat": -12.112334,
       "own_lon": -77.005809
@@ -36026,6 +36406,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "ICA",
+      "gpc_group": "COESTI",
       "direccion": "CARRETERA PANAMERICANA SUR KM 307",
       "own_lat": -14.104898,
       "own_lon": -75.717472
@@ -36130,6 +36512,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "AREQUIPA",
+      "gpc_group": "COESTI",
       "direccion": "Av. Progreso 401. Esquina Calle Calvario",
       "own_lat": -16.392123,
       "own_lon": -71.523949
@@ -36340,6 +36724,8 @@
         }
       ],
       "zona": "Norte",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "ESQ. AV. QUILCA CON CALLE 10",
       "own_lat": -12.030972,
       "own_lon": -77.095273
@@ -36452,6 +36838,8 @@
         }
       ],
       "zona": "Selva",
+      "departamento": "LORETO",
+      "gpc_group": "CODESA",
       "direccion": "AV. QUIÑONEZ 1480 SAN JUAN",
       "own_lat": -3.765401,
       "own_lon": -73.2699
@@ -36503,8 +36891,8 @@
           "distancia_km": 1.03,
           "combustibles": {
             "Diesel": {
-              "precio": 25.89,
-              "diferencial": 2.2,
+              "precio": 25.19,
+              "diferencial": 2.9,
               "main_marker": true
             },
             "GLP": {
@@ -36512,13 +36900,13 @@
               "main_marker": true
             },
             "Premium": {
-              "precio": 25.69,
-              "diferencial": 0.3,
+              "precio": 24.99,
+              "diferencial": 1.0,
               "main_marker": true
             },
             "Regular": {
-              "precio": 22.99,
-              "diferencial": 0.2,
+              "precio": 22.49,
+              "diferencial": 0.7,
               "main_marker": true
             }
           }
@@ -36566,8 +36954,8 @@
           "distancia_km": 0.82,
           "combustibles": {
             "Diesel": {
-              "precio": 25.19,
-              "diferencial": 2.9,
+              "precio": 24.97,
+              "diferencial": 3.12,
               "main_marker": false
             },
             "GLP": {
@@ -36663,6 +37051,8 @@
       ],
       "corredor": "Corredor Chiclayo",
       "zona": "Norte",
+      "departamento": "CHICLAYO",
+      "gpc_group": "COESTI",
       "direccion": "PANAMERICANA NORTE KM. 779",
       "own_lat": -6.716264,
       "own_lon": -79.897278
@@ -36916,6 +37306,8 @@
         }
       ],
       "zona": "Centro",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. PASEO DE LA REPUBLICA 3890",
       "own_lat": -12.102744102478027,
       "own_lon": -77.02780151367188
@@ -37083,6 +37475,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "AREQUIPA",
+      "gpc_group": "COESTI",
       "direccion": "AV. PIZARRO CON AV. HARTLEY URB. CASA BLANCA MZ. D   LOTE 08",
       "own_lat": -16.426029205322266,
       "own_lon": -71.51506042480469
@@ -37333,6 +37727,8 @@
         }
       ],
       "zona": "Centro",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV ARENALES 2100",
       "own_lat": -12.086024284362793,
       "own_lon": -77.03561401367188
@@ -37458,6 +37854,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "AREQUIPA",
+      "gpc_group": "COESTI",
       "direccion": "AV. FERNADINI S N",
       "own_lat": -16.420442581176758,
       "own_lon": -71.56381225585938
@@ -37598,6 +37996,8 @@
         }
       ],
       "zona": "Centro",
+      "departamento": "LIMA",
+      "gpc_group": "INACTIVAS",
       "direccion": "AV. CANEVARO 1598",
       "own_lat": -12.085227012634277,
       "own_lon": -77.04837799072266
@@ -37808,6 +38208,8 @@
         }
       ],
       "zona": "Yamiletts Salas - Zona Lima Norte 3",
+      "departamento": "LIMA",
+      "gpc_group": "OMEGA",
       "direccion": "Av. Universitaria Sur N° 498, Urb. Lotización Industrial",
       "own_lat": -12.0419282913208,
       "own_lon": -77.07745361328125
@@ -37975,6 +38377,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. PASEO DE LA REPUBLICA 5789 CON CL. SCHELL",
       "own_lat": -12.123514,
       "own_lon": -77.024108
@@ -38165,6 +38569,8 @@
         }
       ],
       "zona": "Centro",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV AGUSTIN DE LA ROSA TORO 1312 ESQ. JAVIER PRADO 3095",
       "own_lat": -12.086258888244629,
       "own_lon": -76.99302673339844
@@ -38390,6 +38796,8 @@
       ],
       "corredor": "Corredor Arequipa Segundo",
       "zona": "Analista Sur",
+      "departamento": "AREQUIPA",
+      "gpc_group": "COESTI",
       "direccion": "Carretera panamericana sur km 983",
       "own_lat": -16.58365821838379,
       "own_lon": -71.84152221679688
@@ -38612,6 +39020,8 @@
       ],
       "corredor": "Corredor Lima Sur",
       "zona": "Analista Sur",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "Av. Panamericana Sur Km. 29.5 Lurin.",
       "own_lat": -12.272292,
       "own_lon": -76.897059
@@ -38822,6 +39232,8 @@
         }
       ],
       "zona": "Centro",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. REPUBLICA DE PANAMA Nº 3690-3696",
       "own_lat": -12.101815223693848,
       "own_lon": -77.01913452148438
@@ -39017,6 +39429,8 @@
       ],
       "corredor": "Corredor Lima Norte",
       "zona": "Norte",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "PANAMERICANA NORTE KM 196 - URB. LAS PALMERAS ",
       "own_lat": -10.742795,
       "own_lon": -77.76716
@@ -39176,6 +39590,8 @@
       ],
       "corredor": "Corredor Arequipa Segundo",
       "zona": "Analista Sur",
+      "departamento": "AREQUIPA",
+      "gpc_group": "COESTI",
       "direccion": "AAHH PROGRESO 48  MZ. VI LT 1",
       "own_lat": -16.528776168823242,
       "own_lon": -71.77714538574219
@@ -39248,8 +39664,8 @@
               "main_marker": true
             },
             "GNV": {
-              "precio": 1.6,
-              "diferencial": 0.01,
+              "precio": 1.62,
+              "diferencial": -0.01,
               "main_marker": true
             },
             "GLP": {
@@ -39327,6 +39743,8 @@
       ],
       "corredor": "Corredor Carretera Central",
       "zona": "Centro",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. NICOLAS AYLLON 1340",
       "own_lat": -12.064209938049316,
       "own_lon": -76.99544525146484
@@ -39490,6 +39908,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "ESQ. DE LA AV. SAN LUIS 2605 CON SAN BORJA SUR",
       "own_lat": -12.10083293914795,
       "own_lon": -76.99434661865234
@@ -39529,6 +39949,8 @@
           }
         }
       ],
+      "departamento": "LIMA",
+      "gpc_group": "INACTIVAS",
       "direccion": "Av. San Juan 895, Urb. Las Moras",
       "own_lat": -12.075037002563477,
       "own_lon": -77.00145721435547
@@ -39734,6 +40156,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "ICA",
+      "gpc_group": "OMEGA",
       "direccion": "Av. Mcal Benavides (Carretera Panamericana Sur Km. 195.60) Num 925",
       "own_lat": -13.415115356445312,
       "own_lon": -76.14488983154297
@@ -39800,8 +40224,8 @@
               "main_marker": true
             },
             "Regular": {
-              "precio": 21.8,
-              "diferencial": 0.79,
+              "precio": 21.7,
+              "diferencial": 0.89,
               "main_marker": true
             }
           }
@@ -39948,6 +40372,8 @@
         }
       ],
       "zona": "Norte",
+      "departamento": "CHICLAYO",
+      "gpc_group": "COESTI",
       "direccion": "AV. JUAN TOMIS STACK  205",
       "own_lat": -6.772322,
       "own_lon": -79.863348
@@ -40102,6 +40528,8 @@
         }
       ],
       "zona": "Centro",
+      "departamento": "JUNIN",
+      "gpc_group": "COESTI",
       "direccion": "AV. PACHECO NRO. 669 - 677",
       "own_lat": -11.429425239562988,
       "own_lon": -75.69230651855469
@@ -40291,6 +40719,8 @@
         }
       ],
       "zona": "Centro",
+      "departamento": "JUNIN",
+      "gpc_group": "COESTI",
       "direccion": "AV. MARISCAL CASTILLA N° 1810",
       "own_lat": -12.051688194274902,
       "own_lon": -75.22055053710938
@@ -40524,6 +40954,8 @@
       ],
       "corredor": "Corredor Arequipa",
       "zona": "Analista Sur",
+      "departamento": "AREQUIPA",
+      "gpc_group": "COESTI",
       "direccion": "CARRETERA A YURA KM. 11 URB. HEROES DE BRENA",
       "own_lat": -16.32037925720215,
       "own_lon": -71.60010528564453
@@ -40692,6 +41124,8 @@
         }
       ],
       "zona": "Centro",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "JR. VIRU Nº 606",
       "own_lat": -12.037985801696777,
       "own_lon": -77.03538513183594
@@ -40788,6 +41222,8 @@
         }
       ],
       "zona": "Selva",
+      "departamento": "PUCALLPA",
+      "gpc_group": "CODESA",
       "direccion": "AV. BELLAVISTA N° 290",
       "own_lat": -8.397846221923828,
       "own_lon": -74.5365219116211
@@ -40972,6 +41408,8 @@
         }
       ],
       "zona": "Norte",
+      "departamento": "CHICLAYO",
+      "gpc_group": "COESTI",
       "direccion": "AV. JOSE BALTA 012 Y CL. LAS CASUARINAS 120",
       "own_lat": -6.778918288,
       "own_lon": -79.83887498
@@ -41122,6 +41560,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "AREQUIPA",
+      "gpc_group": "COESTI",
       "direccion": "AV. SALAVERRY 608   URB. VALLECITO",
       "own_lat": -16.404088,
       "own_lon": -71.543304
@@ -41322,6 +41762,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "CARR. PANAMERICANA SUR KM. 106 ASIA",
       "own_lat": -12.819396018981934,
       "own_lon": -76.53809356689453
@@ -41471,12 +41913,12 @@
           "distancia_km": 19.57,
           "combustibles": {
             "Diesel": {
-              "precio": 25.5,
-              "diferencial": -0.71,
+              "precio": 25.25,
+              "diferencial": -0.46,
               "main_marker": false
             },
             "GLP": {
-              "precio": 6.69,
+              "precio": 6.49,
               "main_marker": false
             },
             "Premium": {
@@ -41485,14 +41927,16 @@
               "main_marker": false
             },
             "Regular": {
-              "precio": 21.29,
-              "diferencial": -0.34,
+              "precio": 21.09,
+              "diferencial": -0.14,
               "main_marker": false
             }
           }
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "CARRETERA PANAMERICANA SUR KM 106 (SUR A NORTE) PREDIO B SECTOR SARAPAMPA",
       "own_lat": -12.818312644958496,
       "own_lon": -76.53770446777344
@@ -41700,6 +42144,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "AREQUIPA",
+      "gpc_group": "COESTI",
       "direccion": "QUEBRADA DE COSCOLLO 794",
       "own_lat": -16.445222854614258,
       "own_lon": -71.53021240234375
@@ -41876,6 +42322,8 @@
       ],
       "corredor": "Corredor Piura",
       "zona": "Norte",
+      "departamento": "PIURA",
+      "gpc_group": "COESTI",
       "direccion": "PIURA",
       "own_lat": -5.160025119781494,
       "own_lon": -80.7238540649414
@@ -42011,6 +42459,8 @@
         }
       ],
       "zona": "Centro",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. SUCRE 1070",
       "own_lat": -12.081595420837402,
       "own_lon": -77.06684875488281
@@ -42256,6 +42706,8 @@
         }
       ],
       "zona": "Centro",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. OSCAR R. BENAVIDES 871",
       "own_lat": -12.047820091247559,
       "own_lon": -77.0537109375
@@ -42470,6 +42922,8 @@
         }
       ],
       "zona": "Norte",
+      "departamento": "PIURA",
+      "gpc_group": "COESTI",
       "direccion": "AV. CHAMPAGNAT 1220",
       "own_lat": -4.909664,
       "own_lon": -80.69584
@@ -42664,6 +43118,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "CUZCO",
+      "gpc_group": "COESTI",
       "direccion": "PROLONGACION AV. LA CULTURA nro 1506",
       "own_lat": -13.531056,
       "own_lon": -71.930512
@@ -42780,6 +43236,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "AREQUIPA",
+      "gpc_group": "COESTI",
       "direccion": "AV. VENEZUELA 2515",
       "own_lat": -16.414586,
       "own_lon": -71.542096
@@ -43005,6 +43463,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV CIRCUNVALACION NRO 377, Lts 3, 4, 5, 7, 8, 9, 10, 11 y 12, UNID INMOB A2 Mz \"L\" URB SAN IGNACIO DE LOYOLA",
       "own_lat": -12.131182670593262,
       "own_lon": -76.9776840209961
@@ -43209,6 +43669,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "TACNA",
+      "gpc_group": "COESTI",
       "direccion": "Av Jorge Basadre Grohmann Oeste N° 475",
       "own_lat": -18.01625633239746,
       "own_lon": -70.2609634399414
@@ -43360,6 +43822,8 @@
       ],
       "corredor": "Corredor Piura",
       "zona": "Norte",
+      "departamento": "PIURA",
+      "gpc_group": "COESTI",
       "direccion": "ESQUINA AV. A Y B",
       "own_lat": -4.576383,
       "own_lon": -81.266797
@@ -43502,6 +43966,8 @@
         }
       ],
       "zona": "Centro",
+      "departamento": "JUNIN",
+      "gpc_group": "COESTI",
       "direccion": "AV. CASTILLA 207",
       "own_lat": -11.419939041137695,
       "own_lon": -75.69402313232422
@@ -43688,6 +44154,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. CAMINOS DEL INCA 110  134",
       "own_lat": -12.190579414367676,
       "own_lon": -77.00627136230469
@@ -43928,6 +44396,8 @@
         }
       ],
       "zona": "Centro",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. TINGO MARIA 1172",
       "own_lat": -12.059430122375488,
       "own_lon": -77.0588607788086
@@ -44059,8 +44529,8 @@
           "distancia_km": 0.81,
           "combustibles": {
             "Diesel": {
-              "precio": 25.8,
-              "diferencial": -0.45,
+              "precio": 25.5,
+              "diferencial": -0.15,
               "main_marker": false
             },
             "GLP": {
@@ -44142,6 +44612,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "ICA",
+      "gpc_group": "COESTI",
       "direccion": "AV. FERMIN TANGUIS 220",
       "own_lat": -13.711031,
       "own_lon": -76.197078
@@ -44392,6 +44864,8 @@
         }
       ],
       "zona": "Norte",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV HEROES DEL ALTO CENEPA NRO 697 FUNDO CHACRA CERRO",
       "own_lat": -11.92090813,
       "own_lon": -77.06253399
@@ -44552,6 +45026,8 @@
         }
       ],
       "zona": "Selva",
+      "departamento": "PUCALLPA",
+      "gpc_group": "CODESA",
       "direccion": "AV. TUPAC AMARU MZ.C LOTE 08 - AA.HH. SANTA PETRONILA",
       "own_lat": -8.398634,
       "own_lon": -74.552098
@@ -44681,6 +45157,8 @@
         }
       ],
       "zona": "Norte",
+      "departamento": "TRUJILLO",
+      "gpc_group": "COESTI",
       "direccion": "AV. 2 DE MAYO 1050MZ.1 LOTE 3 VIA DE EVITAMIENTO                    ",
       "own_lat": -8.146231878,
       "own_lon": -79.04603069
@@ -44810,6 +45288,8 @@
         }
       ],
       "zona": "Norte",
+      "departamento": "TRUJILLO",
+      "gpc_group": "COESTI",
       "direccion": "AV. ENRIQUE VALENZUELA CON JR. LAS MAQUINARIAS S/N",
       "own_lat": -7.4145283699035645,
       "own_lon": -79.55010223388672
@@ -44945,6 +45425,8 @@
       ],
       "corredor": "Corredor Trujillo",
       "zona": "Norte",
+      "departamento": "TRUJILLO",
+      "gpc_group": "COESTI",
       "direccion": "AV. FEDERICO VILLARREAL 1001 URB. ANDRES RAZURI",
       "own_lat": -8.099078,
       "own_lon": -79.00618
@@ -45074,6 +45556,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "AREQUIPA",
+      "gpc_group": "COESTI",
       "direccion": "Calle Ricardo Palma 502 - Umacollo",
       "own_lat": -16.403585,
       "own_lon": -71.547548
@@ -45355,6 +45839,8 @@
       ],
       "corredor": "Corredor Trujillo",
       "zona": "Norte",
+      "departamento": "TRUJILLO",
+      "gpc_group": "COESTI",
       "direccion": "PROLONGACION UNION 1914",
       "own_lat": -8.094103,
       "own_lon": -79.008775
@@ -45508,6 +45994,8 @@
         }
       ],
       "zona": "Selva",
+      "departamento": "PUCALLPA",
+      "gpc_group": "CODESA",
       "direccion": "Esquina Av. Salvador Allende con av. union Mz K lote 3",
       "own_lat": -8.378734588623047,
       "own_lon": -74.55029296875
@@ -45636,6 +46124,8 @@
         }
       ],
       "zona": "Selva",
+      "departamento": "PUCALLPA",
+      "gpc_group": "CODESA",
       "direccion": "jirón Unión Lote 01 ,  Lote 2 y Lote 3 Manzana A (AA HH Marginal Ucayali)",
       "own_lat": -8.381321,
       "own_lon": -74.560181
@@ -45879,6 +46369,8 @@
         }
       ],
       "zona": "Centro",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. MELGAREJO, ESQ. CON LA AV. UNIVERSIDAD",
       "own_lat": -12.074986457824707,
       "own_lon": -76.93614196777344
@@ -46107,6 +46599,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. PRIMAVERA 1159",
       "own_lat": -12.10987377166748,
       "own_lon": -76.97740173339844
@@ -46248,6 +46742,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "AREQUIPA",
+      "gpc_group": "COESTI",
       "direccion": "AV. VENEZUELA 2200",
       "own_lat": -16.413938,
       "own_lon": -71.543339
@@ -46398,6 +46894,8 @@
         }
       ],
       "zona": "Analista Sur",
+      "departamento": "AREQUIPA",
+      "gpc_group": "COESTI",
       "direccion": "AV. EL EJERCITO 504",
       "own_lat": -16.390724182128906,
       "own_lon": -71.54413604736328
@@ -46497,6 +46995,8 @@
       ],
       "corredor": "Corredor Arequipa Segundo",
       "zona": "Analista Sur",
+      "departamento": "AREQUIPA",
+      "gpc_group": "COESTI",
       "direccion": "CARRETERA AREQUIPA YURA - CUZCO KM.25 - YURA -AREQUIPA - AREQUIPA",
       "own_lat": -16.25193214416504,
       "own_lon": -71.67920684814453
@@ -46672,6 +47172,8 @@
         }
       ],
       "zona": "Centro",
+      "departamento": "LIMA",
+      "gpc_group": "COESTI",
       "direccion": "AV. MALECON CHECA  104",
       "own_lat": -12.031571388244629,
       "own_lon": -77.01187133789062

@@ -1,89 +1,116 @@
 /* ==========================================================
-   nav.css — barra superior (marca + título + bloque oscuro)
-   Markup: js/components/nav.js
+   nav.css — Header institucional superior
    ========================================================== */
 
-.nav {
-  height: var(--nav-h);
-  flex: 0 0 auto;
-  background: var(--k-surface);
-  border-bottom: 1px solid var(--k-line);
-  display: flex;
-  align-items: stretch;
-}
-
-.nav-brand {
+.top-nav {
+  height: 58px;
+  background: #ffffff;
+  border-bottom: 1px solid #E2E8F0;
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 0 22px 0 20px;
+  justify-content: space-between;
+  padding: 0 0 0 20px; /* 0 a la derecha para que el KPI llegue al borde */
+  box-sizing: border-box;
+  flex: 0 0 auto;
 }
 
-.kbt-mark { width: 30px; height: 30px; flex: 0 0 auto; }
-
-.kbt-word {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.32rem;
-  font-weight: 600;
-  color: var(--k-indigo);
-  letter-spacing: -0.02em;
-  line-height: 1;
-}
-
-.nav-sep { width: 1px; background: var(--k-line); margin: 14px 0; }
-
-.nav-title {
+/* --- BLOQUE IZQUIERDO: Marca y Título --- */
+.nav-left {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 0 22px;
+  align-items: center;
+  gap: 16px;
   min-width: 0;
 }
 
-.nav-title h1 {
+.brand-coesti {
   font-family: 'Poppins', sans-serif;
-  font-size: 0.86rem;
-  font-weight: 600;
-  letter-spacing: 0.09em;
+  font-size: 1.25rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  color: #1F226B;
   text-transform: uppercase;
-  color: var(--k-ink);
+  line-height: 1;
   white-space: nowrap;
+  user-select: none;
 }
 
-.nav-title p {
-  font-size: 0.7rem;
-  font-weight: 500;
-  color: var(--k-muted);
-  margin-top: 2px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.nav-divider {
+  width: 1px;
+  height: 28px;
+  background: #CBD5E1;
+  flex: 0 0 1px;
 }
 
-.nav-spacer { flex: 1 1 auto; }
-
-.nav-block-dark {
-  background: var(--k-plum);
-  color: #fff;
+.nav-title-group {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 20px;
-  min-width: 190px;
+  min-width: 0;
 }
 
-.nav-block-dark .lbl {
-  font-size: 0.6rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: #9C8FA0;
-}
-
-.nav-block-dark .val {
+.nav-title {
+  margin: 0;
   font-family: 'Poppins', sans-serif;
-  font-size: 0.92rem;
+  font-size: 0.86rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: #16182F;
+  text-transform: uppercase;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+
+.nav-meta {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.67rem;
+  font-weight: 500;
+  color: #64748B;
+  white-space: nowrap;
+  line-height: 1.2;
+  margin-top: 2px;
+}
+
+/* El contenedor derecho se estira a toda la altura disponible */
+.nav-right {
+  display: flex;
+  align-items: stretch;
+  height: 100%;
+  flex: 0 0 auto;
+}
+
+.nav-kpi-card {
+  background: #16182F;
+  color: #ffffff;
+  padding: 0 24px;
+  border-radius: 0;           /* Sin esquinas redondeadas */
+  border: none;               /* Sin bordes blancos o grises */
+  box-shadow: none;           /* Sin sombras separadoras */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  min-width: 170px;
+  height: 100%;               /* Llena el 100% del alto del nav */
+  box-sizing: border-box;
+}
+
+.nav-kpi-label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.58rem;
   font-weight: 600;
-  line-height: 1.15;
+  letter-spacing: 0.11em;
+  color: #A08FA6;
+  text-transform: uppercase;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.nav-kpi-val {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1;
   font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
 }

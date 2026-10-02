@@ -10,7 +10,14 @@ export const state = {
   vistaActiva: 'MATRIZ',       // 'MATRIZ' | 'ANALISIS'
   analisisProducto: 'Diesel',  // 'Diesel' | 'Regular' | 'Premium' | 'GNV' | 'GLP'
   analisisModo: 'COMPETENCIA', // 'COESTI' | 'COMPETENCIA' | 'MARCA'
-  analisisCorredor: 'TODOS',   // 'TODOS' | 'LIMA NORTE' | etc.
+  
+  // filtros avanzados de análisis ponderado
+  analisisCorredor: 'TODOS',       // 'TODOS' | Corredor
+  analisisDepartamento: 'TODOS',   // 'TODOS' | Departamento
+  analisisGpcGroup: 'TODOS',       // 'TODOS' | GPC Group
+  analisisMarcasDisponibles: [],   // Lista completa de marcas detectadas en la red
+  analisisMarcasSeleccionadas: null, // Set de marcas seleccionadas (null = todas por defecto)
+
   modoActual: 'PRECIOS',       // 'PRECIOS' | 'DIFERENCIAL'
   filtroMarker: 'TODOS',       // TODOS | CUALQUIERA | UNLEADED | DIESEL | GLP | GNV
   expandedGroups: new Set(),

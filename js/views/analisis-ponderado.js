@@ -38,28 +38,42 @@ export function renderAnalisis(todasLasEstaciones) {
   const tooltip = document.getElementById('analytics-tooltip');
   if (!wrap) return;
 
-  // 1. Filtrar lista por corredor seleccionado en el dropdown
-  const corredorSel = state.analisisCorredor || 'TODOS';
-  const listaEstaciones = (corredorSel === 'TODOS')
-    ? todasLasEstaciones
-    : todasLasEstaciones.filter(e => {
-        const c = (e.corredor && e.corredor.trim()) ? e.corredor.trim().toUpperCase() : 'SIN CORREDOR';
-        return c === corredorSel;
-      });
+  // 1. Filtrado acumulativo: Corredor + Departamento + GPC Group
+  const corrSel = state.analisisCorredor || 'TODOS';
+  const deptoSel = state.analisisDepartamento || 'TODOS';
+  const gpcSel = state.analisisGpcGroup || 'TODOS';
+
+  const listaEstaciones = todasLasEstaciones.filter(e => {
+    const c = (e.corredor && e.corredor.trim()) ? e.corredor.trim().toUpperCase() : 'SIN CORREDOR';
+    const d = (e.departamento && e.departamento.trim()) ? e.departamento.trim().toUpperCase() : 'SIN DEPARTAMENTO';
+    const g = (e.gpc_group && e.gpc_group.trim()) ? e.gpc_group.trim().toUpperCase() : 'SIN GPC';
+
+    const matchCorr = (corrSel === 'TODOS' || c === corrSel);
+    const matchDepto = (deptoSel === 'TODOS' || d === deptoSel);
+    const matchGpc = (gpcSel === 'TODOS' || g === gpcSel);
+
+    return matchCorr && matchDepto && matchGpc;
+  });
 
   const combustible = state.analisisProducto || 'Diesel';
   const modo = state.analisisModo || 'COMPETENCIA';
   const benchmark = calcularBenchmarkCOESTI(listaEstaciones, combustible);
 
+  // Subtítulo con contexto de filtros activos
   const sub = document.getElementById('analytics-chart-sub');
   if (sub) {
-    const textoCorredor = corredorSel === 'TODOS' ? 'Red Total' : corredorSel;
+    const filtrosActivos = [];
+    if (corrSel !== 'TODOS') filtrosActivos.push(`Corredor: ${corrSel}`);
+    if (deptoSel !== 'TODOS') filtrosActivos.push(`Depto: ${deptoSel}`);
+    if (gpcSel !== 'TODOS') filtrosActivos.push(`GPC: ${gpcSel}`);
+    const tagFiltro = filtrosActivos.length ? `(${filtrosActivos.join(' · ')})` : '(Red Total)';
+
     sub.innerText = (modo === 'MARCA')
-      ? `Promedio consolidado por marca vs COESTI PONDERADO (${textoCorredor}).`
-      : `Puntos ordenados de menor a mayor precio (${textoCorredor}).`;
+      ? `Promedio consolidado por marca vs COESTI PONDERADO ${tagFiltro}.`
+      : `Puntos ordenados de menor a mayor precio ${tagFiltro}.`;
   }
 
-  // 2. Recolección de registros según el alcance seleccionado
+  // 2. Recolección de registros según el alcance
   let items = [];
 
   if (modo === 'COESTI') {
@@ -112,6 +126,11 @@ export function renderAnalisis(todasLasEstaciones) {
         if (!m || m === 'SIN MARCA') return;
         if (m === 'WP' || m === 'WHITE PRODUCTS' || m === 'WHITE PRODUCT') m = 'WP';
 
+        // Evaluar persistencia del checklist de marcas
+        if (state.analisisMarcasSeleccionadas && !state.analisisMarcasSeleccionadas.has(m)) {
+          return;
+        }
+
         if (c.combustibles && c.combustibles[combustible] && c.combustibles[combustible].precio > 0) {
           if (!acumulador[m]) acumulador[m] = { suma: 0, conteo: 0, estaciones: new Set() };
           acumulador[m].suma += c.combustibles[combustible].precio;
@@ -146,17 +165,24 @@ export function renderAnalisis(todasLasEstaciones) {
   }
 
   if (items.length === 0 && benchmark <= 0) {
-    wrap.innerHTML = `<div style="text-align:center; padding:60px; color:var(--k-muted);">No hay información de precios para ${combustible} en el corredor seleccionado.</div>`;
+    wrap.innerHTML = `<div style="text-align:center; padding:60px; color:var(--k-muted);">No se encontraron precios para los filtros seleccionados.</div>`;
     return;
   }
 
-  // 3. Métricas agregadas por encima y por debajo de COESTI PONDERADO
+  // 3. Cálculos de zonas sobre o bajo COESTI (respetando marcas activas en modo MARCA)
   let sumaArriba = 0, conteoArriba = 0, setEessArriba = new Set();
   let sumaAbajo  = 0, conteoAbajo  = 0, setEessAbajo  = new Set();
 
   listaEstaciones.forEach(est => {
     const comps = est.actores?.filter(a => a.tipo_actor === 'COMPETENCIA' && !a.es_competidor_propio) || [];
     comps.forEach(c => {
+      let m = (c.marca || '').trim().toUpperCase();
+      if (m === 'WP' || m === 'WHITE PRODUCTS' || m === 'WHITE PRODUCT') m = 'WP';
+
+      if (modo === 'MARCA' && state.analisisMarcasSeleccionadas && !state.analisisMarcasSeleccionadas.has(m)) {
+        return;
+      }
+
       const p = c.combustibles?.[combustible]?.precio;
       if (p && p > 0) {
         const idComp = c.site_id || c.nombre_linea;
@@ -201,7 +227,7 @@ export function renderAnalisis(todasLasEstaciones) {
     });
   }
 
-  // Ordenar de menor a mayor precio
+  // Ordenar de menor a mayor precio a lo largo del eje horizontal X
   const sorted = [...items].sort((a, b) => a.precio - b.precio);
 
   // =========================================================================
@@ -230,11 +256,10 @@ export function renderAnalisis(todasLasEstaciones) {
   const chartW = W - leftPad - rightPad;
   const stepX = chartW / Math.max(1, sorted.length - 1);
 
-  // Coordenada X del punto COESTI PONDERADO (eje divisor vertical)
   const benchIndex = sorted.findIndex(d => d.esBenchmark);
   const benchX = benchIndex !== -1 ? (leftPad + (benchIndex * stepX)) : (W / 2);
 
-  // 5. Muestreo de etiquetas para evitar solapes
+  // 5. Muestreo de etiquetas
   const indicesVisibles = new Set();
   const n = sorted.length;
 
@@ -404,7 +429,7 @@ export function renderAnalisis(todasLasEstaciones) {
     `;
   });
 
-  // 6. Ensamble final: 4 Cuadrantes Virtuales
+  // 6. 4 Cuadrantes Virtuales con tarjetas en cuadrantes despejados
   wrap.innerHTML = `
     <svg viewBox="0 0 ${W} ${H}" width="100%" height="100%" preserveAspectRatio="none" class="analytics-svg">
       <defs>
@@ -414,31 +439,27 @@ export function renderAnalisis(todasLasEstaciones) {
       </defs>
 
       ${benchmark > 0 ? `
-        <!-- Cuadrante Inferior Izquierdo: Fondo azul tenue (Precios bajos) -->
+        <!-- Fondo Cuadrante Precios Bajos (Inferior Izquierdo) -->
         <rect x="0" y="${benchY}" width="${benchX}" height="${H - benchY}" fill="#2E3192" fill-opacity="0.035" />
 
-        <!-- Cuadrante Superior Derecho: Fondo rojo tenue (Precios altos) -->
+        <!-- Fondo Cuadrante Precios Altos (Superior Derecho) -->
         <rect x="${benchX}" y="0" width="${W - benchX}" height="${benchY}" fill="#D92D4E" fill-opacity="0.035" />
 
-        <!-- Línea divisoria vertical punteada (sobre COESTI PONDERADO) -->
+        <!-- Línea vertical punteada divisoria (COESTI) -->
         <line x1="${benchX}" y1="15" x2="${benchX}" y2="${H - 15}" 
               stroke="#D92D4E" stroke-width="1.3" stroke-dasharray="3,3" opacity="0.6" />
 
-        <!-- Línea divisoria horizontal punteada (COESTI PONDERADO) -->
+        <!-- Línea horizontal punteada divisoria (COESTI) -->
         <line x1="15" y1="${benchY}" x2="${W - 15}" y2="${benchY}" 
               stroke="#D92D4E" stroke-width="1.4" stroke-dasharray="4,4" />
 
-        <!-- Etiqueta COESTI PONDERADO -->
         <rect x="15" y="${benchY - 18}" width="200" height="15" fill="#FBFCFE" opacity="0.94"/>
         <text x="20" y="${benchY - 7}" font-size="18" font-weight="700" fill="#D92D4E">
           COESTI PONDERADO: S/ ${benchmark.toFixed(2)}
         </text>
 
-        <!-- ============================================================== -->
-        <!-- CUADROS KPI EN CUADRANTES DESPEJADOS (Solo en PROMEDIO MARCAS) -->
-        <!-- ============================================================== -->
         ${modo === 'MARCA' ? `
-          <!-- CUADRANTE SUPERIOR IZQUIERDO: BAJO COESTI (MÁS BARATOS) -->
+          <!-- CUADRO KPI SUPERIOR IZQUIERDO: BAJO COESTI -->
           <g transform="translate(35, 30)" filter="url(#card-shadow)">
             <rect width="360" height="100" rx="10" fill="#FFFFFF" stroke="#D1D9F0" stroke-width="1.5" />
             <rect width="6" height="100" rx="3" fill="#2E3192" />
@@ -446,7 +467,7 @@ export function renderAnalisis(todasLasEstaciones) {
               COMPETENCIA BAJO COESTI
             </text>
             <text x="24" y="44" font-size="11" font-weight="500" fill="#7A8699">
-              Estaciones con precio inferior al benchmark propio
+              Marcas seleccionadas bajo el benchmark propio
             </text>
             <text x="24" y="82" font-size="28" font-weight="800" fill="#16182F">
               S/ ${promAbajo.toFixed(2)}
@@ -456,7 +477,7 @@ export function renderAnalisis(todasLasEstaciones) {
             </text>
           </g>
 
-          <!-- CUADRANTE INFERIOR DERECHO: SOBRE COESTI (MÁS CAROS) -->
+          <!-- CUADRO KPI INFERIOR DERECHO: SOBRE COESTI -->
           <g transform="translate(${W - 395}, ${H - 130})" filter="url(#card-shadow)">
             <rect width="360" height="100" rx="10" fill="#FFFFFF" stroke="#F5CAD2" stroke-width="1.5" />
             <rect width="6" height="100" rx="3" fill="#D92D4E" />
@@ -464,7 +485,7 @@ export function renderAnalisis(todasLasEstaciones) {
               COMPETENCIA SOBRE COESTI
             </text>
             <text x="24" y="44" font-size="11" font-weight="500" fill="#7A8699">
-              Estaciones con precio superior al benchmark propio
+              Marcas seleccionadas sobre el benchmark propio
             </text>
             <text x="24" y="82" font-size="28" font-weight="800" fill="#16182F">
               S/ ${promArriba.toFixed(2)}
@@ -476,7 +497,6 @@ export function renderAnalisis(todasLasEstaciones) {
         ` : ''}
       ` : ''}
 
-      <!-- Puntos, logos y etiquetas de marcas -->
       ${elementsSvg}
     </svg>
   `;
