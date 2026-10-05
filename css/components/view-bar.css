@@ -1,0 +1,78 @@
+/* ==========================================================
+   view-bar.css — Barra de navegación de vistas
+   ========================================================== */
+.view-bar {
+  height: 38px;
+  flex: 0 0 auto;
+  background: var(--k-indigo);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0 16px 0 0;
+  overflow: hidden;
+}
+
+.view-lead {
+  background: var(--k-lime);
+  color: var(--k-indigo-dk);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 16px 0 14px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  clip-path: polygon(0 0, 100% 0, calc(100% - 12px) 100%, 0 100%);
+  margin-right: 6px;
+}
+
+.view-tabs { 
+  display: flex; 
+  align-items: center; 
+  height: 100%; 
+  gap: 2px; 
+}
+
+.view-tab {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #B4B9EB;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  transition: all .15s;
+}
+
+.view-tab:hover { 
+  color: #fff; 
+}
+
+.view-tab.active {
+  color: #fff;
+  border-bottom: 3px solid var(--k-lime);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.view-spacer { 
+  flex: 1 1 auto; 
+}
+
+.view-mode {
+  font-size: 0.63rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--k-lime);
+  white-space: nowrap;
+}

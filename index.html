@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalibrate · Bitácora PRICING</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Base: el orden importa (tokens → reset → armazón → componentes) -->
+  <link rel="stylesheet" href="./css/tokens.css">
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/layout.css">
+
+  <!-- Componentes -->
+  <link rel="stylesheet" href="./css/components/nav.css">
+  <link rel="stylesheet" href="./css/components/rail.css">
+  <link rel="stylesheet" href="./css/components/markers.css">
+  <link rel="stylesheet" href="./css/components/view-bar.css">
+  <link rel="stylesheet" href="./css/components/table.css">
+  <link rel="stylesheet" href="./css/components/tabbar.css">
+  <link rel="stylesheet" href="css/components/analytics.css">
+</head>
+<body>
+
+  <!-- Armazón. Cada contenedor lo rellena su componente desde js/app.js -->
+
+  <div class="nav" id="cmp-nav"></div>
+
+  <div class="body-grid">
+    <aside class="rail" id="cmp-rail"></aside>
+    <main class="main" id="cmp-main"></main>
+  </div>
+
+  <nav class="tabbar" id="cmp-tabbar"></nav>
+
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>

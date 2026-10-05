@@ -1,0 +1,254 @@
+/* ==========================================================
+   tabbar.css — cinta inferior de pestañas.
+   El bloque izquierdo es un selector dropUp que cambia la
+   dimensión de división (corredor / departamento / GPC...).
+   ========================================================== */
+
+.tabbar {
+  height: var(--tabs-h, 44px);
+  flex: 0 0 auto;
+  display: flex;
+  background: var(--k-plum, #16182F);
+  border-top: 2px solid var(--k-emerald, #00D58A);
+  /* visible (no hidden) para que el dropUp pueda salir hacia arriba;
+     el recorte horizontal de las pestañas lo hace .tabs */
+  overflow: visible;
+  align-items: stretch;
+  box-sizing: border-box;
+}
+
+.tabbar-head {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--k-plum-2, #1C203E);
+  color: #A08FA6;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  flex: 0 0 auto;
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+}
+.tabbar-head b {
+  display: block;
+  color: #fff;
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- botón que abre el dropUp --- */
+.tabbar-group-btn {
+  all: unset;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding: 0 16px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  color: inherit;
+  white-space: nowrap;
+  transition: background .15s;
+}
+.tabbar-group-btn:hover { background: rgba(255, 255, 255, 0.07); }
+.tabbar-head.open .tabbar-group-btn { background: rgba(255, 255, 255, 0.10); }
+
+.tabbar-group-top {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tabbar-group-arrow {
+  font-size: 0.7rem;
+  line-height: 1;
+  color: var(--k-emerald, #00D58A);
+  transition: transform .15s;
+}
+.tabbar-head.open .tabbar-group-arrow { transform: rotate(180deg); }
+
+/* --- panel desplegable hacia arriba --- */
+.tabbar-dropup {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  min-width: 100%;
+  width: max-content;
+  background: var(--k-plum-2, #1C203E);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-bottom: 2px solid var(--k-emerald, #00D58A);
+  box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.45);
+  padding: 6px;
+  z-index: 60;
+}
+
+.dropup-title {
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #A08FA6;
+  padding: 4px 8px 7px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+  margin-bottom: 4px;
+}
+
+.dropup-item {
+  all: unset;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 8px 10px;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: #D6CBD9;
+  transition: background .12s, color .12s;
+}
+.dropup-item:hover { background: rgba(255, 255, 255, 0.10); color: #fff; }
+
+.dropup-item.active {
+  background: var(--k-emerald, #00D58A);
+  color: var(--k-plum, #16182F);
+  font-weight: 700;
+}
+
+.dropup-check {
+  width: 10px;
+  flex: 0 0 10px;
+  font-size: 0.75rem;
+  line-height: 1;
+  opacity: 0;
+}
+.dropup-item.active .dropup-check { opacity: 1; }
+
+.tabs {
+  flex: 1 1 auto;
+  display: flex;
+  min-width: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none; /* Firefox */
+}
+.tabs::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+.tab {
+  flex: 1 1 auto;
+  min-width: fit-content;
+  border: none;
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+  background: transparent;
+  color: #B7A7BC;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  padding: 0 14px;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: background .15s, color .15s;
+  position: relative;
+}
+.tab:last-child { border-right: none; }
+.tab:hover { background: rgba(255, 255, 255, 0.08); color: #fff; }
+
+.tab.active {
+  background: var(--k-emerald, #00D58A);
+  color: var(--k-plum, #16182F);
+  font-weight: 700;
+}
+.tab.active::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; top: 0;
+  height: 3px;
+  background: var(--k-lime, #C4F000);
+}
+
+.tab-badge {
+  font-size: 0.65rem;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 2px 6px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+.tab.active .tab-badge {
+  background: rgba(22, 24, 47, 0.25);
+  color: #16182F;
+}
+
+/* Controles de navegación lateral dentro de la grilla */
+.matrix-nav-arrows {
+  position: absolute;
+  right: 22px;
+  bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(22, 24, 47, 0.92);
+  backdrop-filter: blur(6px);
+  padding: 5px 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  z-index: 30;
+  pointer-events: auto;
+}
+
+.nav-arrow {
+  background: var(--k-emerald, #00D58A);
+  color: var(--k-plum, #16182F);
+  border: none;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  font-size: 1.15rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.15s, background 0.15s;
+  line-height: 1;
+}
+
+.nav-arrow:hover:not(.disabled) {
+  background: var(--k-lime, #C4F000);
+  transform: scale(1.08);
+}
+
+.nav-arrow.disabled {
+  background: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.3);
+  cursor: not-allowed;
+  transform: none;
+}
+
+.nav-page-indicator {
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0 4px;
+  font-variant-numeric: tabular-nums;
+}

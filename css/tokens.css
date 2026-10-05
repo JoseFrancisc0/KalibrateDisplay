@@ -1,0 +1,44 @@
+/* ==========================================================
+   tokens.css — variables de diseño (paleta y dimensiones)
+   Único lugar donde se definen colores y medidas globales.
+   ========================================================== */
+
+:root {
+  /* ---- Paleta Kalibrate ---- */
+  --k-indigo:      #2E3192;
+  --k-indigo-dk:   #1F226B;
+  --k-indigo-soft: #4A4EC4;
+  --k-lime:        #B5D334;
+  --k-teal:        #4FB98B;
+  --k-emerald:     #00BF6F;
+  --k-emerald-dk:  #009A58;
+  --k-plum:        #1F0D19;
+  --k-plum-2:      #321A2B;
+
+  --k-paper:       #EEF1F5;
+  --k-surface:     #FFFFFF;
+  --k-line:        #D8E0E9;
+  --k-line-soft:   #EDF1F6;
+  --k-ink:         #16182F;
+  --k-muted:       #6A7789;
+
+  /* ---- Gotas por Combustible ---- */
+  --drop-unleaded: #6202bb;
+  --drop-diesel:   #060cb8;
+  --drop-glp:      #00A3E0;
+  --drop-gnv:      #00BF6F;
+
+  /* ---- Diferenciales ---- */
+  --diff-pos:  #D92D4E;
+  --diff-neg:  #00A35E;
+  --diff-zero: #8A93A1;
+
+  /* ---- Dimensiones ---- */
+  --row-h:    34px;
+  --child-h:  29px;
+  --thead-h:  34px;
+  --rail-w:   236px;
+  --nav-h:    58px;
+  --kpi-h:    38px;
+  --tabs-h:   46px;
+}

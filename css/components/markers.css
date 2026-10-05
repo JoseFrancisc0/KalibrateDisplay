@@ -1,0 +1,22 @@
+/* ==========================================================
+   markers.css — átomo "gota" de Main Marker.
+   Compartido por la simbología del rail y las celdas de la
+   tabla, por eso vive aparte de ambos.
+   Markup / generación: js/icons.js
+   ========================================================== */
+
+/* CELDA CON GOTA INDICADORA DE MAIN MARKER */
+.cell-val-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+  width: 100%;
+}
+
+.drop-marker {
+  width: 8px;
+  height: 11px;
+  flex: 0 0 8px;
+  display: inline-block;
+}
