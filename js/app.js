@@ -16,6 +16,7 @@ import { tabbarHTML }   from './components/tabbar.js';
 import { renderFilas }   from './views/matriz-competitiva.js';
 import { analyticsHTML, renderAnalisis } from './views/analisis-ponderado.js';
 import { alineacionHTML, renderAlineacion } from './views/alineacion-competitiva.js';
+import { frenteAFrenteHTML, renderFrenteAFrente } from './views/frente-a-frente.js';
 
 function montar(selector, html) {
   const nodo = document.querySelector(selector);
@@ -25,7 +26,7 @@ function montar(selector, html) {
 // 1. Montaje estático
 montar('#cmp-nav',    navHTML());
 montar('#cmp-rail',   railHTML());
-montar('#cmp-main',   viewBarHTML() + tableHTML() + analyticsHTML() + alineacionHTML());
+montar('#cmp-main',   viewBarHTML() + tableHTML() + analyticsHTML() + alineacionHTML() + frenteAFrenteHTML());
 montar('#cmp-tabbar', tabbarHTML());
 
 // 2. Control de Vistas
@@ -35,49 +36,52 @@ function setVista(vista) {
   const btnMatriz = document.getElementById('tab-view-matriz');
   const btnAnalisis = document.getElementById('tab-view-analisis');
   const btnAlineacion = document.getElementById('tab-view-alineacion');
+  const btnFrente = document.getElementById('tab-view-frente');
 
   if (btnMatriz) btnMatriz.classList.toggle('active', vista === 'MATRIZ');
   if (btnAnalisis) btnAnalisis.classList.toggle('active', vista === 'ANALISIS');
   if (btnAlineacion) btnAlineacion.classList.toggle('active', vista === 'ALINEACION');
+  if (btnFrente) btnFrente.classList.toggle('active', vista === 'FRENTE');
 
   const tableShell = document.querySelector('.table-shell');
   const analyticsShell = document.getElementById('analytics-shell');
   const alineacionShell = document.getElementById('alineacion-shell');
+  const frenteShell = document.getElementById('frente-shell');
   const tabbar = document.getElementById('cmp-tabbar');
 
   const railMatriz = document.getElementById('rail-panel-matriz');
   const railAnalisis = document.getElementById('rail-panel-analisis');
   const railAlineacion = document.getElementById('rail-panel-alineacion');
+  const railFrente = document.getElementById('rail-panel-frente');
+
+  // Apagar todo por defecto
+  if (tableShell) tableShell.style.display = 'none';
+  if (analyticsShell) analyticsShell.style.display = 'none';
+  if (alineacionShell) alineacionShell.style.display = 'none';
+  if (frenteShell) frenteShell.style.display = 'none';
+  if (tabbar) tabbar.style.display = 'none';
+
+  if (railMatriz) railMatriz.style.display = 'none';
+  if (railAnalisis) railAnalisis.style.display = 'none';
+  if (railAlineacion) railAlineacion.style.display = 'none';
+  if (railFrente) railFrente.style.display = 'none';
 
   if (vista === 'MATRIZ') {
     if (tableShell) tableShell.style.display = 'flex';
-    if (analyticsShell) analyticsShell.style.display = 'none';
-    if (alineacionShell) alineacionShell.style.display = 'none';
     if (tabbar) tabbar.style.display = 'flex';
-
     if (railMatriz) railMatriz.style.display = 'flex';
-    if (railAnalisis) railAnalisis.style.display = 'none';
-    if (railAlineacion) railAlineacion.style.display = 'none';
   } else if (vista === 'ANALISIS') {
-    if (tableShell) tableShell.style.display = 'none';
     if (analyticsShell) analyticsShell.style.display = 'flex';
-    if (alineacionShell) alineacionShell.style.display = 'none';
-    if (tabbar) tabbar.style.display = 'none';
-
-    if (railMatriz) railMatriz.style.display = 'none';
     if (railAnalisis) railAnalisis.style.display = 'flex';
-    if (railAlineacion) railAlineacion.style.display = 'none';
     poblarFiltrosAnalisis();
   } else if (vista === 'ALINEACION') {
-    if (tableShell) tableShell.style.display = 'none';
-    if (analyticsShell) analyticsShell.style.display = 'none';
     if (alineacionShell) alineacionShell.style.display = 'flex';
-    if (tabbar) tabbar.style.display = 'none';
-
-    if (railMatriz) railMatriz.style.display = 'none';
-    if (railAnalisis) railAnalisis.style.display = 'none';
     if (railAlineacion) railAlineacion.style.display = 'flex';
     poblarFiltrosAlineacion();
+  } else if (vista === 'FRENTE') {
+    if (frenteShell) frenteShell.style.display = 'flex';
+    if (railFrente) railFrente.style.display = 'flex';
+    poblarFiltrosFrente();
   }
 
   actualizarIndicadorModo();
@@ -96,6 +100,8 @@ function actualizarIndicadorModo() {
     modeLabel.innerText = `PRODUCTO: ${(state.analisisProducto || 'DIESEL').toUpperCase()}`;
   } else if (state.vistaActiva === 'ALINEACION') {
     modeLabel.innerText = `PRODUCTO: ${(state.alineacionProductoSeleccionado || 'DIESEL').toUpperCase()}`;
+  } else if (state.vistaActiva === 'FRENTE') {
+    modeLabel.innerText = `RIVAL: ${(state.frenteMarcaRival || 'REPSOL').toUpperCase()}`;
   }
 }
 
@@ -104,7 +110,7 @@ function poblarFiltrosAnalisis() {
   if (!state.rawData?.estaciones) return;
   const estaciones = state.rawData.estaciones;
 
-  // A. Corredores
+  // Corredores
   const selCorr = document.getElementById('sel-analisis-corredor');
   if (selCorr && selCorr.options.length <= 1) {
     const corredoresSet = new Set();
@@ -119,7 +125,7 @@ function poblarFiltrosAnalisis() {
     });
   }
 
-  // B. Departamentos
+  // Departamentos
   const selDepto = document.getElementById('sel-analisis-depto');
   if (selDepto && selDepto.options.length <= 1) {
     const deptosSet = new Set();
@@ -134,7 +140,7 @@ function poblarFiltrosAnalisis() {
     });
   }
 
-  // C. GPC Groups
+  // GPC Groups
   const selGpc = document.getElementById('sel-analisis-gpc');
   if (selGpc && selGpc.options.length <= 1) {
     const gpcSet = new Set();
@@ -149,7 +155,7 @@ function poblarFiltrosAnalisis() {
     });
   }
 
-  // D. Inicialización única del catálogo de marcas
+  // Catálogo de marcas
   if (!state.analisisMarcasDisponibles || state.analisisMarcasDisponibles.length === 0) {
     const marcasSet = new Set();
     estaciones.forEach(e => {
@@ -194,12 +200,9 @@ function construirChecklistMarcasDOM() {
 
 function actualizarBotonMarcasLabel() {
   const lbl = document.getElementById('label-marcas-count');
-  if (lbl) {
-    lbl.textContent = 'BRANDS';
-  }
+  if (lbl) lbl.textContent = 'BRANDS';
 }
 
-// Handlers del Checklist de Marcas
 function toggleDropdownMarcas() {
   const drop = document.getElementById('dropdown-marcas-content');
   if (drop) {
@@ -227,12 +230,11 @@ function onToggleMarcaCheck(marca, isChecked) {
   render();
 }
 
-// 4. Poblado y Gestión de Filtros de Alineación Competitiva
+// 4. Poblado y Filtros de Alineación Competitiva
 function poblarFiltrosAlineacion() {
   if (!state.rawData?.estaciones) return;
   const estaciones = state.rawData.estaciones;
 
-  // Corredores
   const selCorr = document.getElementById('sel-alineacion-corredor');
   if (selCorr && selCorr.options.length <= 1) {
     const setCorr = new Set();
@@ -244,7 +246,6 @@ function poblarFiltrosAlineacion() {
     });
   }
 
-  // Departamentos
   const selDepto = document.getElementById('sel-alineacion-depto');
   if (selDepto && selDepto.options.length <= 1) {
     const setDep = new Set();
@@ -256,7 +257,6 @@ function poblarFiltrosAlineacion() {
     });
   }
 
-  // GPC Groups
   const selGpc = document.getElementById('sel-alineacion-gpc');
   if (selGpc && selGpc.options.length <= 1) {
     const setGpc = new Set();
@@ -295,6 +295,127 @@ function seleccionarProductoAlineacion(prod) {
 
 function cambiarFiltroAlineacionDetalle(filtro) {
   state.alineacionFiltroDetalle = filtro;
+  render();
+}
+
+// 5. Poblado y Filtros de Frente a Frente
+function poblarFiltrosFrente() {
+  if (!state.rawData?.estaciones) return;
+  const estaciones = state.rawData.estaciones;
+
+  // Marcas disponibles
+  const selMarca = document.getElementById('sel-frente-marca');
+  if (selMarca && selMarca.options.length === 0) {
+    const marcasSet = new Set();
+    estaciones.forEach(e => {
+      const comps = e.actores?.filter(a => a.tipo_actor === 'COMPETENCIA' && !a.es_competidor_propio) || [];
+      comps.forEach(c => {
+        let m = (c.marca || '').trim().toUpperCase();
+        if (m && m !== 'SIN MARCA') {
+          if (m === 'WHITE PRODUCTS' || m === 'WHITE PRODUCT') m = 'WP';
+          marcasSet.add(m);
+        }
+      });
+    });
+
+    Array.from(marcasSet).sort().forEach(m => {
+      const opt = document.createElement('option');
+      opt.value = m;
+      opt.textContent = m === 'PRIMAX' ? 'PRIMAX (DEALERS)' : (m === 'WP' ? 'WHITE PRODUCTS' : m);
+      selMarca.appendChild(opt);
+    });
+
+    if (selMarca.querySelector('option[value="REPSOL"]')) {
+      selMarca.value = 'REPSOL';
+      state.frenteMarcaRival = 'REPSOL';
+    } else {
+      state.frenteMarcaRival = selMarca.options[0]?.value || 'REPSOL';
+    }
+  }
+
+  // Corredores
+  const selCorr = document.getElementById('sel-frente-corredor');
+  if (selCorr && selCorr.options.length <= 1) {
+    const setCorr = new Set();
+    estaciones.forEach(e => { if (e.corredor?.trim()) setCorr.add(e.corredor.trim().toUpperCase()); });
+    Array.from(setCorr).sort().forEach(c => {
+      const opt = document.createElement('option');
+      opt.value = c; opt.textContent = c;
+      selCorr.appendChild(opt);
+    });
+  }
+
+  // Departamentos
+  const selDepto = document.getElementById('sel-frente-depto');
+  if (selDepto && selDepto.options.length <= 1) {
+    const setDep = new Set();
+    estaciones.forEach(e => { if (e.departamento?.trim()) setDep.add(e.departamento.trim().toUpperCase()); });
+    Array.from(setDep).sort().forEach(d => {
+      const opt = document.createElement('option');
+      opt.value = d; opt.textContent = d;
+      selDepto.appendChild(opt);
+    });
+  }
+
+  // GPC Groups
+  const selGpc = document.getElementById('sel-frente-gpc');
+  if (selGpc && selGpc.options.length <= 1) {
+    const setGpc = new Set();
+    estaciones.forEach(e => { if (e.gpc_group?.trim()) setGpc.add(e.gpc_group.trim().toUpperCase()); });
+    Array.from(setGpc).sort().forEach(g => {
+      const opt = document.createElement('option');
+      opt.value = g; opt.textContent = g;
+      selGpc.appendChild(opt);
+    });
+  }
+}
+
+function cambiarMarcaFrente() {
+  const sel = document.getElementById('sel-frente-marca');
+  if (sel) state.frenteMarcaRival = sel.value;
+  actualizarIndicadorModo();
+  render();
+}
+
+function cambiarCriterioFrente(criterio) {
+  state.frenteCriterioComp = criterio;
+  const bCercano = document.getElementById('btn-frente-cercano');
+  const bProm = document.getElementById('btn-frente-promedio');
+  if (bCercano) bCercano.classList.toggle('active', criterio === 'CERCANO');
+  if (bProm) bProm.classList.toggle('active', criterio === 'PROMEDIO');
+  render();
+}
+
+function cambiarCorredorFrente() {
+  const s = document.getElementById('sel-frente-corredor');
+  if (s) state.frenteCorredor = s.value;
+  render();
+}
+
+function cambiarDeptoFrente() {
+  const s = document.getElementById('sel-frente-depto');
+  if (s) state.frenteDepartamento = s.value;
+  render();
+}
+
+function cambiarGpcFrente() {
+  const s = document.getElementById('sel-frente-gpc');
+  if (s) state.frenteGpcGroup = s.value;
+  render();
+}
+
+function seleccionarProductoFrente(prod) {
+  state.frenteProductoSeleccionado = prod;
+  render();
+}
+
+function cambiarFiltroFrenteDetalle(filtro) {
+  state.frenteFiltroDetalle = filtro;
+  render();
+}
+
+function toggleFrenteSoloLM(checked) {
+  state.frenteSoloLM = checked;
   render();
 }
 
@@ -352,7 +473,7 @@ function cambiarModoAnalisis(modo) {
   render();
 }
 
-// 5. Controles de Matriz Competitiva
+// 6. Controles de Matriz Competitiva
 function setModo(modo) {
   state.modoActual = modo;
   const btnPrecios = document.getElementById('btn-precios');
@@ -390,7 +511,6 @@ function onSeleccionarCorredor() {
   render();
 }
 
-/* --- Selector dropUp: por qué dimensión se dividen las pestañas --- */
 function toggleDropupAgrupacion(ev) {
   if (ev) ev.stopPropagation();
   const wrap = document.getElementById('tabbar-group-wrap');
@@ -430,7 +550,7 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') cerrarDropupAgrupacion();
 });
 
-// 6. Render
+// 7. Render
 function render() {
   if (!state.rawData || !state.rawData.estaciones) return;
 
@@ -455,6 +575,11 @@ function render() {
     return;
   }
 
+  if (state.vistaActiva === 'FRENTE') {
+    renderFrenteAFrente(state.rawData.estaciones);
+    return;
+  }
+
   // Matriz Competitiva
   construirTabs(lista, onSeleccionarCorredor);
 
@@ -474,7 +599,7 @@ function render() {
   }
 }
 
-// 7. Arranque
+// 8. Arranque
 async function iniciar() {
   try {
     state.rawData = await cargarMatriz();
@@ -493,6 +618,16 @@ async function iniciar() {
     state.alineacionDepartamento = 'TODOS';
     state.alineacionGpcGroup = 'TODOS';
     state.alineacionFiltroDetalle = 'TODOS';
+
+    // Estado inicial de Frente a Frente
+    state.frenteMarcaRival = 'REPSOL';
+    state.frenteCriterioComp = 'CERCANO';
+    state.frenteProductoSeleccionado = 'Diesel';
+    state.frenteCorredor = 'TODOS';
+    state.frenteDepartamento = 'TODOS';
+    state.frenteGpcGroup = 'TODOS';
+    state.frenteFiltroDetalle = 'TODOS';
+    state.frenteSoloLM = false;
 
     recalcularCapacidad();
     render();
@@ -552,6 +687,14 @@ Object.assign(window, {
   cambiarGpcAlineacion,
   seleccionarProductoAlineacion,
   cambiarFiltroAlineacionDetalle,
+  cambiarMarcaFrente,
+  cambiarCriterioFrente,
+  cambiarCorredorFrente,
+  cambiarDeptoFrente,
+  cambiarGpcFrente,
+  seleccionarProductoFrente,
+  cambiarFiltroFrenteDetalle,
+  toggleFrenteSoloLM,
   render
 });
 

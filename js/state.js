@@ -38,4 +38,14 @@ export const state = {
   alineacionDepartamento: 'TODOS',
   alineacionGpcGroup: 'TODOS',
   alineacionFiltroDetalle: 'TODOS', // 'TODOS' | 'BAJO_LM' | 'BAJO_ZONA' | 'BAJO_AMBOS'
+
+  // Filtros de la vista Frente a Frente
+  frenteMarcaRival: 'REPSOL',
+  frenteCriterioComp: 'CERCANO', // 'CERCANO' | 'PROMEDIO'
+  frenteProductoSeleccionado: 'Diesel',
+  frenteCorredor: 'TODOS',
+  frenteDepartamento: 'TODOS',
+  frenteGpcGroup: 'TODOS',
+  frenteFiltroDetalle: 'TODOS', // 'TODOS' | 'MAS_CAROS' | 'A_LA_PAR' | 'MAS_BARATOS'
+  frenteSoloLM: false,
 };

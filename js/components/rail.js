@@ -183,6 +183,51 @@ export function railHTML() {
       </div>
     </div>
 
+    <!-- PANEL 4: FRENTE A FRENTE -->
+    <div id="rail-panel-frente" class="rail-panel" style="display: none;">
+      <div class="rail-section">
+        <div class="rail-label">Marca Competidora</div>
+        <div class="select-wrap">
+          <select id="sel-frente-marca" onchange="window.cambiarMarcaFrente()">
+            <!-- Poblado dinámicamente -->
+          </select>
+        </div>
+      </div>
+
+      <div class="rail-section">
+        <div class="rail-label">Criterio de Rival</div>
+        <div class="btn-group-vertical">
+          <button id="btn-frente-cercano" class="active" onclick="window.cambiarCriterioFrente('CERCANO')">MÁS CERCANO</button>
+          <button id="btn-frente-promedio" onclick="window.cambiarCriterioFrente('PROMEDIO')">PROMEDIO DE LA MARCA</button>
+        </div>
+      </div>
+
+      <div class="rail-section">
+        <div class="rail-label">Segmentación Geográfica</div>
+        <div class="select-stack">
+          <div class="select-wrap">
+            <select id="sel-frente-corredor" onchange="window.cambiarCorredorFrente()">
+              <option value="TODOS">Todos los corredores</option>
+            </select>
+          </div>
+          <div class="select-wrap">
+            <select id="sel-frente-depto" onchange="window.cambiarDeptoFrente()">
+              <option value="TODOS">Todos los departamentos</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="rail-section">
+        <div class="rail-label">GPC Group</div>
+        <div class="select-wrap">
+          <select id="sel-frente-gpc" onchange="window.cambiarGpcFrente()">
+            <option value="TODOS">Todos los GPC Groups</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
     <!-- MARCA DE AGUA KALIBRATE -->
     <div class="rail-watermark" aria-hidden="true">
       <svg viewBox="0 0 100 100">
