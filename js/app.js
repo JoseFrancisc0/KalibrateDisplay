@@ -15,6 +15,7 @@ import { tabbarHTML }   from './components/tabbar.js';
 
 import { renderFilas }   from './views/matriz-competitiva.js';
 import { analyticsHTML, renderAnalisis } from './views/analisis-ponderado.js';
+import { alineacionHTML, renderAlineacion } from './views/alineacion-competitiva.js';
 
 function montar(selector, html) {
   const nodo = document.querySelector(selector);
@@ -24,7 +25,7 @@ function montar(selector, html) {
 // 1. Montaje estático
 montar('#cmp-nav',    navHTML());
 montar('#cmp-rail',   railHTML());
-montar('#cmp-main',   viewBarHTML() + tableHTML() + analyticsHTML());
+montar('#cmp-main',   viewBarHTML() + tableHTML() + analyticsHTML() + alineacionHTML());
 montar('#cmp-tabbar', tabbarHTML());
 
 // 2. Control de Vistas
@@ -33,28 +34,50 @@ function setVista(vista) {
 
   const btnMatriz = document.getElementById('tab-view-matriz');
   const btnAnalisis = document.getElementById('tab-view-analisis');
+  const btnAlineacion = document.getElementById('tab-view-alineacion');
+
   if (btnMatriz) btnMatriz.classList.toggle('active', vista === 'MATRIZ');
   if (btnAnalisis) btnAnalisis.classList.toggle('active', vista === 'ANALISIS');
+  if (btnAlineacion) btnAlineacion.classList.toggle('active', vista === 'ALINEACION');
 
   const tableShell = document.querySelector('.table-shell');
   const analyticsShell = document.getElementById('analytics-shell');
+  const alineacionShell = document.getElementById('alineacion-shell');
   const tabbar = document.getElementById('cmp-tabbar');
+
   const railMatriz = document.getElementById('rail-panel-matriz');
   const railAnalisis = document.getElementById('rail-panel-analisis');
+  const railAlineacion = document.getElementById('rail-panel-alineacion');
 
   if (vista === 'MATRIZ') {
     if (tableShell) tableShell.style.display = 'flex';
     if (analyticsShell) analyticsShell.style.display = 'none';
+    if (alineacionShell) alineacionShell.style.display = 'none';
     if (tabbar) tabbar.style.display = 'flex';
+
     if (railMatriz) railMatriz.style.display = 'flex';
     if (railAnalisis) railAnalisis.style.display = 'none';
-  } else {
+    if (railAlineacion) railAlineacion.style.display = 'none';
+  } else if (vista === 'ANALISIS') {
     if (tableShell) tableShell.style.display = 'none';
     if (analyticsShell) analyticsShell.style.display = 'flex';
+    if (alineacionShell) alineacionShell.style.display = 'none';
     if (tabbar) tabbar.style.display = 'none';
+
     if (railMatriz) railMatriz.style.display = 'none';
     if (railAnalisis) railAnalisis.style.display = 'flex';
+    if (railAlineacion) railAlineacion.style.display = 'none';
     poblarFiltrosAnalisis();
+  } else if (vista === 'ALINEACION') {
+    if (tableShell) tableShell.style.display = 'none';
+    if (analyticsShell) analyticsShell.style.display = 'none';
+    if (alineacionShell) alineacionShell.style.display = 'flex';
+    if (tabbar) tabbar.style.display = 'none';
+
+    if (railMatriz) railMatriz.style.display = 'none';
+    if (railAnalisis) railAnalisis.style.display = 'none';
+    if (railAlineacion) railAlineacion.style.display = 'flex';
+    poblarFiltrosAlineacion();
   }
 
   actualizarIndicadorModo();
@@ -69,12 +92,14 @@ function actualizarIndicadorModo() {
     modeLabel.innerText = (state.modoActual === 'PRECIOS')
       ? 'MÉTRICA ACTIVA: PRECIOS'
       : 'MÉTRICA ACTIVA: DIFERENCIALES';
-  } else {
+  } else if (state.vistaActiva === 'ANALISIS') {
     modeLabel.innerText = `PRODUCTO: ${(state.analisisProducto || 'DIESEL').toUpperCase()}`;
+  } else if (state.vistaActiva === 'ALINEACION') {
+    modeLabel.innerText = `PRODUCTO: ${(state.alineacionProductoSeleccionado || 'DIESEL').toUpperCase()}`;
   }
 }
 
-// 3. Poblado y Gestión de Filtros de Análisis
+// 3. Poblado y Gestión de Filtros de Análisis Ponderado
 function poblarFiltrosAnalisis() {
   if (!state.rawData?.estaciones) return;
   const estaciones = state.rawData.estaciones;
@@ -202,6 +227,77 @@ function onToggleMarcaCheck(marca, isChecked) {
   render();
 }
 
+// 4. Poblado y Gestión de Filtros de Alineación Competitiva
+function poblarFiltrosAlineacion() {
+  if (!state.rawData?.estaciones) return;
+  const estaciones = state.rawData.estaciones;
+
+  // Corredores
+  const selCorr = document.getElementById('sel-alineacion-corredor');
+  if (selCorr && selCorr.options.length <= 1) {
+    const setCorr = new Set();
+    estaciones.forEach(e => { if (e.corredor?.trim()) setCorr.add(e.corredor.trim().toUpperCase()); });
+    Array.from(setCorr).sort().forEach(c => {
+      const opt = document.createElement('option');
+      opt.value = c; opt.textContent = c;
+      selCorr.appendChild(opt);
+    });
+  }
+
+  // Departamentos
+  const selDepto = document.getElementById('sel-alineacion-depto');
+  if (selDepto && selDepto.options.length <= 1) {
+    const setDep = new Set();
+    estaciones.forEach(e => { if (e.departamento?.trim()) setDep.add(e.departamento.trim().toUpperCase()); });
+    Array.from(setDep).sort().forEach(d => {
+      const opt = document.createElement('option');
+      opt.value = d; opt.textContent = d;
+      selDepto.appendChild(opt);
+    });
+  }
+
+  // GPC Groups
+  const selGpc = document.getElementById('sel-alineacion-gpc');
+  if (selGpc && selGpc.options.length <= 1) {
+    const setGpc = new Set();
+    estaciones.forEach(e => { if (e.gpc_group?.trim()) setGpc.add(e.gpc_group.trim().toUpperCase()); });
+    Array.from(setGpc).sort().forEach(g => {
+      const opt = document.createElement('option');
+      opt.value = g; opt.textContent = g;
+      selGpc.appendChild(opt);
+    });
+  }
+}
+
+function cambiarCorredorAlineacion() {
+  const s = document.getElementById('sel-alineacion-corredor');
+  if (s) state.alineacionCorredor = s.value;
+  render();
+}
+
+function cambiarDeptoAlineacion() {
+  const s = document.getElementById('sel-alineacion-depto');
+  if (s) state.alineacionDepartamento = s.value;
+  render();
+}
+
+function cambiarGpcAlineacion() {
+  const s = document.getElementById('sel-alineacion-gpc');
+  if (s) state.alineacionGpcGroup = s.value;
+  render();
+}
+
+function seleccionarProductoAlineacion(prod) {
+  state.alineacionProductoSeleccionado = prod;
+  actualizarIndicadorModo();
+  render();
+}
+
+function cambiarFiltroAlineacionDetalle(filtro) {
+  state.alineacionFiltroDetalle = filtro;
+  render();
+}
+
 // Cerrar el popup de marcas al hacer click fuera
 document.addEventListener('click', (e) => {
   const wrap = document.getElementById('section-filtro-marcas');
@@ -211,7 +307,7 @@ document.addEventListener('click', (e) => {
   }
 });
 
-// Handlers de Selectores
+// Handlers de Selectores de Análisis Ponderado
 function cambiarProductoAnalisis() {
   const sel = document.getElementById('sel-analisis-prod');
   if (sel) state.analisisProducto = sel.value;
@@ -248,7 +344,6 @@ function cambiarModoAnalisis(modo) {
   if (bCoesti) bCoesti.classList.toggle('active', modo === 'COESTI');
   if (bMarca) bMarca.classList.toggle('active', modo === 'MARCA');
 
-  // Mostrar el filtro de marcas principalmente para PROMEDIO MARCAS
   const secMarcas = document.getElementById('section-filtro-marcas');
   if (secMarcas) {
     secMarcas.style.opacity = (modo === 'MARCA') ? '1' : '0.45';
@@ -257,7 +352,7 @@ function cambiarModoAnalisis(modo) {
   render();
 }
 
-// 4. Controles de Matriz Competitiva
+// 5. Controles de Matriz Competitiva
 function setModo(modo) {
   state.modoActual = modo;
   const btnPrecios = document.getElementById('btn-precios');
@@ -318,7 +413,6 @@ function cambiarAgrupacion(id) {
   if (state.agrupacionTabs === id) return;
 
   state.agrupacionTabs = id;
-  // Fuerza a construirTabs a resolver el grupo activo de la nueva dimensión
   state.grupoActivo = '';
   state.subPaginaGrupo = 0;
 
@@ -327,18 +421,16 @@ function cambiarAgrupacion(id) {
   render();
 }
 
-// Cerrar el dropUp al hacer click fuera
 document.addEventListener('click', (e) => {
   const wrap = document.getElementById('tabbar-group-wrap');
   if (wrap && !wrap.contains(e.target)) cerrarDropupAgrupacion();
 });
 
-// Cerrar el dropUp con Escape
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') cerrarDropupAgrupacion();
 });
 
-// 5. Render
+// 6. Render
 function render() {
   if (!state.rawData || !state.rawData.estaciones) return;
 
@@ -355,6 +447,11 @@ function render() {
 
   if (state.vistaActiva === 'ANALISIS') {
     renderAnalisis(state.rawData.estaciones);
+    return;
+  }
+
+  if (state.vistaActiva === 'ALINEACION') {
+    renderAlineacion(state.rawData.estaciones);
     return;
   }
 
@@ -377,16 +474,25 @@ function render() {
   }
 }
 
-// 6. Arranque
+// 7. Arranque
 async function iniciar() {
   try {
     state.rawData = await cargarMatriz();
     state.vistaActiva = 'MATRIZ';
+
+    // Estado inicial de Análisis Ponderado
     state.analisisProducto = 'Diesel';
     state.analisisModo = 'COMPETENCIA';
     state.analisisCorredor = 'TODOS';
     state.analisisDepartamento = 'TODOS';
     state.analisisGpcGroup = 'TODOS';
+
+    // Estado inicial de Alineación Competitiva
+    state.alineacionProductoSeleccionado = 'Diesel';
+    state.alineacionCorredor = 'TODOS';
+    state.alineacionDepartamento = 'TODOS';
+    state.alineacionGpcGroup = 'TODOS';
+    state.alineacionFiltroDetalle = 'TODOS';
 
     recalcularCapacidad();
     render();
@@ -395,7 +501,6 @@ async function iniciar() {
   }
 }
 
-// Reemplaza el bloque de resize al final de js/app.js por este:
 let ultAncho = window.innerWidth;
 let ultAlto  = window.innerHeight;
 let rt;
@@ -403,7 +508,6 @@ let rt;
 window.addEventListener('resize', () => {
   clearTimeout(rt);
   rt = setTimeout(() => {
-
     const difAncho = Math.abs(window.innerWidth - ultAncho);
     const difAlto = Math.abs(window.innerHeight - ultAlto);
     
@@ -443,6 +547,11 @@ Object.assign(window, {
   toggleDropdownMarcas,
   marcarTodasMarcas,
   onToggleMarcaCheck,
+  cambiarCorredorAlineacion,
+  cambiarDeptoAlineacion,
+  cambiarGpcAlineacion,
+  seleccionarProductoAlineacion,
+  cambiarFiltroAlineacionDetalle,
   render
 });
 

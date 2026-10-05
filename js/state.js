@@ -30,5 +30,12 @@ export const state = {
   grupoActivo: '',             // Grupo seleccionado actualmente
   grupoActivoPorAgrupacion: {},// Recuerda el grupo elegido en cada dimensión
   subPaginaGrupo: 0,           // Índice de página interna dentro del grupo (0, 1, 2...)
-  scrollTarget: null
+  scrollTarget: null,
+
+  // Filtros de la vista Alineación Competitiva
+  alineacionProductoSeleccionado: 'Diesel',
+  alineacionCorredor: 'TODOS',
+  alineacionDepartamento: 'TODOS',
+  alineacionGpcGroup: 'TODOS',
+  alineacionFiltroDetalle: 'TODOS', // 'TODOS' | 'BAJO_LM' | 'BAJO_ZONA' | 'BAJO_AMBOS'
 };

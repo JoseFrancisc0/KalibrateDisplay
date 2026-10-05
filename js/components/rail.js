@@ -141,6 +141,48 @@ export function railHTML() {
       </div>
     </div>
 
+    <!-- PANEL 3: ALINEACIÓN COMPETITIVA -->
+    <div id="rail-panel-alineacion" class="rail-panel" style="display: none;">
+      <div class="rail-section">
+        <div class="rail-label">Segmentación Geográfica</div>
+        <div class="select-stack">
+          <div class="select-wrap">
+            <select id="sel-alineacion-corredor" onchange="window.cambiarCorredorAlineacion()">
+              <option value="TODOS">Todos los corredores</option>
+            </select>
+          </div>
+          <div class="select-wrap">
+            <select id="sel-alineacion-depto" onchange="window.cambiarDeptoAlineacion()">
+              <option value="TODOS">Todos los departamentos</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="rail-section">
+        <div class="rail-label">GPC Group</div>
+        <div class="select-wrap">
+          <select id="sel-alineacion-gpc" onchange="window.cambiarGpcAlineacion()">
+            <option value="TODOS">Todos los GPC Groups</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="rail-section">
+        <div class="rail-label">Guía de Referencia</div>
+        <div class="rail-legend">
+          <div class="legend-item">
+            <span style="color: var(--k-emerald); font-weight: 700;">Local Market:</span>
+            <span>Competidor con Main Marker asignado.</span>
+          </div>
+          <div class="legend-item">
+            <span style="color: var(--k-lime); font-weight: 700;">Promedio Zona:</span>
+            <span>Media aritmética de competidores directos.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- MARCA DE AGUA KALIBRATE -->
     <div class="rail-watermark" aria-hidden="true">
       <svg viewBox="0 0 100 100">
