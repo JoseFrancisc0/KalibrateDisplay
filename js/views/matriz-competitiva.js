@@ -60,7 +60,8 @@ export function renderFilas(tbody, listaFiltrada, onRecargarVista) {
     subPaginaActual, 
     totalSubpaginas, 
     tieneAnterior, 
-    tieneSiguiente 
+    tieneSiguiente,
+    totalEstacionesGrupo
   } = obtenerEstacionesVisibles();
 
   // Renderizar filas de la pantalla activa
@@ -131,50 +132,83 @@ export function renderFilas(tbody, listaFiltrada, onRecargarVista) {
     });
   });
 
-  // Actualizar controles flotantes al terminar de pintar filas
+  // Actualizar la barra fija de paginación
   actualizarControlesLaterales({
     tieneAnterior,
     tieneSiguiente,
     subPaginaActual,
     totalSubpaginas,
+    totalEstacionesGrupo,
     onCambioPagina: (direccion) => {
       state.subPaginaGrupo += direccion;
       if (typeof onRecargarVista === 'function') onRecargarVista();
     }
   });
+
+  // Habilitar soporte de desplazamiento con rueda del ratón en la cinta de pestañas
+  iniciarScrollRuedaPestanas();
 }
 
-function actualizarControlesLaterales({ tieneAnterior, tieneSiguiente, subPaginaActual, totalSubpaginas, onCambioPagina }) {
-  let navWrap = document.getElementById('matrix-nav-arrows');
+function actualizarControlesLaterales({ tieneAnterior, tieneSiguiente, subPaginaActual, totalSubpaginas, totalEstacionesGrupo, onCambioPagina }) {
   const tableShell = document.querySelector('.table-shell');
-
   if (!tableShell) return;
 
-  if (!navWrap) {
-    navWrap = document.createElement('div');
-    navWrap.id = 'matrix-nav-arrows';
-    navWrap.className = 'matrix-nav-arrows';
-    tableShell.style.position = 'relative';
-    tableShell.appendChild(navWrap);
+  // Remover si existía el antiguo contenedor flotante
+  const antiguoFlotante = document.getElementById('matrix-nav-arrows');
+  if (antiguoFlotante) antiguoFlotante.remove();
+
+  let footer = document.getElementById('table-footer-pagination');
+  if (!footer) {
+    footer = document.createElement('div');
+    footer.id = 'table-footer-pagination';
+    footer.className = 'table-footer';
+    tableShell.appendChild(footer);
   }
 
   if (totalSubpaginas <= 1) {
-    navWrap.style.display = 'none';
+    footer.style.display = 'none';
     return;
   }
 
-  navWrap.style.display = 'flex';
-  navWrap.innerHTML = `
-    <button class="nav-arrow nav-arrow-left ${!tieneAnterior ? 'disabled' : ''}" 
-            title="Página anterior" ${!tieneAnterior ? 'disabled' : ''}>‹</button>
-    <span class="nav-page-indicator">${subPaginaActual} / ${totalSubpaginas}</span>
-    <button class="nav-arrow nav-arrow-right ${!tieneSiguiente ? 'disabled' : ''}" 
-            title="Siguiente página" ${!tieneSiguiente ? 'disabled' : ''}>›</button>
+  footer.style.display = 'flex';
+  footer.innerHTML = `
+    <div class="table-footer-info">
+      Mostrando página ${subPaginaActual} de ${totalSubpaginas} (${totalEstacionesGrupo} estaciones en el grupo)
+    </div>
+    <div class="table-footer-nav">
+      <button type="button" class="table-footer-btn nav-btn-prev" 
+              title="Página anterior" ${!tieneAnterior ? 'disabled' : ''}>‹</button>
+      <span class="table-footer-counter">${subPaginaActual} / ${totalSubpaginas}</span>
+      <button type="button" class="table-footer-btn nav-btn-next" 
+              title="Página siguiente" ${!tieneSiguiente ? 'disabled' : ''}>›</button>
+    </div>
   `;
 
-  const btnPrev = navWrap.querySelector('.nav-arrow-left');
-  const btnNext = navWrap.querySelector('.nav-arrow-right');
+  const btnPrev = footer.querySelector('.nav-btn-prev');
+  const btnNext = footer.querySelector('.nav-btn-next');
 
   if (tieneAnterior) btnPrev.onclick = (e) => { e.stopPropagation(); onCambioPagina(-1); };
   if (tieneSiguiente) btnNext.onclick = (e) => { e.stopPropagation(); onCambioPagina(1); };
+}
+
+// Desplazamiento horizontal con botones
+window.desplazarPestanas = function(offset) {
+  const tabs = document.getElementById('tabs');
+  if (tabs) tabs.scrollLeft += offset;
+};
+
+// Soporte de desplazamiento horizontal con rueda del ratón
+let ruedaConfigurada = false;
+function iniciarScrollRuedaPestanas() {
+  if (ruedaConfigurada) return;
+  const tabs = document.getElementById('tabs');
+  if (tabs) {
+    tabs.addEventListener('wheel', (e) => {
+      if (e.deltaY !== 0) {
+        e.preventDefault();
+        tabs.scrollLeft += e.deltaY;
+      }
+    }, { passive: false });
+    ruedaConfigurada = true;
+  }
 }

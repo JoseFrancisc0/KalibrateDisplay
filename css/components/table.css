@@ -226,3 +226,66 @@ td.col-num.no-data   { color: #C7D0DA; font-weight: 400; }
   width: 9px;
   height: 12px;
 }
+
+/* ==========================================================
+   Footer Fijo de la Tabla (Opción B: Elimina el flotante superpuesto)
+   ========================================================== */
+.table-footer {
+  flex: 0 0 auto;
+  height: 32px;
+  background: #F8FAFC;
+  border-top: 1px solid var(--k-line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  box-sizing: border-box;
+}
+
+.table-footer-info {
+  font-size: 0.68rem;
+  color: var(--k-muted);
+  font-weight: 600;
+}
+
+.table-footer-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.table-footer-btn {
+  background: var(--k-surface);
+  border: 1px solid var(--k-line);
+  color: var(--k-ink);
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: 800;
+  line-height: 1;
+  transition: all 0.12s ease;
+}
+.table-footer-btn:hover:not(:disabled) {
+  background: var(--k-emerald);
+  border-color: var(--k-emerald);
+  color: #fff;
+}
+.table-footer-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  background: transparent;
+}
+
+.table-footer-counter {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.70rem;
+  font-weight: 700;
+  color: var(--k-ink);
+  font-variant-numeric: tabular-nums;
+  padding: 0 4px;
+}

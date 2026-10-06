@@ -36,6 +36,15 @@ export function tabbarHTML() {
         ${opciones}
       </div>
     </div>
-    <div class="tabs" id="tabs"></div>
+    
+    <div class="tabbar-scroll-wrap">
+      <button type="button" class="tab-scroll-btn tab-scroll-btn-left" 
+              title="Desplazar pestañas a la izquierda" 
+              onclick="window.desplazarPestanas(-180)">‹</button>
+      <div class="tabs" id="tabs"></div>
+      <button type="button" class="tab-scroll-btn tab-scroll-btn-right" 
+              title="Desplazar pestañas a la derecha" 
+              onclick="window.desplazarPestanas(180)">›</button>
+    </div>
   `;
 }

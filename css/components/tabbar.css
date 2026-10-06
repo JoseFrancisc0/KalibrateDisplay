@@ -10,8 +10,6 @@
   display: flex;
   background: var(--k-plum, #16182F);
   border-top: 2px solid var(--k-emerald, #00D58A);
-  /* visible (no hidden) para que el dropUp pueda salir hacia arriba;
-     el recorte horizontal de las pestañas lo hace .tabs */
   overflow: visible;
   align-items: stretch;
   box-sizing: border-box;
@@ -49,7 +47,7 @@
   flex-direction: column;
   justify-content: center;
   height: 100%;
-  padding: 0 16px;
+  padding: 0 14px;
   cursor: pointer;
   font-family: inherit;
   font-size: inherit;
@@ -136,36 +134,73 @@
 }
 .dropup-item.active .dropup-check { opacity: 1; }
 
+/* Contenedor central con scroll horizontal suave */
+.tabbar-scroll-wrap {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: stretch;
+  min-width: 0;
+  position: relative;
+}
+
 .tabs {
   flex: 1 1 auto;
   display: flex;
   min-width: 0;
   overflow-x: auto;
   overflow-y: hidden;
-  scrollbar-width: none; /* Firefox */
+  scrollbar-width: none;
+  scroll-behavior: smooth;
 }
 .tabs::-webkit-scrollbar {
-  display: none; /* Chrome/Safari */
+  display: none;
+}
+
+/* Botones flecha para desplazar pestañas si desbordan */
+.tab-scroll-btn {
+  width: 24px;
+  flex: 0 0 24px;
+  background: rgba(28, 32, 62, 0.85);
+  color: var(--k-emerald, #00D58A);
+  border: none;
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 800;
+  transition: background .15s, color .15s;
+  z-index: 5;
+  user-select: none;
+}
+.tab-scroll-btn:hover {
+  background: var(--k-emerald, #00D58A);
+  color: var(--k-plum, #16182F);
+}
+.tab-scroll-btn-right {
+  border-right: none;
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .tab {
-  flex: 1 1 auto;
+  flex: 0 0 auto;
   min-width: fit-content;
   border: none;
-  border-right: 1px solid rgba(255, 255, 255, 0.12);
+  border-right: 1px solid rgba(255, 255, 255, 0.10);
   background: transparent;
   color: #B7A7BC;
   font-family: 'Poppins', sans-serif;
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 600;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.02em;
   cursor: pointer;
-  padding: 0 14px;
+  padding: 0 9px;
   white-space: nowrap;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
+  gap: 5px;
   transition: background .15s, color .15s;
   position: relative;
 }
@@ -186,69 +221,13 @@
 }
 
 .tab-badge {
-  font-size: 0.65rem;
+  font-size: 0.60rem;
   background: rgba(0, 0, 0, 0.2);
-  padding: 2px 6px;
-  border-radius: 10px;
+  padding: 1px 5px;
+  border-radius: 8px;
   font-weight: 600;
 }
 .tab.active .tab-badge {
   background: rgba(22, 24, 47, 0.25);
   color: #16182F;
-}
-
-/* Controles de navegación lateral dentro de la grilla */
-.matrix-nav-arrows {
-  position: absolute;
-  right: 22px;
-  bottom: 16px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(22, 24, 47, 0.92);
-  backdrop-filter: blur(6px);
-  padding: 5px 12px;
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
-  z-index: 30;
-  pointer-events: auto;
-}
-
-.nav-arrow {
-  background: var(--k-emerald, #00D58A);
-  color: var(--k-plum, #16182F);
-  border: none;
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  font-size: 1.15rem;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: transform 0.15s, background 0.15s;
-  line-height: 1;
-}
-
-.nav-arrow:hover:not(.disabled) {
-  background: var(--k-lime, #C4F000);
-  transform: scale(1.08);
-}
-
-.nav-arrow.disabled {
-  background: rgba(255, 255, 255, 0.12);
-  color: rgba(255, 255, 255, 0.3);
-  cursor: not-allowed;
-  transform: none;
-}
-
-.nav-page-indicator {
-  color: #fff;
-  font-family: 'Poppins', sans-serif;
-  font-size: 0.72rem;
-  font-weight: 600;
-  padding: 0 4px;
-  font-variant-numeric: tabular-nums;
 }
