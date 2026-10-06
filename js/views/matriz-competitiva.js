@@ -84,7 +84,12 @@ export function renderFilas(tbody, listaFiltrada, onRecargarVista) {
           ${competidores.length > 0
             ? `<button class="btn-toggle${isExpanded ? ' on' : ''}" onclick="toggleGroup('${est.own_site_id}')">${isExpanded ? '−' : '+'}</button>`
             : `<span style="width:17px;flex:0 0 17px;"></span>`}
-          <span class="site-name">${est.estacion_cabecera}</span>
+          <span class="site-name site-name-clickable" 
+                onclick="event.stopPropagation(); window.abrirDetalleEstacion('${est.own_site_id}')"
+                style="cursor:pointer; text-decoration:underline; text-decoration-color:rgba(0,213,138,0.6); text-underline-offset:3px;"
+                title="Ver evolución histórica y detalle de ${est.estacion_cabecera}">
+            ${est.estacion_cabecera}
+          </span>
           ${competidores.length > 0 ? `<span class="count-tag">${visibles.length}</span>` : ''}
         </div>
       </td>
@@ -153,7 +158,6 @@ function actualizarControlesLaterales({ tieneAnterior, tieneSiguiente, subPagina
   const tableShell = document.querySelector('.table-shell');
   if (!tableShell) return;
 
-  // Remover si existía el antiguo contenedor flotante
   const antiguoFlotante = document.getElementById('matrix-nav-arrows');
   if (antiguoFlotante) antiguoFlotante.remove();
 
@@ -191,13 +195,11 @@ function actualizarControlesLaterales({ tieneAnterior, tieneSiguiente, subPagina
   if (tieneSiguiente) btnNext.onclick = (e) => { e.stopPropagation(); onCambioPagina(1); };
 }
 
-// Desplazamiento horizontal con botones
 window.desplazarPestanas = function(offset) {
   const tabs = document.getElementById('tabs');
   if (tabs) tabs.scrollLeft += offset;
 };
 
-// Soporte de desplazamiento horizontal con rueda del ratón
 let ruedaConfigurada = false;
 function iniciarScrollRuedaPestanas() {
   if (ruedaConfigurada) return;

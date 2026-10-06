@@ -13,6 +13,16 @@ export const state = {
   analisisProducto: 'Diesel',  // 'Diesel' | 'Regular' | 'Premium' | 'GNV' | 'GLP'
   analisisModo: 'COMPETENCIA', // 'COESTI' | 'COMPETENCIA' | 'MARCA'
   
+  // Control de Navegación Jerárquica (Macro vs Estación)
+  modoNivel: 'GENERAL',           // 'GENERAL' | 'ESTACION'
+  estacionSeleccionadaId: null,   // UUID de la estación abierta
+  estacionDataActiva: null,       // Datos de detalle_estaciones/{site_id}.json
+  estacionesCacheadas: {},        // Cache en memoria para no repetir fetch
+  cargandoDetalleEstacion: false,
+
+  // Sub-vista activa dentro de la estación
+  subVistaEstacion: 'ESTADO',     // 'ESTADO' | 'EVOLUCION_PRECIOS' | 'EVOLUCION_DIFF' | 'VARIACION'
+
   // filtros avanzados de análisis ponderado
   analisisCorredor: 'TODOS',       // 'TODOS' | Corredor
   analisisDepartamento: 'TODOS',   // 'TODOS' | Departamento
