@@ -222,11 +222,6 @@ export function railHTML() {
             <input type="date" id="txt-var-f2" class="search-input" style="width:100%; cursor:pointer;" onchange="window.cambiarFechaF2(this.value)">
           </div>
         </div>
-        <div class="btn-group-vertical" style="margin-top: 8px;">
-          <button type="button" onclick="window.setPresetRangoFechas('AGOSTO')">Mes Agosto 2026</button>
-          <button type="button" onclick="window.setPresetRangoFechas('SETIEMBRE')">Mes Setiembre 2026</button>
-          <button type="button" onclick="window.setPresetRangoFechas('ULT30')">Últimos 30 días</button>
-        </div>
       </div>
 
       <div class="rail-section">
