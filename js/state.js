@@ -20,6 +20,7 @@ export const state = {
 
   modoActual: 'PRECIOS',       // 'PRECIOS' | 'DIFERENCIAL'
   filtroMarker: 'TODOS',       // TODOS | CUALQUIERA | UNLEADED | DIESEL | GLP | GNV
+  filtroMarcaMatriz: 'TODAS', // 'TODAS' | 'REPSOL' | 'PETROPERU' | 'WP' | ...
   expandedGroups: new Set(),
 
   // paginación y estructura de las pestañas inferiores

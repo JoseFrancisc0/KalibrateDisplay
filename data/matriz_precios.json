@@ -1,5 +1,5 @@
 {
-  "actualizado_al": "2026-10-05T17:18:41",
+  "actualizado_al": "2026-10-05T18:20:27",
   "combustibles_orden": [
     "Diesel",
     "Regular",
@@ -768,13 +768,13 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 23.69,
-              "diferencial": 0.56,
+              "precio": 23.99,
+              "diferencial": 0.26,
               "main_marker": false
             },
             "Regular": {
-              "precio": 21.99,
-              "diferencial": 0.7,
+              "precio": 22.29,
+              "diferencial": 0.4,
               "main_marker": false
             }
           }
@@ -21146,12 +21146,12 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 23.69,
-              "diferencial": 0.86,
+              "precio": 23.99,
+              "diferencial": 0.56,
               "main_marker": false
             },
             "Regular": {
-              "precio": 21.99,
+              "precio": 22.29,
               "main_marker": false
             }
           }
@@ -34036,13 +34036,13 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 23.69,
-              "diferencial": 1.16,
+              "precio": 23.99,
+              "diferencial": 0.86,
               "main_marker": false
             },
             "Regular": {
-              "precio": 21.99,
-              "diferencial": 0.36,
+              "precio": 22.29,
+              "diferencial": 0.06,
               "main_marker": false
             }
           }

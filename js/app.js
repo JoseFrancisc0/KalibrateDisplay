@@ -70,6 +70,7 @@ function setVista(vista) {
     if (tableShell) tableShell.style.display = 'flex';
     if (tabbar) tabbar.style.display = 'flex';
     if (railMatriz) railMatriz.style.display = 'flex';
+    poblarFiltroMarcasMatriz();
   } else if (vista === 'ANALISIS') {
     if (analyticsShell) analyticsShell.style.display = 'flex';
     if (railAnalisis) railAnalisis.style.display = 'flex';
@@ -102,6 +103,38 @@ function actualizarIndicadorModo() {
     modeLabel.innerText = `PRODUCTO: ${(state.alineacionProductoSeleccionado || 'DIESEL').toUpperCase()}`;
   } else if (state.vistaActiva === 'FRENTE') {
     modeLabel.innerText = `RIVAL: ${(state.frenteMarcaRival || 'REPSOL').toUpperCase()}`;
+  }
+}
+
+function poblarFiltroMarcasMatriz() {
+  if (!state.rawData?.estaciones) return;
+  const sel = document.getElementById('sel-matriz-marca');
+  if (!sel) return;
+
+  if (sel.options.length <= 1) {
+    const marcasSet = new Set();
+    state.rawData.estaciones.forEach(e => {
+      const comps = e.actores?.filter(a => a.tipo_actor === 'COMPETENCIA' && !a.es_competidor_propio) || [];
+      comps.forEach(c => {
+        let m = (c.marca || '').trim().toUpperCase();
+        if (m && m !== 'SIN MARCA') {
+          if (m === 'WHITE PRODUCTS' || m === 'WHITE PRODUCT' || m === 'WP') m = 'WP';
+          marcasSet.add(m);
+        }
+      });
+    });
+
+    Array.from(marcasSet).sort().forEach(m => {
+      const opt = document.createElement('option');
+      opt.value = m;
+      opt.textContent = m === 'PRIMAX' ? 'PRIMAX (DEALERS)' : (m === 'WP' ? 'WHITE PRODUCTS' : m);
+      sel.appendChild(opt);
+    });
+  }
+
+  // Sincronizar valor seleccionado con el estado
+  if (state.filtroMarcaMatriz) {
+    sel.value = state.filtroMarcaMatriz;
   }
 }
 
@@ -163,7 +196,7 @@ function poblarFiltrosAnalisis() {
       comps.forEach(c => {
         let m = (c.marca || '').trim().toUpperCase();
         if (m && m !== 'SIN MARCA') {
-          if (m === 'WP' || m === 'WHITE PRODUCTS' || m === 'WHITE PRODUCT') m = 'WP';
+          if (m === 'WHITE PRODUCTS' || m === 'WHITE PRODUCT' || m === 'WP') m = 'WP';
           marcasSet.add(m);
         }
       });
@@ -298,6 +331,12 @@ function cambiarFiltroAlineacionDetalle(filtro) {
   render();
 }
 
+function cambiarFiltroMarcaMatriz() {
+  const sel = document.getElementById('sel-matriz-marca');
+  if (sel) state.filtroMarcaMatriz = sel.value;
+  render();
+}
+
 // 5. Poblado y Filtros de Frente a Frente
 function poblarFiltrosFrente() {
   if (!state.rawData?.estaciones) return;
@@ -312,7 +351,7 @@ function poblarFiltrosFrente() {
       comps.forEach(c => {
         let m = (c.marca || '').trim().toUpperCase();
         if (m && m !== 'SIN MARCA') {
-          if (m === 'WHITE PRODUCTS' || m === 'WHITE PRODUCT') m = 'WP';
+          if (m === 'WHITE PRODUCTS' || m === 'WHITE PRODUCT' || m === 'WP') m = 'WP';
           marcasSet.add(m);
         }
       });
@@ -604,6 +643,7 @@ async function iniciar() {
   try {
     state.rawData = await cargarMatriz();
     state.vistaActiva = 'MATRIZ';
+    state.filtroMarcaMatriz = 'TODAS';
 
     // Estado inicial de Análisis Ponderado
     state.analisisProducto = 'Diesel';
@@ -629,6 +669,7 @@ async function iniciar() {
     state.frenteFiltroDetalle = 'TODOS';
     state.frenteSoloLM = false;
 
+    poblarFiltroMarcasMatriz();
     recalcularCapacidad();
     render();
   } catch (err) {
@@ -669,6 +710,7 @@ Object.assign(window, {
   setVista,
   setModo,
   cambiarFiltroMarker,
+  cambiarFiltroMarcaMatriz,
   toggleGroup,
   filtrarEstaciones,
   onSeleccionarCorredor,

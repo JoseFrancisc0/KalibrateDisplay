@@ -43,3 +43,12 @@ export function cumpleFiltroMarker(comp) {
   }
   return true;
 }
+
+export function cumpleFiltroMarca(comp) {
+  const filtro = state.filtroMarcaMatriz;
+  if (!filtro || filtro === 'TODAS') return true;
+
+  let m = (comp.marca || '').trim().toUpperCase();
+  if (m === 'WHITE PRODUCTS' || m === 'WHITE PRODUCT') m = 'WP';
+  return m === filtro;
+}

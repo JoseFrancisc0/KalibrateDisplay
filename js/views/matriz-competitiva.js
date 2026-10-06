@@ -5,7 +5,7 @@
 import { state } from '../state.js';
 import { COMBUSTIBLES, GRUPOS_MARKER, getBrandLogo, LOGO_GENERICO } from '../config.js';
 import { renderDrop } from '../icons.js';
-import { cumpleFiltroMarker } from '../filters.js';
+import { cumpleFiltroMarker, cumpleFiltroMarca } from '../filters.js';
 import { obtenerEstacionesVisibles } from '../paginacion.js';
 
 function celdasPropio(actorPropio) {
@@ -70,7 +70,7 @@ export function renderFilas(tbody, listaFiltrada, onRecargarVista) {
     if (!actorPropio) return;
 
     const isExpanded = state.expandedGroups.has(est.own_site_id);
-    const visibles   = competidores.filter(cumpleFiltroMarker);
+    const visibles   = competidores.filter(c => cumpleFiltroMarker(c) && cumpleFiltroMarca(c));
 
     /* ---------- FILA PROPIA (Cabecera) ---------- */
     const trParent = document.createElement('tr');

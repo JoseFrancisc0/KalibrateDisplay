@@ -40,6 +40,16 @@ export function railHTML() {
       </div>
 
       <div class="rail-section">
+        <div class="rail-label">Filtro Marca Competidor</div>
+        <div class="select-wrap">
+          <select id="sel-matriz-marca" onchange="window.cambiarFiltroMarcaMatriz()">
+            <option value="TODAS">Todas las marcas</option>
+            <!-- Se puebla dinámicamente con las marcas presentes -->
+          </select>
+        </div>
+      </div>
+
+      <div class="rail-section">
         <div class="rail-label">Simbología Marker</div>
         <div class="rail-legend">
           <div class="legend-item">
