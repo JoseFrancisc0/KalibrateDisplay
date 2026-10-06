@@ -44,7 +44,6 @@ export function railHTML() {
         <div class="select-wrap">
           <select id="sel-matriz-marca" onchange="window.cambiarFiltroMarcaMatriz()">
             <option value="TODAS">Todas las marcas</option>
-            <!-- Se puebla dinámicamente con las marcas presentes -->
           </select>
         </div>
       </div>
@@ -112,7 +111,6 @@ export function railHTML() {
         </div>
       </div>
 
-      <!-- Checklist Desplegable de Marcas (Solo impacta PROMEDIO MARCAS pero persiste) -->
       <div class="rail-section" id="section-filtro-marcas">
         <div class="rail-label">Filtrar Marcas</div>
         <div class="multiselect-wrap">
@@ -154,6 +152,23 @@ export function railHTML() {
     <!-- PANEL 3: ALINEACIÓN COMPETITIVA -->
     <div id="rail-panel-alineacion" class="rail-panel" style="display: none;">
       <div class="rail-section">
+        <div class="rail-label">Marca Competidora</div>
+        <div class="select-wrap">
+          <select id="sel-alineacion-marca" onchange="window.cambiarMarcaAlineacion()">
+            <option value="TODAS">TODAS LAS MARCAS (MERCADO)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="rail-section" id="section-alineacion-criterio" style="opacity: 0.45; pointer-events: none;">
+        <div class="rail-label">Criterio de Rival</div>
+        <div class="btn-group-vertical">
+          <button id="btn-alineacion-cercano" class="active" onclick="window.cambiarCriterioAlineacion('CERCANO')">MÁS CERCANO</button>
+          <button id="btn-alineacion-promedio" onclick="window.cambiarCriterioAlineacion('PROMEDIO')">PROMEDIO DE LA MARCA</button>
+        </div>
+      </div>
+
+      <div class="rail-section">
         <div class="rail-label">Segmentación Geográfica</div>
         <div class="select-stack">
           <div class="select-wrap">
@@ -187,53 +202,8 @@ export function railHTML() {
           </div>
           <div class="legend-item">
             <span style="color: var(--k-lime); font-weight: 700;">Promedio Zona:</span>
-            <span>Media aritmética de competidores directos.</span>
+            <span>Media de competidores directos en el radio.</span>
           </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- PANEL 4: FRENTE A FRENTE -->
-    <div id="rail-panel-frente" class="rail-panel" style="display: none;">
-      <div class="rail-section">
-        <div class="rail-label">Marca Competidora</div>
-        <div class="select-wrap">
-          <select id="sel-frente-marca" onchange="window.cambiarMarcaFrente()">
-            <!-- Poblado dinámicamente -->
-          </select>
-        </div>
-      </div>
-
-      <div class="rail-section">
-        <div class="rail-label">Criterio de Rival</div>
-        <div class="btn-group-vertical">
-          <button id="btn-frente-cercano" class="active" onclick="window.cambiarCriterioFrente('CERCANO')">MÁS CERCANO</button>
-          <button id="btn-frente-promedio" onclick="window.cambiarCriterioFrente('PROMEDIO')">PROMEDIO DE LA MARCA</button>
-        </div>
-      </div>
-
-      <div class="rail-section">
-        <div class="rail-label">Segmentación Geográfica</div>
-        <div class="select-stack">
-          <div class="select-wrap">
-            <select id="sel-frente-corredor" onchange="window.cambiarCorredorFrente()">
-              <option value="TODOS">Todos los corredores</option>
-            </select>
-          </div>
-          <div class="select-wrap">
-            <select id="sel-frente-depto" onchange="window.cambiarDeptoFrente()">
-              <option value="TODOS">Todos los departamentos</option>
-            </select>
-          </div>
-        </div>
-      </div>
-
-      <div class="rail-section">
-        <div class="rail-label">GPC Group</div>
-        <div class="select-wrap">
-          <select id="sel-frente-gpc" onchange="window.cambiarGpcFrente()">
-            <option value="TODOS">Todos los GPC Groups</option>
-          </select>
         </div>
       </div>
     </div>

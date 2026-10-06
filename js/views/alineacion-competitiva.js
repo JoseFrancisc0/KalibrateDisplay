@@ -1,6 +1,7 @@
 /* ==========================================================
    views/alineacion-competitiva.js — Vista "Alineación Competitiva"
    Diagnóstico: EESS propias bajo Local Market y bajo Zona de Influencia.
+   Soporta filtrado general y por marca competidora específica.
    ========================================================== */
 import { state } from '../state.js';
 import { COMBUSTIBLES } from '../config.js';
@@ -11,7 +12,7 @@ export function alineacionHTML() {
       <!-- Cabecera de la vista -->
       <div class="alineacion-header">
         <div>
-          <h2>Alineación Competitiva y Cumplimiento</h2>
+          <h2 id="alineacion-titulo-principal">Alineación Competitiva y Cumplimiento</h2>
           <p id="alineacion-subtitulo">Diagnóstico de estaciones propias bajo Local Market y Zona de Influencia.</p>
         </div>
         <div class="alineacion-legend-mini">
@@ -33,7 +34,7 @@ export function alineacionHTML() {
           <div class="detail-filter-pills">
             <button class="pill-btn active" data-filtro="TODOS" onclick="window.cambiarFiltroAlineacionDetalle('TODOS')">Todas</button>
             <button class="pill-btn" data-filtro="BAJO_LM" onclick="window.cambiarFiltroAlineacionDetalle('BAJO_LM')">Bajo Local Market</button>
-            <button class="pill-btn" data-filtro="BAJO_ZONA" onclick="window.cambiarFiltroAlineacionDetalle('BAJO_ZONA')">Bajo Zona de Influencia</button>
+            <button class="pill-btn" data-filtro="BAJO_ZONA" onclick="window.cambiarFiltroAlineacionDetalle('BAJO_ZONA')">Bajo Zona</button>
             <button class="pill-btn" data-filtro="BAJO_AMBOS" onclick="window.cambiarFiltroAlineacionDetalle('BAJO_AMBOS')">Bajo Ambos</button>
           </div>
         </div>
@@ -42,11 +43,11 @@ export function alineacionHTML() {
           <table class="alineacion-table">
             <thead>
               <tr>
-                <th style="width: 28%;">Estación Propia</th>
+                <th style="width: 26%;">Estación Propia</th>
                 <th style="width: 14%;">Ubicación</th>
                 <th style="width: 10%; text-align: right;">Precio Propio</th>
-                <th style="width: 24%;">Local Market (Main Marker)</th>
-                <th style="width: 24%;">Promedio Zona Influencia</th>
+                <th style="width: 25%;" id="th-lm-col">Local Market (Main Marker)</th>
+                <th style="width: 25%;" id="th-zona-col">Zona de Influencia</th>
               </tr>
             </thead>
             <tbody id="alineacion-table-body">
@@ -63,13 +64,14 @@ export function alineacionHTML() {
  * Procesa todas las estaciones y calcula los diagnósticos
  */
 export function procesarDatosAlineacion(estaciones) {
-  // 1. Filtrado geográfico según el estado actual
   const corrSel = state.alineacionCorredor || 'TODOS';
   const deptoSel = state.alineacionDepartamento || 'TODOS';
   const gpcSel = state.alineacionGpcGroup || 'TODOS';
+  const marcaFiltro = state.alineacionMarcaCompetidora || 'TODAS';
+  const criterioRival = state.alineacionCriterioRival || 'CERCANO';
 
-  const estacionesFiltradas = estaciones.filter(e => {
-    // Excluir inactivas o sin registro propio
+  // 1. Filtrado geográfico base
+  const estacionesFiltradasBase = estaciones.filter(e => {
     const tienePropio = e.actores && e.actores.some(a => a.tipo_actor === 'PROPIO');
     if (!tienePropio || e.gpc_group === 'INACTIVAS') return false;
 
@@ -77,11 +79,9 @@ export function procesarDatosAlineacion(estaciones) {
     const d = (e.departamento && e.departamento.trim()) ? e.departamento.trim().toUpperCase() : 'SIN DEPARTAMENTO';
     const g = (e.gpc_group && e.gpc_group.trim()) ? e.gpc_group.trim().toUpperCase() : 'SIN GPC';
 
-    const matchCorr = (corrSel === 'TODOS' || c === corrSel);
-    const matchDepto = (deptoSel === 'TODOS' || d === deptoSel);
-    const matchGpc = (gpcSel === 'TODOS' || g === gpcSel);
-
-    return matchCorr && matchDepto && matchGpc;
+    return (corrSel === 'TODOS' || c === corrSel) &&
+           (deptoSel === 'TODOS' || d === deptoSel) &&
+           (gpcSel === 'TODOS' || g === gpcSel);
   });
 
   // 2. Diagnóstico por producto
@@ -98,28 +98,53 @@ export function procesarDatosAlineacion(estaciones) {
     };
   });
 
-  estacionesFiltradas.forEach(est => {
+  estacionesFiltradasBase.forEach(est => {
     const propio = est.actores.find(a => a.tipo_actor === 'PROPIO');
     if (!propio || !propio.combustibles) return;
 
-    // Competencia externa de la zona de influencia (excluyendo propias)
-    const competidores = est.actores.filter(a => a.tipo_actor === 'COMPETENCIA' && !a.es_competidor_propio);
+    // Competencia externa total
+    const competidoresTodos = est.actores.filter(a => a.tipo_actor === 'COMPETENCIA' && !a.es_competidor_propio);
+
+    // Competidores evaluados (filtrados por marca si aplica)
+    const competidoresEvaluados = competidoresTodos.filter(a => {
+      if (marcaFiltro === 'TODAS') return true;
+      let m = (a.marca || '').trim().toUpperCase();
+      if (m === 'WHITE PRODUCTS' || m === 'WHITE PRODUCT') m = 'WP';
+      return m === marcaFiltro;
+    });
 
     COMBUSTIBLES.forEach(prod => {
       const fuelPropio = propio.combustibles[prod];
       if (!fuelPropio || !fuelPropio.precio || fuelPropio.precio <= 0) return;
 
       const pPropio = fuelPropio.precio;
+
+      // Si hay filtro de marca, la estación debe tener al menos un competidor de esa marca vendiendo ese producto
+      const rivalesConProd = competidoresEvaluados.filter(c => c.combustibles?.[prod]?.precio > 0);
+      if (marcaFiltro !== 'TODAS' && rivalesConProd.length === 0) return;
+
       const res = resumenPorProd[prod];
       res.totalEESS++;
 
-      // A. Evaluación Local Market (Main Marker para este producto)
-      const lmActor = competidores.find(c => c.combustibles && c.combustibles[prod] && c.combustibles[prod].main_marker);
+      // A. Evaluación Local Market
       let lmData = null;
+      let lmActor = null;
+
+      if (marcaFiltro === 'TODAS') {
+        // En modo general: el Main Marker oficial de cualquier marca
+        lmActor = competidoresTodos.find(c => c.combustibles?.[prod]?.main_marker);
+      } else {
+        // En modo marca:
+        // Prioridad 1: si algún rival de esa marca es Local Market
+        // Prioridad 2: si no lo es, tomar el más cercano de esa marca
+        rivalesConProd.sort((a, b) => (a.distancia_km ?? 99) - (b.distancia_km ?? 99));
+        lmActor = rivalesConProd.find(r => r.combustibles[prod].main_marker) || rivalesConProd[0];
+      }
+
       if (lmActor && lmActor.combustibles[prod].precio > 0) {
         res.conLocalMarket++;
         const pLM = lmActor.combustibles[prod].precio;
-        const diffLM = pPropio - pLM; // < 0 => Propio es menor
+        const diffLM = pPropio - pLM;
         const estaBajoLM = diffLM < -0.001;
         if (estaBajoLM) res.bajoLocalMarket++;
 
@@ -128,25 +153,40 @@ export function procesarDatosAlineacion(estaciones) {
           marca: lmActor.marca,
           precio: pLM,
           diff: diffLM,
-          estaBajo: estaBajoLM
+          estaBajo: estaBajoLM,
+          esOficialLM: !!lmActor.combustibles[prod].main_marker
         };
       }
 
-      // B. Evaluación Promedio Zona de Influencia (Media simple)
-      const compsConProd = competidores.filter(c => c.combustibles && c.combustibles[prod] && c.combustibles[prod].precio > 0);
+      // B. Evaluación Zona de Influencia
       let zonaData = null;
-      if (compsConProd.length > 0) {
+      if (rivalesConProd.length > 0) {
         res.conZona++;
-        const sumaPrecios = compsConProd.reduce((acc, c) => acc + c.combustibles[prod].precio, 0);
-        const promZona = sumaPrecios / compsConProd.length;
-        const diffZona = pPropio - promZona;
+        let refPrecioZona = 0;
+        let etiquetaZona = '';
+
+        if (marcaFiltro !== 'TODAS' && criterioRival === 'CERCANO') {
+          // Criterio Más Cercano
+          rivalesConProd.sort((a, b) => (a.distancia_km ?? 99) - (b.distancia_km ?? 99));
+          const masCercano = rivalesConProd[0];
+          refPrecioZona = masCercano.combustibles[prod].precio;
+          etiquetaZona = `${masCercano.distancia_km ? masCercano.distancia_km.toFixed(1) + ' km' : 'Más cercano'}`;
+        } else {
+          // Promedio simple (general o zonal de la marca)
+          const suma = rivalesConProd.reduce((acc, c) => acc + c.combustibles[prod].precio, 0);
+          refPrecioZona = suma / rivalesConProd.length;
+          etiquetaZona = `${rivalesConProd.length} competidor${rivalesConProd.length === 1 ? '' : 'es'}`;
+        }
+
+        const diffZona = pPropio - refPrecioZona;
         const estaBajoZona = diffZona < -0.001;
         if (estaBajoZona) res.bajoZona++;
 
         zonaData = {
-          promedio: promZona,
+          promedio: refPrecioZona,
           diff: diffZona,
-          conteoCompetidores: compsConProd.length,
+          etiqueta: etiquetaZona,
+          conteoCompetidores: rivalesConProd.length,
           estaBajo: estaBajoZona
         };
       }
@@ -164,7 +204,7 @@ export function procesarDatosAlineacion(estaciones) {
     });
   });
 
-  return { estacionesFiltradas, resumenPorProd };
+  return { estacionesFiltradasBase, resumenPorProd, marcaFiltro, criterioRival };
 }
 
 /**
@@ -174,29 +214,38 @@ export function renderAlineacion(estaciones) {
   const shell = document.getElementById('alineacion-shell');
   if (!shell) return;
 
-  const { estacionesFiltradas, resumenPorProd } = procesarDatosAlineacion(estaciones);
+  const { estacionesFiltradasBase, resumenPorProd, marcaFiltro, criterioRival } = procesarDatosAlineacion(estaciones);
+  const prodActivo = state.alineacionProductoSeleccionado || 'Diesel';
 
   // Subtítulo con contexto
   const subtitulo = document.getElementById('alineacion-subtitulo');
   if (subtitulo) {
     const filtros = [];
+    if (marcaFiltro !== 'TODAS') {
+      const labelM = marcaFiltro === 'WP' ? 'WHITE PRODUCTS' : marcaFiltro;
+      filtros.push(`Marca: ${labelM} (${criterioRival === 'CERCANO' ? 'Más cercano' : 'Promedio'})`);
+    }
     if (state.alineacionCorredor !== 'TODOS') filtros.push(`Corredor: ${state.alineacionCorredor}`);
     if (state.alineacionDepartamento !== 'TODOS') filtros.push(`Depto: ${state.alineacionDepartamento}`);
     if (state.alineacionGpcGroup !== 'TODOS') filtros.push(`GPC: ${state.alineacionGpcGroup}`);
+
     subtitulo.innerText = filtros.length 
-      ? `Filtrado por: ${filtros.join(' · ')} (${estacionesFiltradas.length} estaciones evaluadas)` 
-      : `Red Total: ${estacionesFiltradas.length} estaciones propias evaluadas.`;
+      ? `Filtrado por: ${filtros.join(' · ')}` 
+      : `Red Total: ${estacionesFiltradasBase.length} estaciones propias evaluadas.`;
   }
 
   // 1. Renderizar KPI Cards
   const kpiGrid = document.getElementById('alineacion-kpi-grid');
   if (kpiGrid) {
-    const prodActivo = state.alineacionProductoSeleccionado || 'Diesel';
     kpiGrid.innerHTML = COMBUSTIBLES.map(prod => {
       const d = resumenPorProd[prod];
       const pctLM = d.conLocalMarket > 0 ? Math.round((d.bajoLocalMarket / d.conLocalMarket) * 100) : 0;
       const pctZona = d.conZona > 0 ? Math.round((d.bajoZona / d.conZona) * 100) : 0;
       const isActive = prod === prodActivo;
+
+      const labelZonaKPI = (marcaFiltro === 'TODAS') 
+        ? 'Bajo Prom. Zona' 
+        : (criterioRival === 'CERCANO' ? 'Bajo Rival Cercano' : 'Bajo Prom. Marca');
 
       return `
         <div class="kpi-card ${isActive ? 'active-card' : ''}" onclick="window.seleccionarProductoAlineacion('${prod}')">
@@ -209,7 +258,7 @@ export function renderAlineacion(estaciones) {
           <div class="kpi-metric-row">
             <div class="kpi-metric-label">
               <span>Bajo Local Market</span>
-              <small>vs Competidor Marker</small>
+              <small>${marcaFiltro === 'TODAS' ? 'vs Competidor Marker' : 'vs LM o Referente'}</small>
             </div>
             <div class="kpi-metric-val ${d.bajoLocalMarket > 0 ? 'text-alert' : 'text-ok'}">
               <b>${d.bajoLocalMarket}</b>
@@ -220,8 +269,8 @@ export function renderAlineacion(estaciones) {
           <!-- Métrica 2: Bajo Zona de Influencia -->
           <div class="kpi-metric-row">
             <div class="kpi-metric-label">
-              <span>Bajo Prom. Zona</span>
-              <small>vs Competidores directos</small>
+              <span>${labelZonaKPI}</span>
+              <small>${marcaFiltro === 'TODAS' ? 'vs Competidores directos' : `vs ${marcaFiltro}`}</small>
             </div>
             <div class="kpi-metric-val ${d.bajoZona > 0 ? 'text-alert' : 'text-ok'}">
               <b>${d.bajoZona}</b>
@@ -234,16 +283,24 @@ export function renderAlineacion(estaciones) {
   }
 
   // 2. Renderizar Tabla Drill-down
-  renderDrillDown(resumenPorProd);
+  renderDrillDown(resumenPorProd, marcaFiltro, criterioRival);
 }
 
-function renderDrillDown(resumenPorProd) {
+function renderDrillDown(resumenPorProd, marcaFiltro, criterioRival) {
   const prodActivo = state.alineacionProductoSeleccionado || 'Diesel';
   const filtroTabla = state.alineacionFiltroDetalle || 'TODOS';
   const dataProd = resumenPorProd[prodActivo] || { items: [] };
 
   const titleEl = document.getElementById('drilldown-title');
   if (titleEl) titleEl.innerText = `Detalle de Estaciones: ${prodActivo.toUpperCase()}`;
+
+  // Encabezados dinámicos
+  const thZona = document.getElementById('th-zona-col');
+  if (thZona) {
+    thZona.innerText = (marcaFiltro === 'TODAS') 
+      ? 'Promedio Zona Influencia' 
+      : (criterioRival === 'CERCANO' ? `Rival Más Cercano (${marcaFiltro})` : `Promedio Zona (${marcaFiltro})`);
+  }
 
   // Filtrado de filas de la tabla
   let items = dataProd.items;
@@ -256,7 +313,7 @@ function renderDrillDown(resumenPorProd) {
   }
 
   const counterEl = document.getElementById('drilldown-counter');
-  if (counterEl) counterEl.innerText = `${items.length} de ${dataProd.totalEESS} EESS`;
+  if (counterEl) counterEl.innerText = `${items.length} de ${dataProd.totalEESS} EESS evaluadas`;
 
   // Actualizar botones pills activos
   document.querySelectorAll('.detail-filter-pills .pill-btn').forEach(btn => {
@@ -271,7 +328,7 @@ function renderDrillDown(resumenPorProd) {
     return;
   }
 
-  // Ordenar primero las que están desalineadas (bajo LM o bajo Zona)
+  // Ordenar primero las que están desalineadas
   const itemsOrdenados = [...items].sort((a, b) => {
     const aBajo = (a.localMarket?.estaBajo ? 2 : 0) + (a.zona?.estaBajo ? 1 : 0);
     const bBajo = (b.localMarket?.estaBajo ? 2 : 0) + (b.zona?.estaBajo ? 1 : 0);
@@ -280,15 +337,19 @@ function renderDrillDown(resumenPorProd) {
 
   tbody.innerHTML = itemsOrdenados.map(item => {
     // Local market cell
-    let lmHtml = `<span class="text-muted">Sin Local Market</span>`;
+    let lmHtml = `<span class="text-muted">Sin referencia</span>`;
     if (item.localMarket) {
       const badgeClass = item.localMarket.estaBajo ? 'status-pill alert' : 'status-pill ok';
       const signo = item.localMarket.diff >= 0 ? '+' : '';
+      const tagLM = item.localMarket.esOficialLM ? `<span style="font-size:0.5rem; background:#E0E7FF; color:#2E3192; padding:1px 4px; border-radius:2px; font-weight:700;">LM</span>` : '';
       lmHtml = `
         <div class="cell-bench-wrap">
           <div class="bench-top">
             <span class="bench-name" title="${item.localMarket.nombre}">${item.localMarket.nombre}</span>
-            <span class="${badgeClass}">${item.localMarket.estaBajo ? 'BAJO LM' : 'OK'}</span>
+            <div style="display:flex; gap:3px; align-items:center;">
+              ${tagLM}
+              <span class="${badgeClass}">${item.localMarket.estaBajo ? 'BAJO LM' : 'OK'}</span>
+            </div>
           </div>
           <div class="bench-bot">
             <span>S/ ${item.localMarket.precio.toFixed(2)}</span>
@@ -306,8 +367,8 @@ function renderDrillDown(resumenPorProd) {
       zonaHtml = `
         <div class="cell-bench-wrap">
           <div class="bench-top">
-            <span class="bench-name">${item.zona.conteoCompetidores} competidores</span>
-            <span class="${badgeClass}">${item.zona.estaBajo ? 'BAJO ZONA' : 'OK'}</span>
+            <span class="bench-name">${item.zona.etiqueta}</span>
+            <span class="${badgeClass}">${item.zona.estaBajo ? 'BAJO' : 'OK'}</span>
           </div>
           <div class="bench-bot">
             <span>S/ ${item.zona.promedio.toFixed(2)}</span>

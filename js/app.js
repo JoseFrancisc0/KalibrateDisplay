@@ -16,7 +16,6 @@ import { tabbarHTML }   from './components/tabbar.js';
 import { renderFilas }   from './views/matriz-competitiva.js';
 import { analyticsHTML, renderAnalisis } from './views/analisis-ponderado.js';
 import { alineacionHTML, renderAlineacion } from './views/alineacion-competitiva.js';
-import { frenteAFrenteHTML, renderFrenteAFrente } from './views/frente-a-frente.js';
 
 function montar(selector, html) {
   const nodo = document.querySelector(selector);
@@ -26,7 +25,7 @@ function montar(selector, html) {
 // 1. Montaje estático
 montar('#cmp-nav',    navHTML());
 montar('#cmp-rail',   railHTML());
-montar('#cmp-main',   viewBarHTML() + tableHTML() + analyticsHTML() + alineacionHTML() + frenteAFrenteHTML());
+montar('#cmp-main',   viewBarHTML() + tableHTML() + analyticsHTML() + alineacionHTML());
 montar('#cmp-tabbar', tabbarHTML());
 
 // 2. Control de Vistas
@@ -36,35 +35,29 @@ function setVista(vista) {
   const btnMatriz = document.getElementById('tab-view-matriz');
   const btnAnalisis = document.getElementById('tab-view-analisis');
   const btnAlineacion = document.getElementById('tab-view-alineacion');
-  const btnFrente = document.getElementById('tab-view-frente');
 
   if (btnMatriz) btnMatriz.classList.toggle('active', vista === 'MATRIZ');
   if (btnAnalisis) btnAnalisis.classList.toggle('active', vista === 'ANALISIS');
   if (btnAlineacion) btnAlineacion.classList.toggle('active', vista === 'ALINEACION');
-  if (btnFrente) btnFrente.classList.toggle('active', vista === 'FRENTE');
 
   const tableShell = document.querySelector('.table-shell');
   const analyticsShell = document.getElementById('analytics-shell');
   const alineacionShell = document.getElementById('alineacion-shell');
-  const frenteShell = document.getElementById('frente-shell');
   const tabbar = document.getElementById('cmp-tabbar');
 
   const railMatriz = document.getElementById('rail-panel-matriz');
   const railAnalisis = document.getElementById('rail-panel-analisis');
   const railAlineacion = document.getElementById('rail-panel-alineacion');
-  const railFrente = document.getElementById('rail-panel-frente');
 
   // Apagar todo por defecto
   if (tableShell) tableShell.style.display = 'none';
   if (analyticsShell) analyticsShell.style.display = 'none';
   if (alineacionShell) alineacionShell.style.display = 'none';
-  if (frenteShell) frenteShell.style.display = 'none';
   if (tabbar) tabbar.style.display = 'none';
 
   if (railMatriz) railMatriz.style.display = 'none';
   if (railAnalisis) railAnalisis.style.display = 'none';
   if (railAlineacion) railAlineacion.style.display = 'none';
-  if (railFrente) railFrente.style.display = 'none';
 
   if (vista === 'MATRIZ') {
     if (tableShell) tableShell.style.display = 'flex';
@@ -79,10 +72,6 @@ function setVista(vista) {
     if (alineacionShell) alineacionShell.style.display = 'flex';
     if (railAlineacion) railAlineacion.style.display = 'flex';
     poblarFiltrosAlineacion();
-  } else if (vista === 'FRENTE') {
-    if (frenteShell) frenteShell.style.display = 'flex';
-    if (railFrente) railFrente.style.display = 'flex';
-    poblarFiltrosFrente();
   }
 
   actualizarIndicadorModo();
@@ -101,8 +90,6 @@ function actualizarIndicadorModo() {
     modeLabel.innerText = `PRODUCTO: ${(state.analisisProducto || 'DIESEL').toUpperCase()}`;
   } else if (state.vistaActiva === 'ALINEACION') {
     modeLabel.innerText = `PRODUCTO: ${(state.alineacionProductoSeleccionado || 'DIESEL').toUpperCase()}`;
-  } else if (state.vistaActiva === 'FRENTE') {
-    modeLabel.innerText = `RIVAL: ${(state.frenteMarcaRival || 'REPSOL').toUpperCase()}`;
   }
 }
 
@@ -132,7 +119,6 @@ function poblarFiltroMarcasMatriz() {
     });
   }
 
-  // Sincronizar valor seleccionado con el estado
   if (state.filtroMarcaMatriz) {
     sel.value = state.filtroMarcaMatriz;
   }
@@ -196,7 +182,7 @@ function poblarFiltrosAnalisis() {
       comps.forEach(c => {
         let m = (c.marca || '').trim().toUpperCase();
         if (m && m !== 'SIN MARCA') {
-          if (m === 'WHITE PRODUCTS' || m === 'WHITE PRODUCT' || m === 'WP') m = 'WP';
+          if (m === 'WP' || m === 'WHITE PRODUCTS' || m === 'WHITE PRODUCT') m = 'WP';
           marcasSet.add(m);
         }
       });
@@ -268,6 +254,35 @@ function poblarFiltrosAlineacion() {
   if (!state.rawData?.estaciones) return;
   const estaciones = state.rawData.estaciones;
 
+  // Marca Competidora
+  const selMarca = document.getElementById('sel-alineacion-marca');
+  if (selMarca && selMarca.options.length <= 1) {
+    const marcasSet = new Set();
+    estaciones.forEach(e => {
+      const comps = e.actores?.filter(a => a.tipo_actor === 'COMPETENCIA' && !a.es_competidor_propio) || [];
+      comps.forEach(c => {
+        let m = (c.marca || '').trim().toUpperCase();
+        if (m && m !== 'SIN MARCA') {
+          if (m === 'WHITE PRODUCTS' || m === 'WHITE PRODUCT' || m === 'WP') m = 'WP';
+          marcasSet.add(m);
+        }
+      });
+    });
+
+    Array.from(marcasSet).sort().forEach(m => {
+      const opt = document.createElement('option');
+      opt.value = m;
+      opt.textContent = m === 'PRIMAX' ? 'PRIMAX (DEALERS)' : (m === 'WP' ? 'WHITE PRODUCTS' : m);
+      selMarca.appendChild(opt);
+    });
+  }
+
+  if (selMarca && state.alineacionMarcaCompetidora) {
+    selMarca.value = state.alineacionMarcaCompetidora;
+  }
+  actualizarVisibilidadCriterioAlineacion();
+
+  // Corredores
   const selCorr = document.getElementById('sel-alineacion-corredor');
   if (selCorr && selCorr.options.length <= 1) {
     const setCorr = new Set();
@@ -279,6 +294,7 @@ function poblarFiltrosAlineacion() {
     });
   }
 
+  // Departamentos
   const selDepto = document.getElementById('sel-alineacion-depto');
   if (selDepto && selDepto.options.length <= 1) {
     const setDep = new Set();
@@ -290,6 +306,7 @@ function poblarFiltrosAlineacion() {
     });
   }
 
+  // GPC Groups
   const selGpc = document.getElementById('sel-alineacion-gpc');
   if (selGpc && selGpc.options.length <= 1) {
     const setGpc = new Set();
@@ -300,6 +317,30 @@ function poblarFiltrosAlineacion() {
       selGpc.appendChild(opt);
     });
   }
+}
+
+function actualizarVisibilidadCriterioAlineacion() {
+  const sec = document.getElementById('section-alineacion-criterio');
+  if (!sec) return;
+  const esMarca = state.alineacionMarcaCompetidora && state.alineacionMarcaCompetidora !== 'TODAS';
+  sec.style.opacity = esMarca ? '1' : '0.45';
+  sec.style.pointerEvents = esMarca ? 'auto' : 'none';
+}
+
+function cambiarMarcaAlineacion() {
+  const s = document.getElementById('sel-alineacion-marca');
+  if (s) state.alineacionMarcaCompetidora = s.value;
+  actualizarVisibilidadCriterioAlineacion();
+  render();
+}
+
+function cambiarCriterioAlineacion(criterio) {
+  state.alineacionCriterioRival = criterio;
+  const bCercano = document.getElementById('btn-alineacion-cercano');
+  const bProm = document.getElementById('btn-alineacion-promedio');
+  if (bCercano) bCercano.classList.toggle('active', criterio === 'CERCANO');
+  if (bProm) bProm.classList.toggle('active', criterio === 'PROMEDIO');
+  render();
 }
 
 function cambiarCorredorAlineacion() {
@@ -334,127 +375,6 @@ function cambiarFiltroAlineacionDetalle(filtro) {
 function cambiarFiltroMarcaMatriz() {
   const sel = document.getElementById('sel-matriz-marca');
   if (sel) state.filtroMarcaMatriz = sel.value;
-  render();
-}
-
-// 5. Poblado y Filtros de Frente a Frente
-function poblarFiltrosFrente() {
-  if (!state.rawData?.estaciones) return;
-  const estaciones = state.rawData.estaciones;
-
-  // Marcas disponibles
-  const selMarca = document.getElementById('sel-frente-marca');
-  if (selMarca && selMarca.options.length === 0) {
-    const marcasSet = new Set();
-    estaciones.forEach(e => {
-      const comps = e.actores?.filter(a => a.tipo_actor === 'COMPETENCIA' && !a.es_competidor_propio) || [];
-      comps.forEach(c => {
-        let m = (c.marca || '').trim().toUpperCase();
-        if (m && m !== 'SIN MARCA') {
-          if (m === 'WHITE PRODUCTS' || m === 'WHITE PRODUCT' || m === 'WP') m = 'WP';
-          marcasSet.add(m);
-        }
-      });
-    });
-
-    Array.from(marcasSet).sort().forEach(m => {
-      const opt = document.createElement('option');
-      opt.value = m;
-      opt.textContent = m === 'PRIMAX' ? 'PRIMAX (DEALERS)' : (m === 'WP' ? 'WHITE PRODUCTS' : m);
-      selMarca.appendChild(opt);
-    });
-
-    if (selMarca.querySelector('option[value="REPSOL"]')) {
-      selMarca.value = 'REPSOL';
-      state.frenteMarcaRival = 'REPSOL';
-    } else {
-      state.frenteMarcaRival = selMarca.options[0]?.value || 'REPSOL';
-    }
-  }
-
-  // Corredores
-  const selCorr = document.getElementById('sel-frente-corredor');
-  if (selCorr && selCorr.options.length <= 1) {
-    const setCorr = new Set();
-    estaciones.forEach(e => { if (e.corredor?.trim()) setCorr.add(e.corredor.trim().toUpperCase()); });
-    Array.from(setCorr).sort().forEach(c => {
-      const opt = document.createElement('option');
-      opt.value = c; opt.textContent = c;
-      selCorr.appendChild(opt);
-    });
-  }
-
-  // Departamentos
-  const selDepto = document.getElementById('sel-frente-depto');
-  if (selDepto && selDepto.options.length <= 1) {
-    const setDep = new Set();
-    estaciones.forEach(e => { if (e.departamento?.trim()) setDep.add(e.departamento.trim().toUpperCase()); });
-    Array.from(setDep).sort().forEach(d => {
-      const opt = document.createElement('option');
-      opt.value = d; opt.textContent = d;
-      selDepto.appendChild(opt);
-    });
-  }
-
-  // GPC Groups
-  const selGpc = document.getElementById('sel-frente-gpc');
-  if (selGpc && selGpc.options.length <= 1) {
-    const setGpc = new Set();
-    estaciones.forEach(e => { if (e.gpc_group?.trim()) setGpc.add(e.gpc_group.trim().toUpperCase()); });
-    Array.from(setGpc).sort().forEach(g => {
-      const opt = document.createElement('option');
-      opt.value = g; opt.textContent = g;
-      selGpc.appendChild(opt);
-    });
-  }
-}
-
-function cambiarMarcaFrente() {
-  const sel = document.getElementById('sel-frente-marca');
-  if (sel) state.frenteMarcaRival = sel.value;
-  actualizarIndicadorModo();
-  render();
-}
-
-function cambiarCriterioFrente(criterio) {
-  state.frenteCriterioComp = criterio;
-  const bCercano = document.getElementById('btn-frente-cercano');
-  const bProm = document.getElementById('btn-frente-promedio');
-  if (bCercano) bCercano.classList.toggle('active', criterio === 'CERCANO');
-  if (bProm) bProm.classList.toggle('active', criterio === 'PROMEDIO');
-  render();
-}
-
-function cambiarCorredorFrente() {
-  const s = document.getElementById('sel-frente-corredor');
-  if (s) state.frenteCorredor = s.value;
-  render();
-}
-
-function cambiarDeptoFrente() {
-  const s = document.getElementById('sel-frente-depto');
-  if (s) state.frenteDepartamento = s.value;
-  render();
-}
-
-function cambiarGpcFrente() {
-  const s = document.getElementById('sel-frente-gpc');
-  if (s) state.frenteGpcGroup = s.value;
-  render();
-}
-
-function seleccionarProductoFrente(prod) {
-  state.frenteProductoSeleccionado = prod;
-  render();
-}
-
-function cambiarFiltroFrenteDetalle(filtro) {
-  state.frenteFiltroDetalle = filtro;
-  render();
-}
-
-function toggleFrenteSoloLM(checked) {
-  state.frenteSoloLM = checked;
   render();
 }
 
@@ -512,7 +432,7 @@ function cambiarModoAnalisis(modo) {
   render();
 }
 
-// 6. Controles de Matriz Competitiva
+// 5. Controles de Matriz Competitiva
 function setModo(modo) {
   state.modoActual = modo;
   const btnPrecios = document.getElementById('btn-precios');
@@ -589,7 +509,7 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') cerrarDropupAgrupacion();
 });
 
-// 7. Render
+// 6. Render
 function render() {
   if (!state.rawData || !state.rawData.estaciones) return;
 
@@ -614,11 +534,6 @@ function render() {
     return;
   }
 
-  if (state.vistaActiva === 'FRENTE') {
-    renderFrenteAFrente(state.rawData.estaciones);
-    return;
-  }
-
   // Matriz Competitiva
   construirTabs(lista, onSeleccionarCorredor);
 
@@ -638,7 +553,7 @@ function render() {
   }
 }
 
-// 8. Arranque
+// 7. Arranque
 async function iniciar() {
   try {
     state.rawData = await cargarMatriz();
@@ -653,21 +568,13 @@ async function iniciar() {
     state.analisisGpcGroup = 'TODOS';
 
     // Estado inicial de Alineación Competitiva
+    state.alineacionMarcaCompetidora = 'TODAS';
+    state.alineacionCriterioRival = 'CERCANO';
     state.alineacionProductoSeleccionado = 'Diesel';
     state.alineacionCorredor = 'TODOS';
     state.alineacionDepartamento = 'TODOS';
     state.alineacionGpcGroup = 'TODOS';
     state.alineacionFiltroDetalle = 'TODOS';
-
-    // Estado inicial de Frente a Frente
-    state.frenteMarcaRival = 'REPSOL';
-    state.frenteCriterioComp = 'CERCANO';
-    state.frenteProductoSeleccionado = 'Diesel';
-    state.frenteCorredor = 'TODOS';
-    state.frenteDepartamento = 'TODOS';
-    state.frenteGpcGroup = 'TODOS';
-    state.frenteFiltroDetalle = 'TODOS';
-    state.frenteSoloLM = false;
 
     poblarFiltroMarcasMatriz();
     recalcularCapacidad();
@@ -724,19 +631,13 @@ Object.assign(window, {
   toggleDropdownMarcas,
   marcarTodasMarcas,
   onToggleMarcaCheck,
+  cambiarMarcaAlineacion,
+  cambiarCriterioAlineacion,
   cambiarCorredorAlineacion,
   cambiarDeptoAlineacion,
   cambiarGpcAlineacion,
   seleccionarProductoAlineacion,
   cambiarFiltroAlineacionDetalle,
-  cambiarMarcaFrente,
-  cambiarCriterioFrente,
-  cambiarCorredorFrente,
-  cambiarDeptoFrente,
-  cambiarGpcFrente,
-  seleccionarProductoFrente,
-  cambiarFiltroFrenteDetalle,
-  toggleFrenteSoloLM,
   render
 });
 

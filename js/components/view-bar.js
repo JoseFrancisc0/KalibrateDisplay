@@ -10,7 +10,6 @@ export function viewBarHTML() {
         <button id="tab-view-matriz" class="view-tab active" onclick="window.setVista('MATRIZ')">Matriz Competitiva</button>
         <button id="tab-view-analisis" class="view-tab" onclick="window.setVista('ANALISIS')">Análisis Ponderado</button>
         <button id="tab-view-alineacion" class="view-tab" onclick="window.setVista('ALINEACION')">Alineación Competitiva</button>
-        <button id="tab-view-frente" class="view-tab" onclick="window.setVista('FRENTE')">Frente a Frente</button>
       </div>
       <div class="view-spacer"></div>
       <div id="view-mode" class="view-mode">Métrica activa: Precios</div>

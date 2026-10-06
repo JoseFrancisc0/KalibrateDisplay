@@ -7,7 +7,7 @@ export const state = {
   rawData: null,
 
   // controles
-  vistaActiva: 'MATRIZ',       // 'MATRIZ' | 'ANALISIS'
+  vistaActiva: 'MATRIZ',       // 'MATRIZ' | 'ANALISIS' | 'ALINEACION'
   analisisProducto: 'Diesel',  // 'Diesel' | 'Regular' | 'Premium' | 'GNV' | 'GLP'
   analisisModo: 'COMPETENCIA', // 'COESTI' | 'COMPETENCIA' | 'MARCA'
   
@@ -20,7 +20,7 @@ export const state = {
 
   modoActual: 'PRECIOS',       // 'PRECIOS' | 'DIFERENCIAL'
   filtroMarker: 'TODOS',       // TODOS | CUALQUIERA | UNLEADED | DIESEL | GLP | GNV
-  filtroMarcaMatriz: 'TODAS', // 'TODAS' | 'REPSOL' | 'PETROPERU' | 'WP' | ...
+  filtroMarcaMatriz: 'TODAS',  // 'TODAS' | 'REPSOL' | 'PETROPERU' | 'WP' | ...
   expandedGroups: new Set(),
 
   // paginación y estructura de las pestañas inferiores
@@ -34,19 +34,11 @@ export const state = {
   scrollTarget: null,
 
   // Filtros de la vista Alineación Competitiva
+  alineacionMarcaCompetidora: 'TODAS', // 'TODAS' | 'REPSOL' | 'PETROPERU' | 'WP' | ...
+  alineacionCriterioRival: 'CERCANO',  // 'CERCANO' | 'PROMEDIO'
   alineacionProductoSeleccionado: 'Diesel',
   alineacionCorredor: 'TODOS',
   alineacionDepartamento: 'TODOS',
   alineacionGpcGroup: 'TODOS',
-  alineacionFiltroDetalle: 'TODOS', // 'TODOS' | 'BAJO_LM' | 'BAJO_ZONA' | 'BAJO_AMBOS'
-
-  // Filtros de la vista Frente a Frente
-  frenteMarcaRival: 'REPSOL',
-  frenteCriterioComp: 'CERCANO', // 'CERCANO' | 'PROMEDIO'
-  frenteProductoSeleccionado: 'Diesel',
-  frenteCorredor: 'TODOS',
-  frenteDepartamento: 'TODOS',
-  frenteGpcGroup: 'TODOS',
-  frenteFiltroDetalle: 'TODOS', // 'TODOS' | 'MAS_CAROS' | 'A_LA_PAR' | 'MAS_BARATOS'
-  frenteSoloLM: false,
+  alineacionFiltroDetalle: 'TODOS',    // 'TODOS' | 'BAJO_LM' | 'BAJO_ZONA' | 'BAJO_AMBOS'
 };
