@@ -9,24 +9,32 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Base: el orden importa (tokens → reset → armazón → componentes) -->
-  <link rel="stylesheet" href="./css/tokens.css">
-  <link rel="stylesheet" href="./css/base.css">
-  <link rel="stylesheet" href="./css/layout.css">
+  <!-- El orden importa (tokens → reset → armazón → layout → compartidos → vistas) -->
 
-  <!-- Componentes -->
-  <link rel="stylesheet" href="./css/components/nav.css">
-  <link rel="stylesheet" href="./css/components/rail.css">
-  <link rel="stylesheet" href="./css/components/markers.css">
-  <link rel="stylesheet" href="./css/components/view-bar.css">
-  <link rel="stylesheet" href="./css/components/table.css">
-  <link rel="stylesheet" href="./css/components/tabbar.css">
-  <link rel="stylesheet" href="css/components/analytics.css">
-  <link rel="stylesheet" href="css/components/alineacion.css">
+  <!-- Base -->
+  <link rel="stylesheet" href="./css/base/tokens.css">
+  <link rel="stylesheet" href="./css/base/base.css">
+  <link rel="stylesheet" href="./css/base/layout.css">
+
+  <!-- Layout (piezas fijas de la pantalla) -->
+  <link rel="stylesheet" href="./css/layout/nav.css">
+  <link rel="stylesheet" href="./css/layout/rail.css">
+
+  <!-- Compartidos -->
+  <link rel="stylesheet" href="./css/shared/markers.css">
+
+  <!-- Layout (continuación) -->
+  <link rel="stylesheet" href="./css/layout/view-bar.css">
+
+  <!-- Vistas -->
+  <link rel="stylesheet" href="./css/views/matriz/table.css">
+  <link rel="stylesheet" href="./css/views/matriz/tabbar.css">
+  <link rel="stylesheet" href="./css/views/analisis.css">
+  <link rel="stylesheet" href="./css/views/alineacion.css">
 </head>
 <body>
 
-  <!-- Armazón. Cada contenedor lo rellena su componente desde js/app.js -->
+  <!-- Armazón. Cada contenedor lo rellena js/main.js -->
 
   <div class="nav" id="cmp-nav"></div>
 
@@ -37,6 +45,6 @@
 
   <nav class="tabbar" id="cmp-tabbar"></nav>
 
-  <script type="module" src="./js/app.js"></script>
+  <script type="module" src="./js/main.js"></script>
 </body>
 </html>
