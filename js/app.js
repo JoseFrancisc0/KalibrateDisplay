@@ -3,7 +3,7 @@
    ========================================================== */
 
 import { state } from './state.js';
-import { cargarMatriz } from './data.js';
+import { cargarMatriz, cargarHistoricoMarcas } from './data.js';
 import { estacionesFiltradas } from './filters.js';
 import { recalcularCapacidad, construirTabs } from './paginacion.js';
 
@@ -16,6 +16,7 @@ import { tabbarHTML }   from './components/tabbar.js';
 import { renderFilas }   from './views/matriz-competitiva.js';
 import { analyticsHTML, renderAnalisis } from './views/analisis-ponderado.js';
 import { alineacionHTML, renderAlineacion } from './views/alineacion-competitiva.js';
+import { variacionHTML, renderVariacionHistorica } from './views/variacion-historica.js';
 
 function montar(selector, html) {
   const nodo = document.querySelector(selector);
@@ -25,39 +26,45 @@ function montar(selector, html) {
 // 1. Montaje estático
 montar('#cmp-nav',    navHTML());
 montar('#cmp-rail',   railHTML());
-montar('#cmp-main',   viewBarHTML() + tableHTML() + analyticsHTML() + alineacionHTML());
+montar('#cmp-main',   viewBarHTML() + tableHTML() + analyticsHTML() + alineacionHTML() + variacionHTML());
 montar('#cmp-tabbar', tabbarHTML());
 
 // 2. Control de Vistas
-function setVista(vista) {
+async function setVista(vista) {
   state.vistaActiva = vista;
 
-  const btnMatriz = document.getElementById('tab-view-matriz');
-  const btnAnalisis = document.getElementById('tab-view-analisis');
+  const btnMatriz     = document.getElementById('tab-view-matriz');
+  const btnAnalisis   = document.getElementById('tab-view-analisis');
   const btnAlineacion = document.getElementById('tab-view-alineacion');
+  const btnVariacion  = document.getElementById('tab-view-variacion');
 
   if (btnMatriz) btnMatriz.classList.toggle('active', vista === 'MATRIZ');
   if (btnAnalisis) btnAnalisis.classList.toggle('active', vista === 'ANALISIS');
   if (btnAlineacion) btnAlineacion.classList.toggle('active', vista === 'ALINEACION');
+  if (btnVariacion) btnVariacion.classList.toggle('active', vista === 'VARIACION');
 
-  const tableShell = document.querySelector('.table-shell');
-  const analyticsShell = document.getElementById('analytics-shell');
+  const tableShell      = document.querySelector('.table-shell');
+  const analyticsShell  = document.getElementById('analytics-shell');
   const alineacionShell = document.getElementById('alineacion-shell');
-  const tabbar = document.getElementById('cmp-tabbar');
+  const variacionShell  = document.getElementById('variacion-shell');
+  const tabbar          = document.getElementById('cmp-tabbar');
 
-  const railMatriz = document.getElementById('rail-panel-matriz');
-  const railAnalisis = document.getElementById('rail-panel-analisis');
+  const railMatriz     = document.getElementById('rail-panel-matriz');
+  const railAnalisis   = document.getElementById('rail-panel-analisis');
   const railAlineacion = document.getElementById('rail-panel-alineacion');
+  const railVariacion  = document.getElementById('rail-panel-variacion');
 
   // Apagar todo por defecto
   if (tableShell) tableShell.style.display = 'none';
   if (analyticsShell) analyticsShell.style.display = 'none';
   if (alineacionShell) alineacionShell.style.display = 'none';
+  if (variacionShell) variacionShell.style.display = 'none';
   if (tabbar) tabbar.style.display = 'none';
 
   if (railMatriz) railMatriz.style.display = 'none';
   if (railAnalisis) railAnalisis.style.display = 'none';
   if (railAlineacion) railAlineacion.style.display = 'none';
+  if (railVariacion) railVariacion.style.display = 'none';
 
   if (vista === 'MATRIZ') {
     if (tableShell) tableShell.style.display = 'flex';
@@ -72,6 +79,20 @@ function setVista(vista) {
     if (alineacionShell) alineacionShell.style.display = 'flex';
     if (railAlineacion) railAlineacion.style.display = 'flex';
     poblarFiltrosAlineacion();
+  } else if (vista === 'VARIACION') {
+    if (variacionShell) variacionShell.style.display = 'block';
+    if (railVariacion) railVariacion.style.display = 'flex';
+
+    // Lazy loading del histórico global si aún no está en memoria
+    if (!state.historicoMarcasData && !state.cargandoHistorico) {
+      state.cargandoHistorico = true;
+      render();
+      state.historicoMarcasData = await cargarHistoricoMarcas();
+      state.cargandoHistorico = false;
+    }
+
+    poblarFiltrosVariacion();
+    sincronizarInputsFechaVariacion();
   }
 
   actualizarIndicadorModo();
@@ -90,6 +111,8 @@ function actualizarIndicadorModo() {
     modeLabel.innerText = `PRODUCTO: ${(state.analisisProducto || 'DIESEL').toUpperCase()}`;
   } else if (state.vistaActiva === 'ALINEACION') {
     modeLabel.innerText = `PRODUCTO: ${(state.alineacionProductoSeleccionado || 'DIESEL').toUpperCase()}`;
+  } else if (state.vistaActiva === 'VARIACION') {
+    modeLabel.innerText = `PRODUCTO: ${(state.variacionProducto || 'DIESEL').toUpperCase()} (VARIACIÓN)`;
   }
 }
 
@@ -378,16 +401,175 @@ function cambiarFiltroMarcaMatriz() {
   render();
 }
 
-// Cerrar el popup de marcas al hacer click fuera
-document.addEventListener('click', (e) => {
-  const wrap = document.getElementById('section-filtro-marcas');
-  const drop = document.getElementById('dropdown-marcas-content');
-  if (wrap && drop && !wrap.contains(e.target)) {
-    drop.style.display = 'none';
+// 5. Poblado y Gestión de Filtros de Variación Histórica
+function poblarFiltrosVariacion() {
+  if (!state.rawData?.estaciones) return;
+  const estaciones = state.rawData.estaciones;
+
+  // Corredores
+  const selCorr = document.getElementById('sel-var-corredor');
+  if (selCorr && selCorr.options.length <= 1) {
+    const setCorr = new Set();
+    estaciones.forEach(e => { if (e.corredor?.trim()) setCorr.add(e.corredor.trim().toUpperCase()); });
+    Array.from(setCorr).sort().forEach(c => {
+      const opt = document.createElement('option');
+      opt.value = c; opt.textContent = c;
+      selCorr.appendChild(opt);
+    });
   }
+
+  // Departamentos
+  const selDepto = document.getElementById('sel-var-depto');
+  if (selDepto && selDepto.options.length <= 1) {
+    const setDep = new Set();
+    estaciones.forEach(e => { if (e.departamento?.trim()) setDep.add(e.departamento.trim().toUpperCase()); });
+    Array.from(setDep).sort().forEach(d => {
+      const opt = document.createElement('option');
+      opt.value = d; opt.textContent = d;
+      selDepto.appendChild(opt);
+    });
+  }
+
+  // GPC Groups
+  const selGpc = document.getElementById('sel-var-gpc');
+  if (selGpc && selGpc.options.length <= 1) {
+    const setGpc = new Set();
+    estaciones.forEach(e => { if (e.gpc_group?.trim()) setGpc.add(e.gpc_group.trim().toUpperCase()); });
+    Array.from(setGpc).sort().forEach(g => {
+      const opt = document.createElement('option');
+      opt.value = g; opt.textContent = g;
+      selGpc.appendChild(opt);
+    });
+  }
+
+  // Producto activo
+  const selProd = document.getElementById('sel-var-prod');
+  if (selProd) selProd.value = state.variacionProducto || 'Diesel';
+
+  construirChecklistVarMarcasDOM();
+}
+
+function sincronizarInputsFechaVariacion() {
+  const inF1 = document.getElementById('txt-var-f1');
+  const inF2 = document.getElementById('txt-var-f2');
+  if (inF1) inF1.value = state.variacionFechaInicio;
+  if (inF2) inF2.value = state.variacionFechaFin;
+}
+
+function construirChecklistVarMarcasDOM() {
+  const container = document.getElementById('checklist-var-marcas-items');
+  if (!container || !state.variacionMarcasDisponibles) return;
+
+  container.innerHTML = '';
+  state.variacionMarcasDisponibles.forEach(marca => {
+    const isChecked = state.variacionMarcasSeleccionadas ? state.variacionMarcasSeleccionadas.has(marca) : true;
+    const labelDisplay = (marca === 'PRIMAX') ? 'COESTI (PRIMAX)' : (marca === 'WP' ? 'WHITE PRODUCTS' : marca);
+
+    const row = document.createElement('label');
+    row.className = 'multiselect-item';
+    row.innerHTML = `
+      <input type="checkbox" value="${marca}" ${isChecked ? 'checked' : ''} onchange="onToggleVarMarcaCheck('${marca}', this.checked)">
+      <span>${labelDisplay}</span>
+    `;
+    container.appendChild(row);
+  });
+}
+
+function toggleDropdownVarMarcas() {
+  const drop = document.getElementById('dropdown-var-marcas-content');
+  if (drop) {
+    drop.style.display = (drop.style.display === 'none' || !drop.style.display) ? 'block' : 'none';
+  }
+}
+
+function marcarTodasVarMarcas(marcar) {
+  if (marcar) {
+    state.variacionMarcasSeleccionadas = new Set(state.variacionMarcasDisponibles);
+  } else {
+    state.variacionMarcasSeleccionadas = new Set();
+  }
+  construirChecklistVarMarcasDOM();
+  render();
+}
+
+function onToggleVarMarcaCheck(marca, isChecked) {
+  if (!state.variacionMarcasSeleccionadas) {
+    state.variacionMarcasSeleccionadas = new Set(state.variacionMarcasDisponibles);
+  }
+  if (isChecked) {
+    state.variacionMarcasSeleccionadas.add(marca);
+  } else {
+    state.variacionMarcasSeleccionadas.delete(marca);
+  }
+  render();
+}
+
+function cambiarFechaF1(val) {
+  if (!val) return;
+  state.variacionFechaInicio = val;
+  render();
+}
+
+function cambiarFechaF2(val) {
+  if (!val) return;
+  state.variacionFechaFin = val;
+  render();
+}
+
+function setPresetRangoFechas(preset) {
+  if (preset === 'AGOSTO') {
+    state.variacionFechaInicio = '2026-08-01';
+    state.variacionFechaFin = '2026-08-31';
+  } else if (preset === 'SETIEMBRE') {
+    state.variacionFechaInicio = '2026-09-01';
+    state.variacionFechaFin = '2026-09-30';
+  } else if (preset === 'ULT30') {
+    const hoy = new Date('2026-10-06');
+    const hace30 = new Date(hoy);
+    hace30.setDate(hoy.getDate() - 30);
+    state.variacionFechaInicio = hace30.toISOString().slice(0, 10);
+    state.variacionFechaFin = hoy.toISOString().slice(0, 10);
+  }
+  sincronizarInputsFechaVariacion();
+  render();
+}
+
+function cambiarProductoVariacion() {
+  const s = document.getElementById('sel-var-prod');
+  if (s) state.variacionProducto = s.value;
+  actualizarIndicadorModo();
+  render();
+}
+
+function cambiarCorredorVariacion() {
+  const s = document.getElementById('sel-var-corredor');
+  if (s) state.variacionCorredor = s.value;
+  render();
+}
+
+function cambiarDeptoVariacion() {
+  const s = document.getElementById('sel-var-depto');
+  if (s) state.variacionDepartamento = s.value;
+  render();
+}
+
+function cambiarGpcVariacion() {
+  const s = document.getElementById('sel-var-gpc');
+  if (s) state.variacionGpcGroup = s.value;
+  render();
+}
+
+// Cerrar los popups multiselect al hacer click fuera
+document.addEventListener('click', (e) => {
+  const wrapA = document.getElementById('section-filtro-marcas');
+  const dropA = document.getElementById('dropdown-marcas-content');
+  if (wrapA && dropA && !wrapA.contains(e.target)) dropA.style.display = 'none';
+
+  const wrapV = document.getElementById('section-var-marcas');
+  const dropV = document.getElementById('dropdown-var-marcas-content');
+  if (wrapV && dropV && !wrapV.contains(e.target)) dropV.style.display = 'none';
 });
 
-// Handlers de Selectores de Análisis Ponderado
 function cambiarProductoAnalisis() {
   const sel = document.getElementById('sel-analisis-prod');
   if (sel) state.analisisProducto = sel.value;
@@ -432,7 +614,7 @@ function cambiarModoAnalisis(modo) {
   render();
 }
 
-// 5. Controles de Matriz Competitiva
+// 6. Controles de Matriz Competitiva
 function setModo(modo) {
   state.modoActual = modo;
   const btnPrecios = document.getElementById('btn-precios');
@@ -509,7 +691,7 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') cerrarDropupAgrupacion();
 });
 
-// 6. Render
+// 7. Render
 function render() {
   if (!state.rawData || !state.rawData.estaciones) return;
 
@@ -534,6 +716,11 @@ function render() {
     return;
   }
 
+  if (state.vistaActiva === 'VARIACION') {
+    renderVariacionHistorica();
+    return;
+  }
+
   // Matriz Competitiva
   construirTabs(lista, onSeleccionarCorredor);
 
@@ -553,7 +740,7 @@ function render() {
   }
 }
 
-// 7. Arranque
+// 8. Arranque
 async function iniciar() {
   try {
     state.rawData = await cargarMatriz();
@@ -575,6 +762,14 @@ async function iniciar() {
     state.alineacionDepartamento = 'TODOS';
     state.alineacionGpcGroup = 'TODOS';
     state.alineacionFiltroDetalle = 'TODOS';
+
+    // Estado inicial de Variación Histórica
+    state.variacionProducto = 'Diesel';
+    state.variacionFechaInicio = '2026-08-01';
+    state.variacionFechaFin = '2026-10-01';
+    state.variacionCorredor = 'TODOS';
+    state.variacionDepartamento = 'TODOS';
+    state.variacionGpcGroup = 'TODOS';
 
     poblarFiltroMarcasMatriz();
     recalcularCapacidad();
@@ -638,6 +833,17 @@ Object.assign(window, {
   cambiarGpcAlineacion,
   seleccionarProductoAlineacion,
   cambiarFiltroAlineacionDetalle,
+  // Controladores globales de Variación Histórica
+  cambiarFechaF1,
+  cambiarFechaF2,
+  setPresetRangoFechas,
+  cambiarProductoVariacion,
+  cambiarCorredorVariacion,
+  cambiarDeptoVariacion,
+  cambiarGpcVariacion,
+  toggleDropdownVarMarcas,
+  marcarTodasVarMarcas,
+  onToggleVarMarcaCheck,
   render
 });
 

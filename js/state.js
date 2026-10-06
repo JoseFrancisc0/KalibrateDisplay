@@ -5,6 +5,8 @@
 export const state = {
   // datos
   rawData: null,
+  historicoMarcasData: null,
+  cargandoHistorico: false,
 
   // controles
   vistaActiva: 'MATRIZ',       // 'MATRIZ' | 'ANALISIS' | 'ALINEACION'
@@ -41,4 +43,14 @@ export const state = {
   alineacionDepartamento: 'TODOS',
   alineacionGpcGroup: 'TODOS',
   alineacionFiltroDetalle: 'TODOS',    // 'TODOS' | 'BAJO_LM' | 'BAJO_ZONA' | 'BAJO_AMBOS'
+
+  // Filtros de la vista Variación Histórica
+  variacionProducto: 'Diesel',        // 'Diesel' | 'Regular' | 'Premium' | 'GNV' | 'GLP'
+  variacionFechaInicio: '2026-08-01', // f1 por defecto (inicio de agosto)
+  variacionFechaFin: '2026-10-01',    // f2 por defecto
+  variacionCorredor: 'TODOS',
+  variacionDepartamento: 'TODOS',
+  variacionGpcGroup: 'TODOS',
+  variacionMarcasDisponibles: [],     // Lista de marcas en el historico
+  variacionMarcasSeleccionadas: null, // Set de marcas activas (null = todas)
 };

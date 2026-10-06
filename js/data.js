@@ -36,3 +36,16 @@ export async function cargarDetalleEstacion(ownSiteId) {
   cacheDetalleEstaciones.set(ownSiteId, data);
   return data;
 }
+
+export async function cargarHistoricoMarcas() {
+  try {
+    const resp = await fetch('./data/historico_marcas.json');
+    if (!resp.ok) {
+      throw new Error(`Error cargando historico_marcas.json: ${resp.status}`);
+    }
+    return await resp.json();
+  } catch (err) {
+    console.error("No se pudo cargar el archivo historico_marcas.json:", err);
+    return null;
+  }
+}
