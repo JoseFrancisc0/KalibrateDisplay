@@ -6,6 +6,8 @@ export const variacionState = {
   // datos (historico_marcas.json se descarga al entrar por primera vez)
   historicoMarcasData: null,
   cargandoHistorico: false,
+  seriesLM: null,              // series de competidoras Local Market (se descargan al activar el modo)
+  cargandoLM: false,
 
   // filtros
   alcance: 'AREA',             // 'AREA' (área de influencia) | 'LM' (solo competidoras Local Market)

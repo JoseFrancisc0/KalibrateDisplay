@@ -4,7 +4,7 @@
    ========================================================== */
 import { getBrandLogo, LOGO_GENERICO } from '../../config/marcas.js';
 import { variacionState } from './state.js';
-import { procesarVariacionHistorica, historicoTieneLM } from './calculo.js';
+import { procesarVariacionHistorica } from './calculo.js';
 
 // Alto del área de barras (px)
 const ALTO_GRAFICO = 240;
@@ -91,9 +91,8 @@ export function renderVariacionHistorica() {
     subtitulo.innerText = `Evaluando ${variacionState.producto.toUpperCase()} ${filtros.length ? '· ' + filtros.join(' · ') : '· Red Nacional'}${alcance}`;
   }
 
-  if (variacionState.alcance === 'LM' && !historicoTieneLM()) {
-    if (chartBox) chartBox.innerHTML = `<div class="empty-state">El histórico cargado no identifica a las competidoras Local Market (falta el campo <b>lm</b> en historico_marcas.json).</div>`;
-    if (badgeConteo) badgeConteo.innerText = '0 EESS Activas';
+  if (variacionState.alcance === 'LM' && variacionState.cargandoLM) {
+    if (chartBox) chartBox.innerHTML = `<div class="empty-state">Descargando históricos de competidoras Local Market... <span id="var-lm-progreso"></span></div>`;
     return;
   }
 

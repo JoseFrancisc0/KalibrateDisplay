@@ -9,6 +9,7 @@ import { cargarHistoricoMarcas } from '../../core/data.js';
 import { valorDe, activar, alternarDesplegable, cerrarAlClicFuera } from '../../shared/dom.js';
 import { poblarSelectsSegmentacion } from '../../shared/segmentacion.js';
 import { variacionState } from './state.js';
+import { cargarSeriesLM } from './localMarket.js';
 
 /* ---------- Entrada a la vista ---------- */
 
@@ -94,11 +95,23 @@ export const acciones = {
     render();
   },
 
-  cambiarAlcanceVariacion(el) {
+  async cambiarAlcanceVariacion(el) {
     const alcance = el.dataset.arg;
     variacionState.alcance = alcance;
     activar('btn-var-area', alcance === 'AREA');
     activar('btn-var-lm', alcance === 'LM');
+
+    // Primera vez en Local Market: descargar las series de las competidoras LM
+    if (alcance === 'LM' && !variacionState.seriesLM && !variacionState.cargandoLM) {
+      variacionState.cargandoLM = true;
+      render();
+      variacionState.seriesLM = await cargarSeriesLM((hechos, total) => {
+        const prog = document.getElementById('var-lm-progreso');
+        if (prog) prog.innerText = `${hechos} / ${total}`;
+      });
+      variacionState.cargandoLM = false;
+    }
+
     render();
     // La lista de marcas cambia según el alcance: refrescar el checklist
     construirChecklistMarcasDOM();

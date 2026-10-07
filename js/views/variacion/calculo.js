@@ -6,19 +6,14 @@
 
    Alcance de estaciones competidoras (variacionState.alcance):
      'AREA' → todas las competidoras del área de influencia
-     'LM'   → solo las competidoras Local Market (main marker)
-              del producto; requiere el campo `lm` en
-              historico_marcas.json. COESTI siempre entra completo.
+              (historico_marcas.json)
+     'LM'   → solo las competidoras Local Market del producto
+              (ver localMarket.js). COESTI entra completo en ambos.
    ========================================================== */
 import { variacionState } from './state.js';
+import { preciosLocalMarket } from './localMarket.js';
 
 export const MARCA_PROPIA = 'COESTI';
-
-/** ¿El histórico cargado trae la marca Local Market (`lm`) por registro? */
-export function historicoTieneLM() {
-  const datos = variacionState.historicoMarcasData?.datos;
-  return !!(datos && datos.some(item => 'lm' in item));
-}
 
 function redondear2(v) {
   return Math.round(v * 100) / 100;
@@ -76,10 +71,17 @@ export function procesarVariacionHistorica() {
       if (m === 'PRIMAX') m = MARCA_PROPIA;
       return { ...item, m_std: m };
     })
-    // Modo Local Market: COESTI completo + solo competidoras marcadas como LM
-    .filter(item => !soloLM || item.m_std === MARCA_PROPIA || item.lm === true);
+    // Modo Local Market: del histórico solo se toma COESTI; la competencia sale de localMarket.js
+    .filter(item => !soloLM || item.m_std === MARCA_PROPIA);
 
-  const marcasSet = new Set(observacionesNormalizadas.map(o => o.m_std));
+  const preciosLM = soloLM
+    ? preciosLocalMarket(prodSel, { corredor: corrSel, departamento: deptoSel, gpc: gpcSel }, f1, f2)
+    : {};
+
+  const marcasSet = new Set([
+    ...observacionesNormalizadas.map(o => o.m_std),
+    ...Object.keys(preciosLM)
+  ]);
   variacionState.marcasDisponibles = Array.from(marcasSet).sort();
 
   if (!variacionState.marcasSeleccionadas) {
@@ -106,10 +108,14 @@ export function procesarVariacionHistorica() {
 
   const resultados = [];
 
-  Object.keys(marcaFechaMap).forEach(marca => {
+  const marcas = [...Object.keys(marcaFechaMap), ...Object.keys(preciosLM)];
+
+  marcas.forEach(marca => {
     if (!variacionState.marcasSeleccionadas.has(marca)) return;
 
-    const precios = preciosEnRango(marcaFechaMap[marca], f1, f2);
+    const precios = marcaFechaMap[marca]
+      ? preciosEnRango(marcaFechaMap[marca], f1, f2)
+      : preciosLM[marca];
     if (!precios) return;
 
     const { p1, p2, pesoF2 } = precios;
