@@ -7,9 +7,13 @@ export const analisisState = {
   modo: 'COMPETENCIA',         // 'COESTI' | 'COMPETENCIA' | 'MARCA'
 
   // filtros avanzados
-  corredor: 'TODOS',           // 'TODOS' | Corredor
-  departamento: 'TODOS',       // 'TODOS' | Departamento
-  gpcGroup: 'TODOS',           // 'TODOS' | GPC Group
+  gpcGroup: 'TODOS',
+  corredor: 'TODOS',
+  zona: 'TODOS',
+  departamento: 'TODOS',
+  provincia: 'TODOS',
+  distrito: 'TODOS',
+
   marcasDisponibles: [],       // Lista completa de marcas detectadas en la red
   marcasSeleccionadas: null,   // Set de marcas seleccionadas (null = todas por defecto)
 };

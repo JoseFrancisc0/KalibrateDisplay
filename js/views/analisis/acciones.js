@@ -11,15 +11,17 @@ import { poblarSelectsSegmentacion } from '../../shared/segmentacion.js';
 import { analisisState } from './state.js';
 
 /* ---------- Poblado de filtros ---------- */
-
 export function poblarFiltrosAnalisis() {
   if (!state.rawData?.estaciones) return;
   const estaciones = state.rawData.estaciones;
 
   poblarSelectsSegmentacion(estaciones, {
+    gpc: 'sel-analisis-gpc',
     corredor: 'sel-analisis-corredor',
+    zona: 'sel-analisis-zona',
     departamento: 'sel-analisis-depto',
-    gpc: 'sel-analisis-gpc'
+    provincia: 'sel-analisis-provincia',
+    distrito: 'sel-analisis-distrito',
   });
 
   if (!analisisState.marcasDisponibles || analisisState.marcasDisponibles.length === 0) {
@@ -63,7 +65,6 @@ export function iniciarListenersAnalisis() {
 }
 
 /* ---------- Acciones ---------- */
-
 export const acciones = {
   cambiarProductoAnalisis() {
     const v = valorDe('sel-analisis-prod');
@@ -71,45 +72,51 @@ export const acciones = {
     actualizarIndicadorModo();
     render();
   },
-
-  cambiarCorredorAnalisis() {
-    const v = valorDe('sel-analisis-corredor');
-    if (v !== undefined) analisisState.corredor = v;
-    render();
-  },
-
-  cambiarDeptoAnalisis() {
-    const v = valorDe('sel-analisis-depto');
-    if (v !== undefined) analisisState.departamento = v;
-    render();
-  },
-
   cambiarGpcAnalisis() {
     const v = valorDe('sel-analisis-gpc');
     if (v !== undefined) analisisState.gpcGroup = v;
     render();
   },
-
+  cambiarCorredorAnalisis() {
+    const v = valorDe('sel-analisis-corredor');
+    if (v !== undefined) analisisState.corredor = v;
+    render();
+  },
+  cambiarZonaAnalisis() {
+    const v = valorDe('sel-analisis-zona');
+    if (v !== undefined) analisisState.zona = v;
+    render();
+  },
+  cambiarDeptoAnalisis() {
+    const v = valorDe('sel-analisis-depto');
+    if (v !== undefined) analisisState.departamento = v;
+    render();
+  },
+  cambiarProvinciaAnalisis() {
+    const v = valorDe('sel-analisis-provincia');
+    if (v !== undefined) analisisState.provincia = v;
+    render();
+  },
+  cambiarDistritoAnalisis() {
+    const v = valorDe('sel-analisis-distrito');
+    if (v !== undefined) analisisState.distrito = v;
+    render();
+  },
   cambiarModoAnalisis(el) {
     const modo = el.dataset.arg;
     analisisState.modo = modo;
-
     activar('btn-scope-comp', modo === 'COMPETENCIA');
     activar('btn-scope-coesti', modo === 'COESTI');
     activar('btn-scope-marca', modo === 'MARCA');
-
     const secMarcas = document.getElementById('section-filtro-marcas');
     if (secMarcas) {
       secMarcas.style.opacity = (modo === 'MARCA') ? '1' : '0.45';
     }
-
     render();
   },
-
   toggleDropdownMarcas() {
     alternarDesplegable('dropdown-marcas-content');
   },
-
   marcarTodasMarcas(el) {
     if (el.dataset.arg === 'true') {
       analisisState.marcasSeleccionadas = new Set(analisisState.marcasDisponibles);
@@ -119,7 +126,6 @@ export const acciones = {
     construirChecklistMarcasDOM();
     render();
   },
-
   onToggleMarcaCheck(el) {
     const marca = el.value;
     if (el.checked) {

@@ -48,3 +48,31 @@ export function cerrarAlClicFuera(wrapId, dropId) {
     if (wrap && drop && !wrap.contains(e.target)) drop.style.display = 'none';
   });
 }
+
+/**
+ * Repuebla un <select> dinámicamente eliminando opciones anteriores (excepto 'TODOS').
+ * Retorna el valor que quedó seleccionado (conserva el anterior si aún existe, sino cae a 'TODOS').
+ */
+export function repoblarSelect(id, valores, valorSeleccionado = 'TODOS', etiqueta = (v) => v) {
+  const sel = document.getElementById(id);
+  if (!sel) return 'TODOS';
+
+  const primeraOpcion = sel.options[0]; // Conserva 'TODOS' / 'Todos los...'
+  sel.innerHTML = '';
+  if (primeraOpcion) sel.appendChild(primeraOpcion);
+
+  const listaValores = typeof valores === 'function' ? valores() : valores;
+  let valorSigueExistiendo = false;
+
+  listaValores.forEach(v => {
+    const opt = document.createElement('option');
+    opt.value = v;
+    opt.textContent = etiqueta(v);
+    if (v === valorSeleccionado) valorSigueExistiendo = true;
+    sel.appendChild(opt);
+  });
+
+  const nuevoValor = valorSigueExistiendo ? valorSeleccionado : 'TODOS';
+  sel.value = nuevoValor;
+  return nuevoValor;
+}

@@ -147,6 +147,17 @@
   color: #fff;
 }
 
+.select-row-2 {
+  display: flex;
+  gap: 6px;
+  width: 100%;
+}
+
+.select-row-2 .select-wrap {
+  flex: 1 1 50%;
+  min-width: 0;
+}
+
 /* Checklist Dropdown de Marcas */
 .multiselect-wrap {
   position: relative;

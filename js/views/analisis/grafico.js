@@ -41,13 +41,17 @@ export function renderAnalisis(todasLasEstaciones) {
   const tooltip = document.getElementById('analytics-tooltip');
   if (!wrap) return;
 
-  // 1. Filtrado acumulativo: Corredor + Departamento + GPC Group
-  const corrSel = analisisState.corredor || 'TODOS';
-  const deptoSel = analisisState.departamento || 'TODOS';
-  const gpcSel = analisisState.gpcGroup || 'TODOS';
-
+  // 1. Filtrado acumulativo con todos los campos
   const listaEstaciones = todasLasEstaciones.filter(e =>
-    cumpleSegmentacion(e, { corredor: corrSel, departamento: deptoSel, gpc: gpcSel }));
+    cumpleSegmentacion(e, {
+      gpc: analisisState.gpcGroup,
+      corredor: analisisState.corredor,
+      zona: analisisState.zona,
+      departamento: analisisState.departamento,
+      provincia: analisisState.provincia,
+      distrito: analisisState.distrito,
+    })
+  );
 
   const combustible = analisisState.producto || 'Diesel';
   const modo = analisisState.modo || 'COMPETENCIA';
@@ -57,11 +61,14 @@ export function renderAnalisis(todasLasEstaciones) {
   const sub = document.getElementById('analytics-chart-sub');
   if (sub) {
     const filtrosActivos = [];
-    if (corrSel !== 'TODOS') filtrosActivos.push(`Corredor: ${corrSel}`);
-    if (deptoSel !== 'TODOS') filtrosActivos.push(`Depto: ${deptoSel}`);
-    if (gpcSel !== 'TODOS') filtrosActivos.push(`GPC: ${gpcSel}`);
+    if (analisisState.gpcGroup !== 'TODOS') filtrosActivos.push(`GPC: ${analisisState.gpcGroup}`);
+    if (analisisState.corredor !== 'TODOS') filtrosActivos.push(`Corredor: ${analisisState.corredor}`);
+    if (analisisState.zona !== 'TODOS') filtrosActivos.push(`Zona: ${analisisState.zona}`);
+    if (analisisState.departamento !== 'TODOS') filtrosActivos.push(`Depto: ${analisisState.departamento}`);
+    if (analisisState.provincia !== 'TODOS') filtrosActivos.push(`Prov: ${analisisState.provincia}`);
+    if (analisisState.distrito !== 'TODOS') filtrosActivos.push(`Dist: ${analisisState.distrito}`);
+    
     const tagFiltro = filtrosActivos.length ? `(${filtrosActivos.join(' · ')})` : '(Red Total)';
-
     sub.innerText = (modo === 'MARCA')
       ? `Promedio consolidado por marca vs COESTI PONDERADO ${tagFiltro}.`
       : `Puntos ordenados de menor a mayor precio ${tagFiltro}.`;
