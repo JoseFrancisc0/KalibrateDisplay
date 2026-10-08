@@ -5,10 +5,41 @@
 
 import { render, actualizarIndicadorModo } from '../../core/router.js';
 import { state } from '../../core/state.js';
-import { valorDe, activar, alternarDesplegable, cerrarAlClicFuera } from '../../shared/dom.js';
+import { valorDe, activar, alternarDesplegable, cerrarAlClicFuera, repoblarSelect } from '../../shared/dom.js';
 import { marcasCompetencia, etiquetaMarca } from '../../shared/marcas.js';
-import { poblarSelectsSegmentacion } from '../../shared/segmentacion.js';
+import { poblarSelectsSegmentacion, valoresUnicos } from '../../shared/segmentacion.js';
 import { analisisState } from './state.js';
+
+/* ---------- Cascada Geográfica Dinámica ---------- */
+function sincronizarCascadaGeografica(estaciones) {
+  // 1. Filtrar estaciones según el Departamento elegido
+  const estacionesDepto = estaciones.filter(e => {
+    if (analisisState.departamento === 'TODOS') return true;
+    const d = (e.departamento || '').trim().toUpperCase();
+    return d === analisisState.departamento;
+  });
+
+  // Repoblar Provincias con las del departamento actual
+  analisisState.provincia = repoblarSelect(
+    'sel-analisis-provincia',
+    () => valoresUnicos(estacionesDepto, 'provincia'),
+    analisisState.provincia
+  );
+
+  // 2. Filtrar estaciones según Departamento Y Provincia elegidos
+  const estacionesProv = estacionesDepto.filter(e => {
+    if (analisisState.provincia === 'TODOS') return true;
+    const p = (e.provincia || '').trim().toUpperCase();
+    return p === analisisState.provincia;
+  });
+
+  // Repoblar Distritos con los de la provincia actual
+  analisisState.distrito = repoblarSelect(
+    'sel-analisis-distrito',
+    () => valoresUnicos(estacionesProv, 'distrito'),
+    analisisState.distrito
+  );
+}
 
 /* ---------- Poblado de filtros ---------- */
 export function poblarFiltrosAnalisis() {
@@ -20,9 +51,9 @@ export function poblarFiltrosAnalisis() {
     corredor: 'sel-analisis-corredor',
     zona: 'sel-analisis-zona',
     departamento: 'sel-analisis-depto',
-    provincia: 'sel-analisis-provincia',
-    distrito: 'sel-analisis-distrito',
   });
+
+  sincronizarCascadaGeografica(estaciones);
 
   if (!analisisState.marcasDisponibles || analisisState.marcasDisponibles.length === 0) {
     analisisState.marcasDisponibles = marcasCompetencia(estaciones);
@@ -89,12 +120,18 @@ export const acciones = {
   },
   cambiarDeptoAnalisis() {
     const v = valorDe('sel-analisis-depto');
-    if (v !== undefined) analisisState.departamento = v;
+    if (v !== undefined) { 
+      analisisState.departamento = v;
+      sincronizarCascadaGeografica(state.rawData.estaciones);
+    };
     render();
   },
   cambiarProvinciaAnalisis() {
     const v = valorDe('sel-analisis-provincia');
-    if (v !== undefined) analisisState.provincia = v;
+    if (v !== undefined) { 
+      analisisState.provincia = v;
+      sincronizarCascadaGeografica(state.rawData.estaciones);
+    };
     render();
   },
   cambiarDistritoAnalisis() {
