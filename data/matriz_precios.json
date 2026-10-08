@@ -1,5 +1,5 @@
 {
-  "actualizado_al": "2026-10-07T15:44:24",
+  "actualizado_al": "2026-10-07T21:20:11",
   "combustibles_orden": [
     "Diesel",
     "Regular",
@@ -207,6 +207,8 @@
       "corredor": "Ciudad Grupo C",
       "zona": "Lima centro 1",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "La Victoria",
       "gpc_group": "COESTI",
       "direccion": "AV. 28 DE JULIO 2200",
       "own_lat": -12.062044143676758,
@@ -399,6 +401,8 @@
       "corredor": "Corredor Lima Gambetta",
       "zona": "Zona Lima Norte chico",
       "departamento": "Lima",
+      "provincia": "Callao",
+      "distrito": "Callao",
       "gpc_group": "COESTI",
       "direccion": "MZ D. LOTE 1, URB. PROGRESIVA LAS ORQUIDEAS II ETAPA",
       "own_lat": -11.9849986623247,
@@ -510,6 +514,8 @@
       "corredor": "Ciudad Grupo C",
       "zona": "Zona Sur 1",
       "departamento": "Cusco",
+      "provincia": "Cusco",
+      "distrito": "Wanchaq",
       "gpc_group": "COESTI",
       "direccion": "Mz, A, Lote 20, Urb. Parque Industrial, Distrito De Wanchaq",
       "own_lat": -13.533167839050293,
@@ -657,6 +663,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Lima Centro 2",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Miraflores",
       "gpc_group": "COESTI",
       "direccion": "AV. BENAVIDES 2116",
       "own_lat": -12.127751350402832,
@@ -873,6 +881,8 @@
       "corredor": "Corredor Norte Trujillo",
       "zona": "Zona Norte 2",
       "departamento": "La Libertad",
+      "provincia": "Trujillo",
+      "distrito": "Moche",
       "gpc_group": "COESTI",
       "direccion": "SUB LOTE 1B GRUPO A SECTOR V - FRENTE A CARRETERA PANAMERICANA NORTE",
       "own_lat": -8.181298911,
@@ -1083,6 +1093,8 @@
       "corredor": "Ciudad Grupo B",
       "zona": "Zona Norte 2",
       "departamento": "La Libertad",
+      "provincia": "Trujillo",
+      "distrito": "Trujillo",
       "gpc_group": "COESTI",
       "direccion": "INT. AV. AMERICA NORTE 1085 CON AV. 9 DE OCTUBRE",
       "own_lat": -8.094966,
@@ -1303,6 +1315,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Sur 1",
       "departamento": "Arequipa",
+      "provincia": "Arequipa",
+      "distrito": "Arequipa",
       "gpc_group": "COESTI",
       "direccion": "AV. JESUS 1400",
       "own_lat": -16.417055130004883,
@@ -1462,6 +1476,8 @@
       "corredor": "Ciudad Grupo B",
       "zona": "Zona Lima Norte 1",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Jesus María",
       "gpc_group": "OMEGA",
       "direccion": "Av. Cuba N° 116-120, esquina con Av. Arenales 990",
       "own_lat": -12.074440956115723,
@@ -1483,7 +1499,7 @@
               "precio": 25.19,
               "costo": 20.78,
               "margen": 4.41,
-              "vigencia": "07/10 08:13",
+              "vigencia": "07/10 16:01",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -1491,7 +1507,7 @@
               "precio": 26.59,
               "costo": 23.41,
               "margen": 3.18,
-              "vigencia": "07/10 08:13",
+              "vigencia": "07/10 16:01",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -1499,7 +1515,7 @@
               "precio": 23.19,
               "costo": 19.74,
               "margen": 3.45,
-              "vigencia": "07/10 08:14",
+              "vigencia": "07/10 16:01",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -1507,7 +1523,7 @@
               "precio": 1.89,
               "costo": 1.0,
               "margen": 0.89,
-              "vigencia": "07/10 08:13",
+              "vigencia": "07/10 16:01",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -1515,7 +1531,7 @@
               "precio": 7.79,
               "costo": 5.66,
               "margen": 2.13,
-              "vigencia": "07/10 08:13",
+              "vigencia": "07/10 16:01",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -1725,6 +1741,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Lima centro 1",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "San Isidro",
       "gpc_group": "COESTI",
       "direccion": "AV. AREQUIPA 3325 CON AV. REP. DE COLOMBIA 105",
       "own_lat": -12.098681449890137,
@@ -1968,6 +1986,8 @@
       "corredor": "Ciudad Grupo C",
       "zona": "Zona Lima Norte 2",
       "departamento": "Lima",
+      "provincia": "Callao",
+      "distrito": "Callao",
       "gpc_group": "COESTI",
       "direccion": "AV ARGENTINA  4247   CALLAO",
       "own_lat": -12.048475,
@@ -2161,6 +2181,8 @@
       "corredor": "Ciudad Grupo B",
       "zona": "Zona Lima Norte 1",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Breña",
       "gpc_group": "COESTI",
       "direccion": "AV. ARICA 499, BRENA",
       "own_lat": -12.059394836425781,
@@ -2283,6 +2305,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Lima Centro 2",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Miraflores",
       "gpc_group": "COESTI",
       "direccion": "AV. LA PAZ Y AV. ARMENDARIZ 575",
       "own_lat": -12.13501,
@@ -2556,6 +2580,8 @@
       "corredor": "Ciudad Grupo B",
       "zona": "Lima centro 1",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "La Victoria",
       "gpc_group": "COESTI",
       "direccion": "AV. NICOLAS ARRIOLA 710   URB. SANTA CATALINA",
       "own_lat": -12.083207130432129,
@@ -2628,6 +2654,8 @@
       "corredor": "Ciudad Grupo C",
       "zona": "Zona centro",
       "departamento": "Junín",
+      "provincia": "Junín",
+      "distrito": "Junín",
       "gpc_group": "COESTI",
       "direccion": "PROLONGACION DE LA AVENIDA MANUEL PRADO NRO 1483 LADO NORTE",
       "own_lat": -11.147988319396973,
@@ -2649,7 +2677,7 @@
               "precio": 24.59,
               "costo": 23.43,
               "margen": 1.16,
-              "vigencia": "07/10 08:14",
+              "vigencia": "07/10 16:01",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -2657,7 +2685,7 @@
               "precio": 7.49,
               "costo": 6.01,
               "margen": 1.48,
-              "vigencia": "07/10 08:14",
+              "vigencia": "07/10 16:01",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -2665,7 +2693,7 @@
               "precio": 23.25,
               "costo": 21.22,
               "margen": 2.03,
-              "vigencia": "07/10 08:14",
+              "vigencia": "07/10 16:01",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -2673,7 +2701,7 @@
               "precio": 21.45,
               "costo": 20.06,
               "margen": 1.39,
-              "vigencia": "07/10 08:14",
+              "vigencia": "07/10 16:01",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -2804,13 +2832,13 @@
           "distancia_km": 0.84,
           "combustibles": {
             "Diesel": {
-              "precio": 24.54,
-              "diferencial": 0.05,
+              "precio": 24.39,
+              "diferencial": 0.2,
               "main_marker": false
             },
             "Premium": {
-              "precio": 22.44,
-              "diferencial": 0.81,
+              "precio": 22.19,
+              "diferencial": 1.06,
               "main_marker": false
             },
             "Regular": {
@@ -2942,6 +2970,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Lima Sur 1",
       "departamento": "Lima",
+      "provincia": "Cañete",
+      "distrito": "Asia",
       "gpc_group": "COESTI",
       "direccion": "CARR PANAMERICANA SUR KM 97.5 ASIA LOTE 30, PARCELA LA QUERENCIA",
       "own_lat": -12.762859344482422,
@@ -3129,6 +3159,8 @@
       "corredor": "Ciudad Grupo C",
       "zona": "Zona Lima Este",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Ate",
       "gpc_group": "OMEGA",
       "direccion": "Av. Nicolás Ayllón 2237-2239-2241",
       "own_lat": -12.062458038330078,
@@ -3207,7 +3239,7 @@
         },
         {
           "site_id": "22ef3b92-29dc-4517-a579-d6c72865fc3f",
-          "nombre_linea": "PECSA SERVICENTRO ATE - ESTACION CORMAR S.A.",
+          "nombre_linea": "PECSA SERVICENTRO ATE - Estación Cormar SA",
           "marca": "PECSA",
           "tipo_actor": "COMPETENCIA",
           "es_competidor_propio": false,
@@ -3362,6 +3394,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Lima Este",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Ate",
       "gpc_group": "COESTI",
       "direccion": "AV. NICOLAS AYLLON 2570",
       "own_lat": -12.06019401550293,
@@ -3383,7 +3417,7 @@
               "precio": 23.29,
               "costo": 20.76,
               "margen": 2.53,
-              "vigencia": "07/10 11:13",
+              "vigencia": "07/10 17:55",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -3391,7 +3425,7 @@
               "precio": 24.19,
               "costo": 22.96,
               "margen": 1.23,
-              "vigencia": "07/10 11:13",
+              "vigencia": "07/10 17:55",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -3399,7 +3433,7 @@
               "precio": 21.99,
               "costo": 19.95,
               "margen": 2.04,
-              "vigencia": "07/10 11:13",
+              "vigencia": "07/10 17:55",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -3407,7 +3441,7 @@
               "precio": 1.73,
               "costo": 1.01,
               "margen": 0.72,
-              "vigencia": "07/10 11:13",
+              "vigencia": "07/10 17:55",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -3415,7 +3449,7 @@
               "precio": 6.59,
               "costo": 5.8,
               "margen": 0.79,
-              "vigencia": "07/10 11:13",
+              "vigencia": "07/10 17:55",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -3453,20 +3487,20 @@
         },
         {
           "site_id": "6fae792f-fc1c-4084-866a-61ddd9678571",
-          "nombre_linea": "PRIMAX PARIACHI - CENTRAL PARIACHI S.A.C.",
+          "nombre_linea": "PRIMAX PARIACHI - CENTRAL PARIACHI SAC",
           "marca": "PRIMAX",
           "tipo_actor": "COMPETENCIA",
           "es_competidor_propio": false,
           "distancia_km": 0.73,
           "combustibles": {
             "Premium": {
-              "precio": 22.78,
-              "diferencial": 0.51,
+              "precio": 21.48,
+              "diferencial": 1.81,
               "main_marker": true
             },
             "Diesel": {
-              "precio": 23.89,
-              "diferencial": 0.3,
+              "precio": 23.78,
+              "diferencial": 0.41,
               "main_marker": true
             },
             "Regular": {
@@ -3523,7 +3557,7 @@
         },
         {
           "site_id": "0170273d-27c0-439e-a07b-9f5dec7d30e8",
-          "nombre_linea": "PRIMAX DENVER - ESTACION DE SERVICIOS GRIFO DENVER S.R.L.",
+          "nombre_linea": "PRIMAX DENVER - ESTACION DE SERVICIO DENVER SRL",
           "marca": "PRIMAX",
           "tipo_actor": "COMPETENCIA",
           "es_competidor_propio": false,
@@ -3535,8 +3569,8 @@
               "main_marker": false
             },
             "Diesel": {
-              "precio": 23.98,
-              "diferencial": 0.21,
+              "precio": 23.88,
+              "diferencial": 0.31,
               "main_marker": false
             },
             "Regular": {
@@ -3550,8 +3584,8 @@
               "main_marker": false
             },
             "GLP": {
-              "precio": 6.78,
-              "diferencial": -0.19,
+              "precio": 6.7,
+              "diferencial": -0.11,
               "main_marker": false
             }
           }
@@ -3645,6 +3679,8 @@
       "corredor": "Corredor Lima Central",
       "zona": "Zona centro",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Ate",
       "gpc_group": "COESTI",
       "direccion": "CARRETERA CENTRAL KM. 16",
       "own_lat": -12.002620697021484,
@@ -3853,6 +3889,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Lima Norte 3",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "San Juan de Lurigancho",
       "gpc_group": "COESTI",
       "direccion": "AV. PROCERES DE LA IND. ESQ. AV EL SOL  CDRA.27",
       "own_lat": -11.984991073608398,
@@ -4008,6 +4046,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Lima Centro 2",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Miraflores",
       "gpc_group": "COESTI",
       "direccion": "CALLE A. SCHEREIBER 124 CON CALLE SABOGAL AURORA -  MIRAFLORES",
       "own_lat": -12.1226277777778,
@@ -4216,6 +4256,8 @@
       "corredor": "Corredor Sur Ica",
       "zona": "Zona Lima Sur Chico",
       "departamento": "Ica",
+      "provincia": "Nazca",
+      "distrito": "Nazca",
       "gpc_group": "COESTI",
       "direccion": "CARRETERA PANAMERICA SUR KM 460.5 VISTA ALEGRE ",
       "own_lat": -14.903644,
@@ -4434,6 +4476,8 @@
       "corredor": "Ciudad Grupo B",
       "zona": "Lima centro 1",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "La Victoria",
       "gpc_group": "COESTI",
       "direccion": "AV. AVIACION CDRA 15 SN OVALO ARRIOLA",
       "own_lat": -12.078788757324219,
@@ -4669,6 +4713,8 @@
       "corredor": "Ciudad Grupo B",
       "zona": "Zona Lima Norte chico",
       "departamento": "Lima",
+      "provincia": "Barranca",
+      "distrito": "Barranca",
       "gpc_group": "COESTI",
       "direccion": "Av. Ramon Castilla Nº 921",
       "own_lat": -10.745386,
@@ -4804,6 +4850,8 @@
       "corredor": "Ciudad Grupo C",
       "zona": "Zona Lima Norte chico",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Lima",
       "gpc_group": "OMEGA",
       "direccion": "Antigua Panamericana Norte Mz. Urbana 001, Lote 01, AAHH Leticia",
       "own_lat": -10.7932520269999,
@@ -4967,6 +5015,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Lima Sur 2",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Barranco",
       "gpc_group": "COESTI",
       "direccion": "Av. El sol 697, esquina AV REP. PANAMA",
       "own_lat": -12.13891,
@@ -5158,6 +5208,8 @@
       "corredor": "Ciudad Grupo C",
       "zona": "Zona Selva",
       "departamento": "UCAYALI",
+      "provincia": "CORONEL PORTILLO",
+      "distrito": "YARINACOCHA",
       "gpc_group": "CODESA",
       "direccion": "CARRETERA FEDERICO BASADRE KM 13 - CORONEL PORTILLO",
       "own_lat": -8.406944274902344,
@@ -5326,6 +5378,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Lima Norte 1",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Pueblo Libre",
       "gpc_group": "COESTI",
       "direccion": "AV. BOLIVAR 1020 -PUEBLO LIBRE (MAGDALENA VIEJA)",
       "own_lat": -12.071999549865723,
@@ -5519,6 +5573,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Lima Norte 1",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Breña",
       "gpc_group": "COESTI",
       "direccion": "AV. TINGO MARIA 1711",
       "own_lat": -12.065324783325195,
@@ -5728,6 +5784,8 @@
       "corredor": "Ciudad Grupo C",
       "zona": "Zona Lima Norte chico",
       "departamento": "Lima",
+      "provincia": "Huaral",
+      "distrito": "Huaral",
       "gpc_group": "COESTI",
       "direccion": "CALLE DERECHA 898 CDRA 9 ESQUINA CAMAL VIEJO",
       "own_lat": -11.493066,
@@ -5991,6 +6049,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Lima centro 1",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "La Victoria",
       "gpc_group": "COESTI",
       "direccion": "AV. CANADA 1189 CON CALLE VICTOR ALZAMORA",
       "own_lat": -12.08368968963623,
@@ -6144,6 +6204,8 @@
       "corredor": "Ciudad Grupo C",
       "zona": "Zona Lima Sur 1",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Villa el Salvador",
       "gpc_group": "OMEGA",
       "direccion": "AA HH Villa de la Paz, Manzana C, Lote 17",
       "own_lat": -12.23942304,
@@ -6165,7 +6227,7 @@
               "precio": 25.45,
               "costo": 23.65,
               "margen": 1.8,
-              "vigencia": "07/10 12:12",
+              "vigencia": "07/10 16:24",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -6173,7 +6235,7 @@
               "precio": 25.25,
               "costo": 23.59,
               "margen": 1.66,
-              "vigencia": "07/10 12:12",
+              "vigencia": "07/10 16:24",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -6181,7 +6243,7 @@
               "precio": 22.79,
               "costo": 21.68,
               "margen": 1.11,
-              "vigencia": "07/10 12:12",
+              "vigencia": "07/10 16:24",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -6353,6 +6415,8 @@
       "corredor": "Corredor Norte Ancash",
       "zona": "Zona Norte 2",
       "departamento": "Ancash",
+      "provincia": "Casma",
+      "distrito": "Comandante Noel",
       "gpc_group": "COESTI",
       "direccion": "OTR.SECTOR RURAL VALLE TABON LOTE. 5B FND. SANTA CATALINA ANCASH - CASMA - COMANDANTE NOEL.",
       "own_lat": -9.452862739562988,
@@ -6551,6 +6615,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Lima centro 1",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "San Isidro",
       "gpc_group": "COESTI",
       "direccion": "AV. JAVIER PRADO OESTE 1895",
       "own_lat": -12.095104217529297,
@@ -6700,6 +6766,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Norte 1",
       "departamento": "Piura",
+      "provincia": "Piura",
+      "distrito": "Castilla",
       "gpc_group": "COESTI",
       "direccion": "AV. LUIS MONTERO S/N (ANTES AV. SAN PEDRO 339) URB. MIRAFLORES I ETAPA",
       "own_lat": -5.19769,
@@ -6860,6 +6928,8 @@
       "corredor": "Ciudad Grupo B",
       "zona": "Zona Norte 1",
       "departamento": "Piura",
+      "provincia": "Piura",
+      "distrito": "Castilla",
       "gpc_group": "COESTI",
       "direccion": "AV. PROGRESO 1702 CASTILLA",
       "own_lat": -5.21502,
@@ -7058,6 +7128,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Lima centro 1",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "La Victoria",
       "gpc_group": "COESTI",
       "direccion": "AV. NICOLAS ARRIOLA 295 URB. SANTA CATALINA",
       "own_lat": -12.087335586547852,
@@ -7291,6 +7363,8 @@
       "corredor": "Ciudad Grupo B",
       "zona": "Zona Lima Sur Chico",
       "departamento": "Lima",
+      "provincia": "Cañete",
+      "distrito": "San Luis",
       "gpc_group": "COESTI",
       "direccion": "AV. 28 DE JULIO 216, SAN LUIS CAÃETE (KM. 138  PAN. SUR) - CAÃETE - LIMA",
       "own_lat": -13.050200462341309,
@@ -7447,6 +7521,8 @@
       "corredor": "Ciudad Grupo B",
       "zona": "Zona Selva",
       "departamento": "Ucayali",
+      "provincia": "Coronel Portillo",
+      "distrito": "Calleria",
       "gpc_group": "CODESA",
       "direccion": "Av. Centenario 488 (lote 1 Mz 180)",
       "own_lat": -8.3832,
@@ -7662,6 +7738,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Sur 2",
       "departamento": "Tacna",
+      "provincia": "Tacna",
+      "distrito": "Tacna",
       "gpc_group": "COESTI",
       "direccion": "AV. EJERCITO 1595/AV. MANUEL ODRÃA 1594 - TACNA",
       "own_lat": -18.019826889038086,
@@ -7862,6 +7940,8 @@
       "corredor": "Ciudad Grupo B",
       "zona": "Zona Lima Sur Chico",
       "departamento": "Lima",
+      "provincia": "Cañete",
+      "distrito": "Cerro Azul",
       "gpc_group": "COESTI",
       "direccion": "Panamericana Sur km 129",
       "own_lat": -13.006970405578613,
@@ -8113,6 +8193,8 @@
       "corredor": "Corredor Lima Norte",
       "zona": "Zona Lima Norte chico",
       "departamento": "Lima",
+      "provincia": "Huaral",
+      "distrito": "Chancay",
       "gpc_group": "COESTI",
       "direccion": "CARRETERA PANAMERICAN NORTE KM 91",
       "own_lat": -11.497637,
@@ -8422,6 +8504,8 @@
       "corredor": "Corredor Lima Norte",
       "zona": "Zona Lima Norte chico",
       "departamento": "Lima",
+      "provincia": "Huaral",
+      "distrito": "Chancay",
       "gpc_group": "COESTI",
       "direccion": "CARRETERA PANAMERICANA NORTE KM 84.9",
       "own_lat": -11.5436055555556,
@@ -8577,6 +8661,8 @@
       "corredor": "Corredor Sur Arequipa",
       "zona": "Zona Sur 1",
       "departamento": "Arequipa",
+      "provincia": "Arequipa",
+      "distrito": "Characato",
       "gpc_group": "COESTI",
       "direccion": "VARIANTE DE UCHUMAYO KM. 06",
       "own_lat": -16.407723,
@@ -8707,6 +8793,8 @@
       "corredor": "Ciudad Grupo B",
       "zona": "Zona Norte 1",
       "departamento": "Piura",
+      "provincia": "Piura",
+      "distrito": "Castilla",
       "gpc_group": "COESTI",
       "direccion": "AV. PROGRESO N° 3062",
       "own_lat": -5.227356,
@@ -9015,6 +9103,8 @@
       "corredor": "Corredor Lima Sur",
       "zona": "Zona Lima Sur 1",
       "departamento": "Lima",
+      "provincia": "Cañete",
+      "distrito": "Chilca",
       "gpc_group": "COESTI",
       "direccion": "CAR. PANAMERICANA SUR KM 63.5 -CHILCA-CAÃETE- LIMA",
       "own_lat": -12.5084555555556,
@@ -9208,6 +9298,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Lima Sur 2",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Chorrillos",
       "gpc_group": "COESTI",
       "direccion": "AV. DEFENSORES DEL MORRO 1391 H.U. EL MORRO",
       "own_lat": -12.175524711608887,
@@ -9461,6 +9553,8 @@
       "corredor": "Ciudad Grupo C",
       "zona": "Zona Lima Norte chico",
       "departamento": "Lima",
+      "provincia": "Huaura",
+      "distrito": "Huacho",
       "gpc_group": "COESTI",
       "direccion": "CALLE DOMINGO COLOMA 152 HUACHO - HUAURA - LIMA",
       "own_lat": -11.10648647,
@@ -9711,6 +9805,8 @@
       "corredor": "Ciudad Grupo C",
       "zona": "Zona Lima Norte 3",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Cercado de Lima",
       "gpc_group": "COESTI",
       "direccion": "AV. OSCAR R. BENAVIDES 1380 CON AV. NAC. UNIDAS",
       "own_lat": -12.04782772064209,
@@ -9989,6 +10085,8 @@
       "corredor": "Ciudad Grupo B",
       "zona": "Zona Lima Norte 3",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Cercado de Lima",
       "gpc_group": "COESTI",
       "direccion": "AV. COLONIAL 300 CON JR. ASCOPE",
       "own_lat": -12.046427726745605,
@@ -10148,6 +10246,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Selva",
       "departamento": "Ucayali",
+      "provincia": "Coronel Portillo",
+      "distrito": "Calleria",
       "gpc_group": "CODESA",
       "direccion": "AV. COLONIZACION ESQUINA CON CALLE 14 DE NOVIEMBRE MZ. 16 LOTE 1C",
       "own_lat": -8.38815975189209,
@@ -10365,6 +10465,8 @@
       "corredor": "Ciudad Grupo C",
       "zona": "Zona centro",
       "departamento": "Junín",
+      "provincia": "Concepción",
+      "distrito": "Concepción",
       "gpc_group": "COESTI",
       "direccion": "AV. AMERICA NORTE 1902 URB. PRIMAVERA",
       "own_lat": -8.09762,
@@ -10560,6 +10662,8 @@
       "corredor": "Ciudad Grupo C",
       "zona": "Zona centro",
       "departamento": "Junín",
+      "provincia": "Concepción",
+      "distrito": "Concepción",
       "gpc_group": "COESTI",
       "direccion": "CARRETERA CENTRAL KM. 21 (ESQUINA CON AV. 8 DE DICIEMBRE - JUNIN - CONCEPCIÃN- CONCEPCIÃN",
       "own_lat": -11.91482925415039,
@@ -10749,6 +10853,8 @@
       "corredor": "Ciudad Grupo C",
       "zona": "Zona Selva",
       "departamento": "Ucayali",
+      "provincia": "Coronel Portillo",
+      "distrito": "Calleria",
       "gpc_group": "CODESA",
       "direccion": "Av. Faustino Sanchez Carrion 1450",
       "own_lat": -8.371685,
@@ -11015,6 +11121,8 @@
       "corredor": "Corredor Lima Central",
       "zona": "Zona centro",
       "departamento": "Lima",
+      "provincia": "Huarochiri",
+      "distrito": "Santa Cruz de Cocachacra",
       "gpc_group": "COESTI",
       "direccion": "AV. NICOLAS DE PIEROLA SUR 3021 - Km 47.7 CARRETERA CENTRAL",
       "own_lat": -11.910690307617188,
@@ -11036,7 +11144,7 @@
               "precio": 24.99,
               "costo": 25.08,
               "margen": -0.09,
-              "vigencia": "07/10 13:42",
+              "vigencia": "07/10 17:02",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -11044,7 +11152,7 @@
               "precio": 23.09,
               "costo": 21.53,
               "margen": 1.56,
-              "vigencia": "07/10 13:42",
+              "vigencia": "07/10 17:02",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -11052,7 +11160,7 @@
               "precio": 21.79,
               "costo": 20.91,
               "margen": 0.88,
-              "vigencia": "07/10 13:42",
+              "vigencia": "07/10 17:02",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -11224,6 +11332,8 @@
       "corredor": "Corredor Sur Arequipa",
       "zona": "Zona Sur 1",
       "departamento": "Arequipa",
+      "provincia": "Arequipa",
+      "distrito": "Cerro Colorado",
       "gpc_group": "COESTI",
       "direccion": "VARIANTE DE UCHUMAYO KM. 05",
       "own_lat": -16.4057277777778,
@@ -11245,7 +11355,7 @@
               "precio": 26.59,
               "costo": 23.3,
               "margen": 3.29,
-              "vigencia": "07/10 13:30",
+              "vigencia": "07/10 16:10",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -11253,7 +11363,7 @@
               "precio": 22.65,
               "costo": 21.52,
               "margen": 1.13,
-              "vigencia": "07/10 13:30",
+              "vigencia": "07/10 16:10",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -11375,6 +11485,8 @@
       "corredor": "Corredor Norte Chiclayo",
       "zona": "Zona Norte 3",
       "departamento": "Lambayeque",
+      "provincia": "Chiclayo",
+      "distrito": "Monsefu",
       "gpc_group": "COESTI",
       "direccion": "MZ. A URB. EL CARMEN",
       "own_lat": -6.850192,
@@ -11396,7 +11508,7 @@
               "precio": 24.99,
               "costo": 24.88,
               "margen": 0.11,
-              "vigencia": "07/10 08:26",
+              "vigencia": "07/10 17:04",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -11404,7 +11516,7 @@
               "precio": 7.09,
               "costo": 6.41,
               "margen": 0.68,
-              "vigencia": "07/10 08:26",
+              "vigencia": "07/10 17:04",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -11412,7 +11524,7 @@
               "precio": 23.19,
               "costo": 21.14,
               "margen": 2.05,
-              "vigencia": "07/10 08:26",
+              "vigencia": "07/10 17:04",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -11420,7 +11532,7 @@
               "precio": 21.79,
               "costo": 20.93,
               "margen": 0.86,
-              "vigencia": "07/10 08:26",
+              "vigencia": "07/10 17:04",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -11590,6 +11702,8 @@
       "corredor": "Ciudad Grupo C",
       "zona": "Zona Sur 1",
       "departamento": "Arequipa",
+      "provincia": "Arequipa",
+      "distrito": "Cerro Colorado",
       "gpc_group": "COESTI",
       "direccion": "VARIANTE DE UCHUMAYO KM 3.5-SEMIRURAL PACHACUTEC - CERRO COLORADO-AREQUIPA",
       "own_lat": -16.404738,
@@ -11785,6 +11899,8 @@
       "corredor": "Ciudad Grupo B",
       "zona": "Zona Norte 1",
       "departamento": "Piura",
+      "provincia": "Piura",
+      "distrito": "Piura",
       "gpc_group": "COESTI",
       "direccion": "MZ. N   LT 15  18. URB. LOS JARDINES DE CORPIURA",
       "own_lat": -5.165272,
@@ -12006,6 +12122,8 @@
       "corredor": "Ciudad Grupo C",
       "zona": "Zona Lima Norte 3",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Cercado de Lima",
       "gpc_group": "COESTI",
       "direccion": "AV. ARGENTINA 1801",
       "own_lat": -12.045866012573242,
@@ -12141,6 +12259,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Norte 1",
       "departamento": "Piura",
+      "provincia": "Piura",
+      "distrito": "Piura",
       "gpc_group": "COESTI",
       "direccion": "CARRETERA PIURA - LOS EJIDOS, PREDIO RC 18849, SANTA INA (P), SECTOR EJIDOS DEL NORTE",
       "own_lat": -5.15841092501966,
@@ -12355,6 +12475,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Lima Centro 2",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Miraflores",
       "gpc_group": "COESTI",
       "direccion": "AV. EL EJERCITO 412-422",
       "own_lat": -12.116541862487793,
@@ -12623,8 +12745,8 @@
               "main_marker": false
             },
             "GNV": {
-              "precio": 1.79,
-              "diferencial": -0.01,
+              "precio": 1.78,
+              "diferencial": 0.0,
               "main_marker": false
             },
             "GLP": {
@@ -12668,6 +12790,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Lima Norte 2",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "San Miguel",
       "gpc_group": "COESTI",
       "direccion": "AV. LA MARINA 3112",
       "own_lat": -12.075369834899902,
@@ -12807,6 +12931,8 @@
       "corredor": "Ciudad Grupo B",
       "zona": "Zona Lima Sur Chico",
       "departamento": "ICA",
+      "provincia": "CHINCHA",
+      "distrito": "EL CARMEN",
       "gpc_group": "INACTIVAS",
       "direccion": "AUTOPISTA PANAMERICANA SUR KM 204, FUNDO POZUELO NORTE",
       "own_lat": -13.57036,
@@ -12894,6 +13020,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Lima Sur 2",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Chorrillos",
       "gpc_group": "INACTIVAS",
       "direccion": "AV. HUAYLAS 360 - CHORRILLOS",
       "own_lat": -12.167852401733398,
@@ -13064,6 +13192,8 @@
       "corredor": "Corredor Norte Trujillo",
       "zona": "Zona Norte 2",
       "departamento": "La Libertad",
+      "provincia": "Trujillo",
+      "distrito": "Huanchaco",
       "gpc_group": "COESTI",
       "direccion": "MZ. 5 LT.4  A.H.EL MILAGRO ST.1 HUANCHACO",
       "own_lat": -8.03249740600586,
@@ -13297,6 +13427,8 @@
       "corredor": "Ciudad Grupo B",
       "zona": "Zona Lima Norte 2",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "La Perla",
       "gpc_group": "OMEGA",
       "direccion": "Av. Santa Rosa N° 135 y Av. La Marina N° 115, Urb. La Perla",
       "own_lat": -12.06607538,
@@ -13540,6 +13672,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Lima Centro 2",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Surquillo",
       "gpc_group": "COESTI",
       "direccion": "AV. TOMAS MARSANO 1008 CON AV. ANGAMOS",
       "own_lat": -12.112807273864746,
@@ -13767,6 +13901,8 @@
       "corredor": "Corredor Piura",
       "zona": "Zona Norte 1",
       "departamento": "Piura",
+      "provincia": "Piura",
+      "distrito": "veintiseis de Octubre",
       "gpc_group": "COESTI",
       "direccion": "LOTE P2 - 28 - A1, UBICACION RURAL VALLE MEDIO PIURA, SECTOR PIURA 2 C.P., PARCELA 17322",
       "own_lat": -5.121266183,
@@ -13788,7 +13924,7 @@
               "precio": 27.69,
               "costo": 25.2,
               "margen": 2.49,
-              "vigencia": "06/10 16:40",
+              "vigencia": "07/10 16:28",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -13796,7 +13932,7 @@
               "precio": 6.79,
               "costo": 6.13,
               "margen": 0.66,
-              "vigencia": "06/10 16:40",
+              "vigencia": "07/10 16:28",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -13804,7 +13940,7 @@
               "precio": 24.89,
               "costo": 22.97,
               "margen": 1.92,
-              "vigencia": "06/10 16:40",
+              "vigencia": "07/10 16:28",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -13812,7 +13948,7 @@
               "precio": 22.85,
               "costo": 21.17,
               "margen": 1.68,
-              "vigencia": "06/10 16:40",
+              "vigencia": "07/10 16:28",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -13916,6 +14052,8 @@
       "corredor": "Ciudad Grupo C",
       "zona": "Zona Norte 2",
       "departamento": "La Libertad",
+      "provincia": "Trujillo",
+      "distrito": "Trujillo",
       "gpc_group": "COESTI",
       "direccion": "JR. UNIÓN 515 URB LA INTENDENCIA",
       "own_lat": -8.105382,
@@ -14111,6 +14249,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Sur 2",
       "departamento": "Arequipa",
+      "provincia": "Arequipa",
+      "distrito": "Cerro Colorado",
       "gpc_group": "COESTI",
       "direccion": "AV. AVIACIÃN 6.5 - AREQUIPA - CERRO COLORADO-AREQUIPA",
       "own_lat": -16.364465713500977,
@@ -14311,6 +14451,8 @@
       "corredor": "Ciudad Grupo C",
       "zona": "Zona centro",
       "departamento": "Junín",
+      "provincia": "Huancayo",
+      "distrito": "El Tambo",
       "gpc_group": "COESTI",
       "direccion": "AV. JOSE CARLOS MARIATEGUI 600, CON JR AREQUIPA",
       "own_lat": -12.054498672485352,
@@ -14332,7 +14474,7 @@
               "precio": 25.89,
               "costo": 24.1,
               "margen": 1.79,
-              "vigencia": "07/10 09:04",
+              "vigencia": "07/10 17:39",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -14340,7 +14482,7 @@
               "precio": 7.65,
               "costo": 5.52,
               "margen": 2.13,
-              "vigencia": "07/10 09:04",
+              "vigencia": "07/10 17:39",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -14348,7 +14490,7 @@
               "precio": 24.59,
               "costo": 18.85,
               "margen": 5.74,
-              "vigencia": "07/10 09:04",
+              "vigencia": "07/10 17:39",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -14356,7 +14498,7 @@
               "precio": 21.99,
               "costo": 19.56,
               "margen": 2.43,
-              "vigencia": "07/10 09:04",
+              "vigencia": "07/10 17:39",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -14454,7 +14596,7 @@
               "main_marker": false
             },
             "GNV": {
-              "precio": 1.79,
+              "precio": 1.78,
               "main_marker": false
             },
             "GLP": {
@@ -14468,6 +14610,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Lima Norte 2",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "San Miguel",
       "gpc_group": "COESTI",
       "direccion": "AV. RAFAEL ESCARDO 250",
       "own_lat": -12.080697059631348,
@@ -14761,6 +14905,8 @@
       "corredor": "Ciudad Grupo C",
       "zona": "Zona Lima Sur 1",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Chorrillos",
       "gpc_group": "COESTI",
       "direccion": "AV.  GUARDIA CIVIL 333",
       "own_lat": -12.183718,
@@ -14906,6 +15052,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Norte 2",
       "departamento": "La Libertad",
+      "provincia": "Trujillo",
+      "distrito": "Trujillo",
       "gpc_group": "COESTI",
       "direccion": "AV. ESPANA 2623",
       "own_lat": -8.116684,
@@ -15126,6 +15274,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Norte 2",
       "departamento": "La Libertad",
+      "provincia": "Trujillo",
+      "distrito": "Trujillo",
       "gpc_group": "COESTI",
       "direccion": "AV ESPAÑA CON JR. MINERIA-TRUJILLO - LA LIBERTAD",
       "own_lat": -8.10518611111111,
@@ -15296,6 +15446,8 @@
       "corredor": "Ciudad Grupo B",
       "zona": "Zona Sur 1",
       "departamento": "Arequipa",
+      "provincia": "Arequipa",
+      "distrito": "Miraflores",
       "gpc_group": "COESTI",
       "direccion": "Av. Progreso 991",
       "own_lat": -16.396387,
@@ -15479,6 +15631,8 @@
       "corredor": "Ciudad Grupo C",
       "zona": "Zona Lima Sur Chico",
       "departamento": "Ica",
+      "provincia": "Chincha",
+      "distrito": "Chincha Alta",
       "gpc_group": "COESTI",
       "direccion": "CARRETERA PANAMERICANA SUR KM. 199",
       "own_lat": -13.416370391845703,
@@ -15692,6 +15846,8 @@
       "corredor": "Corredor Sur Arequipa",
       "zona": "Zona Sur 2",
       "departamento": "Arequipa",
+      "provincia": "Arequipa",
+      "distrito": "Cerro Colorado",
       "gpc_group": "COESTI",
       "direccion": "KM 06+239 VIA DE EVITAMIENTO IRRIGACION ZAMACOLA ZONA G",
       "own_lat": -16.352617263793945,
@@ -15713,7 +15869,7 @@
               "precio": 26.99,
               "costo": 25.55,
               "margen": 1.44,
-              "vigencia": "07/10 10:14",
+              "vigencia": "07/10 16:04",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -15721,7 +15877,7 @@
               "precio": 7.15,
               "costo": 6.21,
               "margen": 0.94,
-              "vigencia": "07/10 10:14",
+              "vigencia": "07/10 16:04",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -15729,7 +15885,7 @@
               "precio": 26.79,
               "costo": 23.53,
               "margen": 3.26,
-              "vigencia": "07/10 10:14",
+              "vigencia": "07/10 16:04",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -15737,7 +15893,7 @@
               "precio": 24.69,
               "costo": 20.59,
               "margen": 4.1,
-              "vigencia": "07/10 10:14",
+              "vigencia": "07/10 16:04",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -15752,8 +15908,8 @@
           "distancia_km": 0.21,
           "combustibles": {
             "Diesel": {
-              "precio": 25.99,
-              "diferencial": 1.0,
+              "precio": 25.49,
+              "diferencial": 1.5,
               "main_marker": true
             },
             "GLP": {
@@ -15762,13 +15918,13 @@
               "main_marker": true
             },
             "Premium": {
-              "precio": 25.79,
-              "diferencial": 1.0,
+              "precio": 24.49,
+              "diferencial": 2.3,
               "main_marker": true
             },
             "Regular": {
-              "precio": 23.99,
-              "diferencial": 0.7,
+              "precio": 22.99,
+              "diferencial": 1.7,
               "main_marker": true
             }
           }
@@ -15812,8 +15968,8 @@
           "distancia_km": 1.29,
           "combustibles": {
             "Diesel": {
-              "precio": 25.79,
-              "diferencial": 1.2,
+              "precio": 25.29,
+              "diferencial": 1.7,
               "main_marker": false
             },
             "GLP": {
@@ -15822,13 +15978,13 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 24.99,
-              "diferencial": 1.8,
+              "precio": 23.99,
+              "diferencial": 2.8,
               "main_marker": false
             },
             "Regular": {
-              "precio": 23.99,
-              "diferencial": 0.7,
+              "precio": 22.99,
+              "diferencial": 1.7,
               "main_marker": false
             }
           }
@@ -15867,6 +16023,8 @@
       "corredor": "Corredor Sur Arequipa",
       "zona": "Zona Sur 2",
       "departamento": "Arequipa",
+      "provincia": "Arequipa",
+      "distrito": "Cerro Colorado",
       "gpc_group": "COESTI",
       "direccion": "AV. 2 DE MAYO 1050MZ.1 LOTE 3 VIA DE EVITAMIENTO                    ",
       "own_lat": -8.146231878,
@@ -15963,6 +16121,8 @@
       "corredor": "Ciudad Grupo B",
       "zona": "Zona Selva",
       "departamento": "Loreto",
+      "provincia": "Maynas",
+      "distrito": "Iquitos",
       "gpc_group": "CODESA",
       "direccion": "JR. CALVO DE ARAUJO 801 IQUITOS",
       "own_lat": -3.7470614910125732,
@@ -16166,6 +16326,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Lima Norte 2",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "San Miguel",
       "gpc_group": "COESTI",
       "direccion": "AV. ELMER FAUCETT 384",
       "own_lat": -12.067181,
@@ -16421,6 +16583,8 @@
       "corredor": "Corredor Lima Central",
       "zona": "Zona Lima Este",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Ate",
       "gpc_group": "COESTI",
       "direccion": "AV. NICOLAS AYLLON 2162 CON CL. TOMAS ALVA EDISON",
       "own_lat": -12.063356399536133,
@@ -16637,6 +16801,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Lima Sur 2",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Santiago de Surco",
       "gpc_group": "COESTI",
       "direccion": "AV. TOMAS MARSANO 5010",
       "own_lat": -12.147967338562012,
@@ -16882,6 +17048,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Lima Este",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "La Molina",
       "gpc_group": "COESTI",
       "direccion": "AV. ALAMEDA DEL CORREGIDOR 1195",
       "own_lat": -12.091796875,
@@ -17020,6 +17188,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Lima Norte 1",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Magdalena del Mar",
       "gpc_group": "COESTI",
       "direccion": "AV JAVIER PRADO 2504 CON CALLE FLORA TRISTAN",
       "own_lat": -12.093535423278809,
@@ -17262,6 +17432,8 @@
       "corredor": "Corredor Sur Arequipa",
       "zona": "Zona Sur 2",
       "departamento": "Arequipa",
+      "provincia": "Arequipa",
+      "distrito": "Cerro Colorado",
       "gpc_group": "COESTI",
       "direccion": "AV. LIBERTADOR SAN MARTIN CON  AV. VIA DE EVITAMIENTO",
       "own_lat": -16.39284,
@@ -17550,6 +17722,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Lima Este",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "La Molina",
       "gpc_group": "COESTI",
       "direccion": "AV. LOS FRUTALES 994, ESQUINA ARCOS DE LA FRONTERA",
       "own_lat": -12.073156356811523,
@@ -17768,6 +17942,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Lima Norte 2",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "San Miguel",
       "gpc_group": "COESTI",
       "direccion": "ESQUINA AV LA PAZ Y CALLE GRAN MARISCAL AGUSTÍN GAMARRA MESSIA",
       "own_lat": -12.084067344665527,
@@ -17976,6 +18152,8 @@
       "corredor": "Corredor Lima Gambetta",
       "zona": "Zona Lima Norte chico",
       "departamento": "Lima",
+      "provincia": "Callao",
+      "distrito": "Callao",
       "gpc_group": "COESTI",
       "direccion": "AVENIDA NESSTOR GAMBETTA ESQUINA CON CALLE 01 MZ A LOTES 01 Y 02 PROGRAMA DE VIVIENDA ACUARIO",
       "own_lat": -11.964162,
@@ -18256,6 +18434,8 @@
       "corredor": "Corredor Lima Gambetta",
       "zona": "Zona Lima Norte chico",
       "departamento": "Lima",
+      "provincia": "Callao",
+      "distrito": "Callao",
       "gpc_group": "COESTI",
       "direccion": "AVENIDA NESSTOR GAMBETTA ESQUINA CON CALLE 01 MZ A LOTES 01 Y 02 PROGRAMA DE VIVIENDA ACUARIO",
       "own_lat": -11.9849,
@@ -18373,6 +18553,8 @@
       "corredor": "Ciudad Grupo C",
       "zona": "Zona Sur 1",
       "departamento": "Cusco",
+      "provincia": "Cusco",
+      "distrito": "San Sebastian",
       "gpc_group": "COESTI",
       "direccion": "AV.  VELASCO ASTETE S/N",
       "own_lat": -13.539153099060059,
@@ -18394,7 +18576,7 @@
               "precio": 25.99,
               "costo": 24.41,
               "margen": 1.58,
-              "vigencia": "07/10 12:06",
+              "vigencia": "07/10 20:27",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -18402,7 +18584,7 @@
               "precio": 3.21,
               "costo": 2.87,
               "margen": 0.34,
-              "vigencia": "07/10 12:06",
+              "vigencia": "07/10 20:27",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -18410,7 +18592,7 @@
               "precio": 25.79,
               "costo": 24.12,
               "margen": 1.67,
-              "vigencia": "07/10 12:06",
+              "vigencia": "07/10 20:27",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -18418,7 +18600,7 @@
               "precio": 22.49,
               "costo": 21.4,
               "margen": 1.09,
-              "vigencia": "07/10 12:06",
+              "vigencia": "07/10 20:27",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -18467,8 +18649,8 @@
               "main_marker": false
             },
             "Diesel": {
-              "precio": 24.6,
-              "diferencial": 1.39,
+              "precio": 24.39,
+              "diferencial": 1.6,
               "main_marker": false
             },
             "Regular": {
@@ -18608,6 +18790,8 @@
       "corredor": "Corredor Norte Chiclayo",
       "zona": "Zona Norte 3",
       "departamento": "Lambayeque",
+      "provincia": "Chiclayo",
+      "distrito": "Chiclayo",
       "gpc_group": "COESTI",
       "direccion": "FDO LA ESPERANZA AV EVITAMIENTO S N",
       "own_lat": -6.7874860763549805,
@@ -18820,6 +19004,8 @@
       "corredor": "Corredor Piura",
       "zona": "Zona Norte 1",
       "departamento": "Piura",
+      "provincia": "Piura",
+      "distrito": "Piura",
       "gpc_group": "COESTI",
       "direccion": "MZ.A   SUB LOTE A  1  A   SECTOR PARCELA J DE LA ZONA INDUSTRIAL",
       "own_lat": -5.172424,
@@ -18983,6 +19169,8 @@
       "corredor": "Ciudad Grupo C",
       "zona": "Zona Lima Norte 3",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "San Juan de Lurigancho",
       "gpc_group": "OMEGA",
       "direccion": "Manzana G8, Lote 41, Programa Ciudad Mariscal Cáceres, Sector III",
       "own_lat": -11.946166038513184,
@@ -19186,6 +19374,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Lima Sur 2",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Santiago de Surco",
       "gpc_group": "COESTI",
       "direccion": "AV. MARISCAL CASTILLA 905",
       "own_lat": -12.135046005249023,
@@ -19378,6 +19568,8 @@
       "corredor": "Ciudad Grupo B",
       "zona": "Zona Norte 1",
       "departamento": "Piura",
+      "provincia": "Piura",
+      "distrito": "Piura",
       "gpc_group": "COESTI",
       "direccion": "AV. GRAU 1308",
       "own_lat": -5.19336,
@@ -19566,6 +19758,8 @@
       "corredor": "Ciudad Grupo C",
       "zona": "Zona Lima Norte 2",
       "departamento": "Lima",
+      "provincia": "Callao",
+      "distrito": "Callao",
       "gpc_group": "OMEGA",
       "direccion": "Av. República de Panamá Mz. 8, Parte de los Lotes 5 y 6. Sub-Lote 1",
       "own_lat": -12.055395,
@@ -19869,6 +20063,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Lima Sur 2",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Santiago de Surco",
       "gpc_group": "COESTI",
       "direccion": "AV. JAVIER PRADO ESTE S/N CUADRA 44",
       "own_lat": -12.084494590759277,
@@ -20057,6 +20253,8 @@
       "corredor": "Ciudad Grupo B",
       "zona": "Zona Lima Norte 3",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Cercado de Lima",
       "gpc_group": "COESTI",
       "direccion": "AV. GRAU 1308 Y JR. HUANUCO 1101",
       "own_lat": -12.057760238647461,
@@ -20227,6 +20425,8 @@
       "corredor": "Ciudad Grupo C",
       "zona": "Zona Lima Norte chico",
       "departamento": "Lima",
+      "provincia": "Huaral",
+      "distrito": "Huaral",
       "gpc_group": "COESTI",
       "direccion": "AV. CHANCAY S/C ESQ. C/CALLE 3 DE OCTUBRE - URB. ROSARIO HUARAL - HUARAL - LIMA",
       "own_lat": -11.4974138888889,
@@ -20380,6 +20580,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Lima Norte 1",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Jesus María",
       "gpc_group": "COESTI",
       "direccion": "AV. GREGORIO ESCOBEDO  418 JESUS MARIA",
       "own_lat": -12.08404541015625,
@@ -20529,6 +20731,8 @@
       "corredor": "Ciudad Grupo C",
       "zona": "Zona Lima Sur Chico",
       "departamento": "Ica",
+      "provincia": "Ica",
+      "distrito": "Ica",
       "gpc_group": "COESTI",
       "direccion": "AV. LOS MAESTROS S/N CON ESQUINA CON LA AV. MANUEL SANTANA CHIRI ( REFERENCIA : AL FRENTE DEL MERCADO SANTO DOMINGO).",
       "own_lat": -14.088289260864258,
@@ -20550,7 +20754,7 @@
               "precio": 23.49,
               "costo": 20.83,
               "margen": 2.66,
-              "vigencia": "06/10 15:39",
+              "vigencia": "07/10 15:51",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -20558,7 +20762,7 @@
               "precio": 24.99,
               "costo": 23.03,
               "margen": 1.96,
-              "vigencia": "06/10 15:39",
+              "vigencia": "07/10 15:51",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -20566,15 +20770,15 @@
               "precio": 22.15,
               "costo": 19.94,
               "margen": 2.21,
-              "vigencia": "06/10 15:39",
+              "vigencia": "07/10 15:51",
               "diferencial": 0.0,
               "main_marker": false
             },
             "GNV": {
-              "precio": 1.74,
+              "precio": 1.75,
               "costo": 0.99,
-              "margen": 0.75,
-              "vigencia": "06/10 15:39",
+              "margen": 0.76,
+              "vigencia": "07/10 15:51",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -20582,7 +20786,7 @@
               "precio": 6.69,
               "costo": 5.7,
               "margen": 0.99,
-              "vigencia": "06/10 15:39",
+              "vigencia": "07/10 15:51",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -20633,7 +20837,7 @@
             },
             "GNV": {
               "precio": 1.74,
-              "diferencial": 0.0,
+              "diferencial": 0.01,
               "main_marker": true
             },
             "Premium": {
@@ -20673,7 +20877,7 @@
             },
             "GNV": {
               "precio": 1.75,
-              "diferencial": -0.01,
+              "diferencial": 0.0,
               "main_marker": false
             },
             "GLP": {
@@ -20738,7 +20942,7 @@
             },
             "GNV": {
               "precio": 1.64,
-              "diferencial": 0.1,
+              "diferencial": 0.11,
               "main_marker": false
             },
             "Premium": {
@@ -20808,7 +21012,7 @@
             },
             "GNV": {
               "precio": 1.76,
-              "diferencial": -0.02,
+              "diferencial": -0.01,
               "main_marker": false
             },
             "GLP": {
@@ -20822,6 +21026,8 @@
       "corredor": "Ciudad Grupo C",
       "zona": "Zona Lima Norte 2",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "San Martin de Porres",
       "gpc_group": "COESTI",
       "direccion": "AV. TOMAS VALLE 1981",
       "own_lat": -12.012934,
@@ -20843,7 +21049,7 @@
               "precio": 27.59,
               "costo": 23.42,
               "margen": 4.17,
-              "vigencia": "07/10 12:20",
+              "vigencia": "07/10 16:10",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -20851,7 +21057,7 @@
               "precio": 7.39,
               "costo": 6.21,
               "margen": 1.18,
-              "vigencia": "07/10 12:20",
+              "vigencia": "07/10 16:10",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -20859,7 +21065,7 @@
               "precio": 25.99,
               "costo": 24.11,
               "margen": 1.88,
-              "vigencia": "07/10 12:20",
+              "vigencia": "07/10 16:10",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -20867,7 +21073,7 @@
               "precio": 23.19,
               "costo": 21.39,
               "margen": 1.8,
-              "vigencia": "07/10 12:20",
+              "vigencia": "07/10 16:10",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -21076,6 +21282,8 @@
       "corredor": "Corredor Norte Chiclayo",
       "zona": "Zona Norte 3",
       "departamento": "Lambayeque",
+      "provincia": "Chiclayo",
+      "distrito": "Chiclayo",
       "gpc_group": "COESTI",
       "direccion": "PANAMERICANA NORTE KM. 777",
       "own_lat": -6.728576,
@@ -21097,7 +21305,7 @@
               "precio": 26.99,
               "costo": 24.81,
               "margen": 2.18,
-              "vigencia": "07/10 11:15",
+              "vigencia": "07/10 17:49",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -21105,7 +21313,7 @@
               "precio": 23.39,
               "costo": 21.75,
               "margen": 1.64,
-              "vigencia": "07/10 11:15",
+              "vigencia": "07/10 17:49",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -21113,7 +21321,7 @@
               "precio": 22.09,
               "costo": 20.98,
               "margen": 1.11,
-              "vigencia": "07/10 11:15",
+              "vigencia": "07/10 17:49",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -21260,6 +21468,8 @@
       "corredor": "Ciudad Grupo B",
       "zona": "Zona Sur 1",
       "departamento": "Arequipa",
+      "provincia": "Arequipa",
+      "distrito": "Arequipa",
       "gpc_group": "COESTI",
       "direccion": "AV. PARRA 222",
       "own_lat": -16.411466,
@@ -21385,6 +21595,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Lima centro 1",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "La Victoria",
       "gpc_group": "COESTI",
       "direccion": "AV. JAVIER PRADO ESTE 1059",
       "own_lat": -12.090041160583496,
@@ -21613,6 +21825,8 @@
       "corredor": "Ciudad Grupo B",
       "zona": "Zona Lima Este",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "La Molina",
       "gpc_group": "OMEGA",
       "direccion": "Av. Javier Prado. Mz. 0-6. Sub-Lote 3-B. Esquina Calle Toulon. Urb. La Riviera de Monterrico",
       "own_lat": -12.070646286010742,
@@ -21809,6 +22023,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Lima Sur 2",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Santiago de Surco",
       "gpc_group": "COESTI",
       "direccion": "AV. JORGE CHAVEZ N° 870 - 877, ESQ. AV. ROOSVELT",
       "own_lat": -12.14687728881836,
@@ -21921,6 +22137,8 @@
       "corredor": "Ciudad Grupo C",
       "zona": "Zona Selva",
       "departamento": "UCAYALI",
+      "provincia": "CORONEL PORTILLO",
+      "distrito": "YARINACOCHA",
       "gpc_group": "CODESA",
       "direccion": "AV. MIRAFLORES / ARBORIZACION NRO. 1439",
       "own_lat": -8.374478797,
@@ -22056,6 +22274,8 @@
       "corredor": "Corredor Sur la Joya",
       "zona": "Zona Sur 2",
       "departamento": "Arequipa",
+      "provincia": "Arequipa",
+      "distrito": "La Joya",
       "gpc_group": "COESTI",
       "direccion": "AAHH PROGRESO KM 48  LT 9",
       "own_lat": -16.52931785583496,
@@ -22279,6 +22499,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Lima Centro 2",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Surquillo",
       "gpc_group": "COESTI",
       "direccion": "AV. AVIACION 4524 - SURQUILLO",
       "own_lat": -12.119728088378906,
@@ -22477,6 +22699,8 @@
       "corredor": "Ciudad Grupo B",
       "zona": "Zona Lima Sur 1",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Chorrillos",
       "gpc_group": "OMEGA",
       "direccion": "Av. Alameda Los Horizontes 1070. Urb Los Cedros",
       "own_lat": -12.206130027770996,
@@ -22678,6 +22902,8 @@
       "corredor": "Corredor Sur la Joya",
       "zona": "Zona Sur 2",
       "departamento": "Arequipa",
+      "provincia": "Arequipa",
+      "distrito": "La Joya",
       "gpc_group": "COESTI",
       "direccion": "PANAMERICANA SUR KM 958 CRUCE LA JOYA",
       "own_lat": -16.4923038482666,
@@ -22869,6 +23095,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Lima Norte 2",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "San Miguel",
       "gpc_group": "CODESA",
       "direccion": "AV. LA MARINA 944 PUNCHANA",
       "own_lat": -3.731220006942749,
@@ -22911,10 +23139,10 @@
               "main_marker": false
             },
             "GNV": {
-              "precio": 1.79,
+              "precio": 1.78,
               "costo": 0.98,
-              "margen": 0.81,
-              "vigencia": "07/10 08:39",
+              "margen": 0.8,
+              "vigencia": "07/10 16:57",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -22953,7 +23181,7 @@
             },
             "GNV": {
               "precio": 1.78,
-              "diferencial": 0.01,
+              "diferencial": 0.0,
               "main_marker": true
             },
             "GLP": {
@@ -22998,7 +23226,7 @@
           "combustibles": {
             "GNV": {
               "precio": 1.79,
-              "diferencial": 0.0,
+              "diferencial": -0.01,
               "main_marker": false
             }
           }
@@ -23028,7 +23256,7 @@
             },
             "GNV": {
               "precio": 1.79,
-              "diferencial": 0.0,
+              "diferencial": -0.01,
               "main_marker": false
             },
             "GLP": {
@@ -23063,7 +23291,7 @@
             },
             "GNV": {
               "precio": 1.79,
-              "diferencial": 0.0,
+              "diferencial": -0.01,
               "main_marker": false
             },
             "GLP": {
@@ -23077,6 +23305,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Lima Norte 2",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "San Miguel",
       "gpc_group": "COESTI",
       "direccion": "AV. LA MARINA 2185",
       "own_lat": -12.07853,
@@ -23285,6 +23515,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Lima Este",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "La Molina",
       "gpc_group": "COESTI",
       "direccion": "AV. JAVIER PRADO ESTE 6310 CON CL. LOS FORESTALES",
       "own_lat": -12.069990158081055,
@@ -23306,7 +23538,7 @@
               "precio": 26.49,
               "costo": 23.46,
               "margen": 3.03,
-              "vigencia": "07/10 08:12",
+              "vigencia": "07/10 17:42",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -23314,7 +23546,7 @@
               "precio": 7.65,
               "costo": 5.72,
               "margen": 1.93,
-              "vigencia": "07/10 08:12",
+              "vigencia": "07/10 17:42",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -23322,7 +23554,7 @@
               "precio": 24.29,
               "costo": 20.74,
               "margen": 3.55,
-              "vigencia": "07/10 08:12",
+              "vigencia": "07/10 17:42",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -23330,7 +23562,7 @@
               "precio": 21.99,
               "costo": 19.68,
               "margen": 2.31,
-              "vigencia": "07/10 08:12",
+              "vigencia": "07/10 17:42",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -23463,6 +23695,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Lima Norte 2",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "San Miguel",
       "gpc_group": "COESTI",
       "direccion": "AV. LA PAZ 915. ESQ. CON CALLE INCLAN",
       "own_lat": -12.086507797241211,
@@ -23681,6 +23915,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Lima Norte 2",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "San Miguel",
       "gpc_group": "COESTI",
       "direccion": "AV. LA PAZ 1200 ESQUINA CALLE FRANCISCO DE ZELA",
       "own_lat": -12.085177421569824,
@@ -23834,6 +24070,8 @@
       "corredor": "Ciudad Grupo C",
       "zona": "Zona Norte 2",
       "departamento": "La Libertad",
+      "provincia": "Trujillo",
+      "distrito": "Trujillo",
       "gpc_group": "COESTI",
       "direccion": "AV. LA PAZ 2326",
       "own_lat": -12.075915,
@@ -24009,6 +24247,8 @@
       "corredor": "Ciudad Grupo C",
       "zona": "Zona Norte 2",
       "departamento": "La Libertad",
+      "provincia": "Trujillo",
+      "distrito": "Trujillo",
       "gpc_group": "COESTI",
       "direccion": "AV. AMERICA SUR 2677   URB. LA PERLA",
       "own_lat": -8.125758,
@@ -24030,7 +24270,7 @@
               "precio": 25.85,
               "costo": 23.17,
               "margen": 2.68,
-              "vigencia": "07/10 12:18",
+              "vigencia": "07/10 16:08",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -24038,7 +24278,7 @@
               "precio": 25.45,
               "costo": 23.79,
               "margen": 1.66,
-              "vigencia": "07/10 12:18",
+              "vigencia": "07/10 16:08",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -24046,7 +24286,7 @@
               "precio": 22.85,
               "costo": 21.55,
               "margen": 1.3,
-              "vigencia": "07/10 12:18",
+              "vigencia": "07/10 16:08",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -24172,6 +24412,8 @@
       "corredor": "Corredor Norte Chiclayo",
       "zona": "Zona Norte 3",
       "departamento": "Lambayeque",
+      "provincia": "Chiclayo",
+      "distrito": "Chiclayo",
       "gpc_group": "COESTI",
       "direccion": "INTERSECCION VIA DE EVITAMIENTO Y PROLONGACION BOLOGNESI S/N- ESQ LUIS HEYSEN",
       "own_lat": -6.786266803741455,
@@ -24385,6 +24627,8 @@
       "corredor": "Ciudad Grupo C",
       "zona": "Lima centro 1",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "La Victoria",
       "gpc_group": "COESTI",
       "direccion": "Av Isabel La Católica N°. 077-083 esquina con Avenida Paseo de La Republica y Jr. Canta, Fundo Santa Teresa",
       "own_lat": -12.07042407989502,
@@ -24515,6 +24759,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Sur 2",
       "departamento": "Arequipa",
+      "provincia": "Arequipa",
+      "distrito": "José Luis Bustamante y Rivero",
       "gpc_group": "COESTI",
       "direccion": "AV. ANDRES AVELINO CACERES MZ. C LOTE 1",
       "own_lat": -16.425954818725586,
@@ -24703,6 +24949,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Norte 2",
       "departamento": "La Libertad",
+      "provincia": "Trujillo",
+      "distrito": "Trujillo",
       "gpc_group": "COESTI",
       "direccion": "AV. LARCO 1132",
       "own_lat": -8.124555,
@@ -24941,6 +25189,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Lima Sur 2",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Santiago de Surco",
       "gpc_group": "COESTI",
       "direccion": "AV. SAN JUAN 112 CON AV MORRO SOLAR",
       "own_lat": -12.127419471740723,
@@ -25120,6 +25370,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Lima Norte 3",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Rimac",
       "gpc_group": "COESTI",
       "direccion": "AV. FRANCISCO PIZARRO 1207 - RÃMAC",
       "own_lat": -12.030875205993652,
@@ -25354,6 +25606,8 @@
       "corredor": "Corredor Norte Trujillo",
       "zona": "Zona Norte 2",
       "departamento": "La Libertad",
+      "provincia": "Trujillo",
+      "distrito": "La Esperanza",
       "gpc_group": "COESTI",
       "direccion": "AV. JOSE GABRIEL CONDORCANQUI 2492 LA ESPERANZA",
       "own_lat": -8.064554364,
@@ -25559,6 +25813,8 @@
       "corredor": "Ciudad Grupo B",
       "zona": "Zona Norte 1",
       "departamento": "Piura",
+      "provincia": "Piura",
+      "distrito": "Piura",
       "gpc_group": "COESTI",
       "direccion": "AV. SANCHEZ CERRO CON AV. SULLANA LT 9  10  11",
       "own_lat": -5.190952,
@@ -25772,6 +26028,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Lima Norte 3",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "San Juan de Lurigancho",
       "gpc_group": "COESTI",
       "direccion": "AV. LURIGANCHO MZ. B LOTE 10 A,B,C,D, E Y SUB LOTE 10 F1",
       "own_lat": -12.016674041748047,
@@ -25793,15 +26051,15 @@
               "precio": 24.69,
               "costo": 23.0,
               "margen": 1.69,
-              "vigencia": "06/10 17:09",
+              "vigencia": "07/10 15:37",
               "diferencial": 0.0,
               "main_marker": false
             },
             "GLP": {
-              "precio": 6.65,
+              "precio": 6.75,
               "costo": 5.89,
-              "margen": 0.76,
-              "vigencia": "06/10 17:09",
+              "margen": 0.86,
+              "vigencia": "07/10 15:37",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -25809,7 +26067,7 @@
               "precio": 23.09,
               "costo": 20.9,
               "margen": 2.19,
-              "vigencia": "06/10 17:09",
+              "vigencia": "07/10 15:37",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -25817,7 +26075,7 @@
               "precio": 21.29,
               "costo": 19.83,
               "margen": 1.46,
-              "vigencia": "06/10 17:09",
+              "vigencia": "07/10 15:37",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -25838,7 +26096,7 @@
             },
             "GLP": {
               "precio": 6.69,
-              "diferencial": -0.04,
+              "diferencial": 0.06,
               "main_marker": true
             },
             "Premium": {
@@ -25882,7 +26140,7 @@
             },
             "GLP": {
               "precio": 6.99,
-              "diferencial": -0.34,
+              "diferencial": -0.24,
               "main_marker": false
             }
           }
@@ -25902,7 +26160,7 @@
             },
             "GLP": {
               "precio": 6.69,
-              "diferencial": -0.04,
+              "diferencial": 0.06,
               "main_marker": false
             },
             "Premium": {
@@ -25932,7 +26190,7 @@
             },
             "GLP": {
               "precio": 6.65,
-              "diferencial": 0.0,
+              "diferencial": 0.1,
               "main_marker": false
             },
             "Premium": {
@@ -25962,7 +26220,7 @@
             },
             "GLP": {
               "precio": 6.63,
-              "diferencial": 0.02,
+              "diferencial": 0.12,
               "main_marker": false
             },
             "Premium": {
@@ -25981,6 +26239,8 @@
       "corredor": "Corredor Lima Sur",
       "zona": "Zona Lima Sur 1",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Lurin",
       "gpc_group": "OMEGA",
       "direccion": "Carretera Panamericana Sur, altura del km 34.500 y la Playa Arica",
       "own_lat": -12.296995162963867,
@@ -26136,6 +26396,8 @@
       "corredor": "Ciudad Grupo B",
       "zona": "Zona Norte 1",
       "departamento": "Piura",
+      "provincia": "Piura",
+      "distrito": "Piura",
       "gpc_group": "COESTI",
       "direccion": "ZONA INDUSTRIAL MZ. 235 LOTE 11 Y 12",
       "own_lat": -5.183129,
@@ -26323,6 +26585,8 @@
       "corredor": "Ciudad Grupo B",
       "zona": "Zona Lima Norte 1",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Magdalena del Mar",
       "gpc_group": "COESTI",
       "direccion": "AV. BRASIL 4191 ESQ. CON AV. DEL EJERCITO",
       "own_lat": -12.097070693969727,
@@ -26486,6 +26750,8 @@
       "corredor": "Ciudad Grupo C",
       "zona": "Zona Lima Norte 3",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "San Juan de Lurigancho",
       "gpc_group": "OMEGA",
       "direccion": "AV. MALECON CHECA EGUIGUREN175 - 181",
       "own_lat": -12.030322074890137,
@@ -26633,6 +26899,8 @@
       "corredor": "Ciudad Grupo C",
       "zona": "Zona Lima Este",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Pachacamac",
       "gpc_group": "COESTI",
       "direccion": "AV. VICTOR MALASQUEZ. INT. MZ . LT. SECTOR COMUNIDAD CAMPESINA COLLANAC",
       "own_lat": -12.123780250549316,
@@ -26771,6 +27039,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Lima Norte 1",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "San Isidro",
       "gpc_group": "COESTI",
       "direccion": "AV. DEL EJERCITO 2199 ESQ. AV. SALAVERRY",
       "own_lat": -12.103384017944336,
@@ -26946,6 +27216,8 @@
       "corredor": "Ciudad Grupo C",
       "zona": "Zona centro",
       "departamento": "Junín",
+      "provincia": "Yauli",
+      "distrito": "Santa Rosa de Sacco",
       "gpc_group": "COESTI",
       "direccion": "AV. MIGUEL GRAU 1320",
       "own_lat": -11.541709899902344,
@@ -26964,10 +27236,10 @@
           "distancia_km": 0.0,
           "combustibles": {
             "Diesel": {
-              "precio": 24.85,
+              "precio": 24.75,
               "costo": 22.93,
-              "margen": 1.92,
-              "vigencia": "06/10 16:26",
+              "margen": 1.82,
+              "vigencia": "07/10 15:52",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -26975,7 +27247,7 @@
               "precio": 22.85,
               "costo": 20.87,
               "margen": 1.98,
-              "vigencia": "06/10 16:26",
+              "vigencia": "07/10 15:52",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -26983,7 +27255,7 @@
               "precio": 21.45,
               "costo": 19.48,
               "margen": 1.97,
-              "vigencia": "06/10 16:26",
+              "vigencia": "07/10 15:52",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -26999,7 +27271,7 @@
           "combustibles": {
             "Diesel": {
               "precio": 24.23,
-              "diferencial": 0.62,
+              "diferencial": 0.52,
               "main_marker": true
             },
             "Premium": {
@@ -27024,7 +27296,7 @@
           "combustibles": {
             "Diesel": {
               "precio": 27.99,
-              "diferencial": -3.14,
+              "diferencial": -3.24,
               "main_marker": false
             },
             "GLP": {
@@ -27047,6 +27319,8 @@
       "corredor": "Ciudad Grupo C",
       "zona": "Zona Lima Norte 2",
       "departamento": "Lima",
+      "provincia": "Callao",
+      "distrito": "Callao",
       "gpc_group": "COESTI",
       "direccion": "CAL. ALBERTO SECADA S/N (ESQUINA CON AV. MARCO POLO ) PROV. CONST. DEL CALLAO",
       "own_lat": -12.0634583333333,
@@ -27214,6 +27488,8 @@
       "corredor": "Corredor Piura",
       "zona": "Zona Norte 1",
       "departamento": "Piura",
+      "provincia": "Sullana",
+      "distrito": "Sullana",
       "gpc_group": "COESTI",
       "direccion": "CARRETERA SULLANA - TAMBOGRANDE KM 1021",
       "own_lat": -4.91643,
@@ -27235,7 +27511,7 @@
               "precio": 25.49,
               "costo": 23.42,
               "margen": 2.07,
-              "vigencia": "07/10 11:04",
+              "vigencia": "07/10 15:49",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -27243,7 +27519,7 @@
               "precio": 6.85,
               "costo": 5.7,
               "margen": 1.15,
-              "vigencia": "07/10 11:04",
+              "vigencia": "07/10 15:49",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -27251,7 +27527,7 @@
               "precio": 23.49,
               "costo": 21.07,
               "margen": 2.42,
-              "vigencia": "07/10 11:04",
+              "vigencia": "07/10 15:49",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -27259,7 +27535,7 @@
               "precio": 22.19,
               "costo": 19.71,
               "margen": 2.48,
-              "vigencia": "07/10 11:04",
+              "vigencia": "07/10 15:49",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -27446,6 +27722,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Lima Sur 1",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Villa El Salvador",
       "gpc_group": "COESTI",
       "direccion": "AV.JOSE CARLOS MARIATEGUI ESQ. CON AV.REVOLUCIÃN SECTOR 3 GRUPO 15 MZ. A LTE. 12 Y 13 - VILLA EL SALVADOR - Lima",
       "own_lat": -12.2206944444444,
@@ -27625,6 +27903,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Selva",
       "departamento": "Loreto",
+      "provincia": "Maynas",
+      "distrito": "San Juan Bautista",
       "gpc_group": "CODESA",
       "direccion": "AV. QUIÑONEZ 843 SAN JUAN",
       "own_lat": -3.766014,
@@ -27780,6 +28060,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Norte 1",
       "departamento": "Piura",
+      "provincia": "Piura",
+      "distrito": "Piura",
       "gpc_group": "COESTI",
       "direccion": "AV. PANAMERICANA Y COUNTRY SN",
       "own_lat": -5.182304,
@@ -28004,6 +28286,8 @@
       "corredor": "Corredor Lima Gambetta",
       "zona": "Zona Lima Norte chico",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Puente Piedra",
       "gpc_group": "COESTI",
       "direccion": "AV. REPUBLICA DE CROACIA MZ.N LT186",
       "own_lat": -11.835146,
@@ -28216,6 +28500,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Lima Sur 1",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Villa María del Triunfo",
       "gpc_group": "COESTI",
       "direccion": "AV. LIMA NÂº. 2000 P.J. POETA JOSÃ GALVEZ (MZ. 159, LTE. 4)  VILLA MARIA DEL TRIUNFO -LIMA",
       "own_lat": -12.2238305555556,
@@ -28333,6 +28619,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Selva",
       "departamento": "Ucayali",
+      "provincia": "Coronel Portillo",
+      "distrito": "Calleria",
       "gpc_group": "CODESA",
       "direccion": "AV. YARINACOCHA ESQ. PROLONG. TUPAC AMARU MZ. 185 A LT. 36-37",
       "own_lat": -8.370795249938965,
@@ -28354,7 +28642,7 @@
               "precio": 26.99,
               "costo": 23.91,
               "margen": 3.08,
-              "vigencia": "07/10 09:27",
+              "vigencia": "07/10 15:59",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -28362,7 +28650,7 @@
               "precio": 6.75,
               "costo": 5.97,
               "margen": 0.78,
-              "vigencia": "07/10 09:27",
+              "vigencia": "07/10 15:59",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -28370,7 +28658,7 @@
               "precio": 24.99,
               "costo": 23.34,
               "margen": 1.65,
-              "vigencia": "07/10 09:27",
+              "vigencia": "07/10 15:59",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -28567,6 +28855,8 @@
       "corredor": "Corredor Norte Trujillo",
       "zona": "Zona Norte 2",
       "departamento": "La Libertad",
+      "provincia": "Trujillo",
+      "distrito": "Trujillo",
       "gpc_group": "COESTI",
       "direccion": "Panamericana Norte KM 556",
       "own_lat": -8.147263,
@@ -28780,6 +29070,8 @@
       "corredor": "Ciudad Grupo C",
       "zona": "Zona Lima Norte 3",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Cercado de Lima",
       "gpc_group": "OMEGA",
       "direccion": "Local Industrial en Calle Contralmirante Nicolas Dueñas N° 380",
       "own_lat": -12.038541793823242,
@@ -29014,6 +29306,8 @@
       "corredor": "Corredor Lima Gambetta",
       "zona": "Zona Lima Norte chico",
       "departamento": "Lima",
+      "provincia": "Callao",
+      "distrito": "Ventanilla",
       "gpc_group": "COESTI",
       "direccion": "AV NESTOR GAMBETTA KM 8 - VENTANILLA - CALLAO",
       "own_lat": -11.90371338,
@@ -29198,6 +29492,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Sur 1",
       "departamento": "Arequipa",
+      "provincia": "Arequipa",
+      "distrito": "José Luis Bustamante y Rivero",
       "gpc_group": "COESTI",
       "direccion": "AV. DOLORES S/N CON AV. EE.UU.",
       "own_lat": -16.429037,
@@ -29501,6 +29797,8 @@
       "corredor": "Ciudad Grupo B",
       "zona": "Zona Lima Este",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "La Molina",
       "gpc_group": "COESTI",
       "direccion": "AV. LA MOLINA 580 CON CL. LAS MANDARINAS",
       "own_lat": -12.064398765563965,
@@ -29636,6 +29934,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Lima Sur 2",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Santiago de Surco",
       "gpc_group": "COESTI",
       "direccion": "AV. CAMINOS DEL INCA 2017 - SURCO",
       "own_lat": -12.1300630569458,
@@ -29824,6 +30124,8 @@
       "corredor": "Ciudad Grupo C",
       "zona": "Zona Lima Norte 2",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Los Olivos",
       "gpc_group": "OMEGA",
       "direccion": "Av. Las Palmeras. Mz. A-1. Lote 2-,3. Urb. El Parque del Naranjal",
       "own_lat": -11.978804588317871,
@@ -29971,6 +30273,8 @@
       "corredor": "Ciudad Grupo B",
       "zona": "Zona Lima Sur 2",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "San Borja",
       "gpc_group": "COESTI",
       "direccion": "AV. SAN LUIS 2480",
       "own_lat": -12.098325729370117,
@@ -30180,6 +30484,8 @@
       "corredor": "Corredor Sur Ica",
       "zona": "Zona Lima Sur Chico",
       "departamento": "Ica",
+      "provincia": "Nazca",
+      "distrito": "Nazca",
       "gpc_group": "COESTI",
       "direccion": "CARRETERA PANAMERICANA SUR KM 446",
       "own_lat": -14.821587,
@@ -30422,6 +30728,8 @@
       "corredor": "Ciudad Grupo C",
       "zona": "Zona Lima Norte chico",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Puente Piedra",
       "gpc_group": "COESTI",
       "direccion": "AV. LEONCIO PRADO NÂ° 780 (PAN NORTE KM. 34.5) LIMA, LIMA, PUENTE PIEDRA",
       "own_lat": -11.8409555555556,
@@ -30650,6 +30958,8 @@
       "corredor": "Ciudad Grupo C",
       "zona": "Zona Lima Este",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Ate",
       "gpc_group": "OMEGA",
       "direccion": "Av. Nicolás Ayllón 2039, Parcela del Potrero Santa Lucia del Fundo Vasquez",
       "own_lat": -12.062932014465332,
@@ -30671,7 +30981,7 @@
               "precio": 26.79,
               "costo": 23.26,
               "margen": 3.53,
-              "vigencia": "07/10 08:08",
+              "vigencia": "07/10 16:30",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -30679,7 +30989,7 @@
               "precio": 7.55,
               "costo": 6.87,
               "margen": 0.68,
-              "vigencia": "07/10 08:08",
+              "vigencia": "07/10 16:30",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -30687,7 +30997,7 @@
               "precio": 25.25,
               "costo": 23.56,
               "margen": 1.69,
-              "vigencia": "07/10 08:08",
+              "vigencia": "07/10 16:30",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -30695,7 +31005,7 @@
               "precio": 23.35,
               "costo": 21.86,
               "margen": 1.49,
-              "vigencia": "07/10 08:08",
+              "vigencia": "07/10 16:30",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -30799,6 +31109,8 @@
       "corredor": "Corredor Norte Ancash",
       "zona": "Zona Norte 2",
       "departamento": "Ancash",
+      "provincia": "Santa",
+      "distrito": "Nuevo Chimbote",
       "gpc_group": "COESTI",
       "direccion": "MZ.A LT.2 CAR. PANAM. NORTE KM.425 PROG.VIV. HUP VILLA MARIA SUB LT.B2 NUEVO CHIMBOTE - SANTA - ANCASH - REF. A 3 CDRAS. DE PLAZA VEA",
       "own_lat": -9.120734214782715,
@@ -30977,6 +31289,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Lima Norte 1",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Magdalena del Mar",
       "gpc_group": "COESTI",
       "direccion": "AV. DEL EJERCITO 965, 967 Y 973, LOTES 1, 3, 16C, 17 Y 18 DE LA MZ. 68, URB. SAN FELIPE",
       "own_lat": -12.10041618347168,
@@ -30998,7 +31312,7 @@
               "precio": 27.99,
               "costo": 23.93,
               "margen": 4.06,
-              "vigencia": "07/10 12:04",
+              "vigencia": "07/10 19:21",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -31006,7 +31320,7 @@
               "precio": 7.09,
               "costo": 5.92,
               "margen": 1.17,
-              "vigencia": "07/10 12:04",
+              "vigencia": "07/10 19:21",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -31014,7 +31328,7 @@
               "precio": 25.69,
               "costo": 23.74,
               "margen": 1.95,
-              "vigencia": "07/10 12:04",
+              "vigencia": "07/10 19:21",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -31022,7 +31336,7 @@
               "precio": 22.79,
               "costo": 21.49,
               "margen": 1.3,
-              "vigencia": "07/10 12:04",
+              "vigencia": "07/10 19:21",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -31102,13 +31416,13 @@
               "main_marker": false
             },
             "GLP": {
-              "precio": 6.55,
-              "diferencial": 0.54,
+              "precio": 6.5,
+              "diferencial": 0.59,
               "main_marker": false
             },
             "Premium": {
-              "precio": 23.4,
-              "diferencial": 2.29,
+              "precio": 23.2,
+              "diferencial": 2.49,
               "main_marker": false
             },
             "Regular": {
@@ -31182,6 +31496,8 @@
       "corredor": "Ciudad Grupo B",
       "zona": "Zona Norte 3",
       "departamento": "Lambayeque",
+      "provincia": "Chiclayo",
+      "distrito": "Chiclayo",
       "gpc_group": "COESTI",
       "direccion": "AV. BOLOGNESI CON AV. GRAU SN",
       "own_lat": -6.776786,
@@ -31203,7 +31519,7 @@
               "precio": 26.39,
               "costo": 23.15,
               "margen": 3.24,
-              "vigencia": "07/10 08:07",
+              "vigencia": "07/10 18:59",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -31211,7 +31527,7 @@
               "precio": 23.99,
               "costo": 21.05,
               "margen": 2.94,
-              "vigencia": "07/10 08:07",
+              "vigencia": "07/10 18:59",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -31219,7 +31535,7 @@
               "precio": 22.09,
               "costo": 19.66,
               "margen": 2.43,
-              "vigencia": "07/10 08:07",
+              "vigencia": "07/10 18:59",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -31315,7 +31631,7 @@
               "main_marker": false
             },
             "GNV": {
-              "precio": 1.79,
+              "precio": 1.78,
               "main_marker": false
             },
             "GLP": {
@@ -31328,6 +31644,8 @@
       "corredor": "Ciudad Grupo C",
       "zona": "Zona Lima Norte 2",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "San Miguel",
       "gpc_group": "COESTI",
       "direccion": "AV. LA MARINA 2185",
       "own_lat": -12.078801,
@@ -31596,6 +31914,8 @@
       "corredor": "Corredor Lima Sur",
       "zona": "Zona Lima Sur 1",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Lurin",
       "gpc_group": "COESTI",
       "direccion": "CARRETERA PANAMERICANA SUR KM. 30",
       "own_lat": -12.27548,
@@ -31617,15 +31937,15 @@
               "precio": 22.99,
               "costo": 21.79,
               "margen": 1.2,
-              "vigencia": "07/10 07:59",
+              "vigencia": "07/10 16:31",
               "diferencial": 0.0,
               "main_marker": false
             },
             "Diesel": {
-              "precio": 24.55,
+              "precio": 24.49,
               "costo": 23.73,
-              "margen": 0.82,
-              "vigencia": "07/10 07:59",
+              "margen": 0.76,
+              "vigencia": "07/10 16:31",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -31633,7 +31953,7 @@
               "precio": 21.65,
               "costo": 20.36,
               "margen": 1.29,
-              "vigencia": "07/10 07:59",
+              "vigencia": "07/10 16:31",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -31641,7 +31961,7 @@
               "precio": 1.97,
               "costo": 1.05,
               "margen": 0.92,
-              "vigencia": "07/10 07:59",
+              "vigencia": "07/10 16:31",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -31649,7 +31969,7 @@
               "precio": 6.25,
               "costo": 5.59,
               "margen": 0.66,
-              "vigencia": "07/10 07:59",
+              "vigencia": "07/10 16:31",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -31665,7 +31985,7 @@
           "combustibles": {
             "Diesel": {
               "precio": 23.89,
-              "diferencial": 0.66,
+              "diferencial": 0.6,
               "main_marker": true
             },
             "GLP": {
@@ -31700,7 +32020,7 @@
             },
             "Diesel": {
               "precio": 23.99,
-              "diferencial": 0.56,
+              "diferencial": 0.5,
               "main_marker": false
             },
             "Regular": {
@@ -31730,7 +32050,7 @@
           "combustibles": {
             "Diesel": {
               "precio": 23.95,
-              "diferencial": 0.6,
+              "diferencial": 0.54,
               "main_marker": false
             },
             "GLP": {
@@ -31765,7 +32085,7 @@
             },
             "Diesel": {
               "precio": 24.99,
-              "diferencial": -0.44,
+              "diferencial": -0.5,
               "main_marker": false
             },
             "Regular": {
@@ -31795,7 +32115,7 @@
           "combustibles": {
             "Diesel": {
               "precio": 24.78,
-              "diferencial": -0.23,
+              "diferencial": -0.29,
               "main_marker": false
             },
             "GLP": {
@@ -31824,18 +32144,18 @@
           "distancia_km": 1.31,
           "combustibles": {
             "Premium": {
-              "precio": 23.75,
-              "diferencial": -0.76,
+              "precio": 22.95,
+              "diferencial": 0.04,
               "main_marker": false
             },
             "Diesel": {
-              "precio": 25.45,
-              "diferencial": -0.9,
+              "precio": 25.35,
+              "diferencial": -0.86,
               "main_marker": false
             },
             "Regular": {
-              "precio": 21.94,
-              "diferencial": -0.29,
+              "precio": 21.58,
+              "diferencial": 0.07,
               "main_marker": false
             },
             "GNV": {
@@ -31854,6 +32174,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Lima Sur Chico",
       "departamento": "Ica",
+      "provincia": "Ica",
+      "distrito": "Parcona",
       "gpc_group": "COESTI",
       "direccion": "AV. PROLONGACION GRAU CDRA. 2, DISTRI. PARCONA, PROV. ICA DPTO. ICA.",
       "own_lat": -14.0614444444444,
@@ -32097,6 +32419,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Lima Norte 1",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Jesus María",
       "gpc_group": "COESTI",
       "direccion": "AV. FAUSTINO SANCHEZ CARRION 471 CON JR. ESTADOS UNIDOS",
       "own_lat": -12.08906364440918,
@@ -32286,6 +32610,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Lima Norte 1",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Magdalena del Mar",
       "gpc_group": "COESTI",
       "direccion": "AV. PASEO DE LA REPUBLICA 5545 CON AV. RICARDO PALMA",
       "own_lat": -12.1194722222222,
@@ -32377,6 +32703,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Selva",
       "departamento": "Ucayali",
+      "provincia": "Coronel Portillo",
+      "distrito": "Calleria",
       "gpc_group": "CODESA",
       "direccion": "JR. GUILLERMO SISLEY N° 1200",
       "own_lat": -8.379609107971191,
@@ -32507,6 +32835,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Sur 2",
       "departamento": "Arequipa",
+      "provincia": "CAYLLOMA",
+      "distrito": "Majes",
       "gpc_group": "COESTI",
       "direccion": "ASOCIACION DE MICROEMPRESARIOS DE LA IRRIGACION MAJES “AMEIM” MZ. T, LOTE 6 Y 7",
       "own_lat": -16.343569,
@@ -32742,6 +33072,8 @@
       "corredor": "Corredor Sur Ica",
       "zona": "Zona Lima Sur Chico",
       "departamento": "Ica",
+      "provincia": "Pisco",
+      "distrito": "Pisco",
       "gpc_group": "COESTI",
       "direccion": "AV. FERMIN TANGUIS MZ C LT1, CON CALLE 5",
       "own_lat": -13.711201667785645,
@@ -32821,8 +33153,8 @@
               "main_marker": false
             },
             "GLP": {
-              "precio": 6.29,
-              "diferencial": 0.1,
+              "precio": 6.19,
+              "diferencial": 0.2,
               "main_marker": true
             }
           }
@@ -32951,6 +33283,8 @@
       "corredor": "Corredor Sur Ica",
       "zona": "Zona Lima Sur Chico",
       "departamento": "Ica",
+      "provincia": "Ica",
+      "distrito": "Los Aquijes",
       "gpc_group": "COESTI",
       "direccion": "CARRETERA PANAMERICANA SUR KM 307",
       "own_lat": -14.104898,
@@ -33254,6 +33588,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Lima Sur 2",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "San Borja",
       "gpc_group": "COESTI",
       "direccion": "AV. JOSÃ GÃLVEZ BARRENECHEA 1105, URB. CORPAC, SN. BORJA",
       "own_lat": -12.107460975646973,
@@ -33369,6 +33705,8 @@
       "corredor": "Ciudad Grupo B",
       "zona": "Zona Sur 1",
       "departamento": "Arequipa",
+      "provincia": "Arequipa",
+      "distrito": "Miraflores",
       "gpc_group": "COESTI",
       "direccion": "Av. Progreso 401. Esquina Calle Calvario",
       "own_lat": -16.392123,
@@ -33637,6 +33975,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Lima Norte 3",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "San Juan de Lurigancho",
       "gpc_group": "COESTI",
       "direccion": "AV. PROCERES DE LA INDEPENDENCIA NRO 701 - 709",
       "own_lat": -12.0199556350708,
@@ -33658,7 +33998,7 @@
               "precio": 24.79,
               "costo": 20.74,
               "margen": 4.05,
-              "vigencia": "07/10 11:02",
+              "vigencia": "07/10 16:48",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -33666,7 +34006,7 @@
               "precio": 26.39,
               "costo": 23.32,
               "margen": 3.07,
-              "vigencia": "07/10 11:02",
+              "vigencia": "07/10 16:48",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -33674,15 +34014,15 @@
               "precio": 23.45,
               "costo": 19.69,
               "margen": 3.76,
-              "vigencia": "07/10 11:02",
+              "vigencia": "07/10 16:48",
               "diferencial": 0.0,
               "main_marker": false
             },
             "GNV": {
-              "precio": 1.88,
+              "precio": 1.87,
               "costo": 1.0,
-              "margen": 0.88,
-              "vigencia": "07/10 11:02",
+              "margen": 0.87,
+              "vigencia": "07/10 16:48",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -33690,7 +34030,7 @@
               "precio": 6.59,
               "costo": 5.73,
               "margen": 0.86,
-              "vigencia": "07/10 11:02",
+              "vigencia": "07/10 16:48",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -33721,7 +34061,7 @@
             },
             "GNV": {
               "precio": 1.88,
-              "diferencial": 0.0,
+              "diferencial": -0.01,
               "main_marker": true
             },
             "GLP": {
@@ -33786,7 +34126,7 @@
             },
             "GNV": {
               "precio": 1.85,
-              "diferencial": 0.03,
+              "diferencial": 0.02,
               "main_marker": false
             },
             "GLP": {
@@ -33885,6 +34225,8 @@
       "corredor": "Ciudad Grupo B",
       "zona": "Zona Lima Norte chico",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Puente Piedra",
       "gpc_group": "COESTI",
       "direccion": "AV. INDUSTRIAL MZ F LT 5 URB. LAS VEGAS ESQUINA AV. SAN JUAN",
       "own_lat": -11.86419738,
@@ -34014,8 +34356,8 @@
               "main_marker": false
             },
             "GLP": {
-              "precio": 6.65,
-              "diferencial": 0.04,
+              "precio": 6.75,
+              "diferencial": -0.06,
               "main_marker": false
             },
             "Premium": {
@@ -34124,6 +34466,8 @@
       "corredor": "Corredor Lima Sur",
       "zona": "Zona Lima Sur 1",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Punta Hermosa",
       "gpc_group": "COESTI",
       "direccion": "CAR. PANAMERICANA SUR KM. 40 MZA. D LTE. 2 LIMA, LIMA, PUNTA HERMOSA",
       "own_lat": -12.3167055555556,
@@ -34352,6 +34696,8 @@
       "corredor": "Ciudad Grupo B",
       "zona": "Zona Lima Norte 2",
       "departamento": "Lima",
+      "provincia": "Callao",
+      "distrito": "Callao",
       "gpc_group": "COESTI",
       "direccion": "ESQ. AV. QUILCA CON CALLE 10",
       "own_lat": -12.030972,
@@ -34373,7 +34719,7 @@
               "precio": 27.59,
               "costo": 23.3,
               "margen": 4.29,
-              "vigencia": "07/10 13:10",
+              "vigencia": "07/10 16:46",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -34381,7 +34727,7 @@
               "precio": 2.53,
               "costo": 1.97,
               "margen": 0.56,
-              "vigencia": "07/10 13:10",
+              "vigencia": "07/10 16:46",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -34389,7 +34735,7 @@
               "precio": 25.99,
               "costo": 23.73,
               "margen": 2.26,
-              "vigencia": "07/10 13:10",
+              "vigencia": "07/10 16:46",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -34397,7 +34743,7 @@
               "precio": 23.19,
               "costo": 21.34,
               "margen": 1.85,
-              "vigencia": "07/10 13:10",
+              "vigencia": "07/10 16:46",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -34446,8 +34792,8 @@
               "main_marker": false
             },
             "Diesel": {
-              "precio": 24.6,
-              "diferencial": 2.99,
+              "precio": 24.39,
+              "diferencial": 3.2,
               "main_marker": false
             },
             "Regular": {
@@ -34582,6 +34928,8 @@
       "corredor": "Corredor Norte Chiclayo",
       "zona": "Zona Norte 3",
       "departamento": "Lambayeque",
+      "provincia": "Chiclayo",
+      "distrito": "Chiclayo",
       "gpc_group": "COESTI",
       "direccion": "PANAMERICANA NORTE KM. 779",
       "own_lat": -6.716264,
@@ -34603,15 +34951,15 @@
               "precio": 25.45,
               "costo": 24.57,
               "margen": 0.88,
-              "vigencia": "28/09 18:16",
+              "vigencia": "07/10 18:42",
               "diferencial": 0.0,
               "main_marker": false
             },
             "Regular": {
-              "precio": 23.29,
+              "precio": 23.19,
               "costo": 21.75,
-              "margen": 1.54,
-              "vigencia": "28/09 18:16",
+              "margen": 1.44,
+              "vigencia": "07/10 18:42",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -34632,7 +34980,7 @@
             },
             "Regular": {
               "precio": 23.1,
-              "diferencial": 0.19,
+              "diferencial": 0.09,
               "main_marker": true
             }
           }
@@ -34652,7 +35000,7 @@
             },
             "Regular": {
               "precio": 23.12,
-              "diferencial": 0.17,
+              "diferencial": 0.07,
               "main_marker": false
             }
           }
@@ -34672,7 +35020,7 @@
             },
             "Regular": {
               "precio": 21.1,
-              "diferencial": 2.19,
+              "diferencial": 2.09,
               "main_marker": false
             }
           }
@@ -34692,7 +35040,7 @@
             },
             "Regular": {
               "precio": 22.29,
-              "diferencial": 1.0,
+              "diferencial": 0.9,
               "main_marker": false
             }
           }
@@ -34701,6 +35049,8 @@
       "corredor": "Ciudad Grupo C",
       "zona": "Zona Selva",
       "departamento": "Loreto",
+      "provincia": "Maynas",
+      "distrito": "San Juan Bautista",
       "gpc_group": "CODESA",
       "direccion": "AV. QUIÑONEZ 1480 SAN JUAN",
       "own_lat": -3.765401,
@@ -34963,6 +35313,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Lima centro 1",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "San Isidro",
       "gpc_group": "COESTI",
       "direccion": "AV. PASEO DE LA REPUBLICA 3890",
       "own_lat": -12.102744102478027,
@@ -35155,6 +35507,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Lima Centro 2",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Surquillo",
       "gpc_group": "COESTI",
       "direccion": "AV. REP. DE PANAMÃ 5160 - SURQUILLO",
       "own_lat": -12.116049766540527,
@@ -35331,6 +35685,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Sur 1",
       "departamento": "Arequipa",
+      "provincia": "Arequipa",
+      "distrito": "José Luis Bustamante y Rivero",
       "gpc_group": "COESTI",
       "direccion": "AV. PIZARRO CON AV. HARTLEY URB. CASA BLANCA MZ. D   LOTE 08",
       "own_lat": -16.426029205322266,
@@ -35563,6 +35919,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Lima Centro 2",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Miraflores",
       "gpc_group": "COESTI",
       "direccion": "AV. MCAL. ANDRES A. CÃCERES 110, MIRAFLORES",
       "own_lat": -12.1199666666667,
@@ -35826,6 +36184,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Lima Norte 1",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Lince",
       "gpc_group": "COESTI",
       "direccion": "AV ARENALES 2100",
       "own_lat": -12.086024284362793,
@@ -36106,6 +36466,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Norte 1",
       "departamento": "Piura",
+      "provincia": "Piura",
+      "distrito": "Castilla",
       "gpc_group": "COESTI",
       "direccion": "MALECON MARIA AUXILIADORA LOTE 34 MIRAFLORES",
       "own_lat": -5.18317,
@@ -36240,6 +36602,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Sur 1",
       "departamento": "Arequipa",
+      "provincia": "Arequipa",
+      "distrito": "Sachaca",
       "gpc_group": "COESTI",
       "direccion": "AV. FERNADINI S N",
       "own_lat": -16.420442581176758,
@@ -36383,6 +36747,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Lima Norte 1",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Lince",
       "gpc_group": "INACTIVAS",
       "direccion": "AV. CANEVARO 1598",
       "own_lat": -12.085227012634277,
@@ -36581,6 +36947,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Lima Norte 1",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Magdalena del Mar",
       "gpc_group": "COESTI",
       "direccion": "JR. SALAVERRY 478-480",
       "own_lat": -12.094255447387695,
@@ -36804,6 +37172,8 @@
       "corredor": "Ciudad Grupo C",
       "zona": "Zona Lima Norte 3",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Cercado de Lima",
       "gpc_group": "OMEGA",
       "direccion": "Av. Universitaria Sur N° 498, Urb. Lotización Industrial",
       "own_lat": -12.0419282913208,
@@ -36980,6 +37350,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Lima Centro 2",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Miraflores",
       "gpc_group": "COESTI",
       "direccion": "AV. PASEO DE LA REPUBLICA 5789 CON CL. SCHELL",
       "own_lat": -12.123514,
@@ -37183,6 +37555,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Lima Este",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "San Borja",
       "gpc_group": "COESTI",
       "direccion": "AV AGUSTIN DE LA ROSA TORO 1312 ESQ. JAVIER PRADO 3095",
       "own_lat": -12.086258888244629,
@@ -37418,6 +37792,8 @@
       "corredor": "Corredor Sur la Joya",
       "zona": "Zona Sur 2",
       "departamento": "Arequipa",
+      "provincia": "Arequipa",
+      "distrito": "La Joya",
       "gpc_group": "COESTI",
       "direccion": "Carretera panamericana sur km 983",
       "own_lat": -16.58365821838379,
@@ -37650,6 +38026,8 @@
       "corredor": "Corredor Lima Sur",
       "zona": "Zona Lima Sur 1",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Lurin",
       "gpc_group": "COESTI",
       "direccion": "Av. Panamericana Sur Km. 29.5 Lurin.",
       "own_lat": -12.272292,
@@ -37873,6 +38251,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Lima centro 1",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "San Isidro",
       "gpc_group": "COESTI",
       "direccion": "AV. REPUBLICA DE PANAMA Nº 3690-3696",
       "own_lat": -12.101815223693848,
@@ -38078,6 +38458,8 @@
       "corredor": "Corredor Lima Norte",
       "zona": "Zona Lima Norte chico",
       "departamento": "Lima",
+      "provincia": "Barranca",
+      "distrito": "Barranca",
       "gpc_group": "COESTI",
       "direccion": "PANAMERICANA NORTE KM 196 - URB. LAS PALMERAS ",
       "own_lat": -10.742795,
@@ -38245,6 +38627,8 @@
       "corredor": "Corredor Sur la Joya",
       "zona": "Zona Sur 2",
       "departamento": "Arequipa",
+      "provincia": "Arequipa",
+      "distrito": "La Joya",
       "gpc_group": "COESTI",
       "direccion": "AAHH PROGRESO 48  MZ. VI LT 1",
       "own_lat": -16.528776168823242,
@@ -38378,6 +38762,8 @@
       "corredor": "SIN CORREDOR",
       "zona": "Lima centro 1",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "San Luis",
       "gpc_group": "INACTIVAS",
       "direccion": "Av. San Juan 895, Urb. Las Moras",
       "own_lat": -12.075037002563477,
@@ -38446,18 +38832,18 @@
           "distancia_km": 0.69,
           "combustibles": {
             "Premium": {
-              "precio": 22.98,
-              "diferencial": 0.51,
+              "precio": 22.58,
+              "diferencial": 0.91,
               "main_marker": true
             },
             "Diesel": {
-              "precio": 24.48,
-              "diferencial": 0.31,
+              "precio": 24.28,
+              "diferencial": 0.51,
               "main_marker": true
             },
             "Regular": {
-              "precio": 21.78,
-              "diferencial": 0.51,
+              "precio": 21.58,
+              "diferencial": 0.71,
               "main_marker": true
             },
             "GNV": {
@@ -38541,6 +38927,8 @@
       "corredor": "Corredor Lima Central",
       "zona": "Zona Lima Este",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "San Luis",
       "gpc_group": "COESTI",
       "direccion": "AV. NICOLAS AYLLON 1340",
       "own_lat": -12.064209938049316,
@@ -38713,6 +39101,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Lima Sur 2",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "San Borja",
       "gpc_group": "COESTI",
       "direccion": "ESQ. DE LA AV. SAN LUIS 2605 CON SAN BORJA SUR",
       "own_lat": -12.10083293914795,
@@ -38992,6 +39382,8 @@
       "corredor": "Corredor Norte Trujillo",
       "zona": "Zona Norte 2",
       "departamento": "La Libertad",
+      "provincia": "Trujillo",
+      "distrito": "Moche",
       "gpc_group": "COESTI",
       "direccion": "OVALO LA MARINA AV. LA MARINA Y CARRETERA INDUSTRIAL KM. 559",
       "own_lat": -8.1314,
@@ -39010,10 +39402,10 @@
           "distancia_km": 0.0,
           "combustibles": {
             "Diesel": {
-              "precio": 27.19,
+              "precio": 27.09,
               "costo": 23.67,
-              "margen": 3.52,
-              "vigencia": "07/10 12:56",
+              "margen": 3.42,
+              "vigencia": "07/10 17:10",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -39021,7 +39413,7 @@
               "precio": 7.19,
               "costo": 6.25,
               "margen": 0.94,
-              "vigencia": "07/10 12:56",
+              "vigencia": "07/10 17:10",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -39029,7 +39421,7 @@
               "precio": 25.55,
               "costo": 23.77,
               "margen": 1.78,
-              "vigencia": "07/10 12:56",
+              "vigencia": "07/10 17:10",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -39037,7 +39429,7 @@
               "precio": 22.89,
               "costo": 21.79,
               "margen": 1.1,
-              "vigencia": "07/10 12:56",
+              "vigencia": "07/10 17:10",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -39053,7 +39445,7 @@
           "combustibles": {
             "Diesel": {
               "precio": 24.85,
-              "diferencial": 2.34,
+              "diferencial": 2.24,
               "main_marker": false
             },
             "GLP": {
@@ -39082,8 +39474,8 @@
           "distancia_km": 1.5,
           "combustibles": {
             "Diesel": {
-              "precio": 25.59,
-              "diferencial": 1.6,
+              "precio": 24.99,
+              "diferencial": 2.1,
               "main_marker": true
             },
             "GLP": {
@@ -39113,7 +39505,7 @@
           "combustibles": {
             "Diesel": {
               "precio": 25.19,
-              "diferencial": 2.0,
+              "diferencial": 1.9,
               "main_marker": false
             },
             "GLP": {
@@ -39143,7 +39535,7 @@
           "combustibles": {
             "Diesel": {
               "precio": 24.85,
-              "diferencial": 2.34,
+              "diferencial": 2.24,
               "main_marker": false
             },
             "GLP": {
@@ -39173,7 +39565,7 @@
           "combustibles": {
             "Diesel": {
               "precio": 26.23,
-              "diferencial": 0.96,
+              "diferencial": 0.86,
               "main_marker": false
             },
             "GLP": {
@@ -39203,7 +39595,7 @@
           "combustibles": {
             "Diesel": {
               "precio": 26.19,
-              "diferencial": 1.0,
+              "diferencial": 0.9,
               "main_marker": false
             },
             "GLP": {
@@ -39227,6 +39619,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Norte 3",
       "departamento": "Lambayeque",
+      "provincia": "Chiclayo",
+      "distrito": "Chiclayo",
       "gpc_group": "COESTI",
       "direccion": "AV. JUAN TOMIS STACK  205",
       "own_lat": -6.772322,
@@ -39392,6 +39786,8 @@
       "corredor": "Ciudad Grupo B",
       "zona": "Zona centro",
       "departamento": "Junín",
+      "provincia": "Tarma",
+      "distrito": "Tarma",
       "gpc_group": "COESTI",
       "direccion": "AV. PACHECO NRO. 669 - 677",
       "own_lat": -11.429425239562988,
@@ -39592,6 +39988,8 @@
       "corredor": "Ciudad Grupo C",
       "zona": "Zona centro",
       "departamento": "Junín",
+      "provincia": "Huancayo",
+      "distrito": "el Tambo",
       "gpc_group": "COESTI",
       "direccion": "AV. MARISCAL CASTILLA N° 1810",
       "own_lat": -12.051688194274902,
@@ -39831,6 +40229,8 @@
       "corredor": "Corredor Sur Arequipa",
       "zona": "Zona Sur 2",
       "departamento": "Arequipa",
+      "provincia": "Arequipa",
+      "distrito": "Cerro Colorado",
       "gpc_group": "COESTI",
       "direccion": "CARRETERA A YURA KM. 11 URB. HEROES DE BRENA",
       "own_lat": -16.32037925720215,
@@ -39934,6 +40334,8 @@
       "corredor": "Ciudad Grupo B",
       "zona": "Zona Lima Norte 3",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Rimac",
       "gpc_group": "CODESA",
       "direccion": "AV. BELLAVISTA N° 290",
       "own_lat": -8.397846221923828,
@@ -40113,6 +40515,8 @@
       "corredor": "Ciudad Grupo B",
       "zona": "Zona Lima Norte 3",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Rimac",
       "gpc_group": "COESTI",
       "direccion": "JR. VIRU Nº 606",
       "own_lat": -12.037985801696777,
@@ -40134,7 +40538,7 @@
               "precio": 27.09,
               "costo": 23.68,
               "margen": 3.41,
-              "vigencia": "07/10 12:02",
+              "vigencia": "07/10 16:08",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -40142,7 +40546,7 @@
               "precio": 7.45,
               "costo": 6.38,
               "margen": 1.07,
-              "vigencia": "07/10 12:02",
+              "vigencia": "07/10 16:08",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -40150,7 +40554,7 @@
               "precio": 26.05,
               "costo": 23.92,
               "margen": 2.13,
-              "vigencia": "07/10 12:02",
+              "vigencia": "07/10 16:08",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -40158,7 +40562,7 @@
               "precio": 22.89,
               "costo": 21.58,
               "margen": 1.31,
-              "vigencia": "07/10 12:02",
+              "vigencia": "07/10 16:08",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -40313,6 +40717,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Norte 3",
       "departamento": "Lambayeque",
+      "provincia": "Chiclayo",
+      "distrito": "Chiclayo",
       "gpc_group": "COESTI",
       "direccion": "AV. JOSE BALTA 012 Y CL. LAS CASUARINAS 120",
       "own_lat": -6.778918288,
@@ -40472,6 +40878,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Sur 1",
       "departamento": "Arequipa",
+      "provincia": "Arequipa",
+      "distrito": "Arequipa",
       "gpc_group": "COESTI",
       "direccion": "AV. SALAVERRY 608   URB. VALLECITO",
       "own_lat": -16.404088,
@@ -40574,13 +40982,13 @@
           "distancia_km": 8.3,
           "combustibles": {
             "Diesel": {
-              "precio": 24.54,
-              "diferencial": 0.05,
+              "precio": 24.39,
+              "diferencial": 0.2,
               "main_marker": false
             },
             "Premium": {
-              "precio": 22.44,
-              "diferencial": 0.75,
+              "precio": 22.19,
+              "diferencial": 1.0,
               "main_marker": false
             },
             "Regular": {
@@ -40681,6 +41089,8 @@
       "corredor": "Ciudad Grupo B",
       "zona": "Zona Lima Sur 1",
       "departamento": "Lima",
+      "provincia": "Cañete",
+      "distrito": "Asia",
       "gpc_group": "COESTI",
       "direccion": "CARR. PANAMERICANA SUR KM. 106 ASIA",
       "own_lat": -12.819396018981934,
@@ -40702,7 +41112,7 @@
               "precio": 24.59,
               "costo": 23.17,
               "margen": 1.42,
-              "vigencia": "07/10 08:21",
+              "vigencia": "07/10 16:05",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -40710,7 +41120,7 @@
               "precio": 23.19,
               "costo": 20.99,
               "margen": 2.2,
-              "vigencia": "07/10 08:21",
+              "vigencia": "07/10 16:05",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -40718,7 +41128,7 @@
               "precio": 21.45,
               "costo": 19.98,
               "margen": 1.47,
-              "vigencia": "07/10 08:21",
+              "vigencia": "07/10 16:05",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -40783,13 +41193,13 @@
           "distancia_km": 8.25,
           "combustibles": {
             "Diesel": {
-              "precio": 24.54,
-              "diferencial": 0.05,
+              "precio": 24.39,
+              "diferencial": 0.2,
               "main_marker": false
             },
             "Premium": {
-              "precio": 22.44,
-              "diferencial": 0.75,
+              "precio": 22.19,
+              "diferencial": 1.0,
               "main_marker": false
             },
             "Regular": {
@@ -40861,6 +41271,8 @@
       "corredor": "Ciudad Grupo B",
       "zona": "Zona Lima Sur 1",
       "departamento": "Lima",
+      "provincia": "Cañete",
+      "distrito": "Asia",
       "gpc_group": "COESTI",
       "direccion": "CARRETERA PANAMERICANA SUR KM 106 (SUR A NORTE) PREDIO B SECTOR SARAPAMPA",
       "own_lat": -12.818312644958496,
@@ -41074,6 +41486,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Sur 1",
       "departamento": "Arequipa",
+      "provincia": "Arequipa",
+      "distrito": "Yanahuara",
       "gpc_group": "COESTI",
       "direccion": "CALLE GRANDE NÂº 239-YANAHUARA-AREQUIPA",
       "own_lat": -16.39225196838379,
@@ -41288,6 +41702,8 @@
       "corredor": "Ciudad Grupo B",
       "zona": "Zona Sur 1",
       "departamento": "Arequipa",
+      "provincia": "Arequipa",
+      "distrito": "Socabaya",
       "gpc_group": "COESTI",
       "direccion": "QUEBRADA DE COSCOLLO 794",
       "own_lat": -16.445222854614258,
@@ -41506,6 +41922,8 @@
       "corredor": "Ciudad Grupo C",
       "zona": "Zona Lima Sur Chico",
       "departamento": "ICA",
+      "provincia": "Chincha",
+      "distrito": "Sunampe",
       "gpc_group": "OMEGA",
       "direccion": "Av. Mcal Benavides (Carretera Panamericana Sur Km. 195.60) Num 925",
       "own_lat": -13.415115356445312,
@@ -41690,6 +42108,8 @@
       "corredor": "Corredor Piura",
       "zona": "Zona Norte 1",
       "departamento": "Piura",
+      "provincia": "Piura",
+      "distrito": "Piura",
       "gpc_group": "COESTI",
       "direccion": "PIURA",
       "own_lat": -5.160025119781494,
@@ -41838,6 +42258,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Lima Norte 1",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Pueblo Libre",
       "gpc_group": "COESTI",
       "direccion": "AV. SUCRE 1070",
       "own_lat": -12.081595420837402,
@@ -42096,6 +42518,8 @@
       "corredor": "Ciudad Grupo B",
       "zona": "Zona Lima Norte 3",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Cercado de Lima",
       "gpc_group": "COESTI",
       "direccion": "AV. OSCAR R. BENAVIDES 871",
       "own_lat": -12.047820091247559,
@@ -42321,6 +42745,8 @@
       "corredor": "Ciudad Grupo C",
       "zona": "Zona Norte 1",
       "departamento": "Piura",
+      "provincia": "Sullana",
+      "distrito": "Sullana",
       "gpc_group": "COESTI",
       "direccion": "AV. CHAMPAGNAT 1220",
       "own_lat": -4.909664,
@@ -42526,6 +42952,8 @@
       "corredor": "Ciudad Grupo C",
       "zona": "Zona Sur 1",
       "departamento": "Cusco",
+      "provincia": "Cusco",
+      "distrito": "San Sebastian",
       "gpc_group": "COESTI",
       "direccion": "PROLONGACION AV. LA CULTURA nro 1506",
       "own_lat": -13.531056,
@@ -42651,6 +43079,8 @@
       "corredor": "Ciudad Grupo C",
       "zona": "Zona Sur 2",
       "departamento": "Arequipa",
+      "provincia": "Arequipa",
+      "distrito": "Arequipa",
       "gpc_group": "COESTI",
       "direccion": "AV. VENEZUELA 2515",
       "own_lat": -16.414586,
@@ -42672,7 +43102,7 @@
               "precio": 23.55,
               "costo": 20.85,
               "margen": 2.7,
-              "vigencia": "07/10 08:17",
+              "vigencia": "07/10 17:56",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -42680,7 +43110,7 @@
               "precio": 25.49,
               "costo": 23.62,
               "margen": 1.87,
-              "vigencia": "07/10 08:17",
+              "vigencia": "07/10 17:56",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -42688,7 +43118,7 @@
               "precio": 21.99,
               "costo": 19.73,
               "margen": 2.26,
-              "vigencia": "07/10 08:17",
+              "vigencia": "07/10 17:56",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -42696,7 +43126,7 @@
               "precio": 1.85,
               "costo": 0.98,
               "margen": 0.87,
-              "vigencia": "07/10 08:17",
+              "vigencia": "07/10 17:56",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -42704,7 +43134,7 @@
               "precio": 7.49,
               "costo": 5.74,
               "margen": 1.75,
-              "vigencia": "07/10 08:17",
+              "vigencia": "07/10 17:56",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -42889,6 +43319,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Lima Sur 2",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Santiago de Surco",
       "gpc_group": "COESTI",
       "direccion": "AV CIRCUNVALACION NRO 377, Lts 3, 4, 5, 7, 8, 9, 10, 11 y 12, UNID INMOB A2 Mz \"L\" URB SAN IGNACIO DE LOYOLA",
       "own_lat": -12.131182670593262,
@@ -43134,6 +43566,8 @@
       "corredor": "Ciudad Grupo C",
       "zona": "Zona Sur 2",
       "departamento": "Tacna",
+      "provincia": "Tacna",
+      "distrito": "Tacna",
       "gpc_group": "COESTI",
       "direccion": "INTERSECCION DE AV. INDUSTRIAL 415 C/AV. TARATA Y PSJE. S/N - Tacna - TACNA",
       "own_lat": -18.00119972229004,
@@ -43349,6 +43783,8 @@
       "corredor": "Ciudad Grupo C",
       "zona": "Zona Sur 2",
       "departamento": "Tacna",
+      "provincia": "Tacna",
+      "distrito": "Tacna",
       "gpc_group": "COESTI",
       "direccion": "Av Jorge Basadre Grohmann Oeste N° 475",
       "own_lat": -18.01625633239746,
@@ -43508,6 +43944,8 @@
       "corredor": "Corredor Piura",
       "zona": "Zona Norte 1",
       "departamento": "Piura",
+      "provincia": "Talara",
+      "distrito": "Pariñas",
       "gpc_group": "COESTI",
       "direccion": "ESQUINA AV. A Y B",
       "own_lat": -4.576383,
@@ -43659,6 +44097,8 @@
       "corredor": "Ciudad Grupo C",
       "zona": "Zona centro",
       "departamento": "Junín",
+      "provincia": "Tarma",
+      "distrito": "Tarma",
       "gpc_group": "COESTI",
       "direccion": "AV. CASTILLA 207",
       "own_lat": -11.419939041137695,
@@ -43871,6 +44311,8 @@
       "corredor": "Ciudad Grupo C",
       "zona": "Zona Lima Sur 1",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Chorrillos",
       "gpc_group": "COESTI",
       "direccion": "AV. CAMINOS DEL INCA 110  134",
       "own_lat": -12.190579414367676,
@@ -44124,6 +44566,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Lima Norte 3",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Cercado de Lima",
       "gpc_group": "COESTI",
       "direccion": "AV. TINGO MARIA 1172",
       "own_lat": -12.059430122375488,
@@ -44349,6 +44793,8 @@
       "corredor": "Ciudad Grupo B",
       "zona": "Zona Lima Sur Chico",
       "departamento": "Ica",
+      "provincia": "Pisco",
+      "distrito": "Pisco",
       "gpc_group": "COESTI",
       "direccion": "AV. FERMIN TANGUIS 220",
       "own_lat": -13.711031,
@@ -44537,6 +44983,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Lima Sur 2",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Santiago de Surco",
       "gpc_group": "COESTI",
       "direccion": "AV. TOMAS MARSANO 4080 CON AV. SURCO",
       "own_lat": -12.138907432556152,
@@ -44558,7 +45006,7 @@
               "precio": 23.99,
               "costo": 20.71,
               "margen": 3.28,
-              "vigencia": "07/10 10:27",
+              "vigencia": "07/10 16:54",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -44566,7 +45014,7 @@
               "precio": 26.79,
               "costo": 22.96,
               "margen": 3.83,
-              "vigencia": "07/10 10:27",
+              "vigencia": "07/10 16:54",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -44574,7 +45022,7 @@
               "precio": 22.69,
               "costo": 19.64,
               "margen": 3.05,
-              "vigencia": "07/10 10:27",
+              "vigencia": "07/10 16:54",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -44582,7 +45030,7 @@
               "precio": 1.76,
               "costo": 1.0,
               "margen": 0.76,
-              "vigencia": "07/10 10:27",
+              "vigencia": "07/10 16:54",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -44590,7 +45038,7 @@
               "precio": 6.75,
               "costo": 5.71,
               "margen": 1.04,
-              "vigencia": "07/10 10:27",
+              "vigencia": "07/10 16:54",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -44745,8 +45193,8 @@
               "main_marker": false
             },
             "GNV": {
-              "precio": 1.74,
-              "diferencial": 0.02,
+              "precio": 1.75,
+              "diferencial": 0.01,
               "main_marker": false
             },
             "GLP": {
@@ -44785,6 +45233,8 @@
       "corredor": "Ciudad Grupo B",
       "zona": "Zona Lima Norte 2",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Los Olivos",
       "gpc_group": "COESTI",
       "direccion": "AV. TOMAS VALLE, ESQUINA AV. BETA, SECCION A-1, FUNDO GARAGAY BAJO, SECTOR B",
       "own_lat": -12.010427474975586,
@@ -45048,6 +45498,8 @@
       "corredor": "Ciudad Grupo C",
       "zona": "Zona Lima Norte chico",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Comas",
       "gpc_group": "COESTI",
       "direccion": "AV HEROES DEL ALTO CENEPA NRO 697 FUNDO CHACRA CERRO",
       "own_lat": -11.92090813,
@@ -45217,6 +45669,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Selva",
       "departamento": "Ucayali",
+      "provincia": "Coronel Portillo",
+      "distrito": "Manantay",
       "gpc_group": "CODESA",
       "direccion": "AV. TUPAC AMARU MZ.C LOTE 08 - AA.HH. SANTA PETRONILA",
       "own_lat": -8.398634,
@@ -45238,7 +45692,7 @@
               "precio": 27.15,
               "costo": 24.46,
               "margen": 2.69,
-              "vigencia": "07/10 09:54",
+              "vigencia": "07/10 16:47",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -45246,7 +45700,7 @@
               "precio": 6.95,
               "costo": 6.09,
               "margen": 0.86,
-              "vigencia": "07/10 09:54",
+              "vigencia": "07/10 16:47",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -45254,7 +45708,7 @@
               "precio": 25.49,
               "costo": 23.46,
               "margen": 2.03,
-              "vigencia": "07/10 09:54",
+              "vigencia": "07/10 16:47",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -45262,7 +45716,7 @@
               "precio": 23.49,
               "costo": 21.54,
               "margen": 1.95,
-              "vigencia": "07/10 09:54",
+              "vigencia": "07/10 16:47",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -45336,8 +45790,8 @@
           "distancia_km": 1.38,
           "combustibles": {
             "Diesel": {
-              "precio": 25.84,
-              "diferencial": 1.31,
+              "precio": 25.69,
+              "diferencial": 1.46,
               "main_marker": false
             },
             "GLP": {
@@ -45346,13 +45800,13 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 23.89,
-              "diferencial": 1.6,
+              "precio": 23.49,
+              "diferencial": 2.0,
               "main_marker": false
             },
             "Regular": {
-              "precio": 22.34,
-              "diferencial": 1.15,
+              "precio": 22.29,
+              "diferencial": 1.2,
               "main_marker": false
             }
           }
@@ -45366,8 +45820,8 @@
           "distancia_km": 1.79,
           "combustibles": {
             "Diesel": {
-              "precio": 26.59,
-              "diferencial": 0.56,
+              "precio": 25.99,
+              "diferencial": 1.16,
               "main_marker": false
             },
             "Premium": {
@@ -45391,8 +45845,8 @@
           "distancia_km": 2.02,
           "combustibles": {
             "Diesel": {
-              "precio": 26.15,
-              "diferencial": 1.0,
+              "precio": 25.45,
+              "diferencial": 1.7,
               "main_marker": false
             },
             "Premium": {
@@ -45401,8 +45855,8 @@
               "main_marker": false
             },
             "Regular": {
-              "precio": 22.47,
-              "diferencial": 1.02,
+              "precio": 22.21,
+              "diferencial": 1.28,
               "main_marker": false
             }
           }
@@ -45411,6 +45865,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Norte 2",
       "departamento": "La Libertad",
+      "provincia": "Trujillo",
+      "distrito": "Huanchaco",
       "gpc_group": "COESTI",
       "direccion": "MZ.A LOTE 1-A AA.HH HUANCHAQUITO BAJO (KM 2 CURVA HUANCHAQUITO)",
       "own_lat": -8.096188,
@@ -45432,7 +45888,7 @@
               "precio": 28.59,
               "costo": 23.63,
               "margen": 4.96,
-              "vigencia": "07/10 12:08",
+              "vigencia": "07/10 16:39",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -45440,7 +45896,7 @@
               "precio": 7.49,
               "costo": 6.5,
               "margen": 0.99,
-              "vigencia": "07/10 12:08",
+              "vigencia": "07/10 16:39",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -45456,7 +45912,7 @@
               "precio": 24.29,
               "costo": 21.75,
               "margen": 2.54,
-              "vigencia": "07/10 12:08",
+              "vigencia": "07/10 16:39",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -45551,6 +46007,8 @@
       "corredor": "Corredor Norte Chiclayo",
       "zona": "Zona Norte 3",
       "departamento": "La Libertad",
+      "provincia": "Pacasmayo",
+      "distrito": "Pacasmayo",
       "gpc_group": "COESTI",
       "direccion": "AV. ENRIQUE VALENZUELA CON JR. LAS MAQUINARIAS S/N",
       "own_lat": -7.4145283699035645,
@@ -45696,6 +46154,8 @@
       "corredor": "Corredor Norte Trujillo",
       "zona": "Zona Norte 2",
       "departamento": "La Libertad",
+      "provincia": "Trujillo",
+      "distrito": "Trujillo",
       "gpc_group": "COESTI",
       "direccion": "AV. FEDERICO VILLARREAL 1001 URB. ANDRES RAZURI",
       "own_lat": -8.099078,
@@ -45866,6 +46326,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Sur 1",
       "departamento": "Arequipa",
+      "provincia": "Arequipa",
+      "distrito": "Yanahuara",
       "gpc_group": "COESTI",
       "direccion": "AV. JOSE A. QUINONES CON CL. S N MZ. 1 LTS. 1-4 URB VALENCIA",
       "own_lat": -16.3965416666667,
@@ -46006,6 +46468,8 @@
       "corredor": "Ciudad Grupo B",
       "zona": "Zona Sur 1",
       "departamento": "Arequipa",
+      "provincia": "Arequipa",
+      "distrito": "Yanahuara",
       "gpc_group": "COESTI",
       "direccion": "Calle Ricardo Palma 502 - Umacollo",
       "own_lat": -16.403585,
@@ -46260,6 +46724,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Lima Este",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "La Molina",
       "gpc_group": "COESTI",
       "direccion": "AV. MELGAREJO, ESQ. CON LA AV. UNIVERSIDAD",
       "own_lat": -12.074986457824707,
@@ -46398,6 +46864,8 @@
       "corredor": "Ciudad Grupo C",
       "zona": "Zona Lima Norte 2",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "San Martin de Porres",
       "gpc_group": "COESTI",
       "direccion": "AV. UNIVERSITARIA Y ANTUNEZ DE MAYOLO  MZ. B LTE. 1 Y 2 -SAN MARTIN DE PORRES",
       "own_lat": -11.9957888888889,
@@ -46530,8 +46998,8 @@
               "main_marker": false
             },
             "Regular": {
-              "precio": 21.55,
-              "diferencial": 0.44,
+              "precio": 20.99,
+              "diferencial": 1.0,
               "main_marker": false
             }
           }
@@ -46560,6 +47028,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Selva",
       "departamento": "Ucayali",
+      "provincia": "Coronel Portillo",
+      "distrito": "Calleria",
       "gpc_group": "CODESA",
       "direccion": "Esquina Av. Salvador Allende con av. union Mz K lote 3",
       "own_lat": -8.378734588623047,
@@ -46853,6 +47323,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Selva",
       "departamento": "Ucayali",
+      "provincia": "Coronel Portillo",
+      "distrito": "Yarinacocha",
       "gpc_group": "COESTI",
       "direccion": "PROLONGACION UNION 1914",
       "own_lat": -8.094103,
@@ -46874,7 +47346,7 @@
               "precio": 24.55,
               "costo": 23.53,
               "margen": 1.02,
-              "vigencia": "07/10 06:05",
+              "vigencia": "07/10 18:08",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -46882,15 +47354,15 @@
               "precio": 26.39,
               "costo": 26.9,
               "margen": -0.51,
-              "vigencia": "07/10 06:05",
+              "vigencia": "07/10 18:08",
               "diferencial": 0.0,
               "main_marker": false
             },
             "Regular": {
-              "precio": 21.55,
+              "precio": 20.99,
               "costo": 20.48,
-              "margen": 1.07,
-              "vigencia": "07/10 06:05",
+              "margen": 0.51,
+              "vigencia": "07/10 18:08",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -46911,7 +47383,7 @@
             },
             "Regular": {
               "precio": 20.59,
-              "diferencial": 0.96,
+              "diferencial": 0.4,
               "main_marker": true
             }
           }
@@ -46936,7 +47408,7 @@
             },
             "Regular": {
               "precio": 20.49,
-              "diferencial": 1.06,
+              "diferencial": 0.5,
               "main_marker": false
             }
           }
@@ -46961,7 +47433,7 @@
             },
             "Regular": {
               "precio": 19.99,
-              "diferencial": 1.56,
+              "diferencial": 1.0,
               "main_marker": false
             }
           }
@@ -46981,7 +47453,7 @@
             },
             "Regular": {
               "precio": 21.65,
-              "diferencial": -0.1,
+              "diferencial": -0.66,
               "main_marker": false
             }
           }
@@ -47001,7 +47473,7 @@
             },
             "Regular": {
               "precio": 13.75,
-              "diferencial": 7.8,
+              "diferencial": 7.24,
               "main_marker": false
             }
           }
@@ -47010,6 +47482,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Selva",
       "departamento": "Ucayali",
+      "provincia": "Coronel Portillo",
+      "distrito": "Yarinacocha",
       "gpc_group": "CODESA",
       "direccion": "jirón Unión Lote 01 ,  Lote 2 y Lote 3 Manzana A (AA HH Marginal Ucayali)",
       "own_lat": -8.381321,
@@ -47253,6 +47727,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Lima Sur 2",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Santiago de Surco",
       "gpc_group": "COESTI",
       "direccion": "AV. PRIMAVERA 1159",
       "own_lat": -12.10987377166748,
@@ -47274,7 +47750,7 @@
               "precio": 26.99,
               "costo": 25.34,
               "margen": 1.65,
-              "vigencia": "06/10 15:52",
+              "vigencia": "07/10 17:05",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -47282,7 +47758,7 @@
               "precio": 23.39,
               "costo": 21.47,
               "margen": 1.92,
-              "vigencia": "06/10 15:52",
+              "vigencia": "07/10 17:05",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -47290,7 +47766,7 @@
               "precio": 22.09,
               "costo": 20.25,
               "margen": 1.84,
-              "vigencia": "06/10 15:52",
+              "vigencia": "07/10 17:05",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -47403,6 +47879,8 @@
       "corredor": "Ciudad Grupo B",
       "zona": "Zona Sur 2",
       "departamento": "Arequipa",
+      "provincia": "Arequipa",
+      "distrito": "Arequipa",
       "gpc_group": "COESTI",
       "direccion": "AV. VENEZUELA 2200",
       "own_lat": -16.413938,
@@ -47592,6 +48070,8 @@
       "corredor": "Ciudad Grupo C",
       "zona": "Zona Lima Sur 1",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Villa El Salvador",
       "gpc_group": "COESTI",
       "direccion": "MATEO PUMACAHUA MZA D- LOTE 5 - VILLA EL SALVADOR",
       "own_lat": -12.193288,
@@ -47880,6 +48360,8 @@
       "corredor": "Ciudad Grupo B",
       "zona": "Zona Lima Norte 3",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "San Juan de Lurigancho",
       "gpc_group": "COESTI",
       "direccion": "AV. PROCERES DE LA INDEPENDENCIA 3299 CON AV. EL BOSQUE",
       "own_lat": -11.979803085327148,
@@ -48039,6 +48521,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Sur 1",
       "departamento": "Arequipa",
+      "provincia": "Arequipa",
+      "distrito": "Yanahuara",
       "gpc_group": "COESTI",
       "direccion": "AV. EL EJERCITO 504",
       "own_lat": -16.390724182128906,
@@ -48234,6 +48718,8 @@
       "corredor": "Corredor Sur Arequipa",
       "zona": "Zona Sur 2",
       "departamento": "Arequipa",
+      "provincia": "Arequipa",
+      "distrito": "Cerro Colorado",
       "gpc_group": "COESTI",
       "direccion": "CARRETERA AREQUIPA YURA KM. 11 LAS CANTERAS MZ. A LOTE 1",
       "own_lat": -16.32752799987793,
@@ -48341,6 +48827,8 @@
       "corredor": "Ciudad Grupo B",
       "zona": "Zona Sur 2",
       "departamento": "Arequipa",
+      "provincia": "Arequipa",
+      "distrito": "Yura",
       "gpc_group": "COESTI",
       "direccion": "CARRETERA AREQUIPA YURA - CUZCO KM.25 - YURA -AREQUIPA - AREQUIPA",
       "own_lat": -16.25193214416504,
@@ -48529,6 +49017,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Lima Norte 3",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "San Juan de Lurigancho",
       "gpc_group": "COESTI",
       "direccion": "AV. MALECON CHECA  104",
       "own_lat": -12.031571388244629,
@@ -48550,7 +49040,7 @@
               "precio": 23.29,
               "costo": 21.0,
               "margen": 2.29,
-              "vigencia": "07/10 15:02",
+              "vigencia": "07/10 17:01",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -48558,7 +49048,7 @@
               "precio": 24.19,
               "costo": 23.19,
               "margen": 1.0,
-              "vigencia": "07/10 15:02",
+              "vigencia": "07/10 17:01",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -48566,7 +49056,7 @@
               "precio": 21.99,
               "costo": 19.7,
               "margen": 2.29,
-              "vigencia": "07/10 15:02",
+              "vigencia": "07/10 17:01",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -48574,7 +49064,7 @@
               "precio": 1.74,
               "costo": 0.98,
               "margen": 0.76,
-              "vigencia": "07/10 15:02",
+              "vigencia": "07/10 17:01",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -48582,7 +49072,7 @@
               "precio": 6.69,
               "costo": 5.64,
               "margen": 1.05,
-              "vigencia": "07/10 15:02",
+              "vigencia": "07/10 17:01",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -48590,20 +49080,20 @@
         },
         {
           "site_id": "6fae792f-fc1c-4084-866a-61ddd9678571",
-          "nombre_linea": "PRIMAX PARIACHI - CENTRAL PARIACHI S.A.C.",
+          "nombre_linea": "PRIMAX PARIACHI - CENTRAL PARIACHI SAC",
           "marca": "PRIMAX",
           "tipo_actor": "COMPETENCIA",
           "es_competidor_propio": false,
           "distancia_km": 3.33,
           "combustibles": {
             "Premium": {
-              "precio": 22.78,
-              "diferencial": 0.51,
+              "precio": 21.48,
+              "diferencial": 1.81,
               "main_marker": true
             },
             "Diesel": {
-              "precio": 23.89,
-              "diferencial": 0.3,
+              "precio": 23.78,
+              "diferencial": 0.41,
               "main_marker": true
             },
             "Regular": {
@@ -48745,7 +49235,7 @@
         },
         {
           "site_id": "56c97d81-ef00-456d-8e19-34428c1d8e31",
-          "nombre_linea": "PETROPERU - ESTACION DE SERVICIOS CHACLACAYO SAC",
+          "nombre_linea": "PETROPERU - ESTACION DE SERVICIOS CHACALCAYO S.A.C.",
           "marca": "PETROPERU",
           "tipo_actor": "COMPETENCIA",
           "es_competidor_propio": false,
@@ -48775,7 +49265,7 @@
         },
         {
           "site_id": "0170273d-27c0-439e-a07b-9f5dec7d30e8",
-          "nombre_linea": "PRIMAX DENVER - ESTACION DE SERVICIOS GRIFO DENVER S.R.L.",
+          "nombre_linea": "PRIMAX DENVER - ESTACION DE SERVICIO DENVER SRL",
           "marca": "PRIMAX",
           "tipo_actor": "COMPETENCIA",
           "es_competidor_propio": false,
@@ -48787,8 +49277,8 @@
               "main_marker": false
             },
             "Diesel": {
-              "precio": 23.98,
-              "diferencial": 0.21,
+              "precio": 23.88,
+              "diferencial": 0.31,
               "main_marker": false
             },
             "Regular": {
@@ -48802,8 +49292,8 @@
               "main_marker": false
             },
             "GLP": {
-              "precio": 6.78,
-              "diferencial": -0.09,
+              "precio": 6.7,
+              "diferencial": -0.01,
               "main_marker": false
             }
           }
@@ -48842,6 +49332,8 @@
       "corredor": "Corredor Lima Central",
       "zona": "Zona centro",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Chaclacayo",
       "gpc_group": "COESTI",
       "direccion": "CARRETERA CENTRAL KM 19.5",
       "own_lat": -11.990645408630371,
@@ -49014,6 +49506,8 @@
       "corredor": "Ciudad Grupo C",
       "zona": "Zona Sur 1",
       "departamento": "Cusco",
+      "provincia": "Cusco",
+      "distrito": "Wanchaq",
       "gpc_group": "COESTI",
       "direccion": "ALAMEDA PACHACUTEC D 6",
       "own_lat": -13.531468391418457,
@@ -49214,6 +49708,8 @@
       "corredor": "Ciudad Grupo A",
       "zona": "Zona Norte 1",
       "departamento": "Piura",
+      "provincia": "Piura",
+      "distrito": "Piura",
       "gpc_group": "COESTI",
       "direccion": "AV. LORETO 779",
       "own_lat": -5.196075,
@@ -49422,6 +49918,8 @@
       "corredor": "Ciudad Grupo C",
       "zona": "Zona Lima Norte chico",
       "departamento": "Lima",
+      "provincia": "Huaral",
+      "distrito": "Huaral",
       "gpc_group": "COESTI",
       "direccion": "AV CHANCAY 513",
       "own_lat": -11.49876677,
@@ -49585,6 +50083,8 @@
       "corredor": "Ciudad Grupo B",
       "zona": "Zona Lima Norte 2",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Comas",
       "gpc_group": "COESTI",
       "direccion": "AV. UNIVERSITARIA ESQ. AV. MEXICO CALLE L, MZ. D, LOTE 34, 35 Y 36 URB.SANTA ISOLINA 2DA ETAPA",
       "own_lat": -11.9557765,
@@ -49723,6 +50223,8 @@
       "corredor": "Ciudad Grupo B",
       "zona": "Zona Lima Centro 2",
       "departamento": "Lima",
+      "provincia": "Lima",
+      "distrito": "Surquillo",
       "gpc_group": "COESTI",
       "direccion": "AV. ANGAMOS ESTE N° 2398, URB. LA CALERA DE LA MERCED",
       "own_lat": -12.112334,
