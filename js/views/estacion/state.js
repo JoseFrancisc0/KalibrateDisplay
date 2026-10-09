@@ -7,7 +7,7 @@ export const estacionState = {
   seleccionadaId: null,      // UUID de la estación abierta[cite: 9]
   dataActiva: null,          // Datos de detalle_estaciones/{site_id}.json[cite: 9]
   cache: {},                 // Cache en memoria para no repetir fetch[cite: 9]
-  cargando: false,           //[cite: 9]
+  cargando: false,
 
   // Sub-vista activa dentro de la estación
   subVista: 'ESTADO',        // 'ESTADO' | 'EVOLUCION_PRECIOS' | 'EVOLUCION_DIFF' | 'MARGEN' | 'VARIACION'[cite: 9]
@@ -17,7 +17,7 @@ export const estacionState = {
     producto: 'Diesel',
     fechaInicio: '2026-08-01',
     fechaFin: '2026-10-08',
-    competidorId: null,      // site_id del competidor seleccionado en el <select>
+    competidoresSeleccionados: null,      // site_id del competidor seleccionado en el <select>
   }
 };
 
