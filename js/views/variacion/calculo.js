@@ -1,17 +1,8 @@
 /* ==========================================================
    views/variacion/calculo.js — variación de precio por marca
    entre f1 y f2 (promedio ponderado por nº de estaciones).
-   Sin DOM. Además actualiza la lista de marcas disponibles
-   para el checklist del rail.
-
-   Alcance de estaciones competidoras (variacionState.alcance):
-     'AREA' → todas las competidoras del área de influencia
-              (historico_marcas.json)
-     'LM'   → solo las competidoras Local Market del producto
-              (ver localMarket.js). COESTI entra completo en ambos.
    ========================================================== */
 import { variacionState } from './state.js';
-import { preciosLocalMarket } from './localMarket.js';
 
 export const MARCA_PROPIA = 'COESTI';
 
@@ -46,52 +37,44 @@ export function procesarVariacionHistorica() {
   const f1 = variacionState.fechaInicio;
   const f2 = variacionState.fechaFin;
 
+  const gpcSel = variacionState.gpcGroup || 'TODOS';
   const corrSel = variacionState.corredor || 'TODOS';
   const deptoSel = variacionState.departamento || 'TODOS';
-  const gpcSel = variacionState.gpcGroup || 'TODOS';
-  const soloLM = variacionState.alcance === 'LM';
+  const provSel = variacionState.provincia || 'TODOS';
+  const distSel = variacionState.distrito || 'TODOS';
 
   const observaciones = variacionState.historicoMarcasData.datos.filter(item => {
     if (item.p !== prodSel) return false;
 
+    const g = (item.g || '').trim().toUpperCase();
     const c = (item.c || '').trim().toUpperCase();
     const d = (item.d || '').trim().toUpperCase();
-    const g = (item.g || '').trim().toUpperCase();
+    const pv = (item.pv || '').trim().toUpperCase();
+    const dt = (item.dt || '').trim().toUpperCase();
 
+    const matchGpc = (gpcSel === 'TODOS' || g === gpcSel);
     const matchCorr = (corrSel === 'TODOS' || c === corrSel);
     const matchDepto = (deptoSel === 'TODOS' || d === deptoSel);
-    const matchGpc = (gpcSel === 'TODOS' || g === gpcSel);
+    const matchProv = (provSel === 'TODOS' || pv === provSel);
+    const matchDist = (distSel === 'TODOS' || dt === distSel);
 
-    return matchCorr && matchDepto && matchGpc;
+    return matchGpc && matchCorr && matchDepto && matchProv && matchDist;
   });
 
-  const observacionesNormalizadas = observaciones
-    .map(item => {
-      let m = (item.m || '').trim().toUpperCase();
-      if (m === 'PRIMAX') m = MARCA_PROPIA;
-      return { ...item, m_std: m };
-    })
-    // Modo Local Market: del histórico solo se toma COESTI; la competencia sale de localMarket.js
-    .filter(item => !soloLM || item.m_std === MARCA_PROPIA);
+  const observacionesNormalizadas = observaciones.map(item => {
+    let m = (item.m || '').trim().toUpperCase();
+    if (m === 'PRIMAX') m = MARCA_PROPIA;
+    return { ...item, m_std: m };
+  });
 
-  const preciosLM = soloLM
-    ? preciosLocalMarket(prodSel, { corredor: corrSel, departamento: deptoSel, gpc: gpcSel }, f1, f2)
-    : {};
-
-  const marcasSet = new Set([
-    ...observacionesNormalizadas.map(o => o.m_std),
-    ...Object.keys(preciosLM)
-  ]);
+  const marcasSet = new Set(observacionesNormalizadas.map(o => o.m_std));
   variacionState.marcasDisponibles = Array.from(marcasSet).sort();
 
   if (!variacionState.marcasSeleccionadas) {
     variacionState.marcasSeleccionadas = new Set(variacionState.marcasDisponibles);
   }
 
-  // Se acumulan TODAS las marcas: COESTI sirve de referencia para el
-  // diferencial aunque esté desmarcada en el filtro de marcas.
   const marcaFechaMap = {};
-
   observacionesNormalizadas.forEach(item => {
     if (!marcaFechaMap[item.m_std]) marcaFechaMap[item.m_std] = {};
     if (!marcaFechaMap[item.m_std][item.f]) {
@@ -107,22 +90,17 @@ export function procesarVariacionHistorica() {
     : null;
 
   const resultados = [];
-
-  const marcas = [...Object.keys(marcaFechaMap), ...Object.keys(preciosLM)];
+  const marcas = Object.keys(marcaFechaMap);
 
   marcas.forEach(marca => {
     if (!variacionState.marcasSeleccionadas.has(marca)) return;
 
-    const precios = marcaFechaMap[marca]
-      ? preciosEnRango(marcaFechaMap[marca], f1, f2)
-      : preciosLM[marca];
+    const precios = preciosEnRango(marcaFechaMap[marca], f1, f2);
     if (!precios) return;
 
     const { p1, p2, pesoF2 } = precios;
     const delta = p2 - p1;
 
-    // Diferencial vs COESTI sobre los precios mostrados (2 decimales),
-    // para que la resta cuadre con lo que se ve en pantalla.
     const conDiff = marca !== MARCA_PROPIA && referencia;
 
     resultados.push({
@@ -136,8 +114,6 @@ export function procesarVariacionHistorica() {
     });
   });
 
-  // Orden estricto de menor a mayor variación neta
-  resultados.sort((a, b) => a.delta - b.delta);
-
+  resultados.sort((a, b) => a.precioF2 - b.precioF2);
   return resultados;
 }

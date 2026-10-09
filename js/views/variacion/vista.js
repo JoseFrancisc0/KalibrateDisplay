@@ -6,17 +6,13 @@ import { getBrandLogo, LOGO_GENERICO } from '../../config/marcas.js';
 import { variacionState } from './state.js';
 import { procesarVariacionHistorica } from './calculo.js';
 
-// Alto del área de barras (px)
 const ALTO_GRAFICO = 240;
-
 
 export function variacionHTML() {
   return `
     <div id="variacion-shell" class="alineacion-shell" style="display: none; padding: 14px 16px; height: 100%; box-sizing: border-box; overflow: hidden;">
-      <!-- Tarjeta Unificada -->
       <div style="background:#fff; border:1px solid var(--k-line); border-radius:8px; padding:16px 20px 14px 20px; box-shadow:0 2px 10px rgba(22,24,47,.05); height: 100%; display: flex; flex-direction: column; justify-content: space-between; box-sizing: border-box;">
         
-        <!-- Cabecera Consolidada Única -->
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 8px; flex-shrink: 0;">
           <div>
             <h2 id="var-chart-title" style="margin:0; font-size:1.15rem; color:var(--k-ink); font-weight:800; letter-spacing:-0.01em;">Variación Histórica de Precios por Marca (S/)</h2>
@@ -30,7 +26,6 @@ export function variacionHTML() {
           </div>
         </div>
 
-        <!-- Contenedor del Gráfico y Cards -->
         <div id="variacion-chart-container" style="flex: 1; display: flex; flex-direction: column; justify-content: flex-end; position: relative;">
           <!-- Inyectado dinámicamente -->
         </div>
@@ -40,12 +35,27 @@ export function variacionHTML() {
   `;
 }
 
-/** Diferencial vs COESTI bajo el precio: "(+0.78)". Línea vacía si no aplica, para alinear las tarjetas. */
 function renderDiffCoesti(diff) {
-  const texto = (diff === null || diff === undefined)
-    ? '&nbsp;'
-    : `(${diff > 0 ? '+' : ''}${diff.toFixed(2)})`;
-  return `<div style="font-size:0.6rem; font-weight:700; color:#64748B; line-height:1; margin:-2px 0 4px 0; font-variant-numeric:tabular-nums;">${texto}</div>`;
+  if (diff === null || diff === undefined) {
+    return `<div style="font-size:0.6rem; font-weight:700; color:#64748B; line-height:1; margin:-2px 0 4px 0;">&nbsp;</div>`;
+  }
+
+  let color = '#64748B'; // neutro si es 0.00
+  let signo = '';
+
+  if (diff > 0.001) {
+    color = 'var(--diff-pos, #D92D4E)'; // Más caro que COESTI -> Rojo
+    signo = '+';
+  } else if (diff < -0.001) {
+    color = 'var(--diff-neg, #00A35E)'; // Más barato que COESTI -> Verde
+  }
+
+  const texto = `(${signo}${diff.toFixed(2)})`;
+  return `
+    <div style="font-size:0.62rem; font-weight:800; color:${color}; line-height:1; margin:-2px 0 4px 0; font-variant-numeric:tabular-nums;">
+      ${texto}
+    </div>
+  `;
 }
 
 function renderLogoMarca(marca) {
@@ -59,7 +69,6 @@ function renderLogoMarca(marca) {
     </div>
   `;
 }
-
 
 export function renderVariacionHistorica() {
   const shell = document.getElementById('variacion-shell');
@@ -84,16 +93,14 @@ export function renderVariacionHistorica() {
 
   if (subtitulo) {
     const filtros = [];
-    if (variacionState.corredor !== 'TODOS') filtros.push(`Corredor: ${variacionState.corredor}`);
-    if (variacionState.departamento !== 'TODOS') filtros.push(`Depto: ${variacionState.departamento}`);
     if (variacionState.gpcGroup !== 'TODOS') filtros.push(`GPC: ${variacionState.gpcGroup}`);
-    const alcance = variacionState.alcance === 'LM' ? ' · Local Market' : ' · Área de Influencia';
-    subtitulo.innerText = `Evaluando ${variacionState.producto.toUpperCase()} ${filtros.length ? '· ' + filtros.join(' · ') : '· Red Nacional'}${alcance}`;
-  }
+    if (variacionState.corredor !== 'TODOS') filtros.push(`Corredor: ${variacionState.corredor}`);
+    if (variacionState.zona !== 'TODOS') filtros.push(`Zona: ${variacionState.zona}`);
+    if (variacionState.departamento !== 'TODOS') filtros.push(`Depto: ${variacionState.departamento}`);
+    if (variacionState.provincia !== 'TODOS') filtros.push(`Prov: ${variacionState.provincia}`);
+    if (variacionState.distrito !== 'TODOS') filtros.push(`Dist: ${variacionState.distrito}`);
 
-  if (variacionState.alcance === 'LM' && variacionState.cargandoLM) {
-    if (chartBox) chartBox.innerHTML = `<div class="empty-state">Descargando históricos de competidoras Local Market... <span id="var-lm-progreso"></span></div>`;
-    return;
+    subtitulo.innerText = `Evaluando ${variacionState.producto.toUpperCase()} ${filtros.length ? '· ' + filtros.join(' · ') : '· Red Nacional'}`;
   }
 
   const data = procesarVariacionHistorica();
@@ -107,7 +114,6 @@ export function renderVariacionHistorica() {
   const totalObservaciones = data.reduce((acc, d) => acc + d.conteoEess, 0);
   if (badgeConteo) badgeConteo.innerText = `${totalObservaciones} EESS Activas`;
 
-  // Escala vertical de las barras
   const deltas = data.map(d => d.delta);
   const minVal = Math.min(...deltas);
   const maxVal = Math.max(...deltas);
@@ -166,7 +172,7 @@ export function renderVariacionHistorica() {
     <!-- 2. SEPARADOR DISCRETO -->
     <div style="height:1px; background:#E2E8F0; margin: 4px 0 12px 0;"></div>
 
-    <!-- 3. FOOTER CON LOGOS Y CARDS (COMPACTAS) -->
+    <!-- 3. FOOTER CON LOGOS Y CARDS -->
     <div style="display:flex; justify-content:space-around; width:100%; align-items:flex-start;">
       ${data.map(item => {
         const esCoesti = (item.marca === 'COESTI');
@@ -182,15 +188,11 @@ export function renderVariacionHistorica() {
             <div style="background:${esCoesti ? '#F0FDF4' : '#F8FAFC'}; border:1px solid ${esCoesti ? '#BBF7D0' : '#E2E8F0'}; border-radius:5px; padding:4px 3px; width:100%; box-shadow:0 1px 2px rgba(0,0,0,0.03);">
               <div style="font-size:0.58rem; color:#64748B; text-transform:uppercase; font-weight:600; line-height:1;">Base</div>
               <div style="font-size:0.72rem; font-weight:700; color:#1E293B; margin-bottom:3px; font-variant-numeric:tabular-nums;">
-                S/ ${item.precioF1.toFixed(2)}
-              </div>
-              ${renderDiffCoesti(item.diffF1)}
+                S/ ${item.precioF1.toFixed(2)}               </div>${renderDiffCoesti(item.diffF1)}
 
               <div style="font-size:0.58rem; color:#64748B; text-transform:uppercase; font-weight:600; line-height:1;">Corte</div>
               <div style="font-size:0.72rem; font-weight:700; color:#1E293B; margin-bottom:3px; font-variant-numeric:tabular-nums;">
-                S/ ${item.precioF2.toFixed(2)}
-              </div>
-              ${renderDiffCoesti(item.diffF2)}
+                S/ ${item.precioF2.toFixed(2)}               </div>${renderDiffCoesti(item.diffF2)}
 
               <div style="font-size:0.58rem; color:#94A3B8; border-top:1px dashed #CBD5E1; padding-top:2px; margin-top:1px;">
                 <b>${item.conteoEess}</b> EESS

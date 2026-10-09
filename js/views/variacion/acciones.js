@@ -6,14 +6,12 @@
 import { render, actualizarIndicadorModo } from '../../core/router.js';
 import { state } from '../../core/state.js';
 import { cargarHistoricoMarcas } from '../../core/data.js';
-import { valorDe, activar, alternarDesplegable, cerrarAlClicFuera } from '../../shared/dom.js';
-import { poblarSelectsSegmentacion } from '../../shared/segmentacion.js';
+import { valorDe, alternarDesplegable, cerrarAlClicFuera, repoblarSelect } from '../../shared/dom.js';
+import { poblarSelectsSegmentacion, valoresUnicos } from '../../shared/segmentacion.js';
 import { variacionState } from './state.js';
-import { cargarSeriesLM } from './localMarket.js';
 
 /* ---------- Entrada a la vista ---------- */
 
-/** Descarga el histórico la primera vez y prepara los filtros. */
 export async function entrarVariacion() {
   if (!variacionState.historicoMarcasData && !variacionState.cargandoHistorico) {
     variacionState.cargandoHistorico = true;
@@ -26,15 +24,45 @@ export async function entrarVariacion() {
   sincronizarInputsFecha();
 }
 
+/* ---------- Cascada Geográfica Dinámica ---------- */
+function sincronizarCascadaGeografica(estaciones) {
+  const estacionesDepto = estaciones.filter(e => {
+    if (variacionState.departamento === 'TODOS') return true;
+    const d = (e.departamento || '').trim().toUpperCase();
+    return d === variacionState.departamento;
+  });
+
+  variacionState.provincia = repoblarSelect(
+    'sel-var-provincia',
+    () => valoresUnicos(estacionesDepto, 'provincia'),
+    variacionState.provincia
+  );
+
+  const estacionesProv = estacionesDepto.filter(e => {
+    if (variacionState.provincia === 'TODOS') return true;
+    const p = (e.provincia || '').trim().toUpperCase();
+    return p === variacionState.provincia;
+  });
+
+  variacionState.distrito = repoblarSelect(
+    'sel-var-distrito',
+    () => valoresUnicos(estacionesProv, 'distrito'),
+    variacionState.distrito
+  );
+}
+
 function poblarFiltrosVariacion() {
   if (!state.rawData?.estaciones) return;
   const estaciones = state.rawData.estaciones;
 
   poblarSelectsSegmentacion(estaciones, {
+    gpc: 'sel-var-gpc',
     corredor: 'sel-var-corredor',
-    departamento: 'sel-var-depto',
-    gpc: 'sel-var-gpc'
+    zona: 'sel-var-zona',
+    departamento: 'sel-var-depto'
   });
+
+  sincronizarCascadaGeografica(estaciones);
 
   const selProd = document.getElementById('sel-var-prod');
   if (selProd) selProd.value = variacionState.producto || 'Diesel';
@@ -68,7 +96,6 @@ function construirChecklistMarcasDOM() {
   });
 }
 
-/** Listeners de documento propios de la vista (clic fuera). */
 export function iniciarListenersVariacion() {
   cerrarAlClicFuera('section-var-marcas', 'dropdown-var-marcas-content');
 }
@@ -95,26 +122,10 @@ export const acciones = {
     render();
   },
 
-  async cambiarAlcanceVariacion(el) {
-    const alcance = el.dataset.arg;
-    variacionState.alcance = alcance;
-    activar('btn-var-area', alcance === 'AREA');
-    activar('btn-var-lm', alcance === 'LM');
-
-    // Primera vez en Local Market: descargar las series de las competidoras LM
-    if (alcance === 'LM' && !variacionState.seriesLM && !variacionState.cargandoLM) {
-      variacionState.cargandoLM = true;
-      render();
-      variacionState.seriesLM = await cargarSeriesLM((hechos, total) => {
-        const prog = document.getElementById('var-lm-progreso');
-        if (prog) prog.innerText = `${hechos} / ${total}`;
-      });
-      variacionState.cargandoLM = false;
-    }
-
+  cambiarGpcVariacion() {
+    const v = valorDe('sel-var-gpc');
+    if (v !== undefined) variacionState.gpcGroup = v;
     render();
-    // La lista de marcas cambia según el alcance: refrescar el checklist
-    construirChecklistMarcasDOM();
   },
 
   cambiarCorredorVariacion() {
@@ -123,15 +134,33 @@ export const acciones = {
     render();
   },
 
+  cambiarZonaVariacion() {
+    const v = valorDe('sel-var-zona');
+    if (v !== undefined) variacionState.zona = v;
+    render();
+  },
+  
   cambiarDeptoVariacion() {
     const v = valorDe('sel-var-depto');
-    if (v !== undefined) variacionState.departamento = v;
+    if (v !== undefined) {
+      variacionState.departamento = v;
+      sincronizarCascadaGeografica(state.rawData.estaciones);
+    } 
     render();
   },
 
-  cambiarGpcVariacion() {
-    const v = valorDe('sel-var-gpc');
-    if (v !== undefined) variacionState.gpcGroup = v;
+  cambiarProvinciaVariacion() {
+    const v = valorDe('sel-var-provincia');
+    if (v !== undefined) {
+      variacionState.provincia = v;
+      sincronizarCascadaGeografica(state.rawData.estaciones);
+    } 
+    render();
+  },
+
+  cambiarDistritoVariacion() {
+    const v = valorDe('sel-var-distrito');
+    if (v !== undefined) variacionState.distrito = v;
     render();
   },
 
