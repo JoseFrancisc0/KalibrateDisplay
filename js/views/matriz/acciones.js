@@ -97,13 +97,30 @@ export const acciones = {
     const id = el.dataset.arg;
     cerrarDropupAgrupacion();
     if (matrizState.agrupacionTabs === id) return;
-
     matrizState.agrupacionTabs = id;
     matrizState.grupoActivo = '';
     matrizState.subPaginaGrupo = 0;
 
+    // Resetear jerarquía si sale de Ubicación
+    matrizState.jerarquiaNivel = 'DEPTO';
+    matrizState.deptoActivo = null;
+    matrizState.provinciaActiva = null;
+    matrizState.distritoActivo = null;
+
     const scroll = document.getElementById('table-scroll');
     if (scroll) scroll.scrollTop = 0;
+    render();
+  },
+
+  retrocederJerarquiaMatriz() {
+    if (matrizState.jerarquiaNivel === 'DISTRITO') {
+      matrizState.jerarquiaNivel = 'PROVINCIA';
+      matrizState.grupoActivo = matrizState.provinciaActiva || 'TODAS';
+    } else if (matrizState.jerarquiaNivel === 'PROVINCIA') {
+      matrizState.jerarquiaNivel = 'DEPTO';
+      matrizState.grupoActivo = matrizState.deptoActivo;
+    }
+    matrizState.subPaginaGrupo = 0;
     render();
   },
 
