@@ -1,0 +1,203 @@
+/* ==========================================================
+   views/estacion.css — Estilos para el nivel Detalle de Estación
+   ========================================================== */
+
+.estacion-shell {
+  flex: 1 1 auto;
+  min-height: 0;
+  height: 100%;
+  margin: 8px 10px 6px;
+  background: var(--k-surface);
+  border: 1px solid var(--k-line);
+  box-shadow: 0 2px 10px rgba(22, 24, 47, 0.06);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 12px 16px;
+  box-sizing: border-box;
+}
+
+/* Ficha del Riel Izquierdo */
+.estacion-rail-card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-left: 3px solid var(--k-emerald);
+  padding: 10px 12px;
+  border-radius: 4px;
+  margin-bottom: 6px;
+}
+.estacion-rail-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.estacion-rail-list {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-top: 4px;
+}
+.estacion-rail-field {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 4px;
+}
+.estacion-rail-field:last-child {
+  border-bottom: none;
+}
+.estacion-rail-label {
+  font-size: 0.58rem;
+  color: #A08FA6;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+.estacion-rail-val {
+  font-size: 0.74rem;
+  color: #fff;
+  font-weight: 600;
+}
+
+/* Tabla Invertida */
+.table-transposed-wrap {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border: 1px solid var(--k-line);
+  background: #fff;
+}
+.table-transposed {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+.table-transposed thead th {
+  position: sticky;
+  top: 0;
+  background: var(--k-plum);
+  color: #fff;
+  padding: 10px 12px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+  z-index: 5;
+}
+.table-transposed thead th:last-child {
+  border-right: none;
+}
+.table-transposed td {
+  padding: 8px 12px;
+  border-right: 1px solid var(--k-line-soft);
+  border-bottom: 1px solid var(--k-line-soft);
+  vertical-align: middle;
+}
+.table-transposed td:last-child {
+  border-right: none;
+}
+.table-transposed td.col-num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Filas */
+.row-own {
+  background: #F8FAFD;
+  border-bottom: 2px solid var(--k-line);
+}
+.row-own td:first-child {
+  border-left: 3px solid var(--k-indigo);
+}
+.row-comp:hover {
+  background: #F8FAFC;
+}
+.row-comp td:first-child {
+  border-left: 3px solid var(--k-line);
+}
+
+/* Átomos de celda */
+.actor-info-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.actor-logo-box {
+  width: 26px;
+  height: 26px;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 26px;
+}
+.actor-logo-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.actor-name-box {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.actor-name-box b {
+  font-size: 0.80rem;
+  color: var(--k-ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.tag-own-badge {
+  font-size: 0.55rem;
+  font-weight: 800;
+  color: var(--k-indigo);
+  letter-spacing: 0.05em;
+}
+.actor-sub-text {
+  font-size: 0.62rem;
+  color: var(--k-muted);
+}
+
+/* Precios y tags */
+.cell-price-big {
+  font-size: 0.90rem;
+  font-weight: 800;
+  color: var(--k-ink);
+  line-height: 1.1;
+}
+.cell-sub-date {
+  font-size: 0.58rem;
+  color: var(--k-muted);
+  font-weight: 500;
+  margin-top: 2px;
+}
+.cell-sub-diff {
+  font-size: 0.65rem;
+  font-weight: 800;
+  margin-top: 2px;
+}
+.diff-alert { color: var(--diff-pos, #D92D4E); }
+.diff-ok { color: var(--diff-neg, #00A35E); }
+.diff-zero { color: #64748B; }
+
+.table-transposed td.is-lm {
+  background: #FFFDF0;
+  box-shadow: inset 0 0 0 2px var(--k-lime);
+}
+.lm-tag {
+  font-size: 0.50rem;
+  color: #854D0E;
+  font-weight: 800;
+  margin-top: 2px;
+  letter-spacing: 0.04em;
+}

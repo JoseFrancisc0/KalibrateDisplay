@@ -45,7 +45,7 @@ function montar(selector, html) {
 }
 
 montar('#cmp-nav',    navHTML());
-montar('#cmp-rail',   railHTML(VISTAS));
+montar('#cmp-rail',   railHTML(VISTAS, NIVEL_ESTACION));
 montar('#cmp-main',   viewBarHTML() + VISTAS.map(v => v.mainHTML()).join('') + NIVEL_ESTACION.mainHTML());
 montar('#cmp-tabbar', VISTAS.map(v => v.tabbarHTML ? v.tabbarHTML() : '').join(''));
 

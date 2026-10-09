@@ -1,72 +1,155 @@
 /* ==========================================================
-   views/estacion/vista.js — Contenedor de Detalle de Estación
+   views/estacion/vista.js — Render de sub-vistas de Estación
    ========================================================== */
+import { COMBUSTIBLES } from '../../config/productos.js';
+import { getBrandLogo } from '../../config/marcas.js';
 import { estacionState } from './state.js';
+
 export function detalleEstacionHTML() {
   return `
-    <div id="detalle-estacion-shell" style="display: none; height: 100%; box-sizing: border-box; overflow: hidden; padding: 14px 16px;">
-      <div style="background:#fff; border:1px solid var(--k-line); border-radius:8px; padding:16px 20px; box-shadow:0 2px 10px rgba(22,24,47,.05); height: 100%; display: flex; flex-direction: column; box-sizing: border-box;">
-        
-        <!-- Metadata superior de la estación -->
-        <div id="estacion-meta-header" style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #E2E8F0; padding-bottom: 12px; margin-bottom: 14px;">
-          <div>
-            <h2 id="est-detalle-nombre" style="margin: 0; font-size: 1.2rem; font-weight: 800; color: var(--k-ink);">--</h2>
-            <div id="est-detalle-ubicacion" style="margin-top: 3px; font-size: 0.74rem; color: var(--k-muted);">--</div>
-          </div>
-          <div id="est-detalle-badges" style="display: flex; gap: 8px;">
-            <!-- Badges de Corredor, GPC, etc -->
-          </div>
-        </div>
-
-        <!-- Área dinámica donde se inyectará la sub-vista seleccionada -->
-        <div id="estacion-subview-content" style="flex: 1; position: relative; overflow-y: auto;">
-          <!-- Aquí se montará: ESTADO ACTUAL, EVOLUCIÓN PRECIOS, DIFERENCIALES o VARIACIÓN -->
-        </div>
-
-      </div>
+    <div id="detalle-estacion-shell" class="estacion-shell" style="display: none;">
+      <div id="estacion-subview-content" style="flex:1; display:flex; flex-direction:column; min-height:0;"></div>
     </div>
   `;
 }
 
 export function renderDetalleEstacion() {
-  const shell = document.getElementById('detalle-estacion-shell');
-  if (!shell) return;
-
   const contentBox = document.getElementById('estacion-subview-content');
-  const lblNombre = document.getElementById('est-detalle-nombre');
-  const lblUbicacion = document.getElementById('est-detalle-ubicacion');
-  const badgesBox = document.getElementById('est-detalle-badges');
+  if (!contentBox) return;
 
   if (estacionState.cargando) {
-    if (contentBox) contentBox.innerHTML = `<div class="empty-state">Descargando datos históricos de la estación...</div>`;
+    contentBox.innerHTML = `<div class="empty-state">Descargando datos de la estación...</div>`;
     return;
   }
 
   const est = estacionState.dataActiva;
   if (!est) {
-    if (contentBox) contentBox.innerHTML = `<div class="empty-state">No se pudo cargar la información de la estación.</div>`;
+    contentBox.innerHTML = `<div class="empty-state">No se pudo cargar la información de la estación.</div>`;
     return;
   }
 
-  // Llenar metadata
-  if (lblNombre) lblNombre.innerText = est.estacion || 'ESTACIÓN';
-  if (lblUbicacion) {
-    lblUbicacion.innerText = `${est.coordenadas?.direccion || 'Sin dirección'} · ${est.departamento || ''}`;
-  }
-  if (badgesBox) {
-    badgesBox.innerHTML = `
-      <span class="leg-chip" style="background:#F1F5F9; color:#475569; font-weight:700;">${est.corredor || 'SIN CORREDOR'}</span>
-      <span class="leg-chip" style="background:#F1F5F9; color:#475569; font-weight:700;">${est.gpc_group || 'SIN GPC'}</span>
-    `;
-  }
-
-  // Placeholder temporal mientras construimos las 4 vistas
-  if (contentBox) {
+  if (estacionState.subVista === 'ESTADO') {
+    renderEstadoActual(contentBox, est);
+  } else {
     contentBox.innerHTML = `
-      <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; color: #64748B;">
-        <h3 style="margin: 0; color: var(--k-ink);">Sub-vista activa: ${estacionState.subVista}</h3>
-        <p style="font-size: 0.85rem; margin-top: 6px;">Mecanismo de cambio de vista conectado correctamente.</p>
+      <div class="empty-state">
+        <h3>${estacionState.subVista}</h3>
+        <p>Próximamente disponible.</p>
       </div>
     `;
   }
+}
+
+function renderEstadoActual(container, est) {
+  const actorPropio = est.actores?.find(a => a.tipo_actor === 'PROPIO');
+  const competidores = (est.actores || []).filter(a => a.tipo_actor !== 'PROPIO');
+
+  if (!actorPropio) {
+    container.innerHTML = `<div class="empty-state">Sin información de precios propios.</div>`;
+    return;
+  }
+
+  // Columnas: Estación / Competidor (45%) y los 5 combustibles (11% cada uno)
+  const theadHTML = `
+    <thead>
+      <tr>
+        <th style="width: 45%;">Estación / Competidor</th>
+        ${COMBUSTIBLES.map(c => `<th style="width: 11%; text-align: right;">${c.toUpperCase()}</th>`).join('')}
+      </tr>
+    </thead>
+  `;
+
+  // FILA 1: ESTACIÓN PROPIA
+  const filaPropiaHTML = `
+    <tr class="row-own">
+      <td>
+        <div class="actor-info-cell">
+          <div class="actor-logo-box">
+            <img src="${getBrandLogo('PRIMAX')}" alt="PRIMAX">
+          </div>
+          <div class="actor-name-box">
+            <b>${est.estacion}</b>
+            <span class="tag-own-badge">ESTACIÓN PROPIA</span>
+          </div>
+        </div>
+      </td>
+      ${COMBUSTIBLES.map(prod => {
+        const item = actorPropio.combustibles?.[prod];
+        if (!item || !item.precio || item.precio <= 0) {
+          return `<td class="col-num" style="color:#C7D0DA;">—</td>`;
+        }
+        return `
+          <td class="col-num">
+            <div class="cell-price-big">S/ ${item.precio.toFixed(2)}</div>${item.vigencia ? `<div class="cell-sub-date">${item.vigencia}</div>` : ''}
+          </td>
+        `;
+      }).join('')}
+    </tr>
+  `;
+
+  // FILAS DE COMPETIDORES
+  const filasCompetidoresHTML = competidores.map(comp => {
+    return `
+      <tr class="row-comp">
+        <td>
+          <div class="actor-info-cell">
+            <div class="actor-logo-box">
+              <img src="${getBrandLogo(comp.marca)}" alt="${comp.marca}">
+            </div>
+            <div class="actor-name-box">
+              <b>${comp.nombre_linea}</b>
+              <span class="actor-sub-text">
+                ${comp.distancia_km !== undefined ? comp.distancia_km.toFixed(1) + ' km' : comp.marca}
+              </span>
+            </div>
+          </div>
+        </td>
+        ${COMBUSTIBLES.map(prod => {
+          const itemComp = comp.combustibles?.[prod];
+          const itemPropio = actorPropio.combustibles?.[prod];
+
+          if (!itemComp || !itemComp.precio || itemComp.precio <= 0) {
+            return `<td class="col-num" style="color:#C7D0DA;">—</td>`;
+          }
+
+          const pComp = itemComp.precio;
+          const pPropio = itemPropio?.precio || null;
+          const diff = pPropio ? (pPropio - pComp) : null;
+          const esLM = itemComp.main_marker === true;
+
+          let diffHTML = '';
+          if (diff !== null) {
+            let claseDiff = 'diff-zero';
+            let signo = '';
+            if (diff > 0.001) {
+              claseDiff = 'diff-alert';
+              signo = '+';
+            } else if (diff < -0.001) {
+              claseDiff = 'diff-ok';
+            }
+            diffHTML = `<div class="cell-sub-diff ${claseDiff}">(${signo}${diff.toFixed(2)})</div>`;
+          }
+
+          return `
+            <td class="col-num ${esLM ? 'is-lm' : ''}">
+              <div class="cell-price-big">S/ ${pComp.toFixed(2)}</div>
+              ${diffHTML}${esLM ? `<div class="lm-tag">LOCAL MARKET</div>` : ''}
+            </td>
+          `;
+        }).join('')}
+      </tr>
+    `;
+  }).join('');
+
+  container.innerHTML = `
+    <div class="table-transposed-wrap">
+      <table class="table-transposed">
+        ${theadHTML}
+        <tbody>
+          ${filaPropiaHTML}
+          ${filasCompetidoresHTML}
+        </tbody>
+      </table>
+    </div>
+  `;
 }

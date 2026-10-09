@@ -75,19 +75,20 @@ export function actualizarIndicadorModo() {
 
 /* ---------- Cambio de vista general ---------- */
 
+/* ---------- Cambio de vista general ---------- */
 export async function setVista(id) {
   state.vistaActiva = id;
-
   vistas.forEach(v => {
     const btn = document.getElementById(v.tabId);
     if (btn) btn.classList.toggle('active', v.id === id);
   });
 
-  // Apagar todo por defecto
   vistas.forEach(v => mostrar(shellDe(v), 'none'));
   mostrar(document.querySelector(estacion.shellSelector), 'none');
   mostrar(document.getElementById('cmp-tabbar'), 'none');
+  
   vistas.forEach(v => mostrar(document.getElementById(v.railId), 'none'));
+  mostrar(document.getElementById(estacion.railId), 'none');
 
   const vista = getVista(id);
   if (vista) {
@@ -102,29 +103,48 @@ export async function setVista(id) {
 }
 
 /* ---------- Render ---------- */
-
 export function render() {
   if (!state.rawData || !state.rawData.estaciones) return;
 
   const detalleShell = document.querySelector(estacion.shellSelector);
+  const railEstacionEl = document.getElementById(estacion.railId);
 
-  // Nivel ESTACIÓN
+  // -------------------------------------------------------------
+  // NIVEL ESTACIÓN (MODO QUIRÚRGICO)
+  // -------------------------------------------------------------
   if (state.modoNivel === 'ESTACION') {
-    vistas.forEach(v => mostrar(shellDe(v), 'none'));
+    vistas.forEach(v => {
+      mostrar(shellDe(v), 'none');
+      mostrar(document.getElementById(v.railId), 'none');
+    });
     mostrar(document.getElementById('cmp-tabbar'), 'none');
 
     mostrar(detalleShell, 'block');
+    mostrar(railEstacionEl, 'flex');
+    if (estacion.actualizarRail) estacion.actualizarRail();
+
     estacion.render();
     actualizarIndicadorModo();
     return;
   }
 
-  // Nivel GENERAL
+  // -------------------------------------------------------------
+  // NIVEL GENERAL (4 VISTAS PRINCIPALES)
+  // -------------------------------------------------------------
   mostrar(detalleShell, 'none');
+  mostrar(railEstacionEl, 'none');
+
   if (alRenderGeneral) alRenderGeneral();
 
   const vista = vistaActual();
-  if (vista) vista.render();
+  if (vista) {
+    vistas.forEach(v => {
+      const activo = (v.id === vista.id);
+      mostrar(shellDe(v), activo ? v.display : 'none');
+      mostrar(document.getElementById(v.railId), activo ? 'flex' : 'none');
+    });
+    vista.render();
+  }
 }
 
 /* ---------- Redimensionado ---------- */
