@@ -1,46 +1,10 @@
 /* ==========================================================
-   views/estacion/vista.js — Render de sub-vistas de Estación
+   views/estacion/subviews/estado/vista.js — Render de ESTADO ACTUAL
    ========================================================== */
-import { COMBUSTIBLES } from '../../config/productos.js';
-import { getBrandLogo } from '../../config/marcas.js';
-import { estacionState } from './state.js';
+import { COMBUSTIBLES } from '../../../../config/productos.js';
+import { getBrandLogo } from '../../../../config/marcas.js';
 
-export function detalleEstacionHTML() {
-  return `
-    <div id="detalle-estacion-shell" class="estacion-shell" style="display: none;">
-      <div id="estacion-subview-content" style="flex:1; display:flex; flex-direction:column; min-height:0;"></div>
-    </div>
-  `;
-}
-
-export function renderDetalleEstacion() {
-  const contentBox = document.getElementById('estacion-subview-content');
-  if (!contentBox) return;
-
-  if (estacionState.cargando) {
-    contentBox.innerHTML = `<div class="empty-state">Descargando datos de la estación...</div>`;
-    return;
-  }
-
-  const est = estacionState.dataActiva;
-  if (!est) {
-    contentBox.innerHTML = `<div class="empty-state">No se pudo cargar la información de la estación.</div>`;
-    return;
-  }
-
-  if (estacionState.subVista === 'ESTADO') {
-    renderEstadoActual(contentBox, est);
-  } else {
-    contentBox.innerHTML = `
-      <div class="empty-state">
-        <h3>${estacionState.subVista}</h3>
-        <p>Próximamente disponible.</p>
-      </div>
-    `;
-  }
-}
-
-function renderEstadoActual(container, est) {
+export function renderEstadoActual(container, est) {
   const actorPropio = est.actores?.find(a => a.tipo_actor === 'PROPIO');
   const competidores = (est.actores || []).filter(a => a.tipo_actor !== 'PROPIO');
 
@@ -49,7 +13,7 @@ function renderEstadoActual(container, est) {
     return;
   }
 
-  // Columnas: Estación / Competidor (45%) y los 5 combustibles (11% cada uno)
+  // Encabezados: Estación (45%) y los 5 combustibles (11% cada uno)
   const theadHTML = `
     <thead>
       <tr>
@@ -59,7 +23,7 @@ function renderEstadoActual(container, est) {
     </thead>
   `;
 
-  // FILA 1: ESTACIÓN PROPIA
+  // Fila Propia
   const filaPropiaHTML = `
     <tr class="row-own">
       <td>
@@ -87,7 +51,7 @@ function renderEstadoActual(container, est) {
     </tr>
   `;
 
-  // FILAS DE COMPETIDORES
+  // Filas Competidores
   const filasCompetidoresHTML = competidores.map(comp => {
     return `
       <tr class="row-comp">

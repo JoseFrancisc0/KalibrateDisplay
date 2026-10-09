@@ -1,27 +1,15 @@
 /* ==========================================================
-   views/estacion/rail.js — Ficha descriptiva de la estación en el rail.
+   views/estacion/rail_base.js — Ficha técnica común de la estación en el rail.
    ========================================================== */
 import { estacionState } from './state.js';
 
-export function railEstacionHTML() {
-  return `
-    <div id="rail-panel-estacion" class="rail-panel" style="display:none;">
-      <!-- Se inyecta dinámicamente con actualizarRailEstacion() -->
-    </div>
-  `;
-}
-
-export function actualizarRailEstacion() {
-  const panel = document.getElementById('rail-panel-estacion');
-  if (!panel) return;
-
+export function fichaEstacionHTML() {
   const est = estacionState.dataActiva;
   if (!est) {
-    panel.innerHTML = `
+    return `
       <div class="rail-label">Estación Seleccionada</div>
       <div style="font-size:0.75rem; color:#A08FA6;">Cargando estación...</div>
     `;
-    return;
   }
 
   const direccion = est.coordenadas?.direccion || '—';
@@ -33,7 +21,7 @@ export function actualizarRailEstacion() {
   const gpc = est.gpc_group || '—';
   const nombre = est.estacion || 'ESTACIÓN';
 
-  panel.innerHTML = `
+  return `
     <div class="rail-label">Estación Seleccionada</div>
 
     <!-- NOMBRE ENMARCADO -->
