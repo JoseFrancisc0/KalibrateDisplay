@@ -5,13 +5,43 @@
 
 import { render, actualizarIndicadorModo } from '../../core/router.js';
 import { state } from '../../core/state.js';
-import { poblarSelect, valorDe, activar } from '../../shared/dom.js';
+import { valorDe, activar, poblarSelect, repoblarSelect } from '../../shared/dom.js';
 import { marcasCompetencia, etiquetaMarca } from '../../shared/marcas.js';
-import { poblarSelectsSegmentacion } from '../../shared/segmentacion.js';
+import { poblarSelectsSegmentacion, valoresUnicos } from '../../shared/segmentacion.js';
 import { alineacionState } from './state.js';
 
-/* ---------- Poblado de filtros ---------- */
+/* ---------- Cascada Geográfica Dinámica ---------- */
+function sincronizarCascadaGeografica(estaciones) {
+  // 1. Filtrar estaciones según el Departamento elegido
+  const estacionesDepto = estaciones.filter(e => {
+    if (alineacionState.departamento === 'TODOS') return true;
+    const d = (e.departamento || '').trim().toUpperCase();
+    return d === alineacionState.departamento;
+  });
 
+  // Repoblar Provincias con las del departamento actual
+  alineacionState.provincia = repoblarSelect(
+    'sel-alineacion-provincia',
+    () => valoresUnicos(estacionesDepto, 'provincia'),
+    alineacionState.provincia
+  );
+
+  // 2. Filtrar estaciones según Departamento Y Provincia elegidos
+  const estacionesProv = estacionesDepto.filter(e => {
+    if (alineacionState.provincia === 'TODOS') return true;
+    const p = (e.provincia || '').trim().toUpperCase();
+    return p === alineacionState.provincia;
+  });
+
+  // Repoblar Distritos con los de la provincia actual
+  alineacionState.distrito = repoblarSelect(
+    'sel-alineacion-distrito',
+    () => valoresUnicos(estacionesProv, 'distrito'),
+    alineacionState.distrito
+  );
+}
+
+/* ---------- Poblado de filtros ---------- */
 export function poblarFiltrosAlineacion() {
   if (!state.rawData?.estaciones) return;
   const estaciones = state.rawData.estaciones;
@@ -23,10 +53,13 @@ export function poblarFiltrosAlineacion() {
   actualizarVisibilidadCriterio();
 
   poblarSelectsSegmentacion(estaciones, {
+    gpc: 'sel-alineacion-gpc',
     corredor: 'sel-alineacion-corredor',
+    zona: 'sel-alineacion-zona',
     departamento: 'sel-alineacion-depto',
-    gpc: 'sel-alineacion-gpc'
   });
+
+  sincronizarCascadaGeografica(estaciones);
 }
 
 /** El criterio de rival solo aplica cuando se elige una marca concreta. */
@@ -56,21 +89,45 @@ export const acciones = {
     render();
   },
 
+  cambiarGpcAlineacion() {
+    const v = valorDe('sel-alineacion-gpc');
+    if (v !== undefined) alineacionState.gpcGroup = v;
+    render();
+  },
+
   cambiarCorredorAlineacion() {
     const v = valorDe('sel-alineacion-corredor');
     if (v !== undefined) alineacionState.corredor = v;
     render();
   },
 
-  cambiarDeptoAlineacion() {
-    const v = valorDe('sel-alineacion-depto');
-    if (v !== undefined) alineacionState.departamento = v;
+  cambiarZonaAlineacion() {
+    const v = valorDe('sel-alineacion-zona');
+    if (v !== undefined) alineacionState.zona = v;
     render();
   },
 
-  cambiarGpcAlineacion() {
-    const v = valorDe('sel-alineacion-gpc');
-    if (v !== undefined) alineacionState.gpcGroup = v;
+  cambiarDeptoAlineacion() {
+    const v = valorDe('sel-alineacion-depto');
+    if (v !== undefined) {
+      alineacionState.departamento = v;
+      sincronizarCascadaGeografica(state.rawData.estaciones);
+    } 
+    render();
+  },
+
+  cambiarProvinciaAlineacion() {
+    const v = valorDe('sel-alineacion-provincia');
+    if (v !== undefined) {
+      alineacionState.provincia = v;
+      sincronizarCascadaGeografica(state.rawData.estaciones);
+    } 
+    render();
+  },
+
+  cambiarDistritoAlineacion() {
+    const v = valorDe('sel-alineacion-distrito');
+    if (v !== undefined) alineacionState.distrito = v;
     render();
   },
 

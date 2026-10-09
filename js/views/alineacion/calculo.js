@@ -9,23 +9,32 @@ import { normalizarMarca, esCompetenciaExterna } from '../../shared/marcas.js';
 import { cumpleSegmentacion } from '../../shared/segmentacion.js';
 import { alineacionState } from './state.js';
 
-
 /**
  * Procesa todas las estaciones y calcula los diagnósticos
  */
 export function procesarDatosAlineacion(estaciones) {
-  const corrSel = alineacionState.corredor || 'TODOS';
-  const deptoSel = alineacionState.departamento || 'TODOS';
   const gpcSel = alineacionState.gpcGroup || 'TODOS';
+  const corrSel = alineacionState.corredor || 'TODOS';
+  const zonaSel = alineacionState.zona || 'TODOS';
+  const deptoSel = alineacionState.departamento || 'TODOS';
+  const provSel = alineacionState.provincia || 'TODOS';
+  const distSel = alineacionState.distrito || 'TODOS';
   const marcaFiltro = alineacionState.marcaCompetidora || 'TODAS';
   const criterioRival = alineacionState.criterioRival || 'CERCANO';
 
-  // 1. Filtrado geográfico base
+  // 1. Filtrado geográfico base con la jerarquía completa
   const estacionesFiltradasBase = estaciones.filter(e => {
     const tienePropio = e.actores && e.actores.some(a => a.tipo_actor === 'PROPIO');
     if (!tienePropio || e.gpc_group === 'INACTIVAS') return false;
 
-    return cumpleSegmentacion(e, { corredor: corrSel, departamento: deptoSel, gpc: gpcSel });
+    return cumpleSegmentacion(e, {
+      corredor: corrSel,
+      departamento: deptoSel,
+      gpc: gpcSel,
+      zona: zonaSel,
+      provincia: provSel,
+      distrito: distSel,
+    });
   });
 
   // 2. Diagnóstico por producto
@@ -137,7 +146,10 @@ export function procesarDatosAlineacion(estaciones) {
         siteId: est.own_site_id,
         nombre: est.estacion_cabecera,
         corredor: est.corredor || 'SIN CORREDOR',
+        zona: est.zona || 'SIN ZONA',
         departamento: est.departamento || 'SIN DEPTO',
+        provincia: est.provincia || 'SIN PROVINCIA',
+        distrito: est.distrito || 'SIN DISTRITO',
         gpcGroup: est.gpc_group || 'SIN GPC',
         precioPropio: pPropio,
         localMarket: lmData,

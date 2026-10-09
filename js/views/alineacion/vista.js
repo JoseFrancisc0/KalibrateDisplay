@@ -78,9 +78,12 @@ export function renderAlineacion(estaciones) {
       const labelM = marcaFiltro === 'WP' ? 'WHITE PRODUCTS' : marcaFiltro;
       filtros.push(`Marca: ${labelM} (${criterioRival === 'CERCANO' ? 'Más cercano' : 'Promedio'})`);
     }
-    if (alineacionState.corredor !== 'TODOS') filtros.push(`Corredor: ${alineacionState.corredor}`);
-    if (alineacionState.departamento !== 'TODOS') filtros.push(`Depto: ${alineacionState.departamento}`);
     if (alineacionState.gpcGroup !== 'TODOS') filtros.push(`GPC: ${alineacionState.gpcGroup}`);
+    if (alineacionState.corredor !== 'TODOS') filtros.push(`Corredor: ${alineacionState.corredor}`);
+    if (alineacionState.zona !== 'TODOS') filtros.push(`Zona: ${alineacionState.zona}`);
+    if (alineacionState.departamento !== 'TODOS') filtros.push(`Depto: ${alineacionState.departamento}`);
+    if (alineacionState.provincia !== 'TODOS') filtros.push(`Prov: ${alineacionState.provincia}`);
+    if (alineacionState.distrito !== 'TODOS') filtros.push(`Dist: ${alineacionState.distrito}`);
 
     subtitulo.innerText = filtros.length 
       ? `Filtrado por: ${filtros.join(' · ')}` 

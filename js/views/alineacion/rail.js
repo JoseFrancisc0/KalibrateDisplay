@@ -6,6 +6,8 @@ export function railHTML() {
   return `
     <!-- PANEL 3: ALINEACIÓN COMPETITIVA -->
     <div id="rail-panel-alineacion" class="rail-panel" style="display: none;">
+
+      <!-- MARCA COMPETIDORA -->
       <div class="rail-section">
         <div class="rail-label">Marca Competidora</div>
         <div class="select-wrap">
@@ -15,6 +17,7 @@ export function railHTML() {
         </div>
       </div>
 
+      <!-- CRITERIO DEL RIVAL -->
       <div class="rail-section" id="section-alineacion-criterio" style="opacity: 0.45; pointer-events: none;">
         <div class="rail-label">Criterio de Rival</div>
         <div class="btn-group-vertical">
@@ -23,43 +26,55 @@ export function railHTML() {
         </div>
       </div>
 
+      <!-- FILTROS -->
       <div class="rail-section">
-        <div class="rail-label">Segmentación Geográfica</div>
+        <div class="rail-label">Filtros</div>
         <div class="select-stack">
+
+          <!-- GPC Group -->
+          <div class="select-wrap">
+            <select id="sel-alineacion-gpc" data-change="cambiarGpcAlineacion">
+              <option value="TODOS">Todos los GPC Groups</option>
+            </select>
+          </div>
+
+          <!-- Corredor -->
           <div class="select-wrap">
             <select id="sel-alineacion-corredor" data-change="cambiarCorredorAlineacion">
               <option value="TODOS">Todos los corredores</option>
             </select>
           </div>
+
+          <!-- Zona -->
+          <div class="select-wrap">
+            <select id="sel-alineacion-zona" data-change="cambiarZonaAlineacion">
+              <option value="TODOS">Todas las zonas</option>
+            </select>
+          </div>
+
+          <!-- Departamento -->
           <div class="select-wrap">
             <select id="sel-alineacion-depto" data-change="cambiarDeptoAlineacion">
               <option value="TODOS">Todos los departamentos</option>
             </select>
           </div>
+
+          <!-- Provincia | Distrito -->
+          <div class="select-row-2">
+            <div class="select-wrap">
+              <select id="sel-alineacion-provincia" data-change="cambiarProvinciaAlineacion">
+                <option value="TODOS">Provincia</option>
+              </select>
+            </div>
+            <div class="select-wrap">
+              <select id="sel-alineacion-distrito" data-change="cambiarDistritoAlineacion">
+                <option value="TODOS">Distrito</option>
+              </select>
+            </div>
+          </div>
+
         </div>
       </div>
 
-      <div class="rail-section">
-        <div class="rail-label">GPC Group</div>
-        <div class="select-wrap">
-          <select id="sel-alineacion-gpc" data-change="cambiarGpcAlineacion">
-            <option value="TODOS">Todos los GPC Groups</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="rail-section">
-        <div class="rail-label">Guía de Referencia</div>
-        <div class="rail-legend">
-          <div class="legend-item">
-            <span style="color: var(--k-emerald); font-weight: 700;">Local Market:</span>
-            <span>Competidor con Main Marker asignado.</span>
-          </div>
-          <div class="legend-item">
-            <span style="color: var(--k-lime); font-weight: 700;">Promedio Zona:</span>
-            <span>Media de competidores directos en el radio.</span>
-          </div>
-        </div>
-      </div>
     </div>`;
 }
