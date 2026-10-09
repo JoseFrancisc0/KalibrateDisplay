@@ -4,18 +4,27 @@
    ========================================================== */
 
 export const estacionState = {
-  seleccionadaId: null,      // UUID de la estación abierta
-  dataActiva: null,          // Datos de detalle_estaciones/{site_id}.json
-  cache: {},                 // Cache en memoria para no repetir fetch
-  cargando: false,
+  seleccionadaId: null,      // UUID de la estación abierta[cite: 9]
+  dataActiva: null,          // Datos de detalle_estaciones/{site_id}.json[cite: 9]
+  cache: {},                 // Cache en memoria para no repetir fetch[cite: 9]
+  cargando: false,           //[cite: 9]
 
   // Sub-vista activa dentro de la estación
-  subVista: 'ESTADO',        // 'ESTADO' | 'EVOLUCION_PRECIOS' | 'EVOLUCION_DIFF' | 'VARIACION'
+  subVista: 'ESTADO',        // 'ESTADO' | 'EVOLUCION_PRECIOS' | 'EVOLUCION_DIFF' | 'MARGEN' | 'VARIACION'[cite: 9]
+
+  // Filtros reactivos para la subvista MARGEN
+  margen: {
+    producto: 'Diesel',
+    fechaInicio: '2026-08-01',
+    fechaFin: '2026-10-08',
+    competidorId: null,      // site_id del competidor seleccionado en el <select>
+  }
 };
 
 export const SUBVISTAS = {
   'ESTADO': 'ESTADO ACTUAL',
   'EVOLUCION_PRECIOS': 'EVOLUCIÓN PRECIOS',
   'EVOLUCION_DIFF': 'EVOLUCIÓN DIFERENCIALES',
+  'MARGEN': 'ANÁLISIS DE MARGEN',
   'VARIACION': 'VARIACIÓN DE PRECIOS'
 };

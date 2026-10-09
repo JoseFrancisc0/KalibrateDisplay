@@ -12,12 +12,14 @@ import { cargarDetalleEstacion } from '../../core/data.js';
 import { estadoSubView } from './subviews/estado/index.js';
 import { evolucionPreciosSubView } from './subviews/precios/index.js';
 import { evolucionDiffSubView } from './subviews/deltas/index.js';
+import { margenSubView } from './subviews/margen/index.js'; // <-- Importar
 
 // Registro de sub-vistas del nivel estación
 const SUBVIEWS = {
   'ESTADO': estadoSubView,
   'EVOLUCION_PRECIOS': evolucionPreciosSubView,
-  'EVOLUCION_DIFF': evolucionDiffSubView
+  'EVOLUCION_DIFF': evolucionDiffSubView,
+  'MARGEN': margenSubView,
 };
 
 // Acciones base de navegación dentro del nivel
