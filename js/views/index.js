@@ -16,7 +16,7 @@ import { analisis } from './analisis/index.js';
 import { alineacion } from './alineacion/index.js';
 import { variacion } from './variacion/index.js';
 import { estacion } from './estacion/index.js';
-import { margenMercado } from './margen/index.js';
+import { margenMercado } from './mercado/index.js';
 
 export const VISTAS = [matriz, analisis, alineacion, variacion, margenMercado];
 

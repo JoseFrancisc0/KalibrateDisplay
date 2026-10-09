@@ -1,15 +1,39 @@
 /* ==========================================================
-   views/margen/rail.js — Riel de Margen de Mercado
+   views/margen/rail.js — Riel de Análisis de Mercado
    ========================================================== */
 import { COMBUSTIBLES } from '../../config/productos.js';
 import { margenMercadoState } from './state.js';
 
 export function railMargenMercadoHTML() {
   const mm = margenMercadoState;
+  const esPrecios = mm.modoMetrica === 'PRECIOS';
 
   return `
     <div id="rail-panel-margen-mercado" class="rail-panel" style="display:none;">
       
+      <!-- SELECTOR DE MÉTRICA: PRECIOS / MARGEN -->
+      <div class="rail-section">
+        <span class="rail-label">Métrica</span>
+        <div class="btn-group-vertical" style="display:flex; flex-direction:row; gap:4px;">
+          <button type="button" 
+                  id="btn-mm-precios" 
+                  class="${esPrecios ? 'active' : ''}" 
+                  data-click="cambiarMetricaMercado" 
+                  data-arg="PRECIOS"
+                  style="flex:1;">
+            PRECIOS
+          </button>
+          <button type="button" 
+                  id="btn-mm-margen" 
+                  class="${!esPrecios ? 'active' : ''}" 
+                  data-click="cambiarMetricaMercado" 
+                  data-arg="MARGEN"
+                  style="flex:1;">
+            MARGEN
+          </button>
+        </div>
+      </div>
+
       <!-- RANGO HISTÓRICO -->
       <div class="rail-section">
         <span class="rail-label">Rango Histórico</span>

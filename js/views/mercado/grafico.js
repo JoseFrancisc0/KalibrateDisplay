@@ -1,5 +1,6 @@
 /* ==========================================================
-   views/margen/grafico.js — Render de Margen de Mercado con Chart.js
+   views/margen/grafico.js — Render de Análisis de Mercado
+   Conexión exacta al costo diario del producto.
    ========================================================== */
 import { margenMercadoState } from './state.js';
 
@@ -31,6 +32,19 @@ function generarRangoFechas(f1, f2) {
   return fechas;
 }
 
+function obtenerCostoVigenteEn(puntosCosto, fechaCorte) {
+  let cVal = null;
+  for (const pt of puntosCosto) {
+    const f = (pt.t || '').slice(0, 10);
+    if (f <= fechaCorte) {
+      cVal = pt.c;
+    } else {
+      break;
+    }
+  }
+  return cVal;
+}
+
 export function renderMargenMercado(container) {
   if (margenMercadoState.cargandoHistorico) {
     container.innerHTML = `<div class="empty-state">Descargando datos históricos del mercado...</div>`;
@@ -47,8 +61,9 @@ export function renderMargenMercado(container) {
   const prodSel = mm.producto;
   const f1 = mm.fechaInicio;
   const f2 = mm.fechaFin;
+  const esModoMargen = (mm.modoMetrica === 'MARGEN');
 
-  // 1. Filtrar observaciones según segmentación
+  // 1. Filtrar observaciones por producto y territorio
   const gpcSel = mm.gpcGroup || 'TODOS';
   const corrSel = mm.corredor || 'TODOS';
   const zonaSel = mm.zona || 'TODOS';
@@ -65,14 +80,12 @@ export function renderMargenMercado(container) {
     const pv = (item.pv || '').trim().toUpperCase();
     const dt = (item.dt || '').trim().toUpperCase();
 
-    const matchGpc = (gpcSel === 'TODOS' || g === gpcSel);
-    const matchCorr = (corrSel === 'TODOS' || c === corrSel);
-    const matchZona = (zonaSel === 'TODOS' || z === zonaSel);
-    const matchDepto = (deptoSel === 'TODOS' || d === deptoSel);
-    const matchProv = (provSel === 'TODOS' || pv === provSel);
-    const matchDist = (distSel === 'TODOS' || dt === distSel);
-
-    return matchGpc && matchCorr && matchZona && matchDepto && matchProv && matchDist;
+    return (gpcSel === 'TODOS' || g === gpcSel) &&
+           (corrSel === 'TODOS' || c === corrSel) &&
+           (zonaSel === 'TODOS' || z === zonaSel) &&
+           (deptoSel === 'TODOS' || d === deptoSel) &&
+           (provSel === 'TODOS' || pv === provSel) &&
+           (distSel === 'TODOS' || dt === distSel);
   });
 
   if (observaciones.length === 0) {
@@ -80,78 +93,70 @@ export function renderMargenMercado(container) {
     return;
   }
 
-  // Normalizar nombres de marca
-  const obsNormalizadas = observaciones.map(item => {
-    let m = (item.m || '').trim().toUpperCase();
-    if (m === 'PRIMAX') m = 'COESTI';
-    return { ...item, m_std: m };
-  });
-
-  // 2. Mapear precios promedio y conteo de EESS por marca y fecha
+  // 2. Mapear precios promedio por marca y fecha
   const marcaFechaMap = {};
-  obsNormalizadas.forEach(item => {
-    if (!marcaFechaMap[item.m_std]) marcaFechaMap[item.m_std] = {};
-    if (!marcaFechaMap[item.m_std][item.f]) {
-      marcaFechaMap[item.m_std][item.f] = { suma: 0, pesoTotal: 0 };
+  observaciones.forEach(item => {
+    let rawMarca = (item.m || '').trim().toUpperCase();
+    const m = (rawMarca === 'PRIMAX') ? 'COESTI' : rawMarca;
+    if (!marcaFechaMap[m]) marcaFechaMap[m] = {};
+    if (!marcaFechaMap[m][item.f]) {
+      marcaFechaMap[m][item.f] = { suma: 0, pesoTotal: 0 };
     }
-    const entry = marcaFechaMap[item.m_std][item.f];
+    const entry = marcaFechaMap[m][item.f];
     entry.suma += (item.pr * item.n);
     entry.pesoTotal += item.n;
   });
 
-  // 3. Extraer costo de referencia diario (costo propio de COESTI o clave 'COSTO')
-  // En caso no haya fila explícita 'COSTO', se toma el costo histórico de referencia de la red
-  const costosHistoricos = (hData.costos && hData.costos[prodSel]) || [];
-  const costoMap = new Map();
-  costosHistoricos.forEach(c => costoMap.set(c.t.slice(0, 10), c.c));
-
   const labelsX = generarRangoFechas(f1, f2);
 
-  let ultimoCosto = null;
-  const costosDiarios = labelsX.map(f => {
-    if (costoMap.has(f)) ultimoCosto = costoMap.get(f);
-    // Si no está en hData.costos, buscar si venía en la serie propia
-    return ultimoCosto !== null ? ultimoCosto : 0;
-  });
+  // 3. Obtener el historial de costos reales del producto
+  const rawPuntosCosto = (margenMercadoState.costoReferenciaData?.[prodSel]?.costo || []).sort((a, b) => a.t.localeCompare(b.t));
 
-  // 4. Construir datasets para Chart.js
   const marcasActivas = mm.marcasSeleccionadas || new Set(Object.keys(marcaFechaMap));
   const datasets = [];
-  const todosMargenes = [];
+  const todosValores = [];
 
   Object.entries(marcaFechaMap).forEach(([marca, fechasObj]) => {
     if (!marcasActivas.has(marca)) return;
 
     const fechasOrdenadas = Object.keys(fechasObj).sort();
-    let ultimaObservacion = null;
+    let ultimaObs = null;
     let maxEess = 0;
 
-    const dataMargen = labelsX.map((fecha, idx) => {
-      // Forward-fill del precio promedio de la marca hasta la fecha
+    const dataFinal = labelsX.map(fecha => {
+      // Forward-fill del precio de la marca
       const fechasValidas = fechasOrdenadas.filter(f => f <= fecha);
       if (fechasValidas.length > 0) {
-        ultimaObservacion = fechasObj[fechasValidas[fechasValidas.length - 1]];
+        ultimaObs = fechasObj[fechasValidas[fechasValidas.length - 1]];
       }
 
-      if (ultimaObservacion && ultimaObservacion.pesoTotal > 0) {
-        const precioProm = ultimaObservacion.suma / ultimaObservacion.pesoTotal;
-        if (ultimaObservacion.pesoTotal > maxEess) maxEess = ultimaObservacion.pesoTotal;
+      if (ultimaObs && ultimaObs.pesoTotal > 0) {
+        const precioProm = ultimaObs.suma / ultimaObs.pesoTotal;
+        if (ultimaObs.pesoTotal > maxEess) maxEess = ultimaObs.pesoTotal;
 
-        const costoRef = costosDiarios[idx];
-        const margen = Number((precioProm - costoRef).toFixed(3));
-        todosMargenes.push(margen);
-        return margen;
+        if (esModoMargen) {
+          const costoDia = obtenerCostoVigenteEn(rawPuntosCosto, fecha);
+          if (costoDia === null) return null;
+          // Margen real(t) = Precio(t) - Costo(t)
+          const margen = Number((precioProm - costoDia).toFixed(3));
+          todosValores.push(margen);
+          return margen;
+        } else {
+          const precio = Number(precioProm.toFixed(2));
+          todosValores.push(precio);
+          return precio;
+        }
       }
       return null;
     });
 
-    if (dataMargen.some(v => v !== null)) {
+    if (dataFinal.some(v => v !== null)) {
       const estilo = ESTILOS_MARCAS[marca] || { color: '#64748B', dash: [], point: 'circle', width: 2 };
       const esPropio = marca === 'COESTI';
 
       datasets.push({
         label: `${marca} (${maxEess} EESS)`,
-        data: dataMargen,
+        data: dataFinal,
         borderColor: estilo.color,
         backgroundColor: estilo.color,
         borderWidth: estilo.width,
@@ -166,18 +171,25 @@ export function renderMargenMercado(container) {
     }
   });
 
-  if (datasets.length === 0 || todosMargenes.length === 0) {
-    container.innerHTML = `<div class="empty-state">No hay suficientes datos para el rango de fechas seleccionado.</div>`;
+  if (datasets.length === 0 || todosValores.length === 0) {
+    container.innerHTML = `<div class="empty-state">No se registraron datos suficientes de costos para evaluar margen en el periodo.</div>`;
     return;
   }
 
-  // COESTI siempre al frente
   datasets.sort((a, b) => (a.label.includes('COESTI') ? -1 : b.label.includes('COESTI') ? 1 : 0));
 
-  const minM = Math.min(...todosMargenes);
-  const maxM = Math.max(...todosMargenes);
-  const rangoYMin = Number((Math.floor(minM * 10) / 10 - 0.10).toFixed(2));
-  const rangoYMax = Number((Math.ceil(maxM * 10) / 10 + 0.10).toFixed(2));
+  const minV = Math.min(...todosValores);
+  const maxV = Math.max(...todosValores);
+  const rangoYMin = Number((Math.floor(minV * 10) / 10 - 0.15).toFixed(2));
+  const rangoYMax = Number((Math.ceil(maxV * 10) / 10 + 0.15).toFixed(2));
+
+  const tituloMetrica = esModoMargen 
+    ? `Análisis de Margen de Mercado por Marca: ${prodSel.toUpperCase()} (S/)`
+    : `Evolución de Precios de Mercado por Marca: ${prodSel.toUpperCase()} (S/)`;
+
+  const subtituloMetrica = esModoMargen
+    ? `Margen Diario Estimado = Precio Promedio Ponderado(t) − Costo Propio de Referencia(t) · Periodo: ${f1} ➔ ${f2}`
+    : `Precio Promedio Ponderado por Marca en el mercado · Periodo: ${f1} ➔ ${f2}`;
 
   container.innerHTML = `
     <div style="flex: 1 1 0; height: 100%; display: flex; flex-direction: column; background: #fff; border-radius: 6px; border: 1px solid var(--k-line); padding: 10px 16px 8px; box-sizing: border-box; overflow: hidden;">
@@ -186,10 +198,10 @@ export function renderMargenMercado(container) {
       <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; flex: 0 0 auto;">
         <div>
           <h3 style="font-family: 'Poppins', sans-serif; font-size: 1.05rem; font-weight: 800; color: var(--k-ink); margin: 0;">
-            Análisis de Margen de Mercado por Marca: ${prodSel.toUpperCase()} (S/)
+            ${tituloMetrica}
           </h3>
           <p style="font-size: 0.72rem; color: var(--k-muted); margin: 1px 0 0 0;">
-            Margen Promedio Estimado = Precio Promedio Ponderado − Costo Propio de Referencia · Periodo: ${f1} ➔ ${f2}
+            ${subtituloMetrica}
           </p>
         </div>
       </div>

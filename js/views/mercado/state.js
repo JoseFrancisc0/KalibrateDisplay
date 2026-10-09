@@ -1,12 +1,13 @@
 /* ==========================================================
-   views/margen/state.js — Estado de Margen de Mercado
+   views/margen/state.js — Estado de Análisis de Mercado
    ========================================================== */
 
 export const margenMercadoState = {
-  // Datos históricos de marcas
   historicoMarcasData: null,
+  costoReferenciaData: null, // Serie diaria real de costos
   cargandoHistorico: false,
 
+  modoMetrica: 'PRECIOS', // 'PRECIOS' | 'MARGEN'
   producto: 'Diesel',
   fechaInicio: '2026-08-01',
   fechaFin: '2026-10-08',
@@ -19,7 +20,7 @@ export const margenMercadoState = {
   provincia: 'TODOS',
   distrito: 'TODOS',
 
-  // Checklist de marcas (null = todas seleccionadas por defecto)
+  // Checklist de marcas
   marcasDisponibles: [],
   marcasSeleccionadas: null,
 };

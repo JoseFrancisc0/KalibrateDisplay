@@ -1,5 +1,5 @@
 /* ==========================================================
-   views/margen/index.js — Contrato de la vista
+   views/mercado/index.js — Contrato de la vista Análisis de Mercado
    ========================================================== */
 import { renderMargenMercado } from './grafico.js';
 import { railMargenMercadoHTML } from './rail.js';
@@ -8,7 +8,7 @@ import { margenMercadoState } from './state.js';
 
 export const margenMercado = {
   id: 'MARGEN_MERCADO',
-  label: 'MARGEN MERCADO',
+  label: 'ANÁLISIS MERCADO',
   tabId: 'tab-view-margen-mercado',
   shellSelector: '#margen-mercado-shell',
   display: 'flex',
@@ -23,7 +23,7 @@ export const margenMercado = {
     const shell = document.getElementById('margen-mercado-shell');
     if (shell) renderMargenMercado(shell);
   },
-  etiquetaModo: () => `PRODUCTO: ${(margenMercadoState.producto || 'DIESEL').toUpperCase()} (MARGEN MERCADO)`,
+  etiquetaModo: () => `PRODUCTO: ${(margenMercadoState.producto || 'DIESEL').toUpperCase()} (${margenMercadoState.modoMetrica})`,
   acciones,
   iniciarListeners: iniciarListenersMargenMercado
 };

@@ -3,17 +3,30 @@
    ========================================================== */
 import { render, refrescarViewBar } from '../../core/router.js';
 import { state } from '../../core/state.js';
-import { cargarHistoricoMarcas } from '../../core/data.js';
-import { valorDe, alternarDesplegable, cerrarAlClicFuera, repoblarSelect } from '../../shared/dom.js';
+import { cargarHistoricoMarcas, cargarDetalleEstacion } from '../../core/data.js';
+import { valorDe, activar, alternarDesplegable, cerrarAlClicFuera, repoblarSelect } from '../../shared/dom.js';
 import { poblarSelectsSegmentacion, valoresUnicos } from '../../shared/segmentacion.js';
 import { margenMercadoState } from './state.js';
 
-/* ---------- Entrada a la vista (alEntrar) ---------- */
 export async function entrarMargenMercado() {
   if (!margenMercadoState.historicoMarcasData && !margenMercadoState.cargandoHistorico) {
     margenMercadoState.cargandoHistorico = true;
     render();
+
+    // 1. Cargar el histórico de precios del mercado
     margenMercadoState.historicoMarcasData = await cargarHistoricoMarcas();
+
+    // 2. Cargar el historial de costos reales de una estación COESTI de referencia
+    const estacionRef = (state.rawData?.estaciones || []).find(e => 
+      e.actores?.some(a => a.tipo_actor === 'PROPIO')
+    );
+    if (estacionRef) {
+      const detalle = await cargarDetalleEstacion(estacionRef.own_site_id);
+      if (detalle) {
+        margenMercadoState.costoReferenciaData = detalle.historico_ytd || detalle.historico_30d || null;
+      }
+    }
+
     margenMercadoState.cargandoHistorico = false;
   }
   poblarFiltrosMargenMercado();
@@ -29,7 +42,6 @@ function sincronizarInputsFechaMM() {
   if (inP) inP.value = margenMercadoState.producto;
 }
 
-/* ---------- Cascada Geográfica Dinámica ---------- */
 function sincronizarCascadaGeograficaMM(estaciones) {
   const estacionesDepto = estaciones.filter(e => {
     if (margenMercadoState.departamento === 'TODOS') return true;
@@ -69,7 +81,6 @@ export function poblarFiltrosMargenMercado() {
 
   sincronizarCascadaGeograficaMM(estaciones);
 
-  // Extraer marcas detectadas en los datos históricos
   if (margenMercadoState.historicoMarcasData?.datos) {
     const setM = new Set();
     margenMercadoState.historicoMarcasData.datos.forEach(d => {
@@ -111,7 +122,16 @@ export function iniciarListenersMargenMercado() {
 }
 
 export const acciones = {
-  cambiarProductoMargenMercado(el) {
+  cambiarMetricaMercado(el) {
+    const metrica = el.dataset.arg;
+    margenMercadoState.modoMetrica = metrica;
+    activar('btn-mm-precios', metrica === 'PRECIOS');
+    activar('btn-mm-margen', metrica === 'MARGEN');
+    refrescarViewBar();
+    render();
+  },
+
+  async cambiarProductoMargenMercado(el) {
     const v = el?.value || valorDe('sel-mm-prod');
     if (v) {
       margenMercadoState.producto = v;
