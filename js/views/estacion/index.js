@@ -62,7 +62,7 @@ const accionesBase = {
 function detalleEstacionHTML() {
   return `
     <div id="detalle-estacion-shell" class="estacion-shell" style="display: none;">
-      <div id="estacion-subview-content" style="flex:1; display:flex; flex-direction:column; min-height:0;"></div>
+      <div id="estacion-subview-content" style="flex: 1 1 auto; display: flex; flex-direction: column; min-height: 0; height: 100%; overflow: hidden;"></div>
     </div>
   `;
 }

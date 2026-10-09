@@ -119,7 +119,7 @@ export function render() {
     });
     mostrar(document.getElementById('cmp-tabbar'), 'none');
 
-    mostrar(detalleShell, 'block');
+    mostrar(detalleShell, 'flex');
     mostrar(railEstacionEl, 'flex');
     if (estacion.actualizarRail) estacion.actualizarRail();
 
