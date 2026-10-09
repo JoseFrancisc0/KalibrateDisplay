@@ -16,8 +16,9 @@ import { analisis } from './analisis/index.js';
 import { alineacion } from './alineacion/index.js';
 import { variacion } from './variacion/index.js';
 import { estacion } from './estacion/index.js';
+import { margenMercado } from './margen/index.js';
 
-export const VISTAS = [matriz, analisis, alineacion, variacion];
+export const VISTAS = [matriz, analisis, alineacion, variacion, margenMercado];
 
 // Nivel de detalle (no es una pestaña: se abre desde la Matriz)
 export const NIVEL_ESTACION = estacion;
