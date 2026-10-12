@@ -1,5 +1,5 @@
 {
-  "actualizado_al": "2026-10-12T14:52:42",
+  "actualizado_al": "2026-10-12T15:57:55",
   "combustibles_orden": [
     "Diesel",
     "Regular",
@@ -537,7 +537,7 @@
               "precio": 24.59,
               "costo": 23.53,
               "margen": 1.06,
-              "vigencia": "12/10 10:02",
+              "vigencia": "12/10 15:10",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -545,7 +545,7 @@
               "precio": 23.39,
               "costo": 20.73,
               "margen": 2.66,
-              "vigencia": "12/10 10:02",
+              "vigencia": "12/10 15:10",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -553,7 +553,7 @@
               "precio": 21.99,
               "costo": 19.64,
               "margen": 2.35,
-              "vigencia": "12/10 10:02",
+              "vigencia": "12/10 15:10",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -648,8 +648,8 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 27.19,
-              "diferencial": -3.8,
+              "precio": 27.49,
+              "diferencial": -4.1,
               "main_marker": false
             },
             "Regular": {
@@ -838,7 +838,7 @@
               "main_marker": false
             },
             "GLP": {
-              "precio": 6.99,
+              "precio": 7.05,
               "main_marker": false
             },
             "Premium": {
@@ -1116,15 +1116,15 @@
               "precio": 25.59,
               "costo": 24.75,
               "margen": 0.84,
-              "vigencia": "12/10 10:10",
+              "vigencia": "12/10 15:36",
               "diferencial": 0.0,
               "main_marker": false
             },
             "GLP": {
-              "precio": 6.99,
+              "precio": 7.09,
               "costo": 6.52,
-              "margen": 0.47,
-              "vigencia": "12/10 10:10",
+              "margen": 0.57,
+              "vigencia": "12/10 15:36",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -1132,7 +1132,7 @@
               "precio": 23.29,
               "costo": 21.58,
               "margen": 1.71,
-              "vigencia": "12/10 10:10",
+              "vigencia": "12/10 15:36",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -1140,7 +1140,7 @@
               "precio": 22.49,
               "costo": 20.91,
               "margen": 1.58,
-              "vigencia": "12/10 10:10",
+              "vigencia": "12/10 15:36",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -1161,7 +1161,7 @@
             },
             "GLP": {
               "precio": 6.89,
-              "diferencial": 0.1,
+              "diferencial": 0.2,
               "main_marker": true
             },
             "Premium": {
@@ -1191,7 +1191,7 @@
             },
             "GLP": {
               "precio": 6.99,
-              "diferencial": 0.0,
+              "diferencial": 0.1,
               "main_marker": false
             },
             "Premium": {
@@ -1246,7 +1246,7 @@
             },
             "GLP": {
               "precio": 6.89,
-              "diferencial": 0.1,
+              "diferencial": 0.2,
               "main_marker": false
             },
             "Premium": {
@@ -1897,8 +1897,8 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 24.39,
-              "diferencial": -0.7,
+              "precio": 24.49,
+              "diferencial": -0.8,
               "main_marker": false
             },
             "Regular": {
@@ -1951,8 +1951,8 @@
               "main_marker": false
             },
             "Regular": {
-              "precio": 23.69,
-              "diferencial": -2.2,
+              "precio": 23.99,
+              "diferencial": -2.5,
               "main_marker": false
             }
           }
@@ -1971,13 +1971,13 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 24.89,
-              "diferencial": -1.2,
+              "precio": 24.99,
+              "diferencial": -1.3,
               "main_marker": false
             },
             "Regular": {
-              "precio": 22.79,
-              "diferencial": -1.3,
+              "precio": 22.99,
+              "diferencial": -1.5,
               "main_marker": false
             }
           }
@@ -3604,13 +3604,13 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 24.29,
-              "diferencial": -0.8,
+              "precio": 24.49,
+              "diferencial": -1.0,
               "main_marker": false
             },
             "Regular": {
-              "precio": 22.19,
-              "diferencial": -0.6,
+              "precio": 22.49,
+              "diferencial": -0.9,
               "main_marker": false
             }
           }
@@ -3973,8 +3973,8 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 26.99,
-              "diferencial": -3.24,
+              "precio": 27.19,
+              "diferencial": -3.44,
               "main_marker": false
             },
             "Regular": {
@@ -4873,7 +4873,7 @@
               "precio": 25.15,
               "costo": 23.37,
               "margen": 1.78,
-              "vigencia": "12/10 08:09",
+              "vigencia": "12/10 15:24",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -4881,7 +4881,7 @@
               "precio": 22.69,
               "costo": 20.59,
               "margen": 2.1,
-              "vigencia": "12/10 08:09",
+              "vigencia": "12/10 15:24",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -4889,7 +4889,7 @@
               "precio": 21.15,
               "costo": 19.67,
               "margen": 1.48,
-              "vigencia": "12/10 08:09",
+              "vigencia": "12/10 15:24",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -4942,13 +4942,13 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 26.99,
-              "diferencial": -4.3,
+              "precio": 27.49,
+              "diferencial": -4.8,
               "main_marker": false
             },
             "Regular": {
-              "precio": 23.99,
-              "diferencial": -2.84,
+              "precio": 24.49,
+              "diferencial": -3.34,
               "main_marker": false
             }
           }
@@ -6069,10 +6069,10 @@
           "distancia_km": 0.0,
           "combustibles": {
             "Premium": {
-              "precio": 23.89,
+              "precio": 23.99,
               "costo": 20.81,
-              "margen": 3.08,
-              "vigencia": "12/10 08:10",
+              "margen": 3.18,
+              "vigencia": "12/10 15:25",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -6085,10 +6085,10 @@
               "main_marker": false
             },
             "Regular": {
-              "precio": 22.45,
+              "precio": 22.75,
               "costo": 19.5,
-              "margen": 2.95,
-              "vigencia": "12/10 08:10",
+              "margen": 3.25,
+              "vigencia": "12/10 15:25",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -6124,13 +6124,13 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 24.79,
-              "diferencial": -0.9,
+              "precio": 24.99,
+              "diferencial": -1.0,
               "main_marker": true
             },
             "Regular": {
-              "precio": 23.49,
-              "diferencial": -1.04,
+              "precio": 23.99,
+              "diferencial": -1.24,
               "main_marker": true
             }
           }
@@ -6145,7 +6145,7 @@
           "combustibles": {
             "Premium": {
               "precio": 22.49,
-              "diferencial": 1.4,
+              "diferencial": 1.5,
               "main_marker": false
             },
             "Diesel": {
@@ -6155,7 +6155,7 @@
             },
             "Regular": {
               "precio": 21.25,
-              "diferencial": 1.2,
+              "diferencial": 1.5,
               "main_marker": false
             },
             "GNV": {
@@ -6190,12 +6190,12 @@
             },
             "Premium": {
               "precio": 21.99,
-              "diferencial": 1.9,
+              "diferencial": 2.0,
               "main_marker": false
             },
             "Regular": {
               "precio": 20.99,
-              "diferencial": 1.46,
+              "diferencial": 1.76,
               "main_marker": false
             }
           }
@@ -7151,15 +7151,15 @@
               "precio": 25.25,
               "costo": 23.19,
               "margen": 2.06,
-              "vigencia": "12/10 13:31",
+              "vigencia": "12/10 15:25",
               "diferencial": 0.0,
               "main_marker": false
             },
             "GLP": {
-              "precio": 6.69,
+              "precio": 6.75,
               "costo": 6.12,
-              "margen": 0.57,
-              "vigencia": "12/10 13:31",
+              "margen": 0.63,
+              "vigencia": "12/10 15:25",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -7167,7 +7167,7 @@
               "precio": 22.85,
               "costo": 20.97,
               "margen": 1.88,
-              "vigencia": "12/10 13:31",
+              "vigencia": "12/10 15:25",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -7175,7 +7175,7 @@
               "precio": 21.45,
               "costo": 19.79,
               "margen": 1.66,
-              "vigencia": "12/10 13:31",
+              "vigencia": "12/10 15:25",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -7196,7 +7196,7 @@
             },
             "GLP": {
               "precio": 6.7,
-              "diferencial": -0.01,
+              "diferencial": 0.05,
               "main_marker": false
             },
             "Premium": {
@@ -7240,7 +7240,7 @@
             },
             "GLP": {
               "precio": 6.69,
-              "diferencial": 0.0,
+              "diferencial": 0.06,
               "main_marker": true
             }
           }
@@ -7324,7 +7324,7 @@
             },
             "GLP": {
               "precio": 6.8,
-              "diferencial": -0.11,
+              "diferencial": -0.05,
               "main_marker": false
             }
           }
@@ -7344,7 +7344,7 @@
             },
             "GLP": {
               "precio": 6.69,
-              "diferencial": 0.0,
+              "diferencial": 0.06,
               "main_marker": false
             },
             "Premium": {
@@ -7544,7 +7544,7 @@
               "precio": 25.99,
               "costo": 25.03,
               "margen": 0.96,
-              "vigencia": "12/10 08:18",
+              "vigencia": "12/10 15:25",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -7552,7 +7552,7 @@
               "precio": 7.75,
               "costo": 6.41,
               "margen": 1.34,
-              "vigencia": "12/10 08:18",
+              "vigencia": "12/10 15:25",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -7560,7 +7560,7 @@
               "precio": 23.55,
               "costo": 21.7,
               "margen": 1.85,
-              "vigencia": "12/10 08:18",
+              "vigencia": "12/10 15:25",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -7568,7 +7568,7 @@
               "precio": 22.85,
               "costo": 20.93,
               "margen": 1.92,
-              "vigencia": "12/10 08:18",
+              "vigencia": "12/10 15:25",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -7583,8 +7583,8 @@
           "distancia_km": 0.36,
           "combustibles": {
             "Diesel": {
-              "precio": 25.99,
-              "diferencial": 0.0,
+              "precio": 25.6,
+              "diferencial": 0.39,
               "main_marker": false
             },
             "GLP": {
@@ -7920,8 +7920,8 @@
               "main_marker": false
             },
             "GLP": {
-              "precio": 6.69,
-              "diferencial": 0.1,
+              "precio": 6.75,
+              "diferencial": 0.04,
               "main_marker": false
             },
             "Premium": {
@@ -9213,13 +9213,13 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 24.39,
-              "diferencial": -2.04,
+              "precio": 24.49,
+              "diferencial": -2.14,
               "main_marker": false
             },
             "Regular": {
-              "precio": 22.69,
-              "diferencial": -1.34,
+              "precio": 22.99,
+              "diferencial": -1.64,
               "main_marker": false
             }
           }
@@ -9321,7 +9321,7 @@
               "precio": 23.29,
               "costo": 21.01,
               "margen": 2.28,
-              "vigencia": "12/10 09:01",
+              "vigencia": "12/10 15:47",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -9329,7 +9329,7 @@
               "precio": 26.39,
               "costo": 23.07,
               "margen": 3.32,
-              "vigencia": "12/10 09:01",
+              "vigencia": "12/10 15:47",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -9337,7 +9337,7 @@
               "precio": 21.59,
               "costo": 19.69,
               "margen": 1.9,
-              "vigencia": "12/10 09:01",
+              "vigencia": "12/10 15:47",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -9345,7 +9345,7 @@
               "precio": 2.29,
               "costo": 1.83,
               "margen": 0.46,
-              "vigencia": "12/10 09:01",
+              "vigencia": "12/10 15:47",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -9353,7 +9353,7 @@
               "precio": 7.49,
               "costo": 5.99,
               "margen": 1.5,
-              "vigencia": "12/10 09:01",
+              "vigencia": "12/10 15:47",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -10932,8 +10932,8 @@
           "distancia_km": 4.45,
           "combustibles": {
             "Diesel": {
-              "precio": 24.19,
-              "diferencial": 0.1,
+              "precio": 23.99,
+              "diferencial": 0.3,
               "main_marker": true
             },
             "Regular": {
@@ -12112,8 +12112,8 @@
               "main_marker": false
             },
             "Regular": {
-              "precio": 23.69,
-              "diferencial": -1.8,
+              "precio": 23.99,
+              "diferencial": -2.1,
               "main_marker": false
             }
           }
@@ -12498,7 +12498,7 @@
               "precio": 24.09,
               "costo": 20.87,
               "margen": 3.22,
-              "vigencia": "12/10 08:25",
+              "vigencia": "12/10 15:22",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -12506,7 +12506,7 @@
               "precio": 25.89,
               "costo": 23.08,
               "margen": 2.81,
-              "vigencia": "12/10 08:25",
+              "vigencia": "12/10 15:22",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -12514,7 +12514,7 @@
               "precio": 21.39,
               "costo": 19.66,
               "margen": 1.73,
-              "vigencia": "12/10 08:25",
+              "vigencia": "12/10 15:22",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -12522,7 +12522,7 @@
               "precio": 1.78,
               "costo": 0.98,
               "margen": 0.8,
-              "vigencia": "12/10 08:25",
+              "vigencia": "12/10 15:22",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -12530,7 +12530,7 @@
               "precio": 7.65,
               "costo": 5.73,
               "margen": 1.92,
-              "vigencia": "12/10 08:25",
+              "vigencia": "12/10 15:22",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -12580,8 +12580,8 @@
           "distancia_km": 1.47,
           "combustibles": {
             "Premium": {
-              "precio": 22.99,
-              "diferencial": 1.1,
+              "precio": 23.49,
+              "diferencial": 0.6,
               "main_marker": false
             },
             "Diesel": {
@@ -12600,8 +12600,8 @@
               "main_marker": true
             },
             "GLP": {
-              "precio": 7.28,
-              "diferencial": 0.37,
+              "precio": 7.49,
+              "diferencial": 0.16,
               "main_marker": false
             }
           }
@@ -12680,8 +12680,8 @@
               "main_marker": false
             },
             "Regular": {
-              "precio": 24.29,
-              "diferencial": -2.9,
+              "precio": 24.49,
+              "diferencial": -3.1,
               "main_marker": false
             }
           }
@@ -12730,8 +12730,8 @@
           "distancia_km": 1.42,
           "combustibles": {
             "Premium": {
-              "precio": 22.99,
-              "diferencial": 1.1,
+              "precio": 23.49,
+              "diferencial": 0.6,
               "main_marker": false
             },
             "Diesel": {
@@ -12750,8 +12750,8 @@
               "main_marker": false
             },
             "GLP": {
-              "precio": 7.29,
-              "diferencial": 0.36,
+              "precio": 7.49,
+              "diferencial": 0.16,
               "main_marker": false
             }
           }
@@ -13007,11 +13007,11 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 24.39,
+              "precio": 24.49,
               "main_marker": false
             },
             "Regular": {
-              "precio": 22.69,
+              "precio": 22.99,
               "main_marker": false
             }
           }
@@ -13043,7 +13043,7 @@
               "precio": 27.25,
               "costo": 23.66,
               "margen": 3.59,
-              "vigencia": "09/10 10:17",
+              "vigencia": "12/10 15:10",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -13051,7 +13051,7 @@
               "precio": 6.99,
               "costo": 6.26,
               "margen": 0.73,
-              "vigencia": "09/10 10:17",
+              "vigencia": "12/10 15:10",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -13059,7 +13059,7 @@
               "precio": 25.25,
               "costo": 23.1,
               "margen": 2.15,
-              "vigencia": "09/10 10:17",
+              "vigencia": "12/10 15:10",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -13067,7 +13067,7 @@
               "precio": 23.09,
               "costo": 21.44,
               "margen": 1.65,
-              "vigencia": "09/10 10:17",
+              "vigencia": "12/10 15:10",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -13172,8 +13172,8 @@
               "main_marker": false
             },
             "GLP": {
-              "precio": 6.99,
-              "diferencial": 0.0,
+              "precio": 7.09,
+              "diferencial": -0.1,
               "main_marker": false
             },
             "Premium": {
@@ -13542,13 +13542,13 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 24.49,
-              "diferencial": -0.5,
+              "precio": 24.99,
+              "diferencial": -1.0,
               "main_marker": true
             },
             "Regular": {
-              "precio": 22.49,
-              "diferencial": -0.4,
+              "precio": 22.99,
+              "diferencial": -0.9,
               "main_marker": true
             }
           }
@@ -14474,7 +14474,7 @@
               "precio": 25.69,
               "costo": 23.36,
               "margen": 2.33,
-              "vigencia": "12/10 08:32",
+              "vigencia": "12/10 15:16",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -14482,7 +14482,7 @@
               "precio": 7.65,
               "costo": 5.52,
               "margen": 2.13,
-              "vigencia": "12/10 08:32",
+              "vigencia": "12/10 15:16",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -14490,7 +14490,7 @@
               "precio": 24.09,
               "costo": 18.86,
               "margen": 5.23,
-              "vigencia": "12/10 08:32",
+              "vigencia": "12/10 15:16",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -14498,7 +14498,7 @@
               "precio": 21.49,
               "costo": 19.56,
               "margen": 1.93,
-              "vigencia": "12/10 08:32",
+              "vigencia": "12/10 15:16",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -14581,8 +14581,8 @@
           "distancia_km": 1.15,
           "combustibles": {
             "Premium": {
-              "precio": 22.99,
-              "diferencial": 1.1,
+              "precio": 23.49,
+              "diferencial": 0.6,
               "main_marker": false
             },
             "Diesel": {
@@ -14600,8 +14600,8 @@
               "main_marker": false
             },
             "GLP": {
-              "precio": 7.29,
-              "diferencial": 0.36,
+              "precio": 7.49,
+              "diferencial": 0.16,
               "main_marker": false
             }
           }
@@ -14780,8 +14780,8 @@
           "distancia_km": 0.95,
           "combustibles": {
             "Premium": {
-              "precio": 22.19,
-              "diferencial": 0.16,
+              "precio": 22.29,
+              "diferencial": 0.06,
               "main_marker": false
             },
             "Diesel": {
@@ -14830,8 +14830,8 @@
               "main_marker": false
             },
             "Regular": {
-              "precio": 22.89,
-              "diferencial": -1.54,
+              "precio": 22.99,
+              "diferencial": -1.64,
               "main_marker": false
             }
           }
@@ -14933,18 +14933,18 @@
               "main_marker": false
             },
             "GLP": {
-              "precio": 7.05,
+              "precio": 7.09,
               "costo": 6.48,
-              "margen": 0.57,
-              "vigencia": "09/10 14:53",
+              "margen": 0.61,
+              "vigencia": "12/10 15:50",
               "diferencial": 0.0,
               "main_marker": false
             },
             "Premium": {
-              "precio": 25.09,
+              "precio": 24.99,
               "costo": 23.09,
-              "margen": 2.0,
-              "vigencia": "09/10 14:53",
+              "margen": 1.9,
+              "vigencia": "12/10 15:50",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -14973,12 +14973,12 @@
             },
             "GLP": {
               "precio": 6.39,
-              "diferencial": 0.66,
+              "diferencial": 0.7,
               "main_marker": true
             },
             "Premium": {
               "precio": 23.49,
-              "diferencial": 1.6,
+              "diferencial": 1.5,
               "main_marker": true
             },
             "Regular": {
@@ -15003,12 +15003,12 @@
             },
             "GLP": {
               "precio": 6.99,
-              "diferencial": 0.06,
+              "diferencial": 0.1,
               "main_marker": false
             },
             "Premium": {
               "precio": 23.49,
-              "diferencial": 1.6,
+              "diferencial": 1.5,
               "main_marker": false
             },
             "Regular": {
@@ -15033,12 +15033,12 @@
             },
             "GLP": {
               "precio": 6.4,
-              "diferencial": 0.65,
+              "diferencial": 0.69,
               "main_marker": false
             },
             "Premium": {
               "precio": 23.36,
-              "diferencial": 1.73,
+              "diferencial": 1.63,
               "main_marker": false
             },
             "Regular": {
@@ -15075,15 +15075,15 @@
               "precio": 27.85,
               "costo": 24.28,
               "margen": 3.57,
-              "vigencia": "12/10 11:17",
+              "vigencia": "12/10 15:32",
               "diferencial": 0.0,
               "main_marker": false
             },
             "GLP": {
-              "precio": 7.05,
+              "precio": 7.09,
               "costo": 6.44,
-              "margen": 0.61,
-              "vigencia": "12/10 11:17",
+              "margen": 0.65,
+              "vigencia": "12/10 15:32",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -15091,7 +15091,7 @@
               "precio": 24.89,
               "costo": 23.0,
               "margen": 1.89,
-              "vigencia": "12/10 11:17",
+              "vigencia": "12/10 15:32",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -15099,7 +15099,7 @@
               "precio": 22.99,
               "costo": 21.25,
               "margen": 1.74,
-              "vigencia": "12/10 11:17",
+              "vigencia": "12/10 15:32",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -15120,7 +15120,7 @@
             },
             "GLP": {
               "precio": 6.79,
-              "diferencial": 0.26,
+              "diferencial": 0.3,
               "main_marker": true
             },
             "Premium": {
@@ -15175,7 +15175,7 @@
             },
             "GLP": {
               "precio": 6.79,
-              "diferencial": 0.26,
+              "diferencial": 0.3,
               "main_marker": false
             },
             "Premium": {
@@ -15254,13 +15254,13 @@
               "main_marker": false
             },
             "GLP": {
-              "precio": 7.05,
+              "precio": 7.09,
               "diferencial": 0.0,
               "main_marker": false
             },
             "Premium": {
-              "precio": 25.09,
-              "diferencial": -0.2,
+              "precio": 24.99,
+              "diferencial": -0.1,
               "main_marker": false
             },
             "Regular": {
@@ -15772,18 +15772,18 @@
           "distancia_km": 0.58,
           "combustibles": {
             "Diesel": {
-              "precio": 24.29,
-              "diferencial": 0.3,
+              "precio": 24.19,
+              "diferencial": 0.4,
               "main_marker": false
             },
             "Premium": {
-              "precio": 22.99,
-              "diferencial": 0.1,
+              "precio": 22.89,
+              "diferencial": 0.2,
               "main_marker": false
             },
             "Regular": {
-              "precio": 21.99,
-              "diferencial": -0.7,
+              "precio": 21.69,
+              "diferencial": -0.4,
               "main_marker": false
             }
           }
@@ -16286,13 +16286,13 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 24.29,
-              "diferencial": 0.2,
+              "precio": 24.49,
+              "diferencial": 0.0,
               "main_marker": false
             },
             "Regular": {
-              "precio": 22.69,
-              "diferencial": -0.6,
+              "precio": 22.99,
+              "diferencial": -0.9,
               "main_marker": false
             }
           }
@@ -16718,13 +16718,13 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 26.09,
-              "diferencial": -2.7,
+              "precio": 26.49,
+              "diferencial": -3.1,
               "main_marker": false
             },
             "Regular": {
-              "precio": 24.29,
-              "diferencial": -2.1,
+              "precio": 24.49,
+              "diferencial": -2.3,
               "main_marker": false
             }
           }
@@ -16738,8 +16738,8 @@
           "distancia_km": 0.61,
           "combustibles": {
             "Premium": {
-              "precio": 22.69,
-              "diferencial": 0.7,
+              "precio": 22.99,
+              "diferencial": 0.4,
               "main_marker": false
             },
             "Diesel": {
@@ -16748,8 +16748,8 @@
               "main_marker": false
             },
             "Regular": {
-              "precio": 21.49,
-              "diferencial": 0.7,
+              "precio": 21.79,
+              "diferencial": 0.4,
               "main_marker": false
             },
             "GNV": {
@@ -16772,8 +16772,8 @@
           "distancia_km": 2.71,
           "combustibles": {
             "Premium": {
-              "precio": 22.15,
-              "diferencial": 1.24,
+              "precio": 22.25,
+              "diferencial": 1.14,
               "main_marker": false
             },
             "Diesel": {
@@ -16782,8 +16782,8 @@
               "main_marker": false
             },
             "Regular": {
-              "precio": 20.99,
-              "diferencial": 1.2,
+              "precio": 21.19,
+              "diferencial": 1.0,
               "main_marker": false
             },
             "GNV": {
@@ -18513,8 +18513,8 @@
           "distancia_km": 1.22,
           "combustibles": {
             "Diesel": {
-              "precio": 25.99,
-              "diferencial": -0.1,
+              "precio": 25.49,
+              "diferencial": 0.4,
               "main_marker": false
             },
             "Regular": {
@@ -18533,18 +18533,18 @@
           "distancia_km": 1.98,
           "combustibles": {
             "Diesel": {
-              "precio": 25.89,
-              "diferencial": 0.0,
+              "precio": 25.39,
+              "diferencial": 0.5,
               "main_marker": false
             },
             "Premium": {
-              "precio": 22.99,
-              "diferencial": 0.4,
+              "precio": 22.89,
+              "diferencial": 0.5,
               "main_marker": false
             },
             "Regular": {
-              "precio": 21.89,
-              "diferencial": 0.4,
+              "precio": 21.59,
+              "diferencial": 0.7,
               "main_marker": false
             }
           }
@@ -19334,13 +19334,13 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 26.99,
-              "diferencial": -3.5,
+              "precio": 27.49,
+              "diferencial": -4.0,
               "main_marker": false
             },
             "Regular": {
-              "precio": 23.99,
-              "diferencial": -2.1,
+              "precio": 24.49,
+              "diferencial": -2.6,
               "main_marker": false
             }
           }
@@ -20861,8 +20861,8 @@
           "distancia_km": 1.11,
           "combustibles": {
             "Premium": {
-              "precio": 22.39,
-              "diferencial": 0.6,
+              "precio": 22.49,
+              "diferencial": 0.5,
               "main_marker": false
             },
             "Diesel": {
@@ -20871,8 +20871,8 @@
               "main_marker": false
             },
             "Regular": {
-              "precio": 20.99,
-              "diferencial": 0.66,
+              "precio": 21.29,
+              "diferencial": 0.36,
               "main_marker": false
             },
             "GNV": {
@@ -20946,13 +20946,13 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 23.59,
-              "diferencial": -0.6,
+              "precio": 22.99,
+              "diferencial": 0.0,
               "main_marker": false
             },
             "Regular": {
-              "precio": 22.29,
-              "diferencial": -0.64,
+              "precio": 21.99,
+              "diferencial": -0.34,
               "main_marker": false
             }
           }
@@ -21001,8 +21001,8 @@
               "main_marker": false
             },
             "Diesel": {
-              "precio": 26.79,
-              "diferencial": -2.14,
+              "precio": 26.49,
+              "diferencial": -1.84,
               "main_marker": false
             },
             "Regular": {
@@ -21848,7 +21848,7 @@
               "precio": 24.79,
               "costo": 23.36,
               "margen": 1.43,
-              "vigencia": "12/10 08:07",
+              "vigencia": "12/10 15:02",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -21856,7 +21856,7 @@
               "precio": 22.99,
               "costo": 20.74,
               "margen": 2.25,
-              "vigencia": "12/10 08:07",
+              "vigencia": "12/10 15:02",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -21864,7 +21864,7 @@
               "precio": 21.39,
               "costo": 19.62,
               "margen": 1.77,
-              "vigencia": "12/10 08:07",
+              "vigencia": "12/10 15:02",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -21942,13 +21942,13 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 26.99,
-              "diferencial": -4.0,
+              "precio": 27.49,
+              "diferencial": -4.5,
               "main_marker": false
             },
             "Regular": {
-              "precio": 23.99,
-              "diferencial": -2.6,
+              "precio": 24.49,
+              "diferencial": -3.1,
               "main_marker": false
             }
           }
@@ -22297,7 +22297,7 @@
               "precio": 23.99,
               "costo": 20.72,
               "margen": 3.27,
-              "vigencia": "12/10 08:03",
+              "vigencia": "12/10 15:44",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -22305,7 +22305,7 @@
               "precio": 25.89,
               "costo": 23.41,
               "margen": 2.48,
-              "vigencia": "12/10 08:03",
+              "vigencia": "12/10 15:44",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -22313,7 +22313,7 @@
               "precio": 21.99,
               "costo": 19.55,
               "margen": 2.44,
-              "vigencia": "12/10 08:03",
+              "vigencia": "12/10 15:44",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -22321,7 +22321,7 @@
               "precio": 1.88,
               "costo": 1.0,
               "margen": 0.88,
-              "vigencia": "12/10 08:03",
+              "vigencia": "12/10 15:44",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -22329,7 +22329,7 @@
               "precio": 7.85,
               "costo": 5.71,
               "margen": 2.14,
-              "vigencia": "12/10 08:03",
+              "vigencia": "12/10 15:44",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -22566,8 +22566,8 @@
               "main_marker": false
             },
             "GLP": {
-              "precio": 7.07,
-              "diferencial": 0.08,
+              "precio": 7.09,
+              "diferencial": 0.06,
               "main_marker": true
             },
             "Premium": {
@@ -22635,8 +22635,8 @@
               "main_marker": false
             },
             "Regular": {
-              "precio": 24.29,
-              "diferencial": -3.3,
+              "precio": 24.99,
+              "diferencial": -4.0,
               "main_marker": false
             }
           }
@@ -22655,13 +22655,13 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 26.09,
-              "diferencial": -3.7,
+              "precio": 26.99,
+              "diferencial": -4.6,
               "main_marker": false
             },
             "Regular": {
-              "precio": 24.29,
-              "diferencial": -3.3,
+              "precio": 24.99,
+              "diferencial": -4.0,
               "main_marker": false
             }
           }
@@ -23115,10 +23115,10 @@
           "distancia_km": 0.0,
           "combustibles": {
             "Premium": {
-              "precio": 22.99,
+              "precio": 23.49,
               "costo": 20.86,
-              "margen": 2.13,
-              "vigencia": "09/10 15:07",
+              "margen": 2.63,
+              "vigencia": "12/10 15:06",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -23147,10 +23147,10 @@
               "main_marker": false
             },
             "GLP": {
-              "precio": 7.29,
+              "precio": 7.49,
               "costo": 5.9,
-              "margen": 1.39,
-              "vigencia": "07/10 08:39",
+              "margen": 1.59,
+              "vigencia": "12/10 15:06",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -23165,7 +23165,7 @@
           "distancia_km": 0.46,
           "combustibles": {
             "Premium": {
-              "precio": 22.99,
+              "precio": 23.49,
               "diferencial": 0.0,
               "main_marker": true
             },
@@ -23185,8 +23185,8 @@
               "main_marker": true
             },
             "GLP": {
-              "precio": 7.28,
-              "diferencial": 0.01,
+              "precio": 7.49,
+              "diferencial": 0.0,
               "main_marker": true
             }
           }
@@ -23206,12 +23206,12 @@
             },
             "Premium": {
               "precio": 26.99,
-              "diferencial": -4.0,
+              "diferencial": -3.5,
               "main_marker": false
             },
             "Regular": {
-              "precio": 24.29,
-              "diferencial": -3.0,
+              "precio": 24.49,
+              "diferencial": -3.2,
               "main_marker": false
             }
           }
@@ -23241,7 +23241,7 @@
           "combustibles": {
             "Premium": {
               "precio": 23.59,
-              "diferencial": -0.6,
+              "diferencial": -0.1,
               "main_marker": false
             },
             "Diesel": {
@@ -23261,7 +23261,7 @@
             },
             "GLP": {
               "precio": 7.59,
-              "diferencial": -0.3,
+              "diferencial": -0.1,
               "main_marker": false
             }
           }
@@ -23276,7 +23276,7 @@
           "combustibles": {
             "Premium": {
               "precio": 22.78,
-              "diferencial": 0.21,
+              "diferencial": 0.71,
               "main_marker": false
             },
             "Diesel": {
@@ -23296,7 +23296,7 @@
             },
             "GLP": {
               "precio": 7.23,
-              "diferencial": 0.06,
+              "diferencial": 0.26,
               "main_marker": false
             }
           }
@@ -24093,23 +24093,23 @@
               "precio": 27.49,
               "costo": 23.88,
               "margen": 3.61,
-              "vigencia": "12/10 11:21",
+              "vigencia": "12/10 15:16",
               "diferencial": 0.0,
               "main_marker": false
             },
             "GLP": {
-              "precio": 6.99,
+              "precio": 7.09,
               "costo": 6.4,
-              "margen": 0.59,
-              "vigencia": "12/10 11:21",
+              "margen": 0.69,
+              "vigencia": "12/10 15:16",
               "diferencial": 0.0,
               "main_marker": false
             },
             "Premium": {
-              "precio": 25.15,
+              "precio": 24.99,
               "costo": 23.19,
-              "margen": 1.96,
-              "vigencia": "12/10 11:21",
+              "margen": 1.8,
+              "vigencia": "12/10 15:16",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -24117,7 +24117,7 @@
               "precio": 22.89,
               "costo": 21.53,
               "margen": 1.36,
-              "vigencia": "12/10 11:21",
+              "vigencia": "12/10 15:16",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -24138,12 +24138,12 @@
             },
             "GLP": {
               "precio": 6.4,
-              "diferencial": 0.59,
+              "diferencial": 0.69,
               "main_marker": false
             },
             "Premium": {
               "precio": 23.36,
-              "diferencial": 1.79,
+              "diferencial": 1.63,
               "main_marker": true
             },
             "Regular": {
@@ -24168,12 +24168,12 @@
             },
             "GLP": {
               "precio": 6.45,
-              "diferencial": 0.54,
+              "diferencial": 0.64,
               "main_marker": true
             },
             "Premium": {
               "precio": 23.3,
-              "diferencial": 1.85,
+              "diferencial": 1.69,
               "main_marker": false
             },
             "Regular": {
@@ -24198,12 +24198,12 @@
             },
             "GLP": {
               "precio": 6.47,
-              "diferencial": 0.52,
+              "diferencial": 0.62,
               "main_marker": false
             },
             "Premium": {
               "precio": 23.57,
-              "diferencial": 1.58,
+              "diferencial": 1.42,
               "main_marker": false
             },
             "Regular": {
@@ -24227,13 +24227,13 @@
               "main_marker": false
             },
             "GLP": {
-              "precio": 7.05,
-              "diferencial": -0.06,
+              "precio": 7.09,
+              "diferencial": 0.0,
               "main_marker": false
             },
             "Premium": {
-              "precio": 25.09,
-              "diferencial": 0.06,
+              "precio": 24.99,
+              "diferencial": 0.0,
               "main_marker": false
             },
             "Regular": {
@@ -24972,7 +24972,7 @@
               "precio": 23.55,
               "costo": 20.8,
               "margen": 2.75,
-              "vigencia": "12/10 08:15",
+              "vigencia": "12/10 15:02",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -24980,7 +24980,7 @@
               "precio": 25.39,
               "costo": 22.9,
               "margen": 2.49,
-              "vigencia": "12/10 08:15",
+              "vigencia": "12/10 15:02",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -24988,7 +24988,7 @@
               "precio": 21.65,
               "costo": 19.59,
               "margen": 2.06,
-              "vigencia": "12/10 08:15",
+              "vigencia": "12/10 15:02",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -24996,7 +24996,7 @@
               "precio": 1.81,
               "costo": 0.98,
               "margen": 0.83,
-              "vigencia": "12/10 08:15",
+              "vigencia": "12/10 15:02",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -25004,7 +25004,7 @@
               "precio": 7.49,
               "costo": 5.79,
               "margen": 1.7,
-              "vigencia": "12/10 08:15",
+              "vigencia": "12/10 15:02",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -25393,15 +25393,15 @@
               "precio": 27.19,
               "costo": 23.87,
               "margen": 3.32,
-              "vigencia": "12/10 07:49",
+              "vigencia": "12/10 15:19",
               "diferencial": 0.0,
               "main_marker": false
             },
             "GLP": {
-              "precio": 6.99,
+              "precio": 7.09,
               "costo": 6.4,
-              "margen": 0.59,
-              "vigencia": "12/10 07:49",
+              "margen": 0.69,
+              "vigencia": "12/10 15:19",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -25409,7 +25409,7 @@
               "precio": 25.39,
               "costo": 23.1,
               "margen": 2.29,
-              "vigencia": "12/10 07:49",
+              "vigencia": "12/10 15:19",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -25417,7 +25417,7 @@
               "precio": 22.75,
               "costo": 21.23,
               "margen": 1.52,
-              "vigencia": "12/10 07:49",
+              "vigencia": "12/10 15:19",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -25438,7 +25438,7 @@
             },
             "GLP": {
               "precio": 6.49,
-              "diferencial": 0.5,
+              "diferencial": 0.6,
               "main_marker": true
             },
             "Premium": {
@@ -25468,7 +25468,7 @@
             },
             "GLP": {
               "precio": 6.99,
-              "diferencial": 0.0,
+              "diferencial": 0.1,
               "main_marker": false
             },
             "Premium": {
@@ -25498,7 +25498,7 @@
             },
             "GLP": {
               "precio": 6.79,
-              "diferencial": 0.2,
+              "diferencial": 0.3,
               "main_marker": false
             },
             "Premium": {
@@ -25557,7 +25557,7 @@
             },
             "GLP": {
               "precio": 6.47,
-              "diferencial": 0.52,
+              "diferencial": 0.62,
               "main_marker": false
             },
             "Premium": {
@@ -25587,7 +25587,7 @@
             },
             "GLP": {
               "precio": 6.99,
-              "diferencial": 0.0,
+              "diferencial": 0.1,
               "main_marker": false
             },
             "Premium": {
@@ -27304,8 +27304,8 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 24.69,
-              "diferencial": -2.34,
+              "precio": 24.99,
+              "diferencial": -2.64,
               "main_marker": false
             },
             "Regular": {
@@ -28407,8 +28407,8 @@
           "distancia_km": 1.79,
           "combustibles": {
             "Premium": {
-              "precio": 23.89,
-              "diferencial": -1.1,
+              "precio": 23.99,
+              "diferencial": -1.2,
               "main_marker": false
             },
             "Diesel": {
@@ -28417,8 +28417,8 @@
               "main_marker": false
             },
             "Regular": {
-              "precio": 22.45,
-              "diferencial": -0.86,
+              "precio": 22.75,
+              "diferencial": -1.16,
               "main_marker": false
             },
             "GNV": {
@@ -28642,15 +28642,15 @@
               "precio": 26.99,
               "costo": 23.62,
               "margen": 3.37,
-              "vigencia": "12/10 11:30",
+              "vigencia": "12/10 15:05",
               "diferencial": 0.0,
               "main_marker": false
             },
             "GLP": {
-              "precio": 6.99,
+              "precio": 7.05,
               "costo": 6.42,
-              "margen": 0.57,
-              "vigencia": "12/10 11:30",
+              "margen": 0.63,
+              "vigencia": "12/10 15:05",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -28658,7 +28658,7 @@
               "precio": 24.99,
               "costo": 23.1,
               "margen": 1.89,
-              "vigencia": "12/10 11:30",
+              "vigencia": "12/10 15:05",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -28679,7 +28679,7 @@
             },
             "GLP": {
               "precio": 6.47,
-              "diferencial": 0.52,
+              "diferencial": 0.58,
               "main_marker": true
             },
             "Premium": {
@@ -28708,7 +28708,7 @@
             },
             "GLP": {
               "precio": 6.69,
-              "diferencial": 0.3,
+              "diferencial": 0.36,
               "main_marker": false
             },
             "Premium": {
@@ -28809,7 +28809,7 @@
             },
             "GLP": {
               "precio": 6.85,
-              "diferencial": 0.14,
+              "diferencial": 0.2,
               "main_marker": false
             },
             "Premium": {
@@ -30981,7 +30981,7 @@
               "precio": 26.79,
               "costo": 22.97,
               "margen": 3.82,
-              "vigencia": "12/10 08:12",
+              "vigencia": "12/10 15:03",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -30989,7 +30989,7 @@
               "precio": 7.45,
               "costo": 6.87,
               "margen": 0.58,
-              "vigencia": "12/10 08:12",
+              "vigencia": "12/10 15:03",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -30997,7 +30997,7 @@
               "precio": 24.65,
               "costo": 23.49,
               "margen": 1.16,
-              "vigencia": "12/10 08:12",
+              "vigencia": "12/10 15:03",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -31005,7 +31005,7 @@
               "precio": 22.69,
               "costo": 21.69,
               "margen": 1.0,
-              "vigencia": "12/10 08:12",
+              "vigencia": "12/10 15:03",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -31583,8 +31583,8 @@
           "distancia_km": 0.51,
           "combustibles": {
             "Premium": {
-              "precio": 22.99,
-              "diferencial": 0.5,
+              "precio": 23.49,
+              "diferencial": 0.0,
               "main_marker": true
             },
             "Diesel": {
@@ -31602,7 +31602,7 @@
               "main_marker": false
             },
             "GLP": {
-              "precio": 7.28,
+              "precio": 7.49,
               "main_marker": false
             }
           }
@@ -31616,8 +31616,8 @@
           "distancia_km": 0.26,
           "combustibles": {
             "Premium": {
-              "precio": 22.99,
-              "diferencial": 0.5,
+              "precio": 23.49,
+              "diferencial": 0.0,
               "main_marker": false
             },
             "Diesel": {
@@ -31635,7 +31635,7 @@
               "main_marker": false
             },
             "GLP": {
-              "precio": 7.29,
+              "precio": 7.49,
               "main_marker": false
             }
           }
@@ -32560,8 +32560,8 @@
               "main_marker": false
             },
             "Regular": {
-              "precio": 23.29,
-              "diferencial": -1.3,
+              "precio": 23.49,
+              "diferencial": -1.5,
               "main_marker": false
             }
           }
@@ -33409,13 +33409,13 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 26.09,
-              "diferencial": -2.4,
+              "precio": 26.49,
+              "diferencial": -2.8,
               "main_marker": false
             },
             "Regular": {
-              "precio": 23.59,
-              "diferencial": -2.0,
+              "precio": 23.99,
+              "diferencial": -2.4,
               "main_marker": false
             }
           }
@@ -33439,8 +33439,8 @@
               "main_marker": false
             },
             "Regular": {
-              "precio": 24.09,
-              "diferencial": -2.5,
+              "precio": 24.49,
+              "diferencial": -2.9,
               "main_marker": false
             }
           }
@@ -33489,8 +33489,8 @@
               "main_marker": false
             },
             "Regular": {
-              "precio": 23.99,
-              "diferencial": -2.4,
+              "precio": 24.49,
+              "diferencial": -2.9,
               "main_marker": false
             }
           }
@@ -34681,13 +34681,13 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 23.59,
-              "diferencial": 0.7,
+              "precio": 22.99,
+              "diferencial": 1.3,
               "main_marker": false
             },
             "Regular": {
-              "precio": 22.29,
-              "diferencial": -0.64,
+              "precio": 21.99,
+              "diferencial": -0.34,
               "main_marker": false
             }
           }
@@ -35303,8 +35303,8 @@
               "main_marker": false
             },
             "Regular": {
-              "precio": 23.99,
-              "diferencial": -1.0,
+              "precio": 24.49,
+              "diferencial": -1.5,
               "main_marker": false
             }
           }
@@ -35376,13 +35376,13 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 24.49,
-              "diferencial": 0.0,
+              "precio": 24.99,
+              "diferencial": -0.5,
               "main_marker": true
             },
             "Regular": {
-              "precio": 22.49,
-              "diferencial": 0.0,
+              "precio": 22.99,
+              "diferencial": -0.5,
               "main_marker": true
             }
           }
@@ -35401,8 +35401,8 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 26.99,
-              "diferencial": -2.5,
+              "precio": 27.19,
+              "diferencial": -2.7,
               "main_marker": false
             },
             "Regular": {
@@ -35454,8 +35454,8 @@
           "distancia_km": 0.84,
           "combustibles": {
             "Premium": {
-              "precio": 23.45,
-              "diferencial": 1.04,
+              "precio": 23.59,
+              "diferencial": 0.9,
               "main_marker": false
             },
             "Diesel": {
@@ -35464,8 +35464,8 @@
               "main_marker": false
             },
             "Regular": {
-              "precio": 21.79,
-              "diferencial": 0.7,
+              "precio": 21.99,
+              "diferencial": 0.5,
               "main_marker": false
             },
             "GNV": {
@@ -35492,8 +35492,8 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 27.19,
-              "diferencial": -2.7,
+              "precio": 27.49,
+              "diferencial": -3.0,
               "main_marker": false
             },
             "Regular": {
@@ -35757,13 +35757,13 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 24.49,
-              "diferencial": -1.24,
+              "precio": 24.99,
+              "diferencial": -1.74,
               "main_marker": true
             },
             "Regular": {
-              "precio": 22.49,
-              "diferencial": -1.0,
+              "precio": 22.99,
+              "diferencial": -1.5,
               "main_marker": true
             }
           }
@@ -35777,8 +35777,8 @@
           "distancia_km": 1.4,
           "combustibles": {
             "Premium": {
-              "precio": 23.45,
-              "diferencial": -0.2,
+              "precio": 23.59,
+              "diferencial": -0.34,
               "main_marker": false
             },
             "Diesel": {
@@ -35787,8 +35787,8 @@
               "main_marker": false
             },
             "Regular": {
-              "precio": 21.79,
-              "diferencial": -0.3,
+              "precio": 21.99,
+              "diferencial": -0.5,
               "main_marker": false
             },
             "GNV": {
@@ -35845,8 +35845,8 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 26.99,
-              "diferencial": -3.74,
+              "precio": 27.19,
+              "diferencial": -3.94,
               "main_marker": false
             },
             "Regular": {
@@ -37310,8 +37310,8 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 26.99,
-              "diferencial": -3.8,
+              "precio": 27.19,
+              "diferencial": -4.0,
               "main_marker": false
             },
             "Regular": {
@@ -37340,8 +37340,8 @@
               "main_marker": false
             },
             "Regular": {
-              "precio": 23.29,
-              "diferencial": -2.1,
+              "precio": 23.49,
+              "diferencial": -2.3,
               "main_marker": false
             }
           }
@@ -38191,8 +38191,8 @@
               "main_marker": false
             },
             "Regular": {
-              "precio": 23.99,
-              "diferencial": -2.0,
+              "precio": 24.49,
+              "diferencial": -2.5,
               "main_marker": false
             }
           }
@@ -38216,8 +38216,8 @@
               "main_marker": false
             },
             "Regular": {
-              "precio": 24.09,
-              "diferencial": -2.1,
+              "precio": 24.49,
+              "diferencial": -2.5,
               "main_marker": false
             }
           }
@@ -39066,8 +39066,8 @@
               "main_marker": false
             },
             "Regular": {
-              "precio": 24.09,
-              "diferencial": -2.1,
+              "precio": 24.49,
+              "diferencial": -2.5,
               "main_marker": false
             }
           }
@@ -39091,8 +39091,8 @@
               "main_marker": false
             },
             "Regular": {
-              "precio": 23.99,
-              "diferencial": -2.0,
+              "precio": 24.49,
+              "diferencial": -2.5,
               "main_marker": false
             }
           }
@@ -39337,8 +39337,8 @@
               "main_marker": false
             },
             "GLP": {
-              "precio": 6.99,
-              "diferencial": -0.14,
+              "precio": 7.05,
+              "diferencial": -0.2,
               "main_marker": false
             },
             "Premium": {
@@ -42281,7 +42281,7 @@
               "precio": 23.59,
               "costo": 20.77,
               "margen": 2.82,
-              "vigencia": "09/10 15:34",
+              "vigencia": "12/10 14:48",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -42289,7 +42289,7 @@
               "precio": 25.69,
               "costo": 23.08,
               "margen": 2.61,
-              "vigencia": "09/10 15:34",
+              "vigencia": "12/10 14:48",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -42297,7 +42297,7 @@
               "precio": 22.19,
               "costo": 19.57,
               "margen": 2.62,
-              "vigencia": "09/10 15:34",
+              "vigencia": "12/10 14:48",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -42305,7 +42305,7 @@
               "precio": 1.73,
               "costo": 0.99,
               "margen": 0.74,
-              "vigencia": "09/10 15:34",
+              "vigencia": "12/10 14:48",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -42313,7 +42313,7 @@
               "precio": 7.49,
               "costo": 5.77,
               "margen": 1.72,
-              "vigencia": "09/10 15:34",
+              "vigencia": "12/10 14:48",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -43304,13 +43304,13 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 26.09,
-              "diferencial": -2.54,
+              "precio": 26.49,
+              "diferencial": -2.94,
               "main_marker": false
             },
             "Regular": {
-              "precio": 24.29,
-              "diferencial": -2.34,
+              "precio": 24.49,
+              "diferencial": -2.54,
               "main_marker": false
             }
           }
@@ -43381,8 +43381,8 @@
           "distancia_km": 0.15,
           "combustibles": {
             "Diesel": {
-              "precio": 25.99,
-              "diferencial": -0.1,
+              "precio": 25.6,
+              "diferencial": 0.29,
               "main_marker": false
             },
             "GLP": {
@@ -43658,8 +43658,8 @@
           "distancia_km": 0.43,
           "combustibles": {
             "Diesel": {
-              "precio": 25.99,
-              "diferencial": -0.1,
+              "precio": 25.6,
+              "diferencial": 0.29,
               "main_marker": false
             },
             "GLP": {
@@ -44120,7 +44120,7 @@
               "precio": 25.99,
               "costo": 22.84,
               "margen": 3.15,
-              "vigencia": "12/10 08:02",
+              "vigencia": "12/10 15:08",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -44128,7 +44128,7 @@
               "precio": 1.78,
               "costo": 0.98,
               "margen": 0.8,
-              "vigencia": "12/10 08:02",
+              "vigencia": "12/10 15:08",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -44136,7 +44136,7 @@
               "precio": 22.89,
               "costo": 20.81,
               "margen": 2.08,
-              "vigencia": "12/10 08:02",
+              "vigencia": "12/10 15:08",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -44144,7 +44144,7 @@
               "precio": 21.69,
               "costo": 19.66,
               "margen": 2.03,
-              "vigencia": "12/10 08:02",
+              "vigencia": "12/10 15:08",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -44164,13 +44164,13 @@
               "main_marker": true
             },
             "Premium": {
-              "precio": 26.09,
-              "diferencial": -3.2,
+              "precio": 26.99,
+              "diferencial": -4.1,
               "main_marker": true
             },
             "Regular": {
-              "precio": 24.29,
-              "diferencial": -2.6,
+              "precio": 24.99,
+              "diferencial": -3.3,
               "main_marker": true
             }
           }
@@ -44238,7 +44238,7 @@
               "main_marker": false
             },
             "GLP": {
-              "precio": 7.07,
+              "precio": 7.09,
               "main_marker": false
             },
             "Premium": {
@@ -44272,8 +44272,8 @@
               "main_marker": false
             },
             "Regular": {
-              "precio": 24.29,
-              "diferencial": -2.6,
+              "precio": 24.99,
+              "diferencial": -3.3,
               "main_marker": false
             }
           }
@@ -45006,15 +45006,15 @@
               "precio": 23.49,
               "costo": 20.72,
               "margen": 2.77,
-              "vigencia": "12/10 08:44",
+              "vigencia": "12/10 15:25",
               "diferencial": 0.0,
               "main_marker": false
             },
             "Diesel": {
-              "precio": 26.79,
+              "precio": 26.49,
               "costo": 22.86,
-              "margen": 3.93,
-              "vigencia": "12/10 08:44",
+              "margen": 3.63,
+              "vigencia": "12/10 15:25",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -45022,7 +45022,7 @@
               "precio": 22.19,
               "costo": 19.54,
               "margen": 2.65,
-              "vigencia": "12/10 08:44",
+              "vigencia": "12/10 15:25",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -45030,7 +45030,7 @@
               "precio": 1.76,
               "costo": 1.0,
               "margen": 0.76,
-              "vigencia": "12/10 08:44",
+              "vigencia": "12/10 15:25",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -45038,7 +45038,7 @@
               "precio": 6.75,
               "costo": 5.76,
               "margen": 0.99,
-              "vigencia": "12/10 08:44",
+              "vigencia": "12/10 15:25",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -45053,18 +45053,18 @@
           "distancia_km": 0.55,
           "combustibles": {
             "Premium": {
-              "precio": 22.39,
-              "diferencial": 1.1,
+              "precio": 22.49,
+              "diferencial": 1.0,
               "main_marker": false
             },
             "Diesel": {
               "precio": 24.99,
-              "diferencial": 1.8,
+              "diferencial": 1.5,
               "main_marker": false
             },
             "Regular": {
-              "precio": 20.99,
-              "diferencial": 1.2,
+              "precio": 21.29,
+              "diferencial": 0.9,
               "main_marker": false
             },
             "GNV": {
@@ -45093,7 +45093,7 @@
               "main_marker": true
             },
             "Diesel": {
-              "precio": 26.29,
+              "precio": 25.99,
               "diferencial": 0.5,
               "main_marker": true
             },
@@ -45124,7 +45124,7 @@
           "combustibles": {
             "Diesel": {
               "precio": 24.19,
-              "diferencial": 2.6,
+              "diferencial": 2.3,
               "main_marker": false
             },
             "Premium": {
@@ -45149,7 +45149,7 @@
           "combustibles": {
             "Diesel": {
               "precio": 25.95,
-              "diferencial": 0.84,
+              "diferencial": 0.54,
               "main_marker": false
             },
             "GNV": {
@@ -45184,7 +45184,7 @@
             },
             "Diesel": {
               "precio": 24.65,
-              "diferencial": 2.14,
+              "diferencial": 1.84,
               "main_marker": false
             },
             "Regular": {
@@ -45214,17 +45214,17 @@
           "combustibles": {
             "Diesel": {
               "precio": 27.99,
-              "diferencial": -1.2,
+              "diferencial": -1.5,
               "main_marker": false
             },
             "Premium": {
-              "precio": 24.29,
-              "diferencial": -0.8,
+              "precio": 24.49,
+              "diferencial": -1.0,
               "main_marker": false
             },
             "Regular": {
-              "precio": 22.89,
-              "diferencial": -0.7,
+              "precio": 22.99,
+              "diferencial": -0.8,
               "main_marker": false
             }
           }
@@ -45692,7 +45692,7 @@
               "precio": 27.15,
               "costo": 24.1,
               "margen": 3.05,
-              "vigencia": "12/10 11:45",
+              "vigencia": "12/10 15:27",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -45700,7 +45700,7 @@
               "precio": 6.99,
               "costo": 6.08,
               "margen": 0.91,
-              "vigencia": "12/10 11:45",
+              "vigencia": "12/10 15:27",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -45708,7 +45708,7 @@
               "precio": 25.49,
               "costo": 23.28,
               "margen": 2.21,
-              "vigencia": "12/10 11:45",
+              "vigencia": "12/10 15:27",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -45716,7 +45716,7 @@
               "precio": 23.49,
               "costo": 21.29,
               "margen": 2.2,
-              "vigencia": "12/10 11:45",
+              "vigencia": "12/10 15:27",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -46747,7 +46747,7 @@
               "precio": 25.05,
               "costo": 22.9,
               "margen": 2.15,
-              "vigencia": "12/10 08:11",
+              "vigencia": "12/10 15:10",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -46755,7 +46755,7 @@
               "precio": 23.09,
               "costo": 20.61,
               "margen": 2.48,
-              "vigencia": "12/10 08:11",
+              "vigencia": "12/10 15:10",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -46763,7 +46763,7 @@
               "precio": 21.95,
               "costo": 19.36,
               "margen": 2.59,
-              "vigencia": "12/10 08:11",
+              "vigencia": "12/10 15:10",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -46811,18 +46811,18 @@
           "distancia_km": 0.51,
           "combustibles": {
             "Premium": {
-              "precio": 23.07,
-              "diferencial": 0.02,
+              "precio": 22.87,
+              "diferencial": 0.22,
               "main_marker": false
             },
             "Diesel": {
-              "precio": 24.87,
-              "diferencial": 0.18,
+              "precio": 24.69,
+              "diferencial": 0.36,
               "main_marker": false
             },
             "Regular": {
-              "precio": 21.92,
-              "diferencial": 0.03,
+              "precio": 21.67,
+              "diferencial": 0.28,
               "main_marker": false
             },
             "GNV": {
@@ -46849,8 +46849,8 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 25.69,
-              "diferencial": -2.6,
+              "precio": 25.99,
+              "diferencial": -2.9,
               "main_marker": false
             },
             "Regular": {
@@ -47633,8 +47633,8 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 27.59,
-              "diferencial": -2.1,
+              "precio": 27.95,
+              "diferencial": -2.46,
               "main_marker": false
             },
             "Regular": {
@@ -47902,7 +47902,7 @@
               "precio": 24.85,
               "costo": 22.63,
               "margen": 2.22,
-              "vigencia": "12/10 11:59",
+              "vigencia": "12/10 15:04",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -47910,7 +47910,7 @@
               "precio": 6.95,
               "costo": 5.84,
               "margen": 1.11,
-              "vigencia": "12/10 11:59",
+              "vigencia": "12/10 15:04",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -47918,7 +47918,7 @@
               "precio": 22.75,
               "costo": 20.85,
               "margen": 1.9,
-              "vigencia": "12/10 11:59",
+              "vigencia": "12/10 15:04",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -47926,7 +47926,7 @@
               "precio": 21.45,
               "costo": 19.37,
               "margen": 2.08,
-              "vigencia": "12/10 11:59",
+              "vigencia": "12/10 15:04",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -47960,8 +47960,8 @@
               "main_marker": false
             },
             "GLP": {
-              "precio": 6.99,
-              "diferencial": -0.04,
+              "precio": 7.05,
+              "diferencial": -0.1,
               "main_marker": false
             }
           }
@@ -47980,8 +47980,8 @@
               "main_marker": false
             },
             "GLP": {
-              "precio": 6.89,
-              "diferencial": 0.06,
+              "precio": 6.92,
+              "diferencial": 0.03,
               "main_marker": true
             },
             "Premium": {
@@ -49122,8 +49122,8 @@
           "distancia_km": 0.6,
           "combustibles": {
             "Diesel": {
-              "precio": 23.79,
-              "diferencial": 0.3,
+              "precio": 23.59,
+              "diferencial": 0.5,
               "main_marker": false
             },
             "GLP": {
@@ -49132,13 +49132,13 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 21.49,
-              "diferencial": 2.0,
+              "precio": 21.51,
+              "diferencial": 1.98,
               "main_marker": false
             },
             "Regular": {
-              "precio": 20.39,
-              "diferencial": 1.2,
+              "precio": 20.34,
+              "diferencial": 1.25,
               "main_marker": false
             }
           }
@@ -49355,7 +49355,7 @@
               "precio": 27.25,
               "costo": 24.87,
               "margen": 2.38,
-              "vigencia": "12/10 08:19",
+              "vigencia": "12/10 15:02",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -49363,15 +49363,15 @@
               "precio": 24.49,
               "costo": 22.39,
               "margen": 2.1,
-              "vigencia": "12/10 08:19",
+              "vigencia": "12/10 15:02",
               "diferencial": 0.0,
               "main_marker": false
             },
             "Regular": {
-              "precio": 23.09,
+              "precio": 23.19,
               "costo": 21.74,
-              "margen": 1.35,
-              "vigencia": "12/10 08:19",
+              "margen": 1.45,
+              "vigencia": "12/10 15:02",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -49397,7 +49397,7 @@
             },
             "Regular": {
               "precio": 22.39,
-              "diferencial": 0.7,
+              "diferencial": 0.8,
               "main_marker": true
             }
           }
@@ -49421,8 +49421,8 @@
               "main_marker": false
             },
             "Regular": {
-              "precio": 23.79,
-              "diferencial": -0.7,
+              "precio": 23.99,
+              "diferencial": -0.8,
               "main_marker": false
             }
           }
@@ -49446,8 +49446,8 @@
               "main_marker": false
             },
             "Regular": {
-              "precio": 23.79,
-              "diferencial": -0.7,
+              "precio": 23.99,
+              "diferencial": -0.8,
               "main_marker": false
             }
           }
@@ -49466,13 +49466,13 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 23.19,
-              "diferencial": 1.3,
+              "precio": 22.69,
+              "diferencial": 1.8,
               "main_marker": false
             },
             "Regular": {
-              "precio": 22.39,
-              "diferencial": 0.7,
+              "precio": 22.09,
+              "diferencial": 1.1,
               "main_marker": false
             }
           }
@@ -49497,7 +49497,7 @@
             },
             "Regular": {
               "precio": 21.99,
-              "diferencial": 1.1,
+              "diferencial": 1.2,
               "main_marker": false
             }
           }
