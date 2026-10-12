@@ -14,11 +14,15 @@ export async function cargarHistoricoMarcas() {
   try {
     const resp = await fetch(HISTORICO_URL);
     if (!resp.ok) {
-      throw new Error(`Error cargando historico_marcas.json: ${resp.status}`);
+      throw new Error(`Error cargando historico_marcas.json.gz: ${resp.status}`);
     }
-    return await resp.json();
+
+    // Descompresión en streaming soportada nativamente por todos los navegadores
+    const stream = resp.body.pipeThrough(new DecompressionStream('gzip'));
+    const responseDescomprimida = new Response(stream);
+    return await responseDescomprimida.json();
   } catch (err) {
-    console.error("No se pudo cargar el archivo historico_marcas.json:", err);
+    console.error("No se pudo cargar el archivo historico_marcas.json.gz:", err);
     return null;
   }
 }
