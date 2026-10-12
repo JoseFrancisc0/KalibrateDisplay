@@ -1,5 +1,5 @@
 {
-  "actualizado_al": "2026-10-12T13:52:38",
+  "actualizado_al": "2026-10-12T14:52:42",
   "combustibles_orden": [
     "Diesel",
     "Regular",
@@ -904,23 +904,23 @@
               "precio": 27.99,
               "costo": 24.63,
               "margen": 3.36,
-              "vigencia": "12/10 11:15",
+              "vigencia": "12/10 14:36",
               "diferencial": 0.0,
               "main_marker": false
             },
             "GLP": {
-              "precio": 6.99,
+              "precio": 7.05,
               "costo": 6.43,
-              "margen": 0.56,
-              "vigencia": "12/10 11:15",
+              "margen": 0.62,
+              "vigencia": "12/10 14:36",
               "diferencial": 0.0,
               "main_marker": false
             },
             "Premium": {
-              "precio": 25.09,
+              "precio": 24.99,
               "costo": 23.07,
-              "margen": 2.02,
-              "vigencia": "12/10 11:15",
+              "margen": 1.92,
+              "vigencia": "12/10 14:36",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -928,7 +928,7 @@
               "precio": 22.69,
               "costo": 21.37,
               "margen": 1.32,
-              "vigencia": "12/10 11:15",
+              "vigencia": "12/10 14:36",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -949,12 +949,12 @@
             },
             "GLP": {
               "precio": 6.48,
-              "diferencial": 0.51,
+              "diferencial": 0.57,
               "main_marker": true
             },
             "Premium": {
               "precio": 23.39,
-              "diferencial": 1.7,
+              "diferencial": 1.6,
               "main_marker": false
             },
             "Regular": {
@@ -979,7 +979,7 @@
             },
             "Premium": {
               "precio": 23.4,
-              "diferencial": 1.69,
+              "diferencial": 1.59,
               "main_marker": true
             },
             "Regular": {
@@ -1004,12 +1004,12 @@
             },
             "GLP": {
               "precio": 6.79,
-              "diferencial": 0.2,
+              "diferencial": 0.26,
               "main_marker": false
             },
             "Premium": {
               "precio": 25.49,
-              "diferencial": -0.4,
+              "diferencial": -0.5,
               "main_marker": false
             },
             "Regular": {
@@ -1029,7 +1029,7 @@
           "combustibles": {
             "GLP": {
               "precio": 6.33,
-              "diferencial": 0.66,
+              "diferencial": 0.72,
               "main_marker": false
             }
           }
@@ -1049,12 +1049,12 @@
             },
             "GLP": {
               "precio": 6.29,
-              "diferencial": 0.7,
+              "diferencial": 0.76,
               "main_marker": false
             },
             "Premium": {
               "precio": 22.99,
-              "diferencial": 2.1,
+              "diferencial": 2.0,
               "main_marker": false
             },
             "Regular": {
@@ -1079,7 +1079,7 @@
             },
             "Premium": {
               "precio": 24.99,
-              "diferencial": 0.1,
+              "diferencial": 0.0,
               "main_marker": false
             },
             "Regular": {
@@ -10417,12 +10417,12 @@
               "main_marker": false
             },
             "GLP": {
-              "precio": 6.99,
+              "precio": 7.05,
               "main_marker": false
             },
             "Premium": {
-              "precio": 25.09,
-              "diferencial": -0.1,
+              "precio": 24.99,
+              "diferencial": 0.0,
               "main_marker": false
             },
             "Regular": {
@@ -12862,7 +12862,7 @@
               "main_marker": false
             },
             "GLP": {
-              "precio": 6.19,
+              "precio": 6.29,
               "main_marker": false
             },
             "Premium": {
@@ -13215,7 +13215,7 @@
               "precio": 23.59,
               "costo": 20.81,
               "margen": 2.78,
-              "vigencia": "10/10 11:44",
+              "vigencia": "12/10 14:41",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -13223,7 +13223,7 @@
               "precio": 25.99,
               "costo": 23.57,
               "margen": 2.42,
-              "vigencia": "10/10 11:44",
+              "vigencia": "12/10 14:41",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -13231,7 +13231,7 @@
               "precio": 21.99,
               "costo": 19.47,
               "margen": 2.52,
-              "vigencia": "10/10 11:44",
+              "vigencia": "12/10 14:41",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -13239,15 +13239,15 @@
               "precio": 1.91,
               "costo": 0.99,
               "margen": 0.92,
-              "vigencia": "10/10 11:44",
+              "vigencia": "12/10 14:41",
               "diferencial": 0.0,
               "main_marker": false
             },
             "GLP": {
-              "precio": 6.59,
+              "precio": 6.69,
               "costo": 6.04,
-              "margen": 0.55,
-              "vigencia": "10/10 11:44",
+              "margen": 0.65,
+              "vigencia": "12/10 14:41",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -13268,7 +13268,7 @@
             },
             "GLP": {
               "precio": 6.94,
-              "diferencial": -0.35,
+              "diferencial": -0.25,
               "main_marker": false
             },
             "Premium": {
@@ -13298,7 +13298,7 @@
             },
             "GLP": {
               "precio": 7.07,
-              "diferencial": -0.48,
+              "diferencial": -0.38,
               "main_marker": false
             },
             "Premium": {
@@ -13343,7 +13343,7 @@
             },
             "GLP": {
               "precio": 6.39,
-              "diferencial": 0.2,
+              "diferencial": 0.3,
               "main_marker": true
             }
           }
@@ -14401,8 +14401,8 @@
               "main_marker": false
             },
             "GLP": {
-              "precio": 7.39,
-              "diferencial": 0.2,
+              "precio": 7.65,
+              "diferencial": -0.06,
               "main_marker": false
             },
             "Premium": {
@@ -20603,15 +20603,15 @@
               "precio": 23.75,
               "costo": 23.09,
               "margen": 0.66,
-              "vigencia": "09/10 14:06",
+              "vigencia": "12/10 14:43",
               "diferencial": 0.0,
               "main_marker": false
             },
             "GLP": {
-              "precio": 6.19,
+              "precio": 6.25,
               "costo": 5.65,
-              "margen": 0.54,
-              "vigencia": "09/10 14:06",
+              "margen": 0.6,
+              "vigencia": "12/10 14:43",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -20619,7 +20619,7 @@
               "precio": 22.05,
               "costo": 21.05,
               "margen": 1.0,
-              "vigencia": "09/10 14:06",
+              "vigencia": "12/10 14:43",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -20627,7 +20627,7 @@
               "precio": 21.05,
               "costo": 20.08,
               "margen": 0.97,
-              "vigencia": "09/10 14:06",
+              "vigencia": "12/10 14:43",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -20662,7 +20662,7 @@
             },
             "GLP": {
               "precio": 6.13,
-              "diferencial": 0.06,
+              "diferencial": 0.12,
               "main_marker": true
             }
           }
@@ -20682,7 +20682,7 @@
             },
             "GLP": {
               "precio": 6.49,
-              "diferencial": -0.3,
+              "diferencial": -0.24,
               "main_marker": false
             },
             "Premium": {
@@ -20712,7 +20712,7 @@
             },
             "GLP": {
               "precio": 6.19,
-              "diferencial": 0.0,
+              "diferencial": 0.06,
               "main_marker": false
             },
             "Premium": {
@@ -24030,8 +24030,8 @@
               "main_marker": true
             },
             "GLP": {
-              "precio": 6.59,
-              "diferencial": 0.2,
+              "precio": 6.69,
+              "diferencial": 0.1,
               "main_marker": true
             }
           }
@@ -29986,10 +29986,10 @@
               "main_marker": false
             },
             "GLP": {
-              "precio": 6.45,
+              "precio": 6.55,
               "costo": 5.98,
-              "margen": 0.47,
-              "vigencia": "09/10 07:18",
+              "margen": 0.57,
+              "vigencia": "12/10 14:40",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -30025,7 +30025,7 @@
             },
             "GLP": {
               "precio": 6.26,
-              "diferencial": 0.19,
+              "diferencial": 0.29,
               "main_marker": true
             }
           }
@@ -30045,7 +30045,7 @@
             },
             "GLP": {
               "precio": 6.65,
-              "diferencial": -0.2,
+              "diferencial": -0.1,
               "main_marker": false
             },
             "Premium": {
@@ -30075,7 +30075,7 @@
             },
             "GLP": {
               "precio": 6.15,
-              "diferencial": 0.3,
+              "diferencial": 0.4,
               "main_marker": false
             },
             "Premium": {
@@ -32858,15 +32858,15 @@
               "precio": 24.75,
               "costo": 22.69,
               "margen": 2.06,
-              "vigencia": "12/10 12:02",
+              "vigencia": "12/10 14:42",
               "diferencial": 0.0,
               "main_marker": false
             },
             "GLP": {
-              "precio": 6.19,
+              "precio": 6.29,
               "costo": 5.69,
-              "margen": 0.5,
-              "vigencia": "12/10 12:02",
+              "margen": 0.6,
+              "vigencia": "12/10 14:42",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -32874,7 +32874,7 @@
               "precio": 22.25,
               "costo": 21.5,
               "margen": 0.75,
-              "vigencia": "12/10 12:02",
+              "vigencia": "12/10 14:42",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -32882,7 +32882,7 @@
               "precio": 21.19,
               "costo": 19.84,
               "margen": 1.35,
-              "vigencia": "12/10 12:02",
+              "vigencia": "12/10 14:42",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -32903,7 +32903,7 @@
             },
             "GLP": {
               "precio": 5.9,
-              "diferencial": 0.29,
+              "diferencial": 0.39,
               "main_marker": true
             },
             "Premium": {
@@ -32933,7 +32933,7 @@
             },
             "GLP": {
               "precio": 6.35,
-              "diferencial": -0.16,
+              "diferencial": -0.06,
               "main_marker": false
             },
             "Premium": {
@@ -32963,7 +32963,7 @@
             },
             "GLP": {
               "precio": 6.21,
-              "diferencial": -0.02,
+              "diferencial": 0.08,
               "main_marker": false
             },
             "Premium": {
@@ -32993,7 +32993,7 @@
             },
             "GLP": {
               "precio": 6.21,
-              "diferencial": -0.02,
+              "diferencial": 0.08,
               "main_marker": false
             },
             "Premium": {
@@ -33023,7 +33023,7 @@
             },
             "GLP": {
               "precio": 6.2,
-              "diferencial": -0.01,
+              "diferencial": 0.09,
               "main_marker": false
             },
             "Premium": {
@@ -33053,7 +33053,7 @@
             },
             "GLP": {
               "precio": 6.5,
-              "diferencial": -0.31,
+              "diferencial": -0.21,
               "main_marker": false
             },
             "Premium": {
@@ -33233,8 +33233,8 @@
               "main_marker": false
             },
             "GLP": {
-              "precio": 6.19,
-              "diferencial": 0.0,
+              "precio": 6.25,
+              "diferencial": -0.06,
               "main_marker": false
             },
             "Premium": {
@@ -39809,15 +39809,15 @@
               "precio": 26.19,
               "costo": 23.09,
               "margen": 3.1,
-              "vigencia": "09/10 08:33",
+              "vigencia": "12/10 14:29",
               "diferencial": 0.0,
               "main_marker": false
             },
             "GLP": {
-              "precio": 7.39,
+              "precio": 7.65,
               "costo": 6.64,
-              "margen": 0.75,
-              "vigencia": "09/10 08:33",
+              "margen": 1.01,
+              "vigencia": "12/10 14:29",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -39825,7 +39825,7 @@
               "precio": 24.49,
               "costo": 21.1,
               "margen": 3.39,
-              "vigencia": "09/10 08:33",
+              "vigencia": "12/10 14:29",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -39833,7 +39833,7 @@
               "precio": 22.49,
               "costo": 19.73,
               "margen": 2.76,
-              "vigencia": "09/10 08:33",
+              "vigencia": "12/10 14:29",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -39879,7 +39879,7 @@
             },
             "GLP": {
               "precio": 6.69,
-              "diferencial": 0.7,
+              "diferencial": 0.96,
               "main_marker": true
             },
             "Premium": {
@@ -39909,7 +39909,7 @@
             },
             "GLP": {
               "precio": 7.59,
-              "diferencial": -0.2,
+              "diferencial": 0.06,
               "main_marker": false
             },
             "Premium": {
@@ -39939,7 +39939,7 @@
             },
             "GLP": {
               "precio": 7.99,
-              "diferencial": -0.6,
+              "diferencial": -0.34,
               "main_marker": false
             },
             "Premium": {
@@ -39969,7 +39969,7 @@
             },
             "GLP": {
               "precio": 6.79,
-              "diferencial": 0.6,
+              "diferencial": 0.86,
               "main_marker": false
             },
             "Premium": {
@@ -44773,8 +44773,8 @@
               "main_marker": false
             },
             "GLP": {
-              "precio": 6.19,
-              "diferencial": 0.16,
+              "precio": 6.29,
+              "diferencial": 0.06,
               "main_marker": false
             },
             "Premium": {
