@@ -9,28 +9,15 @@ import { poblarSelectsSegmentacion, valoresUnicos } from '../../shared/segmentac
 import { margenMercadoState } from './state.js';
 
 export async function entrarMargenMercado() {
-  if (!margenMercadoState.historicoMarcasData && !margenMercadoState.cargandoHistorico) {
-    margenMercadoState.cargandoHistorico = true;
-    render();
+    if (!margenMercadoState.historicoMarcasData && !margenMercadoState.cargandoHistorico) {
+        margenMercadoState.cargandoHistorico = true;
+        render();
 
-    // 1. Cargar el histórico de precios del mercado
-    margenMercadoState.historicoMarcasData = await cargarHistoricoMarcas();
-
-    // 2. Cargar el historial de costos reales de una estación COESTI de referencia
-    const estacionRef = (state.rawData?.estaciones || []).find(e => 
-      e.actores?.some(a => a.tipo_actor === 'PROPIO')
-    );
-    if (estacionRef) {
-      const detalle = await cargarDetalleEstacion(estacionRef.own_site_id);
-      if (detalle) {
-        margenMercadoState.costoReferenciaData = detalle.historico_ytd || detalle.historico_30d || null;
-      }
+        margenMercadoState.historicoMarcasData = await cargarHistoricoMarcas();
+        margenMercadoState.cargandoHistorico = false;
     }
-
-    margenMercadoState.cargandoHistorico = false;
-  }
-  poblarFiltrosMargenMercado();
-  sincronizarInputsFechaMM();
+    poblarFiltrosMargenMercado();
+    sincronizarInputsFechaMM();
 }
 
 function sincronizarInputsFechaMM() {

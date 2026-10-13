@@ -93,82 +93,97 @@ export function renderMargenMercado(container) {
     return;
   }
 
-  // 2. Mapear precios promedio por marca y fecha
+  // 2. Mapear precios y costos por marca y fecha
   const marcaFechaMap = {};
+  const costoFechaMap = {};
+
   observaciones.forEach(item => {
-    let rawMarca = (item.m || '').trim().toUpperCase();
-    const m = (rawMarca === 'PRIMAX') ? 'COESTI' : rawMarca;
-    if (!marcaFechaMap[m]) marcaFechaMap[m] = {};
-    if (!marcaFechaMap[m][item.f]) {
-      marcaFechaMap[m][item.f] = { suma: 0, pesoTotal: 0 };
-    }
-    const entry = marcaFechaMap[m][item.f];
-    entry.suma += (item.pr * item.n);
-    entry.pesoTotal += item.n;
+      let rawMarca = (item.m || '').trim().toUpperCase();
+      const m = (rawMarca === 'PRIMAX') ? 'COESTI' : rawMarca;
+      
+      // Acumulador de precios de venta
+      if (!marcaFechaMap[m]) marcaFechaMap[m] = {};
+      if (!marcaFechaMap[m][item.f]) {
+          marcaFechaMap[m][item.f] = { suma: 0, pesoTotal: 0 };
+      }
+      const entry = marcaFechaMap[m][item.f];
+      entry.suma += (item.pr * item.n);
+      entry.pesoTotal += item.n;
+
+      // Acumulador de costo representativo COESTI ('cs')
+      if (item.cs !== undefined && item.cs !== null && item.cs > 0) {
+          if (!costoFechaMap[item.f]) {
+              costoFechaMap[item.f] = { suma: 0, pesoTotal: 0 };
+          }
+          costoFechaMap[item.f].suma += (item.cs * item.n);
+          costoFechaMap[item.f].pesoTotal += item.n;
+      }
   });
 
   const labelsX = generarRangoFechas(f1, f2);
 
-  // 3. Obtener el historial de costos reales del producto
-  const rawPuntosCosto = (margenMercadoState.costoReferenciaData?.[prodSel]?.costo || []).sort((a, b) => a.t.localeCompare(b.t));
+  // Forward-fill del costo representativo para que no existan huecos en días festivos
+  const fechasCostoOrdenadas = Object.keys(costoFechaMap).sort();
+  const obtenerCostoMacroEn = (fechaCorte) => {
+      const validas = fechasCostoOrdenadas.filter(f => f <= fechaCorte);
+      if (validas.length === 0) return null;
+      const ult = costoFechaMap[validas[validas.length - 1]];
+      return ult.pesoTotal > 0 ? (ult.suma / ult.pesoTotal) : null;
+  };
 
   const marcasActivas = mm.marcasSeleccionadas || new Set(Object.keys(marcaFechaMap));
   const datasets = [];
   const todosValores = [];
 
   Object.entries(marcaFechaMap).forEach(([marca, fechasObj]) => {
-    if (!marcasActivas.has(marca)) return;
+      if (!marcasActivas.has(marca)) return;
+      const fechasOrdenadas = Object.keys(fechasObj).sort();
+      let ultimaObs = null;
+      let maxEess = 0;
 
-    const fechasOrdenadas = Object.keys(fechasObj).sort();
-    let ultimaObs = null;
-    let maxEess = 0;
+      const dataFinal = labelsX.map(fecha => {
+          const fechasValidas = fechasOrdenadas.filter(f => f <= fecha);
+          if (fechasValidas.length > 0) {
+              ultimaObs = fechasObj[fechasValidas[fechasValidas.length - 1]];
+          }
+          if (ultimaObs && ultimaObs.pesoTotal > 0) {
+              const precioProm = ultimaObs.suma / ultimaObs.pesoTotal;
+              if (ultimaObs.pesoTotal > maxEess) maxEess = ultimaObs.pesoTotal;
 
-    const dataFinal = labelsX.map(fecha => {
-      // Forward-fill del precio de la marca
-      const fechasValidas = fechasOrdenadas.filter(f => f <= fecha);
-      if (fechasValidas.length > 0) {
-        ultimaObs = fechasObj[fechasValidas[fechasValidas.length - 1]];
-      }
-
-      if (ultimaObs && ultimaObs.pesoTotal > 0) {
-        const precioProm = ultimaObs.suma / ultimaObs.pesoTotal;
-        if (ultimaObs.pesoTotal > maxEess) maxEess = ultimaObs.pesoTotal;
-
-        if (esModoMargen) {
-          const costoDia = obtenerCostoVigenteEn(rawPuntosCosto, fecha);
-          if (costoDia === null) return null;
-          // Margen real(t) = Precio(t) - Costo(t)
-          const margen = Number((precioProm - costoDia).toFixed(3));
-          todosValores.push(margen);
-          return margen;
-        } else {
-          const precio = Number(precioProm.toFixed(2));
-          todosValores.push(precio);
-          return precio;
-        }
-      }
-      return null;
-    });
-
-    if (dataFinal.some(v => v !== null)) {
-      const estilo = ESTILOS_MARCAS[marca] || { color: '#64748B', dash: [], point: 'circle', width: 2 };
-      const esPropio = marca === 'COESTI';
-
-      datasets.push({
-        label: `${marca} (${maxEess} EESS)`,
-        data: dataFinal,
-        borderColor: estilo.color,
-        backgroundColor: estilo.color,
-        borderWidth: estilo.width,
-        borderDash: estilo.dash,
-        pointStyle: estilo.point,
-        pointRadius: esPropio ? 4 : 3,
-        pointHoverRadius: 7,
-        tension: 0.12,
-        order: esPropio ? 0 : 1,
-        spanGaps: true
+              if (esModoMargen) {
+                  const costoDia = obtenerCostoMacroEn(fecha);
+                  if (costoDia === null) return null;
+                  // Margen = Precio Promedio Ponderado(t) - Costo COESTI Representativo(t)
+                  const margen = Number((precioProm - costoDia).toFixed(3));
+                  todosValores.push(margen);
+                  return margen;
+              } else {
+                  const precio = Number(precioProm.toFixed(2));
+                  todosValores.push(precio);
+                  return precio;
+              }
+          }
+          return null;
       });
-    }
+
+      if (dataFinal.some(v => v !== null)) {
+          const estilo = ESTILOS_MARCAS[marca] || { color: '#64748B', dash: [], point: 'circle', width: 2 };
+          const esPropio = marca === 'COESTI';
+          datasets.push({
+              label: `${marca} (${maxEess} EESS)`,
+              data: dataFinal,
+              borderColor: estilo.color,
+              backgroundColor: estilo.color,
+              borderWidth: estilo.width,
+              borderDash: estilo.dash,
+              pointStyle: estilo.point,
+              pointRadius: esPropio ? 4 : 3,
+              pointHoverRadius: 7,
+              tension: 0.12,
+              order: esPropio ? 0 : 1,
+              spanGaps: true
+          });
+      }
   });
 
   if (datasets.length === 0 || todosValores.length === 0) {
