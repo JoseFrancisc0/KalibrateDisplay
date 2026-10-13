@@ -1,0 +1,226 @@
+/* ==========================================================
+   competencia_semanal.css — Matriz de cambios y frecuencia
+   ========================================================== */
+.cs-shell {
+    flex: 1 1 auto;
+    min-height: 0;
+    height: 100%;
+    margin: 8px 10px 6px;
+    background: var(--k-surface);
+    border: 1px solid var(--k-line);
+    box-shadow: 0 2px 10px rgba(22, 24, 47, 0.06);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 14px 18px;
+    box-sizing: border-box;
+    gap: 12px;
+}
+
+.cs-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 0 0 auto;
+}
+
+.cs-header h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--k-ink);
+    letter-spacing: -0.01em;
+}
+
+.cs-header p {
+    font-size: 0.72rem;
+    color: var(--k-muted);
+}
+
+.cs-meta-pill {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: var(--k-indigo);
+    background: #EEF2F7;
+    border: 1px solid var(--k-line);
+    padding: 4px 12px;
+    border-radius: 14px;
+}
+
+.cs-table-wrap {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border: 1px solid var(--k-line);
+    background: #fff;
+}
+
+.cs-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.cs-table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background: var(--k-plum);
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 8px 10px;
+    border-right: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.cs-table tbody tr {
+    border-bottom: 1px solid var(--k-line-soft);
+    height: 48px;
+}
+
+.cs-table tbody tr:hover {
+    background: #F8FAFD;
+}
+
+.cs-table td {
+    padding: 6px 10px;
+    font-size: 0.78rem;
+    vertical-align: middle;
+    border-right: 1px solid var(--k-line-soft);
+}
+
+.cs-site-cell {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+}
+
+.cs-logo-box {
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.1);
+    background: #fff;
+    flex: 0 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cs-logo-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cs-site-info {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.cs-site-info b {
+    font-size: 0.77rem;
+    color: var(--k-ink);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cs-site-info small {
+    font-size: 0.62rem;
+    color: var(--k-muted);
+}
+
+.cs-dia-cell {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2px;
+}
+
+.cs-precio {
+    font-weight: 700;
+    color: var(--k-ink);
+    font-variant-numeric: tabular-nums;
+}
+
+.cs-cambios-row {
+    display: flex;
+    gap: 4px;
+}
+
+.tag-cambio {
+    font-size: 0.55rem;
+    font-weight: 800;
+    padding: 1px 4px;
+    border-radius: 3px;
+    line-height: 1.1;
+}
+
+.tag-subida {
+    background: #FDE8EC;
+    color: var(--diff-pos);
+}
+
+.tag-bajada {
+    background: #E6F8F0;
+    color: var(--diff-neg);
+}
+
+.cs-celda-vacia {
+    text-align: right;
+    color: #CBD5E1;
+}
+
+.cs-empty {
+    text-align: center;
+    padding: 40px;
+    color: var(--k-muted);
+}
+
+/* Pie de Tabla */
+.cs-foot-row {
+    background: #16182F;
+    color: #fff;
+    position: sticky;
+    bottom: 0;
+    z-index: 4;
+}
+
+.cs-foot-row td {
+    padding: 10px;
+    border-right: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.cs-promedio-label {
+    display: flex;
+    flex-direction: column;
+}
+
+.cs-promedio-label b {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.68rem;
+    color: var(--k-lime);
+    letter-spacing: 0.05em;
+}
+
+.cs-promedio-label small {
+    font-size: 0.60rem;
+    color: #A08FA6;
+}
+
+.cs-promedio-val {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: #fff;
+    font-variant-numeric: tabular-nums;
+}
