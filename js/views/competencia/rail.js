@@ -9,6 +9,17 @@ export function railCompetenciaSemanalHTML() {
     return `
     <div class="rail-panel" id="rail-panel-competencia-semanal" style="display:none;">
         <div class="rail-section">
+            <div class="rail-label">Producto</div>
+            <div class="select-wrap">
+                <select id="sel-cs-prod" data-change="cambiarProductoCS">
+                    ${COMBUSTIBLES.map(p => `
+                        <option value="${p}" ${p === cs.producto ? 'selected' : ''}>${p}</option>
+                    `).join('')}
+                </select>
+            </div>
+        </div>
+
+        <div class="rail-section">
             <div class="rail-label">Período de Análisis</div>
             <div class="btn-group-vertical">
                 <button class="${cs.periodoActivo === 'ACTUAL' ? 'active' : ''}" 
