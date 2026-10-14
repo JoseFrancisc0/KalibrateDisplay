@@ -17,9 +17,11 @@ export async function entrarCompetenciaSemanal() {
                 const json = await resp.json();
                 cs.datosCrudos = json.datos || [];
                 cs.rangos = json.rangos || null;
+            } else {
+                console.error(`Error ${resp.status} al cargar cambios semanales.`);
             }
         } catch (e) {
-            console.error("Error cargando cambios_semanales_competencia.json:", e);
+            console.error("Error descargando cambios_semanales_competencia.json:", e);
         }
         cs.cargando = false;
     }
@@ -81,6 +83,13 @@ export const acciones = {
     },
     cambiarDistritoCS(el) {
         competenciaSemanalState.distrito = el.value;
+        render();
+    },
+    setModoVistaCS(el) {
+        const modo = el.dataset.arg;
+        competenciaSemanalState.modoVista = modo;
+        activar('btn-cs-modo-est', modo === 'ESTACIONES');
+        activar('btn-cs-modo-marcas', modo === 'MARCAS');
         render();
     },
     setPeriodoSemanal(el) {

@@ -9,13 +9,20 @@ export function railCompetenciaSemanalHTML() {
     return `
     <div class="rail-panel" id="rail-panel-competencia-semanal" style="display:none;">
         <div class="rail-section">
-            <div class="rail-label">Producto</div>
-            <div class="select-wrap">
-                <select id="sel-cs-prod" data-change="cambiarProductoCS">
-                    ${COMBUSTIBLES.map(p => `
-                        <option value="${p}" ${p === cs.producto ? 'selected' : ''}>${p}</option>
-                    `).join('')}
-                </select>
+            <div class="rail-label">Modo de Agrupación</div>
+            <div class="cs-mode-group">
+                <button class="cs-mode-btn ${cs.modoVista === 'ESTACIONES' ? 'active' : ''}" 
+                        id="btn-cs-modo-est" 
+                        data-click="setModoVistaCS" 
+                        data-arg="ESTACIONES">
+                    ESTACIONES
+                </button>
+                <button class="cs-mode-btn ${cs.modoVista === 'MARCAS' ? 'active' : ''}" 
+                        id="btn-cs-modo-marcas" 
+                        data-click="setModoVistaCS" 
+                        data-arg="MARCAS">
+                    MARCAS
+                </button>
             </div>
         </div>
 
@@ -34,6 +41,17 @@ export function railCompetenciaSemanalHTML() {
                         data-arg="PASADA">
                     SEMANA PASADA
                 </button>
+            </div>
+        </div>
+
+        <div class="rail-section">
+            <div class="rail-label">Producto</div>
+            <div class="select-wrap">
+                <select id="sel-cs-prod" data-change="cambiarProductoCS">
+                    ${COMBUSTIBLES.map(p => `
+                        <option value="${p}" ${p === cs.producto ? 'selected' : ''}>${p}</option>
+                    `).join('')}
+                </select>
             </div>
         </div>
 
@@ -61,15 +79,15 @@ export function railCompetenciaSemanalHTML() {
         </div>
 
         <div class="rail-section">
-            <div class="rail-label">Leyenda de Cambios</div>
+            <div class="rail-label">Leyenda</div>
             <div class="rail-legend">
                 <div class="legend-item">
-                    <span style="color: var(--diff-pos); font-weight:800;">▲ +N</span>
-                    <span>Subida(s) de precio</span>
+                    <span style="color: var(--diff-pos); font-weight:800;">▲</span>
+                    <span>Subió respecto al día anterior</span>
                 </div>
                 <div class="legend-item">
-                    <span style="color: var(--diff-neg); font-weight:800;">▼ -N</span>
-                    <span>Bajada(s) de precio</span>
+                    <span style="color: var(--diff-neg); font-weight:800;">▼</span>
+                    <span>Bajó respecto al día anterior</span>
                 </div>
                 <div class="legend-item">
                     <span style="color: var(--k-muted); font-weight:700;">—</span>

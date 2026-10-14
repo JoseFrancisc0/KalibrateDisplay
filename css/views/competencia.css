@@ -224,3 +224,50 @@
     color: #fff;
     font-variant-numeric: tabular-nums;
 }
+
+.cs-mode-group {
+    display: flex;
+    background: #0D0E1C;
+    padding: 3px;
+    border-radius: 4px;
+    gap: 4px;
+    border: 1px solid var(--k-line, #2B2E4A);
+}
+
+.cs-mode-btn {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: #A08FA6;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 7px 4px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+}
+
+.cs-mode-btn:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.cs-mode-btn.active {
+    background: #00D084 !important;
+    color: #0E1020 !important;
+    font-weight: 800;
+    box-shadow: 0 1px 4px rgba(0, 208, 132, 0.3);
+}
+
+.cs-foot-coesti-row {
+    background: #1C2140;
+    color: #fff;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.cs-foot-coesti-row td {
+    padding: 8px 10px;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
