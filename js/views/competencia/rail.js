@@ -78,6 +78,25 @@ export function railCompetenciaSemanalHTML() {
             </div>
         </div>
 
+        <div class="rail-section" id="section-cs-marcas">
+            <div class="rail-label">Filtrar Marcas</div>
+            <div class="multiselect-wrap">
+                <button type="button" class="multiselect-btn" id="btn-cs-marcas-toggle" data-click="toggleDropdownCSMarcas">
+                    <span id="label-cs-marcas-count">BRANDS</span>
+                    <span class="multiselect-arrow">▾</span>
+                </button>
+                <div class="multiselect-dropdown" id="dropdown-cs-marcas-content" style="display: none;">
+                    <div class="multiselect-actions">
+                        <button type="button" data-click="marcarTodasCSMarcas" data-arg="true">Todas</button>
+                        <button type="button" data-click="marcarTodasCSMarcas" data-arg="false">Ninguna</button>
+                    </div>
+                    <div class="multiselect-list" id="checklist-cs-marcas-items">
+                        <!-- Generado dinámicamente -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="rail-section">
             <div class="rail-label">Leyenda</div>
             <div class="rail-legend">

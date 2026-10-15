@@ -6,13 +6,20 @@ export const competenciaSemanalState = {
     cargando: false,
     rangos: null,               // { ACTUAL: { desde, hasta }, PASADA: { desde, hasta } }
     periodoActivo: 'ACTUAL',    // 'ACTUAL' | 'PASADA'
-    modoVista: 'ESTACIONES',    // 'ESTACIONES' | 'MARCAS'
+    modoVista: 'MARCAS',    // 'ESTACIONES' | 'MARCAS'
     
     // Filtros
     producto: 'Diesel',
     departamento: 'TODOS',
     provincia: 'TODOS',
     distrito: 'TODOS',
+
+    // Checklist de marcas
+    marcasDisponibles: [],
+    marcasSeleccionadas: null,
+
+    // Acordeón / Desglose de estaciones por marca
+    marcasExpandidas: new Set(),
 
     // Listas únicas para selects dinámicos
     departamentosDisponibles: [],

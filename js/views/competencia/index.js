@@ -4,7 +4,7 @@
 import { competenciaSemanalState } from './state.js';
 import { railCompetenciaSemanalHTML } from './rail.js';
 import { competenciaSemanalHTML, renderCompetenciaSemanal } from './vista.js';
-import { acciones, entrarCompetenciaSemanal } from './acciones.js';
+import { acciones, entrarCompetenciaSemanal, iniciarListenersCompetenciaSemanal } from './acciones.js';
 
 export const competenciaSemanal = {
     id: 'COMPETENCIA_SEMANAL',
@@ -19,5 +19,6 @@ export const competenciaSemanal = {
     alEntrar: entrarCompetenciaSemanal,
     render: renderCompetenciaSemanal,
     etiquetaModo: () => `PRODUCTO: ${(competenciaSemanalState.producto || 'DIESEL').toUpperCase()} (CAMBIOS SEMANALES)`,
-    acciones
+    acciones,
+    iniciarListeners: iniciarListenersCompetenciaSemanal
 };

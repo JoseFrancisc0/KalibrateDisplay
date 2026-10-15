@@ -131,11 +131,16 @@ export function renderCompetenciaSemanal() {
             const esPropio = item.es_propio === true || (item.marca || '').trim().toUpperCase() === 'COESTI';
             const marcaKey = esPropio ? 'COESTI' : (item.marca || 'OTRAS').trim().toUpperCase();
 
+            // Filtrar según checklist de marcas (COESTI siempre se procesa para el pie)
+            if (!esPropio && cs.marcasSeleccionadas && !cs.marcasSeleccionadas.has(marcaKey)) {
+                return;
+            }
+
             if (!marcasMap[marcaKey]) {
                 marcasMap[marcaKey] = {
                     marca: marcaKey,
                     es_coesti: esPropio,
-                    sitesSet: new Set(),
+                    sitesMap: {},       // site_id -> { competidor, departamento, provincia, distrito, dias: {}, tuvoCambio: false }
                     dias: {}
                 };
                 DIAS_SEMANA.forEach(d => {
@@ -143,18 +148,38 @@ export function renderCompetenciaSemanal() {
                 });
             }
 
-            // Identificador unívoco de la estación para el conteo de sites
-            const idEstacion = item.site_id || item.competidor;
-            if (idEstacion) {
-                marcasMap[marcaKey].sitesSet.add(idEstacion);
+            const sid = item.site_id || item.competidor;
+            if (!marcasMap[marcaKey].sitesMap[sid]) {
+                marcasMap[marcaKey].sitesMap[sid] = {
+                    site_id: sid,
+                    competidor: item.competidor,
+                    departamento: item.departamento,
+                    provincia: item.provincia,
+                    distrito: item.distrito,
+                    dias: {},
+                    tuvoCambio: false
+                };
             }
 
             const diaKey = (item.dia || '').toLowerCase();
-            if (marcasMap[marcaKey].dias[diaKey] && item.precio !== null && item.precio > 0) {
-                marcasMap[marcaKey].dias[diaKey].precios.push(item.precio);
-                if (diaKey !== 'lunes') {
-                    if (item.direccion === 'SUBIO') marcasMap[marcaKey].dias[diaKey].subieron++;
-                    if (item.direccion === 'BAJO') marcasMap[marcaKey].dias[diaKey].bajaron++;
+            if (item.precio !== null && item.precio > 0) {
+                marcasMap[marcaKey].sitesMap[sid].dias[diaKey] = {
+                    precio: item.precio,
+                    direccion: item.direccion || 'IGUAL'
+                };
+
+                if (marcasMap[marcaKey].dias[diaKey]) {
+                    marcasMap[marcaKey].dias[diaKey].precios.push(item.precio);
+                    if (diaKey !== 'lunes') {
+                        if (item.direccion === 'SUBIO') {
+                            marcasMap[marcaKey].dias[diaKey].subieron++;
+                            marcasMap[marcaKey].sitesMap[sid].tuvoCambio = true;
+                        }
+                        if (item.direccion === 'BAJO') {
+                            marcasMap[marcaKey].dias[diaKey].bajaron++;
+                            marcasMap[marcaKey].sitesMap[sid].tuvoCambio = true;
+                        }
+                    }
                 }
             }
         });
@@ -162,26 +187,87 @@ export function renderCompetenciaSemanal() {
         const objetoCoesti = marcasMap['COESTI'] || null;
         const listaCompetidores = Object.values(marcasMap)
             .filter(m => !m.es_coesti)
-            .sort((a, b) => b.sitesSet.size - a.sitesSet.size);
+            .sort((a, b) => Object.keys(b.sitesMap).length - Object.keys(a.sitesMap).length);
 
         if (listaCompetidores.length === 0 && !objetoCoesti) {
-            tbody.innerHTML = `<tr><td colspan="8" class="cs-empty">No se encontraron datos para los filtros seleccionados.</td></tr>`;
+            tbody.innerHTML = `<tr><td colspan="8" class="cs-empty">No se encontraron datos para los filtros y marcas seleccionadas.</td></tr>`;
             tfoot.innerHTML = '';
             return;
         }
 
-        // Renderizar competidores en el cuerpo
+        // Función auxiliar para renderizar filas hijas de estaciones que tuvieron cambio
+        const renderEstacionesConCambio = (marcaObj) => {
+            const estacionesCambiaron = Object.values(marcaObj.sitesMap)
+                .filter(s => s.tuvoCambio)
+                .sort((a, b) => a.competidor.localeCompare(b.competidor));
+
+            if (estacionesCambiaron.length === 0) {
+                return `
+                <tr class="cs-child-row open" style="background: #FAFBFD;">
+                    <td colspan="8" style="padding-left: 36px; color: var(--k-muted); font-size: 0.72rem; font-style: italic;">
+                        Ninguna estación de ${marcaObj.marca} modificó precios esta semana.
+                    </td>
+                </tr>
+                `;
+            }
+
+            return estacionesCambiaron.map(est => {
+                const ubicacion = `${est.distrito || ''}${est.provincia ? ' · ' + est.provincia : ''}${est.departamento ? ' · ' + est.departamento : ''}`;
+                return `
+                <tr class="cs-child-row open" style="background: #F8FAFD; border-bottom: 1px solid var(--k-line-soft);">
+                    <td style="padding-left: 36px;">
+                        <div class="cs-site-info">
+                            <b style="font-size: 0.73rem; color: #334155;">${est.competidor}</b>
+                            <small style="font-size: 0.58rem; color: #8E7F94;">${ubicacion}</small>
+                        </div>
+                    </td>
+                    ${DIAS_SEMANA.map(dia => {
+                        const dInfo = est.dias[dia.key];
+                        if (!dInfo || dInfo.precio === null || dInfo.precio <= 0) {
+                            return `<td class="col-num cs-celda-vacia" style="font-size: 0.70rem;">—</td>`;
+                        }
+
+                        let indHtml = '';
+                        if (dia.key !== 'lunes') {
+                            if (dInfo.direccion === 'SUBIO') indHtml = `<span style="color: var(--diff-pos); font-weight:800; font-size: 0.75rem;">▲</span>`;
+                            if (dInfo.direccion === 'BAJO') indHtml = `<span style="color: var(--diff-neg); font-weight:800; font-size: 0.75rem;">▼</span>`;
+                        }
+
+                        return `
+                        <td class="col-num" style="font-size: 0.72rem;">
+                            <div class="cs-dia-cell" style="display: flex; align-items: center; justify-content: flex-end; gap: 4px;">
+                                <span class="cs-precio" style="font-size: 0.74rem;">S/ ${dInfo.precio.toFixed(2)}</span>${indHtml}
+                            </div>
+                        </td>
+                        `;
+                    }).join('')}
+                </tr>
+                `;
+            }).join('');
+        };
+
+        // Renderizar marcas competidoras en el cuerpo
         tbody.innerHTML = listaCompetidores.map(m => {
             const logoUrl = getBrandLogo(m.marca);
+            const totalSites = Object.keys(m.sitesMap).length;
+            const estacionesCambiaronCount = Object.values(m.sitesMap).filter(s => s.tuvoCambio).length;
+            const isOpen = cs.marcasExpandidas.has(m.marca);
 
-            return `
-            <tr>
+            const filaPadre = `
+            <tr style="${isOpen ? 'background: #F1F5F9;' : ''}">
                 <td>
                     <div class="cs-site-cell">
+                        <button class="btn-toggle ${isOpen ? 'on' : ''}" 
+                                data-click="toggleMarcaExpandidaCS" 
+                                data-arg="${m.marca}" 
+                                title="${isOpen ? 'Colapsar estaciones' : `Ver ${estacionesCambiaronCount} estaciones con cambios`}"
+                                style="width: 19px; height: 19px; flex: 0 0 19px; border-radius: 3px; font-size: 0.75rem; cursor: pointer;">
+                            ${isOpen ? '−' : '+'}
+                        </button>
                         <div class="cs-logo-box"><img src="${logoUrl}" alt="${m.marca}"></div>
                         <div class="cs-site-info">
                             <b>${m.marca}</b>
-                            <small>${m.sitesSet.size} estaciones monitoreadas</small>
+                            <small>${totalSites} estaciones monitoreadas ${estacionesCambiaronCount > 0 ? `(${estacionesCambiaronCount} con cambios)` : ''}</small>
                         </div>
                     </div>
                 </td>
@@ -213,6 +299,8 @@ export function renderCompetenciaSemanal() {
                 }).join('')}
             </tr>
             `;
+
+            return filaPadre + (isOpen ? renderEstacionesConCambio(m) : '');
         }).join('');
 
         // Totales de PROMEDIO DE MERCADO (excluye COESTI)
@@ -240,18 +328,29 @@ export function renderCompetenciaSemanal() {
             };
         });
 
-        // Fila inferior fija para COESTI (benchmark)
+        // Fila inferior fija para COESTI (benchmark) con soporte de despliegue si se desea auditar
         let htmlFilaCoesti = '';
         if (objetoCoesti) {
             const logoCoesti = getBrandLogo('COESTI');
+            const totalSitesCoesti = Object.keys(objetoCoesti.sitesMap).length;
+            const estacionesCambiaronCoesti = Object.values(objetoCoesti.sitesMap).filter(s => s.tuvoCambio).length;
+            const isOpenCoesti = cs.marcasExpandidas.has('COESTI');
+
             htmlFilaCoesti = `
             <tr class="cs-foot-coesti-row">
                 <td>
                     <div class="cs-site-cell">
+                        <button class="btn-toggle ${isOpenCoesti ? 'on' : ''}" 
+                                data-click="toggleMarcaExpandidaCS" 
+                                data-arg="COESTI" 
+                                title="${isOpenCoesti ? 'Colapsar estaciones' : `Ver ${estacionesCambiaronCoesti} estaciones con cambios`}"
+                                style="width: 19px; height: 19px; flex: 0 0 19px; border-radius: 3px; font-size: 0.75rem; cursor: pointer; background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.3); color: #fff;">
+                            ${isOpenCoesti ? '−' : '+'}
+                        </button>
                         <div class="cs-logo-box" style="background:#fff;"><img src="${logoCoesti}" alt="COESTI"></div>
                         <div class="cs-site-info">
                             <b style="color: #6EE7B7; font-size: 0.78rem;">COESTI (PROPIA)</b>
-                            <small style="color: #A08FA6;">${objetoCoesti.sitesSet.size} estaciones monitoreadas</small>
+                            <small style="color: #A08FA6;">${totalSitesCoesti} estaciones monitoreadas ${estacionesCambiaronCoesti > 0 ? `(${estacionesCambiaronCoesti} con cambios)` : ''}</small>
                         </div>
                     </div>
                 </td>
@@ -282,6 +381,7 @@ export function renderCompetenciaSemanal() {
                     `;
                 }).join('')}
             </tr>
+            ${isOpenCoesti ? renderEstacionesConCambio(objetoCoesti) : ''}
             `;
         }
 
@@ -322,7 +422,12 @@ export function renderCompetenciaSemanal() {
     // =========================================================================
     // MODO B: DETALLE DE ESTACIONES (Excluye COESTI)
     // =========================================================================
-    const registrosEstaciones = baseFiltrada.filter(item => !item.es_propio && (item.marca || '').trim().toUpperCase() !== 'COESTI');
+    const registrosEstaciones = baseFiltrada.filter(item => {
+        if (item.es_propio || (item.marca || '').trim().toUpperCase() === 'COESTI') return false;
+        const marcaKey = (item.marca || 'OTRAS').trim().toUpperCase();
+        if (cs.marcasSeleccionadas && !cs.marcasSeleccionadas.has(marcaKey)) return false;
+        return true;
+    });
 
     if (registrosEstaciones.length === 0) {
         tbody.innerHTML = `<tr><td colspan="8" class="cs-empty">No se encontraron estaciones competidoras para los filtros seleccionados.</td></tr>`;
