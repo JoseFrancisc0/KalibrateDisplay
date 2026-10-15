@@ -1,69 +1,83 @@
 /* ==========================================================
-   views/estacion/subviews/variacion/grafico.js —
-   Variación idéntica a la vista macro, adaptada a nivel estación.
+   views/estacion/subviews/variacion/grafico.js — 
+   Variación Histórica por Estación (Chart.js + Footer sincronizado)
    ========================================================== */
 import { variacionState } from './state.js';
 import { getBrandLogo } from '../../../../config/marcas.js';
 
-function obtenerPrecioVigenteEn(puntos, fechaCorte) {
-  let precio = null;
+let chartSubVarInstancia = null;
+
+function obtenerPuntoVigenteEn(puntos, fechaCorte, key = 'p') {
+  let valor = null;
   for (const pt of puntos) {
-    const f = pt.t.slice(0, 10);
+    const f = (pt.t || '').slice(0, 10);
     if (f <= fechaCorte) {
-      precio = pt.p;
+      valor = pt[key];
     } else {
       break;
     }
   }
-  return precio;
+  return valor;
 }
 
 export function renderVariacion(container, est) {
-  const prod = variacionState.producto;
+  const prod = variacionState.producto || 'Diesel';
   const hist = (est.historico_ytd || est.historico_30d || {})[prod];
 
   if (!hist) {
-    container.innerHTML = `<div class="empty-state">Sin historial disponible para ${prod}.</div>`;
+    container.innerHTML = `<div class="empty-state" style="margin:auto; font-weight:600; color:var(--k-muted);">Sin historial disponible para ${prod}.</div>`;
     return;
   }
 
   const f1 = variacionState.fechaInicio;
   const f2 = variacionState.fechaFin;
 
-  // 1. Precios de la Estación Propia para calcular deltas y diferenciales
+  // 1. Precios y Costo de la Estación Propia
   const puntosPropio = [...(hist.propio || [])].sort((a, b) => a.t.localeCompare(b.t));
-  const p1Propio = obtenerPrecioVigenteEn(puntosPropio, f1);
-  const p2Propio = obtenerPrecioVigenteEn(puntosPropio, f2);
+  const puntosCosto = [...(hist.costo || [])].sort((a, b) => a.t.localeCompare(b.t));
+
+  const p1Propio = obtenerPuntoVigenteEn(puntosPropio, f1, 'p');
+  const p2Propio = obtenerPuntoVigenteEn(puntosPropio, f2, 'p');
+  const c2Propio = obtenerPuntoVigenteEn(puntosCosto, f2, 'c');
 
   const items = [];
 
   // Agregar Estación Propia
   if (p1Propio !== null && p2Propio !== null) {
+    const deltaPropio = Math.round((p2Propio - p1Propio) * 100) / 100;
+    const margenPropio = (c2Propio !== null && p2Propio > 0) 
+      ? Math.round((p2Propio - c2Propio) * 100) / 100 
+      : null;
+
     items.push({
-      siteId: est.site_id || 'propio',
+      siteId: est.site_id || est.own_site_id || 'propio',
       nombre: est.estacion,
       marca: 'PRIMAX',
       distancia: null,
       esPropio: true,
       pBase: p1Propio,
       pCorte: p2Propio,
-      delta: Number((p2Propio - p1Propio).toFixed(2)),
-      diffVsPropio: 0
+      delta: deltaPropio,
+      diffVsPropio: 0,
+      margenActual: margenPropio
     });
   }
 
-  // 2. Agregar Competidores
+  // 2. Agregar Competidores Directos de la Estación
   const actoresMap = new Map((est.actores || []).map(a => [a.site_id, a]));
   Object.entries(hist.competidores || {}).forEach(([siteId, puntos]) => {
     const actor = actoresMap.get(siteId);
     const puntosComp = [...(puntos || [])].sort((a, b) => a.t.localeCompare(b.t));
-    const p1 = obtenerPrecioVigenteEn(puntosComp, f1);
-    const p2 = obtenerPrecioVigenteEn(puntosComp, f2);
+    const p1 = obtenerPuntoVigenteEn(puntosComp, f1, 'p');
+    const p2 = obtenerPuntoVigenteEn(puntosComp, f2, 'p');
 
     if (p1 !== null && p2 !== null) {
-      const delta = Number((p2 - p1).toFixed(2));
-      // Diferencial vs estación propia a fecha de corte (P_rival - P_propio)
-      const diffVsPropio = p2Propio !== null ? Number((p2 - p2Propio).toFixed(2)) : null;
+      const delta = Math.round((p2 - p1) * 100) / 100;
+      const diffVsPropio = p2Propio !== null ? Math.round((p2 - p2Propio) * 100) / 100 : null;
+      // Margen teórico del competidor frente al costo propio de referencia
+      const margenComp = (c2Propio !== null && p2 > 0) 
+        ? Math.round((p2 - c2Propio) * 100) / 100 
+        : null;
 
       items.push({
         siteId,
@@ -74,187 +88,269 @@ export function renderVariacion(container, est) {
         pBase: p1,
         pCorte: p2,
         delta,
-        diffVsPropio
+        diffVsPropio,
+        margenActual: margenComp
       });
     }
   });
 
   if (items.length === 0) {
-    container.innerHTML = `<div class="empty-state">No se registraron datos en el rango ${f1} a ${f2}.</div>`;
+    container.innerHTML = `<div class="empty-state" style="margin:auto; font-weight:600; color:var(--k-muted);">No se registraron datos en el rango ${f1} a ${f2}.</div>`;
     return;
   }
 
-  // 3. ORDENAR TODAS LAS ESTACIONES (INCLUYENDO LA PROPIA) DE MENOR A MAYOR PRECIO DE CORTE
+  // 3. Ordenar estaciones por precio de corte ascendente
   items.sort((a, b) => a.pCorte - b.pCorte);
 
-  // 4. CÁLCULO DINÁMICO DEL EJE Y (Aprovechamiento 100% de la altura sin huecos)
-  const deltas = items.map(d => d.delta);
-  const maxPos = Math.max(0, ...deltas);
-  const minNeg = Math.min(0, ...deltas);
-
-  const SVG_W = 1000;
-  const SVG_H = 250;
-  const padT = 30; // Margen superior para las etiquetas de texto
-  const padB = 25; // Margen inferior
-  const usableH = SVG_H - padT - padB;
-
-  let zeroY;
-  let scaleFactor;
-
-  if (minNeg >= 0) {
-    // Si todas subieron o son cero: la línea base queda abajo
-    zeroY = SVG_H - padB;
-    const maxVal = Math.max(maxPos, 0.10);
-    scaleFactor = usableH / maxVal;
-  } else if (maxPos <= 0) {
-    // Si todas bajaron: la línea base queda arriba
-    zeroY = padT;
-    const maxVal = Math.max(Math.abs(minNeg), 0.10);
-    scaleFactor = usableH / maxVal;
-  } else {
-    // Mixto: distribución proporcional
-    const totalRange = maxPos + Math.abs(minNeg);
-    zeroY = padT + (maxPos / totalRange) * usableH;
-    scaleFactor = usableH / totalRange;
-  }
-
-  const totalItems = items.length;
-  const colWidth = SVG_W / totalItems;
-  const barWidth = Math.min(38, Math.max(22, colWidth * 0.42));
-
-  // Generar trazados de barras
-  const barrasSVG = items.map((it, idx) => {
-    const xCentro = colWidth * idx + colWidth / 2;
-    const xBar = xCentro - barWidth / 2;
-    const hBar = Math.abs(it.delta) * scaleFactor;
-
-    const subio = it.delta > 0;
-    const bajo = it.delta < 0;
-
-    // Regla de color estilo macro: propia en verde (#00D58A), rival sube = rojo (#D92D4E), rival baja = azul (#2563EB)
-    let barColor = '#64748B';
-    if (it.esPropio) {
-      barColor = '#00D58A';
-    } else if (subio) {
-      barColor = '#D92D4E';
-    } else if (bajo) {
-      barColor = '#2563EB';
-    }
-
-    const signo = subio ? '+' : '';
-    const textoDelta = it.delta === 0 ? '0.00' : `${signo}${it.delta.toFixed(2)}`;
-
-    if (subio) {
-      const yBar = zeroY - hBar;
-      return `
-        <rect x="${xBar}" y="${yBar}" width="${barWidth}" height="${hBar}" fill="${barColor}" rx="3" />
-        <text x="${xCentro}" y="${yBar - 6}" font-family="'Poppins', sans-serif" font-weight="800" font-size="12" fill="${barColor}" text-anchor="middle">
-          ${textoDelta}
-        </text>
-      `;
-    } else if (bajo) {
-      return `
-        <rect x="${xBar}" y="${zeroY}" width="${barWidth}" height="${hBar}" fill="${barColor}" rx="3" />
-        <text x="${xCentro}" y="${zeroY + hBar + 15}" font-family="'Poppins', sans-serif" font-weight="800" font-size="12" fill="${barColor}" text-anchor="middle">
-          ${textoDelta}
-        </text>
-      `;
-    } else {
-      return `
-        <line x1="${xBar}" y1="${zeroY}" x2="${xBar + barWidth}" y2="${zeroY}" stroke="${barColor}" stroke-width="3" />
-        <text x="${xCentro}" y="${zeroY - 6}" font-family="'Poppins', sans-serif" font-weight="700" font-size="11" fill="#64748B" text-anchor="middle">
-          0.00
-        </text>
-      `;
-    }
-  }).join('');
-
+  // 4. Inyectar estructura HTML del contenedor
   container.innerHTML = `
-    <div style="flex: 1 1 0; height: 100%; display: flex; flex-direction: column; background: #fff; border-radius: 6px; border: 1px solid var(--k-line); padding: 12px 18px 8px; box-sizing: border-box; overflow-y: auto;">
+    <div style="flex: 1 1 0; height: 100%; display: flex; flex-direction: column; background: #fff; border-radius: 8px; border: 1px solid var(--k-line); padding: 14px 18px 10px; box-sizing: border-box; overflow: hidden;">
       
       <!-- Cabecera -->
-      <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2px; flex: 0 0 auto;">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; flex: 0 0 auto;">
         <div>
           <h3 style="font-family: 'Poppins', sans-serif; font-size: 1.05rem; font-weight: 800; color: var(--k-ink); margin: 0;">
             Variación Histórica de Precios por Estación (S/)
           </h3>
           <p style="font-size: 0.72rem; color: var(--k-muted); margin: 2px 0 0 0;">
-            Evaluando ${prod.toUpperCase()} · Periodo: ${f1} ➔ ${f2}
+            Evaluando ${prod.toUpperCase()} · Período: ${f1} ➔ ${f2}
           </p>
         </div>
+        <div class="count-badge" style="font-weight:700;">${items.length} Estaciones Evaluadas</div>
       </div>
 
-      <!-- Zona del Gráfico SVG -->
-      <div style="flex: 1 1 auto; min-height: 220px; width: 100%; position: relative;">
-        <svg viewBox="0 0 ${SVG_W} ${SVG_H}" style="width: 100%; height: 100%; display: block;" preserveAspectRatio="none">
-          <!-- Línea Base 0.00 Dinámica -->
-          <line x1="0" y1="${zeroY}" x2="${SVG_W}" y2="${zeroY}" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="3 3" />
-          <text x="10" y="${zeroY - 5}" font-family="'Poppins', sans-serif" font-size="10" font-weight="700" fill="#94A3B8">0.00</text>
-          
-          <!-- Barras -->
-          ${barrasSVG}
-        </svg>
+      <!-- Zona del Canvas Chart.js -->
+      <div style="flex: 1 1 58%; min-height: 180px; width: 100%; position: relative;">
+        <canvas id="chart-subview-variacion-canvas" style="position: absolute; inset: 0; width: 100%!important; height: 100%!important;"></canvas>
       </div>
 
-      <!-- Fichas Inferiores por Estación -->
-      <div style="display: flex; width: 100%; border-top: 1px solid var(--k-line); padding-top: 6px; flex: 0 0 auto; gap: 4px;">
-        ${items.map(it => {
-          let diffHTML = '';
-          if (!it.esPropio && it.diffVsPropio !== null) {
-            let colorDiff = '#64748B';
-            let signo = '';
-            if (it.diffVsPropio > 0.001) {
-              colorDiff = '#D92D4E'; // Rojo: competidor más caro que nosotros
-              signo = '+';
-            } else if (it.diffVsPropio < -0.001) {
-              colorDiff = '#00A35E'; // Verde: competidor más barato que nosotros
-            }
-            diffHTML = `<div style="font-size: 0.65rem; font-weight: 800; color: ${colorDiff}; margin-top: 1px;">(${signo}${it.diffVsPropio.toFixed(2)})</div>`;
-          }
+      <!-- Separador -->
+      <div style="height: 1px; background: #E2E8F0; margin: 4px 0 8px 0; flex-shrink: 0;"></div>
 
-          const propioStyle = it.esPropio
-            ? 'background: #F0FDF4; border: 1px solid #86EFAC; border-radius: 4px;'
-            : '';
-
-          return `
-            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 4px 2px; box-sizing: border-box; min-width: 0; ${propioStyle}">
-              
-              <!-- Logo Marca -->
-              <div style="width: 24px; height: 24px; border-radius: 4px; overflow: hidden; background: #fff; border: 1px solid rgba(0,0,0,0.1); margin-bottom: 3px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
-                <img src="${getBrandLogo(it.marca)}" style="width: 100%; height: 100%; object-fit: cover;">
-              </div>
-
-              <!-- Nombre y Distancia -->
-              <span style="font-size: 0.68rem; font-weight: 800; color: ${it.esPropio ? '#00A35E' : 'var(--k-ink)'}; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100\%;" title="${it.nombre}">
-                ${it.esPropio ? it.nombre : it.nombre}
-              </span>
-              <span style="font-size: 0.58rem; color: var(--k-muted); margin-bottom: 2px;">
-                ${it.esPropio ? 'PROPIA' : (it.distancia !== undefined && it.distancia !== null ? `${it.distancia.toFixed(1)} km` : it.marca)}
-              </span>
-
-              <!-- Precios Base y Corte -->
-              <div style="font-size: 0.60rem; color: var(--k-muted);">
-                BASE
-              </div>
-              <div style="font-size: 0.63rem; font-weight: 700; color: var(--k-ink);">
-                S/ ${it.pBase.toFixed(2)}
-              </div>
-              
-              <div style="font-size: 0.60rem; color: var(--k-muted); margin-top: 2px;">
-                CORTE
-              </div>
-              <div style="font-size: 0.63rem; font-weight: 700; color: var(--k-ink);">
-                S/ ${it.pCorte.toFixed(2)}
-              </div>
-
-              <!-- Diferencial vs Propia -->
-              ${diffHTML}
-
-            </div>
-          `;
-        }).join('')}
-      </div>
+      <!-- Footer sincronizado con Tarjetas -->
+      <div id="subview-variacion-footer" style="flex: 0 0 auto; display: flex; width: 100%; align-items: flex-start;"></div>
 
     </div>
   `;
+
+  // 5. Renderizar Footer de Estaciones
+  const footerBox = document.getElementById('subview-variacion-footer');
+  if (footerBox) {
+    const colWidthPct = (100 / items.length).toFixed(3);
+    footerBox.innerHTML = items.map(it => {
+      let diffHTML = '<div style="font-size:0.6rem; color:#64748B; line-height:1; margin:-2px 0 3px 0;">&nbsp;</div>';
+      if (!it.esPropio && it.diffVsPropio !== null) {
+        let colorDiff = '#64748B';
+        let signo = '';
+        if (it.diffVsPropio > 0.001) {
+          colorDiff = 'var(--diff-pos, #D92D4E)';
+          signo = '+';
+        } else if (it.diffVsPropio < -0.001) {
+          colorDiff = 'var(--diff-neg, #00A35E)';
+        }
+        diffHTML = `<div style="font-size: 0.62rem; font-weight: 800; color: ${colorDiff}; line-height:1; margin:-2px 0 3px 0; font-variant-numeric: tabular-nums;">(${signo}${it.diffVsPropio.toFixed(2)})</div>`;
+      }
+
+      const propioCardStyle = it.esPropio 
+        ? 'background: #F0FDF4; border: 1px solid #BBF7D0;' 
+        : 'background: #F8FAFC; border: 1px solid #E2E8F0;';
+
+      const margenHtml = it.margenActual !== null
+        ? `<div style="font-size:0.56rem; color:#64748B; text-transform:uppercase; font-weight:700; line-height:1; margin-top:2px; border-top:1px dashed #CBD5E1; padding-top:2px;">Margen Actual</div>
+           <div style="font-size:0.70rem; font-weight:800; color:${it.margenActual >= 0 ? '#0284C7' : 'var(--diff-pos)'}; font-variant-numeric:tabular-nums;">S/ ${it.margenActual.toFixed(2)}</div>`
+        : '';
+
+      return `
+        <div style="flex: 1 1 0; max-width: ${colWidthPct}%; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 3px; box-sizing: border-box; min-width: 0;">
+          
+          <!-- Logo Marca -->
+          <div style="width: 32px; height: 32px; border-radius: 50%; overflow: hidden; background: #fff; border: 1px solid #E2E8F0; margin-bottom: 3px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; padding: 2px; box-shadow: 0 1px 3px rgba(0,0,0,0.06);">
+            <img src="${getBrandLogo(it.marca)}" alt="${it.marca}" style="width: 100%; height: 100%; object-fit: contain; border-radius: 50%;">
+          </div>
+
+          <!-- Nombre y Distancia -->
+          <span style="font-size: 0.68rem; font-weight: 800; color: ${it.esPropio ? 'var(--k-emerald, #00D58A)' : 'var(--k-ink)'}; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100%; line-height: 1.1;" title="${it.nombre}">
+            ${it.nombre}
+          </span>
+          <span style="font-size: 0.58rem; color: var(--k-muted); margin-bottom: 4px; font-weight: 600;">
+            ${it.esPropio ? 'PROPIA' : (it.distancia !== undefined && it.distancia !== null ? `${it.distancia.toFixed(1)} km` : it.marca)}
+          </span>
+
+          <!-- Tarjeta de Precios y Margen -->
+          <div style="${propioCardStyle} border-radius: 5px; padding: 4px 3px; width: 100%; max-width: 90px; box-shadow: 0 1px 2px rgba(0,0,0,0.03); box-sizing: border-box;">
+            <div style="font-size: 0.56rem; color: #64748B; text-transform: uppercase; font-weight: 600; line-height: 1;">Base</div>
+            <div style="font-size: 0.70rem; font-weight: 700; color: #1E293B; margin-bottom: 2px; font-variant-numeric: tabular-nums;">
+              S/ ${it.pBase.toFixed(2)}
+            </div>
+
+            <div style="font-size: 0.56rem; color: #64748B; text-transform: uppercase; font-weight: 600; line-height: 1;">Corte</div>
+            <div style="font-size: 0.70rem; font-weight: 700; color: #1E293B; margin-bottom: 2px; font-variant-numeric: tabular-nums;">
+              S/ ${it.pCorte.toFixed(2)}
+            </div>
+            ${diffHTML}
+
+            ${margenHtml}
+          </div>
+
+        </div>
+      `;
+    }).join('');
+  }
+
+  // 6. Configuración de Chart.js
+  const canvas = document.getElementById('chart-subview-variacion-canvas');
+  if (!canvas || typeof Chart === 'undefined') return;
+
+  if (chartSubVarInstancia) {
+    chartSubVarInstancia.destroy();
+    chartSubVarInstancia = null;
+  }
+
+  const labels = items.map(d => d.nombre);
+  const deltas = items.map(d => d.delta);
+
+  const maxAbsDelta = Math.max(...deltas.map(v => Math.abs(v)));
+  const limiteY = Math.ceil(Math.max(0.30, Math.ceil((maxAbsDelta + 0.15) * 10) / 10) + .5);
+
+  const backgroundColors = items.map(d => {
+    if (d.esPropio) return '#00D58A';
+    return d.delta >= 0 ? '#EF4444' : '#3B82F6';
+  });
+
+  const borderColors = items.map(d => {
+    if (d.esPropio) return '#00B072';
+    return d.delta >= 0 ? '#DC2626' : '#2563EB';
+  });
+
+  // Plugin idéntico para alinear el footer y pintar la línea de 0.00
+  const baselineAndLabelsPlugin = {
+    id: 'subviewBaselineAndLabels',
+    afterLayout(chart) {
+      const footer = document.getElementById('subview-variacion-footer');
+      if (footer && chart.chartArea) {
+        footer.style.paddingLeft = `${chart.chartArea.left}px`;
+        footer.style.paddingRight = `${chart.width - chart.chartArea.right}px`;
+        footer.style.boxSizing = 'border-box';
+      }
+    },
+    afterDraw(chart) {
+      const { ctx, chartArea, scales: { y } } = chart;
+      const zeroPixel = y.getPixelForValue(0);
+
+      ctx.save();
+
+      // Línea horizontal 0.00 sólida
+      ctx.beginPath();
+      ctx.strokeStyle = '#94A3B8';
+      ctx.lineWidth = 1.8;
+      ctx.moveTo(chartArea.left, zeroPixel);
+      ctx.lineTo(chartArea.right, zeroPixel);
+      ctx.stroke();
+
+      // Label 0.00 a la izquierda
+      ctx.fillStyle = '#64748B';
+      ctx.font = "bold 11px 'Inter', sans-serif";
+      ctx.textAlign = 'right';
+      ctx.fillText('0.00', chartArea.left - 8, zeroPixel + 3.5);
+
+      // Valores numéricos en cada barra
+      chart.data.datasets.forEach((dataset, i) => {
+        const meta = chart.getDatasetMeta(i);
+        meta.data.forEach((bar, index) => {
+          const val = dataset.data[index];
+          const signo = val > 0 ? '+' : '';
+          const str = `${signo}${val.toFixed(2)}`;
+
+          ctx.font = "bold 11px 'Inter', sans-serif";
+          ctx.fillStyle = backgroundColors[index];
+          ctx.textAlign = 'center';
+
+          let yPos = zeroPixel - 8;
+          if (val > 0) {
+            yPos = Math.max(chartArea.top + 14, bar.y - 7);
+          } else if (val < 0) {
+            yPos = Math.min(chartArea.bottom - 4, bar.y + 16);
+          }
+          ctx.fillText(str, bar.x, yPos);
+        });
+      });
+
+      ctx.restore();
+    }
+  };
+
+  chartSubVarInstancia = new Chart(canvas, {
+    type: 'bar',
+    data: {
+      labels,
+      datasets: [{
+        data: deltas,
+        backgroundColor: backgroundColors,
+        borderColor: borderColors,
+        borderWidth: 1.5,
+        borderRadius: (ctx) => {
+          const val = ctx.raw;
+          if (val > 0) return { topLeft: 4, topRight: 4, bottomLeft: 0, bottomRight: 0 };
+          if (val < 0) return { topLeft: 0, topRight: 0, bottomLeft: 4, bottomRight: 4 };
+          return 0;
+        },
+        barPercentage: 0.45
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      layout: {
+        padding: {
+          top: 25,
+          bottom: 15,
+          left: 0,
+          right: 0
+        }
+      },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: '#16182F',
+          padding: 8,
+          cornerRadius: 5,
+          callbacks: {
+            title: (items) => items.length ? items[0].label : '',
+            label: (ctx) => {
+              const d = items[ctx.dataIndex];
+              const s = d.delta > 0 ? '+' : '';
+              return [
+                ` Variación: S/ ${s}${d.delta.toFixed(2)}`,
+                ` • Base (${f1}): S/ ${d.pBase.toFixed(2)}`,
+                ` • Corte (${f2}): S/ ${d.pCorte.toFixed(2)}`,
+                d.margenActual !== null ? ` • Margen Corte: S/ ${d.margenActual.toFixed(2)}` : null
+              ].filter(Boolean);
+            }
+          }
+        }
+      },
+      scales: {
+        x: {
+          grid: { display: false },
+          ticks: { display: false }
+        },
+        y: {
+          min: -limiteY,
+          max: limiteY,
+          grid: {
+            color: (context) => context.tick.value === 0 ? 'transparent' : 'rgba(226, 232, 240, 0.6)'
+          },
+          ticks: {
+            font: { family: "'Inter', sans-serif", size: 10, weight: '600' },
+            color: '#64748B',
+            callback: (v) => {
+              if (v === 0) return '';
+              return (v > 0 ? `+${v.toFixed(2)}` : v.toFixed(2));
+            }
+          }
+        }
+      }
+    },
+    plugins: [baselineAndLabelsPlugin]
+  });
 }
