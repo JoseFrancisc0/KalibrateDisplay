@@ -7,9 +7,7 @@ export const analisisState = {
   modo: 'COMPETENCIA',         // 'COESTI' | 'COMPETENCIA' | 'MARCA'
 
   // filtros avanzados
-  gpcGroup: 'TODOS',
   corredor: 'TODOS',
-  zona: 'TODOS',
   departamento: 'TODOS',
   provincia: 'TODOS',
   distrito: 'TODOS',

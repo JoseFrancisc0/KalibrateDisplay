@@ -26,35 +26,21 @@ export function railHTML() {
         <span class="rail-label">Filtros</span>
         <div class="select-stack">
 
-          <!-- 1. GPC Group -->
-          <div class="select-wrap">
-            <select id="sel-analisis-gpc" data-change="cambiarGpcAnalisis">
-              <option value="TODOS">Todos los GPC Groups</option>
-            </select>
-          </div>
-
-          <!-- 2. Corredor -->
+          <!-- 1. Corredor -->
           <div class="select-wrap">
             <select id="sel-analisis-corredor" data-change="cambiarCorredorAnalisis">
               <option value="TODOS">Todos los corredores</option>
             </select>
           </div>
 
-          <!-- 3. Zona -->
-          <div class="select-wrap">
-            <select id="sel-analisis-zona" data-change="cambiarZonaAnalisis">
-              <option value="TODOS">Todas las zonas</option>
-            </select>
-          </div>
-
-          <!-- 4. Departamento -->
+          <!-- 2. Departamento -->
           <div class="select-wrap">
             <select id="sel-analisis-depto" data-change="cambiarDeptoAnalisis">
               <option value="TODOS">Todos los departamentos</option>
             </select>
           </div>
 
-          <!-- 5. Provincia | Distrito (lado a lado) -->
+          <!-- 3. Provincia | Distrito (lado a lado) -->
           <div class="select-row-2">
             <div class="select-wrap">
               <select id="sel-analisis-provincia" data-change="cambiarProvinciaAnalisis">

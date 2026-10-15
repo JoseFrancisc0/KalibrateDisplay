@@ -6,6 +6,7 @@
 import { render, actualizarIndicadorModo } from '../../core/router.js';
 import { state } from '../../core/state.js';
 import { valorDe, activar, alternarDesplegable, cerrarAlClicFuera, repoblarSelect } from '../../shared/dom.js';
+import { inicializarSearchableSelect } from '../../shared/combobox.js';
 import { marcasCompetencia, etiquetaMarca } from '../../shared/marcas.js';
 import { poblarSelectsSegmentacion, valoresUnicos } from '../../shared/segmentacion.js';
 import { analisisState } from './state.js';
@@ -47,13 +48,15 @@ export function poblarFiltrosAnalisis() {
   const estaciones = state.rawData.estaciones;
 
   poblarSelectsSegmentacion(estaciones, {
-    gpc: 'sel-analisis-gpc',
     corredor: 'sel-analisis-corredor',
-    zona: 'sel-analisis-zona',
     departamento: 'sel-analisis-depto',
   });
 
   sincronizarCascadaGeografica(estaciones);
+
+  ['sel-analisis-corredor', 'sel-analisis-depto', 'sel-analisis-provincia', 'sel-analisis-distrito'].forEach(id => {
+    inicializarSearchableSelect(id);
+  });
 
   if (!analisisState.marcasDisponibles || analisisState.marcasDisponibles.length === 0) {
     analisisState.marcasDisponibles = marcasCompetencia(estaciones);
@@ -103,19 +106,9 @@ export const acciones = {
     actualizarIndicadorModo();
     render();
   },
-  cambiarGpcAnalisis() {
-    const v = valorDe('sel-analisis-gpc');
-    if (v !== undefined) analisisState.gpcGroup = v;
-    render();
-  },
   cambiarCorredorAnalisis() {
     const v = valorDe('sel-analisis-corredor');
     if (v !== undefined) analisisState.corredor = v;
-    render();
-  },
-  cambiarZonaAnalisis() {
-    const v = valorDe('sel-analisis-zona');
-    if (v !== undefined) analisisState.zona = v;
     render();
   },
   cambiarDeptoAnalisis() {

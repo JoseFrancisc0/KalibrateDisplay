@@ -37,7 +37,6 @@ export function procesarVariacionHistorica() {
   const f1 = variacionState.fechaInicio;
   const f2 = variacionState.fechaFin;
 
-  const gpcSel = variacionState.gpcGroup || 'TODOS';
   const corrSel = variacionState.corredor || 'TODOS';
   const deptoSel = variacionState.departamento || 'TODOS';
   const provSel = variacionState.provincia || 'TODOS';
@@ -46,19 +45,17 @@ export function procesarVariacionHistorica() {
   const observaciones = variacionState.historicoMarcasData.datos.filter(item => {
     if (item.p !== prodSel) return false;
 
-    const g = (item.g || '').trim().toUpperCase();
     const c = (item.c || '').trim().toUpperCase();
     const d = (item.d || '').trim().toUpperCase();
     const pv = (item.pv || '').trim().toUpperCase();
     const dt = (item.dt || '').trim().toUpperCase();
 
-    const matchGpc = (gpcSel === 'TODOS' || g === gpcSel);
     const matchCorr = (corrSel === 'TODOS' || c === corrSel);
     const matchDepto = (deptoSel === 'TODOS' || d === deptoSel);
     const matchProv = (provSel === 'TODOS' || pv === provSel);
     const matchDist = (distSel === 'TODOS' || dt === distSel);
 
-    return matchGpc && matchCorr && matchDepto && matchProv && matchDist;
+    return matchCorr && matchDepto && matchProv && matchDist;
   });
 
   const observacionesNormalizadas = observaciones.map(item => {

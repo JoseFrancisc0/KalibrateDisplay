@@ -13,9 +13,7 @@ export const margenMercadoState = {
   fechaFin: '2026-10-08',
 
   // Filtros territoriales / comerciales
-  gpcGroup: 'TODOS',
   corredor: 'TODOS',
-  zona: 'TODOS',
   departamento: 'TODOS',
   provincia: 'TODOS',
   distrito: 'TODOS',

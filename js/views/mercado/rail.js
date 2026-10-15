@@ -61,20 +61,8 @@ export function railMargenMercadoHTML() {
         <div style="display:flex; flex-direction:column; gap:6px;">
           
           <div class="select-wrap">
-            <select id="sel-mm-gpc" data-change="cambiarGpcMargenMercado">
-              <option value="TODOS">Todos los GPC Groups</option>
-            </select>
-          </div>
-
-          <div class="select-wrap">
             <select id="sel-mm-corredor" data-change="cambiarCorredorMargenMercado">
               <option value="TODOS">Todos los corredores</option>
-            </select>
-          </div>
-
-          <div class="select-wrap">
-            <select id="sel-mm-zona" data-change="cambiarZonaMargenMercado">
-              <option value="TODOS">Todas las zonas</option>
             </select>
           </div>
 

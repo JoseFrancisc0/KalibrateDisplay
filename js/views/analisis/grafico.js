@@ -44,9 +44,7 @@ export function renderAnalisis(todasLasEstaciones) {
   // 1. Filtrado acumulativo con todos los campos
   const listaEstaciones = todasLasEstaciones.filter(e =>
     cumpleSegmentacion(e, {
-      gpc: analisisState.gpcGroup,
       corredor: analisisState.corredor,
-      zona: analisisState.zona,
       departamento: analisisState.departamento,
       provincia: analisisState.provincia,
       distrito: analisisState.distrito,
@@ -61,9 +59,7 @@ export function renderAnalisis(todasLasEstaciones) {
   const sub = document.getElementById('analytics-chart-sub');
   if (sub) {
     const filtrosActivos = [];
-    if (analisisState.gpcGroup !== 'TODOS') filtrosActivos.push(`GPC: ${analisisState.gpcGroup}`);
     if (analisisState.corredor !== 'TODOS') filtrosActivos.push(`Corredor: ${analisisState.corredor}`);
-    if (analisisState.zona !== 'TODOS') filtrosActivos.push(`Zona: ${analisisState.zona}`);
     if (analisisState.departamento !== 'TODOS') filtrosActivos.push(`Depto: ${analisisState.departamento}`);
     if (analisisState.provincia !== 'TODOS') filtrosActivos.push(`Prov: ${analisisState.provincia}`);
     if (analisisState.distrito !== 'TODOS') filtrosActivos.push(`Dist: ${analisisState.distrito}`);

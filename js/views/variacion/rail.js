@@ -39,24 +39,10 @@ export function railHTML() {
         <div class="rail-label">Filtros</div>
         <div class="select-stack">
 
-          <!-- GPC Group -->
-          <div class="select-wrap">
-            <select id="sel-var-gpc" data-change="cambiarGpcVariacion">
-              <option value="TODOS">Todos los GPC Groups</option>
-            </select>
-          </div>
-
           <!-- Corredor -->
           <div class="select-wrap">
             <select id="sel-var-corredor" data-change="cambiarCorredorVariacion">
               <option value="TODOS">Todos los corredores</option>
-            </select>
-          </div>
-
-          <!-- Zona -->
-          <div class="select-wrap">
-            <select id="sel-var-zona" data-change="cambiarZonaVariacion">
-              <option value="TODOS">Todas las zonas</option>
             </select>
           </div>
 

@@ -7,9 +7,7 @@ export const alineacionState = {
   criterioRival: 'CERCANO',         // 'CERCANO' | 'PROMEDIO'
   productoSeleccionado: 'Diesel',
 
-  gpcGroup: 'TODOS',
   corredor: 'TODOS',
-  zona: 'TODOS',
   departamento: 'TODOS',
   provincia: 'TODOS',
   distrito: 'TODOS',

@@ -5,6 +5,7 @@ import { render, refrescarViewBar } from '../../core/router.js';
 import { state } from '../../core/state.js';
 import { cargarHistoricoMarcas, cargarDetalleEstacion } from '../../core/data.js';
 import { valorDe, activar, alternarDesplegable, cerrarAlClicFuera, repoblarSelect } from '../../shared/dom.js';
+import { inicializarSearchableSelect } from '../../shared/combobox.js';
 import { poblarSelectsSegmentacion, valoresUnicos } from '../../shared/segmentacion.js';
 import { margenMercadoState } from './state.js';
 
@@ -60,13 +61,15 @@ export function poblarFiltrosMargenMercado() {
   const estaciones = state.rawData.estaciones;
 
   poblarSelectsSegmentacion(estaciones, {
-    gpc: 'sel-mm-gpc',
     corredor: 'sel-mm-corredor',
-    zona: 'sel-mm-zona',
     departamento: 'sel-mm-depto'
   });
 
   sincronizarCascadaGeograficaMM(estaciones);
+
+  ['sel-mm-corredor', 'sel-mm-depto', 'sel-mm-provincia', 'sel-mm-distrito'].forEach(id => {
+    inicializarSearchableSelect(id);
+  });
 
   if (margenMercadoState.historicoMarcasData?.datos) {
     const setM = new Set();
@@ -141,18 +144,8 @@ export const acciones = {
     }
   },
 
-  cambiarGpcMargenMercado(el) {
-    margenMercadoState.gpcGroup = el.value;
-    render();
-  },
-
   cambiarCorredorMargenMercado(el) {
     margenMercadoState.corredor = el.value;
-    render();
-  },
-
-  cambiarZonaMargenMercado(el) {
-    margenMercadoState.zona = el.value;
     render();
   },
 

@@ -64,28 +64,22 @@ export function renderMargenMercado(container) {
   const esModoMargen = (mm.modoMetrica === 'MARGEN');
 
   // 1. Filtrar observaciones por producto y territorio
-  const gpcSel = mm.gpcGroup || 'TODOS';
   const corrSel = mm.corredor || 'TODOS';
-  const zonaSel = mm.zona || 'TODOS';
   const deptoSel = mm.departamento || 'TODOS';
   const provSel = mm.provincia || 'TODOS';
   const distSel = mm.distrito || 'TODOS';
 
   const observaciones = hData.datos.filter(item => {
     if (item.p !== prodSel) return false;
-    const g = (item.g || '').trim().toUpperCase();
     const c = (item.c || '').trim().toUpperCase();
-    const z = (item.z || '').trim().toUpperCase();
     const d = (item.d || '').trim().toUpperCase();
     const pv = (item.pv || '').trim().toUpperCase();
     const dt = (item.dt || '').trim().toUpperCase();
 
-    return (gpcSel === 'TODOS' || g === gpcSel) &&
-           (corrSel === 'TODOS' || c === corrSel) &&
-           (zonaSel === 'TODOS' || z === zonaSel) &&
-           (deptoSel === 'TODOS' || d === deptoSel) &&
-           (provSel === 'TODOS' || pv === provSel) &&
-           (distSel === 'TODOS' || dt === distSel);
+    return  (corrSel === 'TODOS' || c === corrSel) &&
+            (deptoSel === 'TODOS' || d === deptoSel) &&
+            (provSel === 'TODOS' || pv === provSel) &&
+            (distSel === 'TODOS' || dt === distSel);
   });
 
   if (observaciones.length === 0) {

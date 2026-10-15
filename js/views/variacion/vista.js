@@ -93,9 +93,7 @@ export function renderVariacionHistorica() {
 
   if (subtitulo) {
     const filtros = [];
-    if (variacionState.gpcGroup !== 'TODOS') filtros.push(`GPC: ${variacionState.gpcGroup}`);
     if (variacionState.corredor !== 'TODOS') filtros.push(`Corredor: ${variacionState.corredor}`);
-    if (variacionState.zona !== 'TODOS') filtros.push(`Zona: ${variacionState.zona}`);
     if (variacionState.departamento !== 'TODOS') filtros.push(`Depto: ${variacionState.departamento}`);
     if (variacionState.provincia !== 'TODOS') filtros.push(`Prov: ${variacionState.provincia}`);
     if (variacionState.distrito !== 'TODOS') filtros.push(`Dist: ${variacionState.distrito}`);

@@ -3,6 +3,7 @@
    ========================================================== */
 import { render, refrescarViewBar } from '../../core/router.js';
 import { valorDe, repoblarSelect, activar, alternarDesplegable, cerrarAlClicFuera } from '../../shared/dom.js';
+import { inicializarSearchableSelect } from '../../shared/combobox.js';
 import { CAMBIOS_SEMANALES_URL } from '../../config/datos.js';
 import { competenciaSemanalState } from './state.js';
 
@@ -56,6 +57,11 @@ function sincronizarCascadaGeograficaCS() {
 
 export function poblarFiltrosGeograficosCS() {
     sincronizarCascadaGeograficaCS();
+
+    ['sel-cs-corredor', 'sel-cs-depto', 'sel-cs-provincia', 'sel-cs-distrito'].forEach(id => {
+        inicializarSearchableSelect(id);
+    });
+
     const selProd = document.getElementById('sel-cs-prod');
     if (selProd) selProd.value = competenciaSemanalState.producto;
 }

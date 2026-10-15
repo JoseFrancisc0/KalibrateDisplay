@@ -13,9 +13,7 @@ import { alineacionState } from './state.js';
  * Procesa todas las estaciones y calcula los diagnósticos
  */
 export function procesarDatosAlineacion(estaciones) {
-  const gpcSel = alineacionState.gpcGroup || 'TODOS';
   const corrSel = alineacionState.corredor || 'TODOS';
-  const zonaSel = alineacionState.zona || 'TODOS';
   const deptoSel = alineacionState.departamento || 'TODOS';
   const provSel = alineacionState.provincia || 'TODOS';
   const distSel = alineacionState.distrito || 'TODOS';
@@ -30,8 +28,6 @@ export function procesarDatosAlineacion(estaciones) {
     return cumpleSegmentacion(e, {
       corredor: corrSel,
       departamento: deptoSel,
-      gpc: gpcSel,
-      zona: zonaSel,
       provincia: provSel,
       distrito: distSel,
     });
@@ -146,11 +142,9 @@ export function procesarDatosAlineacion(estaciones) {
         siteId: est.own_site_id,
         nombre: est.estacion_cabecera,
         corredor: est.corredor || 'SIN CORREDOR',
-        zona: est.zona || 'SIN ZONA',
         departamento: est.departamento || 'SIN DEPTO',
         provincia: est.provincia || 'SIN PROVINCIA',
         distrito: est.distrito || 'SIN DISTRITO',
-        gpcGroup: est.gpc_group || 'SIN GPC',
         precioPropio: pPropio,
         localMarket: lmData,
         zona: zonaData

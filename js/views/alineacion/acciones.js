@@ -6,6 +6,7 @@
 import { render, actualizarIndicadorModo } from '../../core/router.js';
 import { state } from '../../core/state.js';
 import { valorDe, activar, poblarSelect, repoblarSelect } from '../../shared/dom.js';
+import { inicializarSearchableSelect } from '../../shared/combobox.js';
 import { marcasCompetencia, etiquetaMarca } from '../../shared/marcas.js';
 import { poblarSelectsSegmentacion, valoresUnicos } from '../../shared/segmentacion.js';
 import { alineacionState } from './state.js';
@@ -53,13 +54,15 @@ export function poblarFiltrosAlineacion() {
   actualizarVisibilidadCriterio();
 
   poblarSelectsSegmentacion(estaciones, {
-    gpc: 'sel-alineacion-gpc',
     corredor: 'sel-alineacion-corredor',
-    zona: 'sel-alineacion-zona',
     departamento: 'sel-alineacion-depto',
   });
 
   sincronizarCascadaGeografica(estaciones);
+
+  ['sel-alineacion-corredor', 'sel-alineacion-depto', 'sel-alineacion-provincia', 'sel-alineacion-distrito'].forEach(id => {
+    inicializarSearchableSelect(id);
+  });
 }
 
 /** El criterio de rival solo aplica cuando se elige una marca concreta. */
@@ -89,21 +92,9 @@ export const acciones = {
     render();
   },
 
-  cambiarGpcAlineacion() {
-    const v = valorDe('sel-alineacion-gpc');
-    if (v !== undefined) alineacionState.gpcGroup = v;
-    render();
-  },
-
   cambiarCorredorAlineacion() {
     const v = valorDe('sel-alineacion-corredor');
     if (v !== undefined) alineacionState.corredor = v;
-    render();
-  },
-
-  cambiarZonaAlineacion() {
-    const v = valorDe('sel-alineacion-zona');
-    if (v !== undefined) alineacionState.zona = v;
     render();
   },
 

@@ -7,6 +7,7 @@ import { render, actualizarIndicadorModo } from '../../core/router.js';
 import { state } from '../../core/state.js';
 import { cargarHistoricoMarcas } from '../../core/data.js';
 import { valorDe, alternarDesplegable, cerrarAlClicFuera, repoblarSelect } from '../../shared/dom.js';
+import { inicializarSearchableSelect } from '../../shared/combobox.js';
 import { poblarSelectsSegmentacion, valoresUnicos } from '../../shared/segmentacion.js';
 import { variacionState } from './state.js';
 
@@ -56,13 +57,15 @@ function poblarFiltrosVariacion() {
   const estaciones = state.rawData.estaciones;
 
   poblarSelectsSegmentacion(estaciones, {
-    gpc: 'sel-var-gpc',
     corredor: 'sel-var-corredor',
-    zona: 'sel-var-zona',
     departamento: 'sel-var-depto'
   });
 
   sincronizarCascadaGeografica(estaciones);
+
+  ['sel-var-corredor', 'sel-var-depto', 'sel-var-provincia', 'sel-var-distrito'].forEach(id => {
+    inicializarSearchableSelect(id);
+  });
 
   const selProd = document.getElementById('sel-var-prod');
   if (selProd) selProd.value = variacionState.producto || 'Diesel';
@@ -122,21 +125,9 @@ export const acciones = {
     render();
   },
 
-  cambiarGpcVariacion() {
-    const v = valorDe('sel-var-gpc');
-    if (v !== undefined) variacionState.gpcGroup = v;
-    render();
-  },
-
   cambiarCorredorVariacion() {
     const v = valorDe('sel-var-corredor');
     if (v !== undefined) variacionState.corredor = v;
-    render();
-  },
-
-  cambiarZonaVariacion() {
-    const v = valorDe('sel-var-zona');
-    if (v !== undefined) variacionState.zona = v;
     render();
   },
   
