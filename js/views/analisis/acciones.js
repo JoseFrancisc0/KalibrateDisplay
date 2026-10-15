@@ -135,8 +135,7 @@ export const acciones = {
   cambiarModoAnalisis(el) {
     const modo = el.dataset.arg;
     analisisState.modo = modo;
-    activar('btn-scope-comp', modo === 'COMPETENCIA');
-    activar('btn-scope-coesti', modo === 'COESTI');
+    activar('btn-scope-dist', modo === 'DISTRIBUCION');
     activar('btn-scope-marca', modo === 'MARCA');
     const secMarcas = document.getElementById('section-filtro-marcas');
     if (secMarcas) {

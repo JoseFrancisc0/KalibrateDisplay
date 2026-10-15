@@ -1,5 +1,7 @@
 /* ==========================================================
-   views/analisis/grafico.js — Gráfico Horizontal Dot-Plot
+   views/analisis/grafico.js — Análisis Ponderado
+   - Modo DISTRIBUCION: 2 Histogramas side-by-side con Gauss (Chart.js)
+   - Modo MARCA: Dot-Plot SVG con Logos y KPIs de Benchmark
    ========================================================== */
 
 import { getBrandLogo } from '../../config/marcas.js';
@@ -7,42 +9,202 @@ import { normalizarMarca, esCompetenciaExterna } from '../../shared/marcas.js';
 import { cumpleSegmentacion } from '../../shared/segmentacion.js';
 import { analisisState } from './state.js';
 
+let chartCompInstancia = null;
+let chartCoestiInstancia = null;
 
 export function analyticsHTML() {
   return `
-    <div class="analytics-shell" id="analytics-shell" style="display:none;">
-      <div class="analytics-header">
-        <h2 id="analytics-chart-title">Dispersión de Precios</h2>
-        <p id="analytics-chart-sub"></p>
-      </div>
-      <div class="analytics-chart-container" id="analytics-container">
-        <div id="analytics-svg-wrap" style="width:100%; height:100%;"></div>
-      </div>
-      <div id="analytics-tooltip" class="analytics-tooltip"></div>
+  <div class="analytics-shell" id="analytics-shell" style="display:none; flex-direction:column; width:100%; height:100%; padding:12px 16px; box-sizing:border-box;">
+    
+    <!-- HEADER -->
+    <div class="analytics-header" style="margin-bottom: 6px; flex: 0 0 auto;">
+      <h2 id="analytics-chart-title" style="font-family:'Poppins',sans-serif; font-size:1.15rem; font-weight:800; margin:0; color:var(--k-ink);">Dispersión de Precios</h2>
+      <p id="analytics-chart-sub" style="font-size:0.72rem; color:var(--k-muted); margin:2px 0 0 0;"></p>
     </div>
+
+    <!-- TARJETAS KPIS GENERALES (Modo DISTRIBUCION) -->
+    <div class="analytics-kpis-grid" id="analytics-kpis-wrap" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 10px; flex: 0 0 auto;">
+      <div class="analytics-kpi-card" style="background:#fff; border:1px solid var(--k-line); border-radius:6px; padding:6px 12px;">
+        <span style="font-size:0.6rem; font-weight:700; color:var(--k-muted); text-transform:uppercase;">COESTI Ponderado</span>
+        <div style="font-size:1.05rem; font-weight:800; color:var(--k-ink);" id="kpi-val-coesti">—</div>
+        <span style="font-size:0.62rem; color:var(--k-muted);" id="kpi-sub-coesti">EESS Propias</span>
+      </div>
+      <div class="analytics-kpi-card" style="background:#fff; border:1px solid var(--k-line); border-radius:6px; padding:6px 12px;">
+        <span style="font-size:0.6rem; font-weight:700; color:var(--k-muted); text-transform:uppercase;">Promedio Competencia</span>
+        <div style="font-size:1.05rem; font-weight:800; color:var(--k-ink);" id="kpi-val-comp">—</div>
+        <span style="font-size:0.62rem; color:var(--k-muted);" id="kpi-sub-comp">Rivales Directos</span>
+      </div>
+      <div class="analytics-kpi-card" style="background:#fff; border:1px solid var(--k-line); border-radius:6px; padding:6px 12px;">
+        <span style="font-size:0.6rem; font-weight:700; color:var(--k-muted); text-transform:uppercase;">Diferencial Mercado</span>
+        <div style="font-size:1.05rem; font-weight:800;" id="kpi-val-diff">—</div>
+        <span style="font-size:0.62rem; color:var(--k-muted);">Spread Ponderado</span>
+      </div>
+      <div class="analytics-kpi-card" style="background:#fff; border:1px solid var(--k-line); border-radius:6px; padding:6px 12px;">
+        <span style="font-size:0.6rem; font-weight:700; color:var(--k-muted); text-transform:uppercase;">Rango Precios</span>
+        <div style="font-size:1.05rem; font-weight:800; color:var(--k-ink);" id="kpi-val-rango">—</div>
+        <span style="font-size:0.62rem; color:var(--k-muted);">Mínimo — Máximo</span>
+      </div>
+    </div>
+
+    <!-- CONTENEDOR 1: HISTOGRAMAS SIDE-BY-SIDE (Modo DISTRIBUCION) -->
+    <div id="analytics-distribucion-wrap" style="flex: 1 1 0; min-height: 0; display: flex; gap: 12px; width: 100%;">
+      
+      <!-- Panel Competencia -->
+      <div style="flex: 1 1 50%; display: flex; flex-direction: column; background: #fff; border: 1px solid var(--k-line); border-radius: 6px; padding: 10px 12px; position: relative;">
+        <span style="font-family:'Poppins',sans-serif; font-size:0.75rem; font-weight:700; color:#0284C7; margin-bottom:4px;">
+          DISTRIBUCIÓN: COMPETENCIA
+        </span>
+        <div style="flex: 1 1 0; min-height: 0; position: relative; width: 100%;">
+          <canvas id="chart-comp-canvas" style="position: absolute; inset: 0; width: 100%!important; height: 100%!important;"></canvas>
+        </div>
+      </div>
+
+      <!-- Panel COESTI -->
+      <div style="flex: 1 1 50%; display: flex; flex-direction: column; background: #fff; border: 1px solid var(--k-line); border-radius: 6px; padding: 10px 12px; position: relative;">
+        <span style="font-family:'Poppins',sans-serif; font-size:0.75rem; font-weight:700; color:#00D58A; margin-bottom:4px;">
+          DISTRIBUCIÓN: COESTI (PROPIAS)
+        </span>
+        <div style="flex: 1 1 0; min-height: 0; position: relative; width: 100%;">
+          <canvas id="chart-coesti-canvas" style="position: absolute; inset: 0; width: 100%!important; height: 100%!important;"></canvas>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CONTENEDOR 2: DOT-PLOT POR MARCAS (Modo MARCA) -->
+    <div id="analytics-marca-wrap" style="flex: 1 1 0; min-height: 0; width: 100%; display: none; position: relative; background: #fff; border: 1px solid var(--k-line); border-radius: 6px; overflow: hidden;">
+      
+      <!-- KPI Flotante Superior Izquierdo: Bajo COESTI -->
+      <div id="card-bajo-coesti" style="position: absolute; top: 16px; left: 20px; z-index: 10; background: #fff; border: 1px solid var(--k-line); border-left: 4px solid var(--k-indigo); border-radius: 5px; padding: 8px 14px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+        <div style="font-size: 0.6rem; font-weight: 700; color: var(--k-indigo); text-transform: uppercase;">Competencia Bajo COESTI</div>
+        <div style="font-size: 0.58rem; color: var(--k-muted); margin-bottom: 2px;">Marcas seleccionadas bajo el benchmark propio</div>
+        <div style="display: flex; align-items: baseline; gap: 8px;">
+          <span style="font-size: 1.15rem; font-weight: 800; color: var(--k-ink);" id="val-bajo-coesti">—</span>
+          <span style="font-size: 0.68rem; font-weight: 700; color: var(--k-indigo);" id="eess-bajo-coesti">— EESS</span>
+        </div>
+      </div>
+
+      <!-- KPI Flotante Inferior Derecho: Sobre COESTI -->
+      <div id="card-sobre-coesti" style="position: absolute; bottom: 16px; right: 20px; z-index: 10; background: #fff; border: 1px solid var(--k-line); border-left: 4px solid #D92D4E; border-radius: 5px; padding: 8px 14px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+        <div style="font-size: 0.6rem; font-weight: 700; color: #D92D4E; text-transform: uppercase;">Competencia Sobre COESTI</div>
+        <div style="font-size: 0.58rem; color: var(--k-muted); margin-bottom: 2px;">Marcas seleccionadas sobre el benchmark propio</div>
+        <div style="display: flex; align-items: baseline; gap: 8px;">
+          <span style="font-size: 1.15rem; font-weight: 800; color: var(--k-ink);" id="val-sobre-coesti">—</span>
+          <span style="font-size: 0.68rem; font-weight: 700; color: #D92D4E;" id="eess-sobre-coesti">— EESS</span>
+        </div>
+      </div>
+
+      <!-- SVG Render -->
+      <div id="analytics-svg-wrap" style="width: 100%; height: 100%;"></div>
+    </div>
+
+  </div>
   `;
+}
+
+/* ---------- Cálculos Estadísticos Auxiliares ---------- */
+function stats(arr) {
+  if (!arr || arr.length === 0) return { mean: 0, stdev: 0, min: 0, max: 0, count: 0 };
+  const mean = arr.reduce((a, b) => a + b, 0) / arr.length;
+  const variance = arr.reduce((a, b) => a + Math.pow(b - mean, 2), 0) / (arr.length > 1 ? arr.length - 1 : 1);
+  return {
+    mean,
+    stdev: Math.sqrt(variance),
+    min: Math.min(...arr),
+    max: Math.max(...arr),
+    count: arr.length
+  };
+}
+
+function pdfGauss(x, mean, stdev) {
+  if (!stdev || stdev <= 0) return 0;
+  return (1 / (stdev * Math.sqrt(2 * Math.PI))) * Math.exp(-0.5 * Math.pow((x - mean) / stdev, 2));
 }
 
 function calcularBenchmarkCOESTI(listaEstaciones, combustible) {
   let suma = 0, conteo = 0;
   listaEstaciones.forEach(est => {
-    if (!est.actores) return;
-    const propio = est.actores.find(a => a.tipo_actor === 'PROPIO');
-    if (propio && propio.combustibles && propio.combustibles[combustible]) {
-      const p = propio.combustibles[combustible].precio;
-      if (p && p > 0) { suma += p; conteo++; }
-    }
+    const propio = est.actores?.find(a => a.tipo_actor === 'PROPIO');
+    const p = propio?.combustibles?.[combustible]?.precio;
+    if (p && p > 0) { suma += p; conteo++; }
   });
   return conteo > 0 ? (suma / conteo) : 0;
 }
 
-export function renderAnalisis(todasLasEstaciones) {
-  const wrap = document.getElementById('analytics-svg-wrap');
-  const tooltip = document.getElementById('analytics-tooltip');
-  if (!wrap) return;
+/* ==========================================================
+   externalTooltipHandler con filtro para la Campana de Gauss
+   ========================================================== */
+function externalTooltipHandler(context) {
+  let tooltipEl = document.getElementById('chartjs-external-tooltip');
 
-  // 1. Filtrado acumulativo con todos los campos
-  const listaEstaciones = todasLasEstaciones.filter(e =>
+  if (!tooltipEl) {
+    tooltipEl = document.createElement('div');
+    tooltipEl.id = 'chartjs-external-tooltip';
+    tooltipEl.style.background = 'rgba(22, 24, 47, 0.95)';
+    tooltipEl.style.borderRadius = '5px';
+    tooltipEl.style.color = '#fff';
+    tooltipEl.style.opacity = '0';
+    tooltipEl.style.pointerEvents = 'none';
+    tooltipEl.style.position = 'fixed';
+    tooltipEl.style.transition = 'all .1s ease';
+    tooltipEl.style.zIndex = '99999';
+    tooltipEl.style.padding = '8px 12px';
+    tooltipEl.style.fontSize = '0.75rem';
+    tooltipEl.style.fontFamily = "'Inter', sans-serif";
+    tooltipEl.style.boxShadow = '0 4px 14px rgba(0,0,0,0.3)';
+    document.body.appendChild(tooltipEl);
+  }
+
+  const { chart, tooltip } = context;
+
+  if (tooltip.opacity === 0) {
+    tooltipEl.style.opacity = '0';
+    return;
+  }
+
+  const puntosVisibles = (tooltip.dataPoints || []).filter(dp => {
+    return dp.dataset.type !== 'line';
+  });
+
+  if (puntosVisibles.length === 0) {
+    tooltipEl.style.opacity = '0';
+    return;
+  }
+
+  const titleLines = tooltip.title || [];
+  let innerHtml = '<div style="font-weight:700; margin-bottom:4px; font-family:\'Poppins\',sans-serif; color:#fff;">';
+  titleLines.forEach(title => {
+    innerHtml += title;
+  });
+  innerHtml += '</div>';
+
+  puntosVisibles.forEach(dp => {
+    const color = dp.dataset.borderColor || dp.dataset.backgroundColor;
+    const colorBox = `<span style="display:inline-block; width:9px; height:9px; margin-right:6px; border-radius:2px; background:${dp.dataset.backgroundColor}; border:1px solid ${dp.dataset.borderColor};"></span>`;
+    innerHtml += `<div style="display:flex; align-items:center; margin-top:2px; font-size:0.72rem; color:#E2E8F0;">${colorBox}Estaciones: ${dp.parsed.y}</div>`;
+  });
+
+  tooltipEl.innerHTML = innerHtml;
+
+  const canvasRect = chart.canvas.getBoundingClientRect();
+  const posX = canvasRect.left + tooltip.caretX;
+  const posY = canvasRect.top + tooltip.caretY;
+
+  tooltipEl.style.opacity = '1';
+  tooltipEl.style.left = `${posX}px`;
+  tooltipEl.style.top = `${posY}px`;
+  tooltipEl.style.transform = 'translate(-50%, -115%)';
+}
+
+/* ==========================================================
+   RENDER PRINCIPAL
+   ========================================================== */
+export function renderAnalisis(todasLasEstaciones) {
+  const combustible = analisisState.producto || 'Diesel';
+  const modo = (analisisState.modo === 'MARCA') ? 'MARCA' : 'DISTRIBUCION';
+
+  // 1. Filtrar estaciones según controles del rail
+  const estaciones = todasLasEstaciones.filter(e =>
     cumpleSegmentacion(e, {
       corredor: analisisState.corredor,
       departamento: analisisState.departamento,
@@ -51,166 +213,303 @@ export function renderAnalisis(todasLasEstaciones) {
     })
   );
 
-  const combustible = analisisState.producto || 'Diesel';
-  const modo = analisisState.modo || 'COMPETENCIA';
-  const benchmark = calcularBenchmarkCOESTI(listaEstaciones, combustible);
+  const benchmark = calcularBenchmarkCOESTI(estaciones, combustible);
 
-  // Subtítulo con contexto de filtros activos
+  // Subtítulo
   const sub = document.getElementById('analytics-chart-sub');
   if (sub) {
-    const filtrosActivos = [];
-    if (analisisState.corredor !== 'TODOS') filtrosActivos.push(`Corredor: ${analisisState.corredor}`);
-    if (analisisState.departamento !== 'TODOS') filtrosActivos.push(`Depto: ${analisisState.departamento}`);
-    if (analisisState.provincia !== 'TODOS') filtrosActivos.push(`Prov: ${analisisState.provincia}`);
-    if (analisisState.distrito !== 'TODOS') filtrosActivos.push(`Dist: ${analisisState.distrito}`);
-    
-    const tagFiltro = filtrosActivos.length ? `(${filtrosActivos.join(' · ')})` : '(Red Total)';
+    const filtros = [];
+    if (analisisState.corredor && analisisState.corredor !== 'TODOS') filtros.push(`Corredor: ${analisisState.corredor}`);
+    if (analisisState.departamento && analisisState.departamento !== 'TODOS') filtros.push(`Depto: ${analisisState.departamento}`);
+    const tagFiltro = filtros.length ? `(${filtros.join(' · ')})` : '(Red Total)';
     sub.innerText = (modo === 'MARCA')
       ? `Promedio consolidado por marca vs COESTI PONDERADO ${tagFiltro}.`
-      : `Puntos ordenados de menor a mayor precio ${tagFiltro}.`;
+      : `Distribución bimodal de frecuencias por rangos de precio ${tagFiltro}.`;
   }
 
-  // 2. Recolección de registros según el alcance
-  let items = [];
+  // Alternancia de contenedores
+  const distWrap = document.getElementById('analytics-distribucion-wrap');
+  const marcaWrap = document.getElementById('analytics-marca-wrap');
+  const kpisWrap = document.getElementById('analytics-kpis-wrap');
 
-  if (modo === 'COESTI') {
-    listaEstaciones.forEach(est => {
-      const propio = est.actores?.find(a => a.tipo_actor === 'PROPIO');
-      if (propio && propio.combustibles && propio.combustibles[combustible]) {
-        const p = propio.combustibles[combustible].precio;
-        if (p && p > 0) {
-          items.push({
-            id: est.own_site_id,
-            nombre: est.estacion_cabecera,
-            marca: 'PRIMAX (COESTI)',
-            rawMarca: 'PRIMAX',
-            precio: p,
-            esBenchmark: false
-          });
-        }
-      }
+  if (modo === 'DISTRIBUCION') {
+    if (distWrap) distWrap.style.display = 'flex';
+    if (kpisWrap) kpisWrap.style.display = 'grid';
+    if (marcaWrap) marcaWrap.style.display = 'none';
+    renderModoDistribucion(estaciones, combustible, benchmark);
+  } else {
+    if (distWrap) distWrap.style.display = 'none';
+    if (kpisWrap) kpisWrap.style.display = 'none';
+    if (marcaWrap) marcaWrap.style.display = 'block';
+    destruirCharts();
+    renderModoMarca(estaciones, combustible, benchmark);
+  }
+}
+
+function destruirCharts() {
+  if (chartCompInstancia) { chartCompInstancia.destroy(); chartCompInstancia = null; }
+  if (chartCoestiInstancia) { chartCoestiInstancia.destroy(); chartCoestiInstancia = null; }
+}
+
+/* ==========================================================
+   MODO 1: HISTOGRAMAS CON BINS DE 1 SOL (Chart.js)
+   ========================================================== */
+function renderModoDistribucion(estaciones, combustible, benchmark) {
+  destruirCharts();
+
+  const preciosCoesti = [];
+  const preciosComp = [];
+
+  estaciones.forEach(est => {
+    const propio = est.actores?.find(a => a.tipo_actor === 'PROPIO');
+    const pPropio = propio?.combustibles?.[combustible]?.precio;
+    if (pPropio && pPropio > 0) preciosCoesti.push(pPropio);
+
+    const comps = est.actores?.filter(esCompetenciaExterna) || [];
+    comps.forEach(c => {
+      const p = c.combustibles?.[combustible]?.precio;
+      if (p && p > 0) preciosComp.push(p);
     });
-  } else if (modo === 'COMPETENCIA') {
-    const map = new Map();
-    listaEstaciones.forEach(est => {
-      const comps = est.actores?.filter(esCompetenciaExterna) || [];
-      comps.forEach(c => {
-        if (c.combustibles && c.combustibles[combustible] && c.combustibles[combustible].precio > 0) {
-          const key = c.site_id || c.nombre_linea;
-          if (!map.has(key)) {
-            const m = (c.marca || '').trim().toUpperCase();
-            const marcaDisplay = (m === 'PRIMAX') ? 'PRIMAX (DEALER)' : (c.marca || 'S/M');
+  });
 
-            map.set(key, {
-              id: key,
-              nombre: c.nombre_linea,
-              marca: marcaDisplay,
-              rawMarca: m,
-              precio: c.combustibles[combustible].precio,
-              esBenchmark: false
-            });
+  const stCoesti = stats(preciosCoesti);
+  const stComp = stats(preciosComp);
+
+  // Actualizar Cards KPI
+  const elKpiCoesti = document.getElementById('kpi-val-coesti');
+  const elKpiComp = document.getElementById('kpi-val-comp');
+  const elKpiDiff = document.getElementById('kpi-val-diff');
+  const elKpiRango = document.getElementById('kpi-val-rango');
+
+  if (elKpiCoesti) elKpiCoesti.textContent = stCoesti.mean > 0 ? `S/ ${stCoesti.mean.toFixed(2)}` : '—';
+  if (elKpiComp) elKpiComp.textContent = stComp.mean > 0 ? `S/ ${stComp.mean.toFixed(2)}` : '—';
+
+  if (elKpiDiff && stCoesti.mean > 0 && stComp.mean > 0) {
+    const d = stCoesti.mean - stComp.mean;
+    elKpiDiff.textContent = `${d > 0 ? '+' : ''}S/ ${d.toFixed(2)}`;
+    elKpiDiff.style.color = d > 0 ? 'var(--diff-neg)' : 'var(--diff-pos)';
+  } else if (elKpiDiff) {
+    elKpiDiff.textContent = '—';
+    elKpiDiff.style.color = 'var(--k-ink)';
+  }
+
+  const todos = [...preciosCoesti, ...preciosComp];
+  if (elKpiRango) {
+    elKpiRango.textContent = todos.length ? `S/ ${Math.min(...todos).toFixed(2)} — ${Math.max(...todos).toFixed(2)}` : '—';
+  }
+
+  if (todos.length === 0) return;
+
+  // Bins enteros (paso de S/ 1.00): [10-11>, [11-12>, etc.
+  const minBin = Math.floor(Math.min(...todos));
+  const maxBin = Math.ceil(Math.max(...todos));
+
+  const binsLabels = [];
+  const binEdges = [];
+  for (let b = minBin; b < maxBin; b++) {
+    binEdges.push(b);
+    binsLabels.push(`S/ ${b} - ${b + 1}`);
+  }
+  // Si minBin == maxBin, agregar al menos 1
+  if (binEdges.length === 0) {
+    binEdges.push(minBin);
+    binsLabels.push(`S/ ${minBin} - ${minBin + 1}`);
+  }
+
+  function conteoBins(precios) {
+    const counts = new Array(binEdges.length).fill(0);
+    precios.forEach(p => {
+      let idx = Math.floor(p - minBin);
+      if (idx < 0) idx = 0;
+      if (idx >= counts.length) idx = counts.length - 1;
+      counts[idx]++;
+    });
+    return counts;
+  }
+
+  const freqComp = conteoBins(preciosComp);
+  const freqCoesti = conteoBins(preciosCoesti);
+
+  // Puntos medios de bin para evaluar la campana de Gauss
+  const centrosX = binEdges.map(b => b + 0.5);
+
+  const gaussComp = centrosX.map(x => {
+    if (stComp.stdev === 0) return 0;
+    return Number((pdfGauss(x, stComp.mean, stComp.stdev) * stComp.count * 1.0).toFixed(2));
+  });
+
+  const gaussCoesti = centrosX.map(x => {
+    if (stCoesti.stdev === 0) return 0;
+    return Number((pdfGauss(x, stCoesti.mean, stCoesti.stdev) * stCoesti.count * 1.0).toFixed(2));
+  });
+
+  // 1. Chart Competencia
+  const ctxComp = document.getElementById('chart-comp-canvas');
+  if (ctxComp) {
+    chartCompInstancia = new Chart(ctxComp, {
+      type: 'bar',
+      data: {
+        labels: binsLabels,
+        datasets: [
+          {
+            type: 'line',
+            label: 'Campana Gauss',
+            data: gaussComp,
+            borderColor: '#0284C7',
+            borderWidth: 2.5,
+            pointRadius: 0,
+            tension: 0.35,
+            order: 0
+          },
+          {
+            type: 'bar',
+            label: `Estaciones (${stComp.count} EESS)`,
+            data: freqComp,
+            backgroundColor: 'rgba(2, 132, 199, 0.45)',
+            borderColor: '#0284C7',
+            borderWidth: 1.5,
+            borderRadius: 4,
+            order: 1
           }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        interaction: {
+          mode: 'index',
+          intersect: false
+        },
+        plugins: {
+          legend: { 
+            position: 'bottom', 
+            labels: { boxWidth: 12, font: { size: 9.5, weight: '600' } } 
+          },
+          tooltip: {
+            enabled: false,
+            external: externalTooltipHandler
+          }
+        },
+        scales: {
+          x: { grid: { color: 'rgba(226, 232, 240, 0.6)' }, ticks: { font: { size: 9, weight: '600' } } },
+          y: { beginAtZero: true, grid: { color: 'rgba(226, 232, 240, 0.6)' }, title: { display: true, text: 'Frecuencia (EESS)', font: { size: 9.5 } } }
         }
-      });
-    });
-    items = Array.from(map.values());
-  } else if (modo === 'MARCA') {
-    const acumulador = {};
-    listaEstaciones.forEach(est => {
-      const comps = est.actores?.filter(esCompetenciaExterna) || [];
-      comps.forEach(c => {
-        const m = normalizarMarca(c.marca);
-        if (!m || m === 'SIN MARCA') return;
-
-        // Evaluar persistencia del checklist de marcas
-        if (analisisState.marcasSeleccionadas && !analisisState.marcasSeleccionadas.has(m)) {
-          return;
-        }
-
-        if (c.combustibles && c.combustibles[combustible] && c.combustibles[combustible].precio > 0) {
-          if (!acumulador[m]) acumulador[m] = { suma: 0, conteo: 0, estaciones: new Set() };
-          acumulador[m].suma += c.combustibles[combustible].precio;
-          acumulador[m].conteo++;
-          acumulador[m].estaciones.add(c.site_id || c.nombre_linea);
-        }
-      });
-    });
-
-    Object.keys(acumulador).forEach(m => {
-      let nombreDisplay = m;
-      let marcaDisplay = m;
-
-      if (m === 'PRIMAX') {
-        nombreDisplay = 'PRIMAX (DEALERS)';
-        marcaDisplay = 'PRIMAX (DEALER)';
-      } else if (m === 'WP') {
-        nombreDisplay = 'WHITE PRODUCTS';
-        marcaDisplay = 'WHITE PRODUCTS';
       }
-
-      items.push({
-        id: m,
-        nombre: nombreDisplay,
-        marca: marcaDisplay,
-        rawMarca: m,
-        totalEstaciones: acumulador[m].estaciones.size,
-        precio: acumulador[m].suma / acumulador[m].conteo,
-        esBenchmark: false
-      });
     });
   }
 
-  if (items.length === 0 && benchmark <= 0) {
-    wrap.innerHTML = `<div style="text-align:center; padding:60px; color:var(--k-muted);">No se encontraron precios para los filtros seleccionados.</div>`;
-    return;
+  // 2. Chart COESTI
+  const ctxCoesti = document.getElementById('chart-coesti-canvas');
+  if (ctxCoesti) {
+    chartCoestiInstancia = new Chart(ctxCoesti, {
+      type: 'bar',
+      data: {
+        labels: binsLabels,
+        datasets: [
+          {
+            type: 'line',
+            label: 'Campana Gauss',
+            data: gaussCoesti,
+            borderColor: '#00D58A',
+            borderWidth: 2.5,
+            pointRadius: 0,
+            tension: 0.35,
+            order: 0
+          },
+          {
+            type: 'bar',
+            label: `Estaciones (${stCoesti.count} EESS)`,
+            data: freqCoesti,
+            backgroundColor: 'rgba(0, 213, 138, 0.55)',
+            borderColor: '#00D58A',
+            borderWidth: 1.5,
+            borderRadius: 4,
+            order: 1
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        interaction: {
+          mode: 'index',
+          intersect: false
+        },
+        plugins: {
+          legend: { 
+            position: 'bottom', 
+            labels: { boxWidth: 12, font: { size: 9.5, weight: '600' } } 
+          },
+          tooltip: {
+            enabled: false,
+            external: externalTooltipHandler,
+          }
+        },
+        scales: {
+          x: { grid: { color: 'rgba(226, 232, 240, 0.6)' }, ticks: { font: { size: 9, weight: '600' } } },
+          y: { beginAtZero: true, grid: { color: 'rgba(226, 232, 240, 0.6)' }, title: { display: true, text: 'Frecuencia (EESS)', font: { size: 9.5 } } }
+        }
+      }
+    });
   }
+}
 
-  // 3. Cálculos de zonas sobre o bajo COESTI (respetando marcas activas en modo MARCA)
-  let sumaArriba = 0, conteoArriba = 0, setEessArriba = new Set();
-  let sumaAbajo  = 0, conteoAbajo  = 0, setEessAbajo  = new Set();
+/* ==========================================================
+   MODO 2: PROMEDIO POR MARCAS (Motor SVG Nativo con Logos)
+   ========================================================== */
+function renderModoMarca(estaciones, combustible, benchmark) {
+  const wrap = document.getElementById('analytics-svg-wrap');
+  if (!wrap) return;
 
-  listaEstaciones.forEach(est => {
+  // 1. Agrupar precios por marca
+  const acumulador = {};
+  estaciones.forEach(est => {
     const comps = est.actores?.filter(esCompetenciaExterna) || [];
     comps.forEach(c => {
       const m = normalizarMarca(c.marca);
-
-      if (modo === 'MARCA' && analisisState.marcasSeleccionadas && !analisisState.marcasSeleccionadas.has(m)) {
-        return;
-      }
+      if (!m || m === 'SIN MARCA') return;
+      if (analisisState.marcasSeleccionadas && !analisisState.marcasSeleccionadas.has(m)) return;
 
       const p = c.combustibles?.[combustible]?.precio;
       if (p && p > 0) {
-        const idComp = c.site_id || c.nombre_linea;
-        if (p > benchmark) {
-          sumaArriba += p;
-          conteoArriba++;
-          setEessArriba.add(idComp);
-        } else if (p < benchmark) {
-          sumaAbajo += p;
-          conteoAbajo++;
-          setEessAbajo.add(idComp);
-        }
+        if (!acumulador[m]) acumulador[m] = { suma: 0, conteo: 0, estaciones: new Set() };
+        acumulador[m].suma += p;
+        acumulador[m].conteo++;
+        acumulador[m].estaciones.add(c.site_id || c.nombre_linea);
       }
     });
   });
 
-  const promArriba = conteoArriba > 0 ? (sumaArriba / conteoArriba) : 0;
-  const promAbajo  = conteoAbajo  > 0 ? (sumaAbajo  / conteoAbajo)  : 0;
+  const items = [];
+  Object.keys(acumulador).forEach(m => {
+    let nombreDisplay = m;
+    let marcaDisplay = m;
+    if (m === 'PRIMAX') { nombreDisplay = 'PRIMAX (DEALERS)'; marcaDisplay = 'PRIMAX (DEALER)'; }
+    else if (m === 'WP') { nombreDisplay = 'WHITE PRODUCTS'; marcaDisplay = 'WHITE PRODUCTS'; }
 
-  // 4. Insertar el punto de referencia COESTI PONDERADO
-  if (benchmark > 0) {
-    let totalEstacionesCoesti = 0;
-    if (modo === 'MARCA') {
-      const setCoesti = new Set();
-      listaEstaciones.forEach(est => {
-        const propio = est.actores?.find(a => a.tipo_actor === 'PROPIO');
-        if (propio?.combustibles?.[combustible]?.precio > 0) {
-          setCoesti.add(est.own_site_id);
-        }
-      });
-      totalEstacionesCoesti = setCoesti.size;
+    items.push({
+      id: m,
+      nombre: nombreDisplay,
+      marca: marcaDisplay,
+      rawMarca: m,
+      totalEstaciones: acumulador[m].estaciones.size,
+      precio: acumulador[m].suma / acumulador[m].conteo,
+      esBenchmark: false
+    });
+  });
+
+  // 2. Benchmark propio
+  let totalEstacionesCoesti = 0;
+  const setCoesti = new Set();
+  estaciones.forEach(est => {
+    const propio = est.actores?.find(a => a.tipo_actor === 'PROPIO');
+    if (propio?.combustibles?.[combustible]?.precio > 0) {
+      setCoesti.add(est.own_site_id);
     }
+  });
+  totalEstacionesCoesti = setCoesti.size;
 
+  if (benchmark > 0) {
     items.push({
       id: 'coesti-ponderado-node',
       nombre: 'COESTI PONDERADO',
@@ -222,314 +521,110 @@ export function renderAnalisis(todasLasEstaciones) {
     });
   }
 
-  // Ordenar de menor a mayor precio a lo largo del eje horizontal X
+  if (items.length === 0) {
+    wrap.innerHTML = `<div style="text-align:center; padding:60px; color:var(--k-muted);">No hay marcas para los filtros seleccionados.</div>`;
+    return;
+  }
+
+  // 3. KPIs de marcas sobre y bajo COESTI
+  let sumaArriba = 0, eessArriba = 0;
+  let sumaAbajo = 0, eessAbajo = 0;
+
+  items.filter(d => !d.esBenchmark).forEach(d => {
+    if (d.precio > benchmark) {
+      sumaArriba += (d.precio * d.totalEstaciones);
+      eessArriba += d.totalEstaciones;
+    } else if (d.precio < benchmark) {
+      sumaAbajo += (d.precio * d.totalEstaciones);
+      eessAbajo += d.totalEstaciones;
+    }
+  });
+
+  const valBajo = document.getElementById('val-bajo-coesti');
+  const eessBajo = document.getElementById('eess-bajo-coesti');
+  const valSobre = document.getElementById('val-sobre-coesti');
+  const eessSobre = document.getElementById('eess-sobre-coesti');
+
+  if (valBajo) valBajo.textContent = eessAbajo > 0 ? `S/ ${(sumaAbajo / eessAbajo).toFixed(2)}` : '—';
+  if (eessBajo) eessBajo.textContent = `${eessAbajo} EESS`;
+  if (valSobre) valSobre.textContent = eessArriba > 0 ? `S/ ${(sumaArriba / eessArriba).toFixed(2)}` : '—';
+  if (eessSobre) eessSobre.textContent = `${eessArriba} EESS`;
+
+  // 4. Renderizado SVG
   const sorted = [...items].sort((a, b) => a.precio - b.precio);
 
-  // =========================================================================
-  // PERILLAS DE AJUSTE
-  // =========================================================================
-  const CONFIG_GRAFICO = {
-    W: 1700,
-    H: 720,
-    topPad: 130,
-    bottomPad: 130,
-    leftPad: 65,
-    rightPad: 65,
-    minDistanciaX: 95
-  };
-
-  const { W, H, topPad, bottomPad, leftPad, rightPad, minDistanciaX } = CONFIG_GRAFICO;
-  const chartH = H - topPad - bottomPad;
+  const W = 1600;
+  const H = 680;
+  const topPad = 140;
+  const bottomPad = 140;
+  const leftPad = 80;
+  const rightPad = 80;
 
   const precios = sorted.map(d => d.precio);
-  const minP = Math.min(...precios) - 0.20;
-  const maxP = Math.max(...precios) + 0.20;
+  const minP = Math.min(...precios) - 0.25;
+  const maxP = Math.max(...precios) + 0.25;
 
+  const chartH = H - topPad - bottomPad;
   const scaleY = (val) => (H - bottomPad) - ((val - minP) / (maxP - minP || 1)) * chartH;
   const benchY = scaleY(benchmark);
 
   const chartW = W - leftPad - rightPad;
   const stepX = chartW / Math.max(1, sorted.length - 1);
 
-  const benchIndex = sorted.findIndex(d => d.esBenchmark);
-  const benchX = benchIndex !== -1 ? (leftPad + (benchIndex * stepX)) : (W / 2);
-
-  // 5. Muestreo de etiquetas
-  const indicesVisibles = new Set();
-  const n = sorted.length;
-
-  if (modo === 'MARCA') {
-    for (let i = 0; i < n; i++) indicesVisibles.add(i);
-  } else {
-    let ultimoXArriba = -999;
-    let ultimoXAbajo  = -999;
-    const steps = 24;
-
-    for (let k = 0; k <= steps; k++) {
-      const idx = Math.min(n - 1, Math.round((k / steps) * (n - 1)));
-      const posX = leftPad + (idx * stepX);
-      const esArriba = scaleY(sorted[idx].precio) <= benchY;
-
-      if (esArriba) {
-        if (posX - ultimoXArriba >= minDistanciaX || idx === n - 1) {
-          indicesVisibles.add(idx);
-          ultimoXArriba = posX;
-        }
-      } else {
-        if (posX - ultimoXAbajo >= minDistanciaX || idx === 0) {
-          indicesVisibles.add(idx);
-          ultimoXAbajo = posX;
-        }
-      }
-    }
-
-    for (let k = 0; k <= steps; k++) {
-      const idx = Math.min(n - 1, Math.round((k / steps) * (n - 1)));
-      const posX = leftPad + (idx * stepX);
-      const esArriba = scaleY(sorted[idx].precio) <= benchY;
-
-      if (Math.abs(posX - benchX) < minDistanciaX) continue;
-
-      if (esArriba) {
-        if (posX - ultimoXArriba >= minDistanciaX || idx === n - 1) {
-          indicesVisibles.add(idx);
-          ultimoXArriba = posX;
-        }
-      } else {
-        if (posX - ultimoXAbajo >= minDistanciaX || idx === 0) {
-          indicesVisibles.add(idx);
-          ultimoXAbajo = posX;
-        }
-      }
-    }
-
-    if (benchIndex !== -1) indicesVisibles.add(benchIndex);
-  }
-
   let elementsSvg = '';
-  let labelCounterArriba = 0;
-  let labelCounterAbajo = 0;
+
+  // Línea roja punteada del Benchmark COESTI
+  elementsSvg += `
+    <line x1="${leftPad - 30}" y1="${benchY}" x2="${W - rightPad + 30}" y2="${benchY}" 
+          stroke="#D92D4E" stroke-width="1.8" stroke-dasharray="4,4" />
+    <text x="${leftPad - 30}" y="${benchY - 8}" font-size="13" font-weight="800" fill="#D92D4E" font-family="'Poppins', sans-serif">
+      COESTI PONDERADO: S/ ${benchmark.toFixed(2)}
+    </text>
+  `;
 
   sorted.forEach((d, i) => {
     const cx = leftPad + (i * stepX);
     const cy = scaleY(d.precio);
-    const diff = (d.precio - benchmark);
-    const diffStr = (diff >= 0 ? `+${diff.toFixed(2)}` : diff.toFixed(2));
-
     const isBench = d.esBenchmark;
-    const nodeColor = isBench ? '#D92D4E' : '#2E3192';
-    const nodeRadius = isBench ? 5.5 : (modo === 'MARCA' ? 5.0 : 2.5);
-    const lineWidth = isBench ? 1.5 : (modo === 'MARCA' ? 1.0 : 0.7);
 
-    elementsSvg += `<line x1="${cx}" y1="${benchY}" x2="${cx}" y2="${cy}" stroke="${isBench ? '#D92D4E' : '#D8E0E9'}" stroke-width="${lineWidth}" />`;
+    // Conector vertical
+    elementsSvg += `<line x1="${cx}" y1="${benchY}" x2="${cx}" y2="${cy}" stroke="${isBench ? '#D92D4E' : '#D8E0E9'}" stroke-width="${isBench ? 2 : 1.2}" stroke-dasharray="${isBench ? '3,3' : 'none'}" />`;
 
-    if (modo === 'MARCA') {
-      const posArriba = cy < benchY;
-      const logoY  = posArriba ? (cy - 72) : (cy + 22);
-      const textY  = posArriba ? (cy - 114) : (cy + 92);
-      const countY = posArriba ? (cy - 97)  : (cy + 109);
-      const priceY = posArriba ? (cy - 79)  : (cy + 128);
+    // Nodo/Punto
+    elementsSvg += `<circle cx="${cx}" cy="${cy}" r="${isBench ? 6 : 5}" fill="${isBench ? '#D92D4E' : '#2E3192'}" />`;
 
-      if (!isBench) {
-        const logoUrl = getBrandLogo(d.rawMarca);
-        elementsSvg += `
-          <image href="${logoUrl}" x="${cx - 24}" y="${logoY}" width="48" height="48" 
-                 preserveAspectRatio="xMidYMid meet" style="filter: drop-shadow(0 1px 3px rgba(0,0,0,0.18));" />
-        `;
-      }
+    const posArriba = cy < benchY;
+    const logoY = posArriba ? (cy - 74) : (cy + 24);
+    const textY = posArriba ? (cy - 116) : (cy + 96);
+    const countY = posArriba ? (cy - 98) : (cy + 114);
+    const priceY = posArriba ? (cy - 80) : (cy + 134);
 
-      const countText = d.totalEstaciones ? `${d.totalEstaciones} EESS` : '';
-
+    if (!isBench) {
+      const logoUrl = getBrandLogo(d.rawMarca);
       elementsSvg += `
-        <text x="${cx}" y="${isBench ? (posArriba ? cy - 36 : cy + 42) : textY}" 
-              text-anchor="middle" font-size="16" font-weight="${isBench ? '700' : '600'}" 
-              fill="${isBench ? '#D92D4E' : '#16182F'}">
-          ${d.nombre}
-        </text>
-
-        ${countText ? `
-          <text x="${cx}" y="${isBench ? (posArriba ? cy - 20 : cy + 58) : countY}" 
-                text-anchor="middle" font-size="14" font-weight="600" 
-                fill="${isBench ? '#D92D4E' : '#7A8699'}">
-            ${countText}
-          </text>
-        ` : ''}
-
-        <text x="${cx}" y="${isBench ? (posArriba ? cy - 4 : cy + 76) : priceY}" 
-              text-anchor="middle" font-size="17" font-weight="700" 
-              fill="${isBench ? '#D92D4E' : '#505F79'}">
-          S/ ${d.precio.toFixed(2)}
-        </text>
+        <image href="${logoUrl}" x="${cx - 22}" y="${logoY}" width="44" height="44" preserveAspectRatio="xMidYMid meet" style="filter: drop-shadow(0 2px 4px rgba(0,0,0,0.14));" />
       `;
-    } else if (indicesVisibles.has(i)) {
-      const anchor = (cx < 110) ? 'start' : (cx > W - 110 ? 'end' : 'middle');
-
-      if (isBench) {
-        const benchTargetY = Math.max(topPad + 10, benchY - 65);
-        elementsSvg += `
-          <line x1="${cx}" y1="${cy - 6}" x2="${cx}" y2="${benchTargetY + 28}" 
-                stroke="#D92D4E" stroke-width="1.3" stroke-dasharray="3,3" />
-          <circle cx="${cx}" cy="${benchTargetY + 28}" r="2" fill="#D92D4E" />
-
-          <text x="${cx}" y="${benchTargetY}" text-anchor="${anchor}" font-size="14" font-weight="700" fill="#D92D4E">
-            COESTI POND.
-          </text>
-          <text x="${cx}" y="${benchTargetY + 16}" text-anchor="${anchor}" font-size="15" font-weight="700" fill="#D92D4E">
-            S/ ${d.precio.toFixed(2)}
-          </text>
-        `;
-      } else {
-        const posArriba = cy <= benchY;
-        const abrev = d.nombre.length > 15 ? d.nombre.substring(0, 13) + '…' : d.nombre;
-
-        if (posArriba) {
-          const nivelY = (labelCounterArriba % 2 === 0) ? 48 : 82;
-          labelCounterArriba++;
-
-          elementsSvg += `
-            <line x1="${cx}" y1="${cy - 4}" x2="${cx}" y2="${nivelY + 18}" 
-                  stroke="#B8C3D0" stroke-width="0.8" stroke-dasharray="2,2" />
-            <circle cx="${cx}" cy="${nivelY + 18}" r="1.5" fill="#8A96A6" />
-            <text x="${cx}" y="${nivelY}" text-anchor="${anchor}" font-size="13" font-weight="500" fill="#6A7789">
-              ${abrev}
-            </text>
-            <text x="${cx}" y="${nivelY + 13}" text-anchor="${anchor}" font-size="13" font-weight="700" fill="#1F226B">
-              S/ ${d.precio.toFixed(2)}
-            </text>
-          `;
-        } else {
-          const nivelY = (labelCounterAbajo % 2 === 0) ? (H - 85) : (H - 50);
-          labelCounterAbajo++;
-
-          elementsSvg += `
-            <line x1="${cx}" y1="${cy + 4}" x2="${cx}" y2="${nivelY - 14}" 
-                  stroke="#B8C3D0" stroke-width="0.8" stroke-dasharray="2,2" />
-            <circle cx="${cx}" cy="${nivelY - 14}" r="1.5" fill="#8A96A6" />
-            <text x="${cx}" y="${nivelY}" text-anchor="${anchor}" font-size="13" font-weight="700" fill="#1F226B">
-              S/ ${d.precio.toFixed(2)}
-            </text>
-            <text x="${cx}" y="${nivelY + 13}" text-anchor="${anchor}" font-size="13" font-weight="500" fill="#6A7789">
-              ${abrev}
-            </text>
-          `;
-        }
-      }
     }
 
+    const countText = d.totalEstaciones ? `${d.totalEstaciones} EESS` : '';
+
     elementsSvg += `
-      <circle cx="${cx}" cy="${cy}" r="${nodeRadius}" fill="${nodeColor}" class="dot-node"
-              data-nombre="${d.nombre}" data-marca="${d.marca}" data-prod="${combustible}" 
-              data-precio="${d.precio.toFixed(2)}" data-diff="${diffStr}" data-bench="${isBench}"
-              data-eess="${d.totalEstaciones || ''}" />
+      <text x="${cx}" y="${isBench ? (posArriba ? cy - 42 : cy + 44) : textY}" text-anchor="middle" font-size="14" font-weight="${isBench ? '800' : '700'}" fill="${isBench ? '#D92D4E' : '#16182F'}" font-family="'Inter', sans-serif">
+        ${d.nombre}
+      </text>
+      ${countText ? `
+      <text x="${cx}" y="${isBench ? (posArriba ? cy - 24 : cy + 62) : countY}" text-anchor="middle" font-size="12" font-weight="600" fill="${isBench ? '#D92D4E' : '#7A8699'}" font-family="'Inter', sans-serif">
+        ${countText}
+      </text>` : ''}
+      <text x="${cx}" y="${isBench ? (posArriba ? cy - 6 : cy + 80) : priceY}" text-anchor="middle" font-size="15" font-weight="800" fill="${isBench ? '#D92D4E' : '#505F79'}" font-family="'Poppins', sans-serif">
+        S/ ${d.precio.toFixed(2)}
+      </text>
     `;
   });
 
-  // 6. 4 Cuadrantes Virtuales con tarjetas en cuadrantes despejados
   wrap.innerHTML = `
-    <svg viewBox="0 0 ${W} ${H}" width="100%" height="100%" preserveAspectRatio="none" class="analytics-svg">
-      <defs>
-        <filter id="card-shadow" x="-10%" y="-10%" width="125%" height="125%">
-          <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.08" />
-        </filter>
-      </defs>
-
-      ${benchmark > 0 ? `
-        <!-- Fondo Cuadrante Precios Bajos (Inferior Izquierdo) -->
-        <rect x="0" y="${benchY}" width="${benchX}" height="${H - benchY}" fill="#2E3192" fill-opacity="0.035" />
-
-        <!-- Fondo Cuadrante Precios Altos (Superior Derecho) -->
-        <rect x="${benchX}" y="0" width="${W - benchX}" height="${benchY}" fill="#D92D4E" fill-opacity="0.035" />
-
-        <!-- Línea vertical punteada divisoria (COESTI) -->
-        <line x1="${benchX}" y1="15" x2="${benchX}" y2="${H - 15}" 
-              stroke="#D92D4E" stroke-width="1.3" stroke-dasharray="3,3" opacity="0.6" />
-
-        <!-- Línea horizontal punteada divisoria (COESTI) -->
-        <line x1="15" y1="${benchY}" x2="${W - 15}" y2="${benchY}" 
-              stroke="#D92D4E" stroke-width="1.4" stroke-dasharray="4,4" />
-
-        <rect x="15" y="${benchY - 18}" width="200" height="15" fill="#FBFCFE" opacity="0.94"/>
-        <text x="20" y="${benchY - 7}" font-size="18" font-weight="700" fill="#D92D4E">
-          COESTI PONDERADO: S/ ${benchmark.toFixed(2)}
-        </text>
-
-        ${modo === 'MARCA' ? `
-          <!-- CUADRO KPI SUPERIOR IZQUIERDO: BAJO COESTI -->
-          <g transform="translate(35, 30)" filter="url(#card-shadow)">
-            <rect width="360" height="100" rx="10" fill="#FFFFFF" stroke="#D1D9F0" stroke-width="1.5" />
-            <rect width="6" height="100" rx="3" fill="#2E3192" />
-            <text x="24" y="28" font-size="13" font-weight="800" fill="#2E3192" letter-spacing="0.08em">
-              COMPETENCIA BAJO COESTI
-            </text>
-            <text x="24" y="44" font-size="11" font-weight="500" fill="#7A8699">
-              Marcas seleccionadas bajo el benchmark propio
-            </text>
-            <text x="24" y="82" font-size="28" font-weight="800" fill="#16182F">
-              S/ ${promAbajo.toFixed(2)}
-            </text>
-            <text x="180" y="80" font-size="14" font-weight="700" fill="#2E3192">
-              ${setEessAbajo.size} <tspan font-weight="500" fill="#7A8699">EESS</tspan>
-            </text>
-          </g>
-
-          <!-- CUADRO KPI INFERIOR DERECHO: SOBRE COESTI -->
-          <g transform="translate(${W - 395}, ${H - 130})" filter="url(#card-shadow)">
-            <rect width="360" height="100" rx="10" fill="#FFFFFF" stroke="#F5CAD2" stroke-width="1.5" />
-            <rect width="6" height="100" rx="3" fill="#D92D4E" />
-            <text x="24" y="28" font-size="13" font-weight="800" fill="#D92D4E" letter-spacing="0.08em">
-              COMPETENCIA SOBRE COESTI
-            </text>
-            <text x="24" y="44" font-size="11" font-weight="500" fill="#7A8699">
-              Marcas seleccionadas sobre el benchmark propio
-            </text>
-            <text x="24" y="82" font-size="28" font-weight="800" fill="#16182F">
-              S/ ${promArriba.toFixed(2)}
-            </text>
-            <text x="180" y="80" font-size="14" font-weight="700" fill="#D92D4E">
-              ${setEessArriba.size} <tspan font-weight="500" fill="#7A8699">EESS</tspan>
-            </text>
-          </g>
-        ` : ''}
-      ` : ''}
-
+    <svg viewBox="0 0 ${W} ${H}" style="width:100%; height:100%; display:block;" preserveAspectRatio="xMidYMid meet">
       ${elementsSvg}
     </svg>
   `;
-
-  // 7. Tooltip interactivo
-  const chartContainer = document.getElementById('analytics-container');
-  wrap.querySelectorAll('.dot-node').forEach(dot => {
-    dot.addEventListener('mouseenter', (e) => {
-      const { nombre, marca, prod, precio, diff, bench, eess } = e.target.dataset;
-      const esBench = bench === 'true';
-
-      tooltip.innerHTML = `
-        <div class="tt-title">${nombre}</div>
-        <div>Marca: <span>${marca}</span></div>
-        ${eess ? `<div>Estaciones: <span>${eess} EESS</span></div>` : ''}
-        <div>Producto: <span>${prod}</span></div>
-        <div>Precio: <b>S/ ${precio}</b> ${esBench ? '(BENCHMARK)' : `(${diff})`}</div>
-      `;
-      tooltip.style.display = 'block';
-    });
-
-    dot.addEventListener('mousemove', (e) => {
-      const rect = chartContainer.getBoundingClientRect();
-      const mouseX = e.clientX - rect.left;
-      const mouseY = e.clientY - rect.top;
-
-      const tooltipW = tooltip.offsetWidth || 160;
-      let leftPos = mouseX + 12;
-      if (leftPos + tooltipW > rect.width) {
-        leftPos = mouseX - tooltipW - 12;
-      }
-
-      tooltip.style.left = `${leftPos}px`;
-      tooltip.style.top = `${mouseY - 25}px`;
-    });
-
-    dot.addEventListener('mouseleave', () => {
-      tooltip.style.display = 'none';
-    });
-  });
 }

@@ -109,3 +109,50 @@
 .analytics-tooltip b {
   color: var(--k-lime);
 }
+
+/* --- Grid de KPIs en Análisis Ponderado --- */
+.analytics-kpis-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 12px;
+  flex: 0 0 auto;
+}
+
+.analytics-kpi-card {
+  background: #fff;
+  border: 1px solid var(--k-line);
+  border-radius: 6px;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+
+.analytics-kpi-label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--k-muted);
+  margin-bottom: 2px;
+}
+
+.analytics-kpi-val {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--k-ink);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}
+
+.analytics-kpi-sub {
+  font-size: 0.65rem;
+  color: var(--k-muted);
+  margin-top: 2px;
+}
+
+.kpi-pos { color: var(--diff-pos); }
+.kpi-neg { color: var(--diff-neg); }
