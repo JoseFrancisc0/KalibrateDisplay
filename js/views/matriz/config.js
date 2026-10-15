@@ -13,24 +13,6 @@ export const AGRUPACIONES = [
     esJerarquico: false
   },
   {
-    id: 'ZONA',
-    label: 'Zonas',
-    plural: 'zonas',
-    campo: 'zona',
-    sinValor: 'SIN ZONA',
-    prefijo: 'ZONA ',
-    esJerarquico: false
-  },
-  {
-    id: 'GPC',
-    label: 'GPC Groups',
-    plural: 'GPC groups',
-    campo: 'gpc_group',
-    sinValor: 'SIN GPC GROUP',
-    prefijo: '',
-    esJerarquico: false
-  },
-  {
     id: 'UBICACION',
     label: 'Ubicación Política',
     plural: 'ubicaciones',

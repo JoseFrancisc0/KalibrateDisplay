@@ -19,7 +19,7 @@ export function viewBarGeneralHTML(vistas, vistaActiva) {
 
       <!-- Espaciador flexible que empuja el modo al extremo derecho -->
       <div class="view-spacer"></div>
-      <div class="view-mode" id="view-mode">MÉTRICA ACTIVA: PRECIOS</div>
+      <div class="view-mode" id="view-mode">MATRIZ: PRECIOS VIGENTES</div>
     </div>
   `;
 }

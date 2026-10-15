@@ -122,6 +122,48 @@ tr.child-row:hover { background: #F3F7FB; }
 tr.child-row td { font-size: 0.77rem; color: #38415A; }
 tr.child-row td:first-child { border-left: 3px solid var(--k-line); padding-left: 28px; }
 
+/* --- Contenedor de Celda de Competencia --- */
+.cell-comp-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  line-height: 1.15;
+}
+
+.comp-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+/* Badge / Píldora de diferencial al lado del precio */
+.comp-diff-pill {
+  font-size: 0.64rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+.comp-diff-pill.diff-pos {
+  color: var(--diff-pos);
+}
+
+.comp-diff-pill.diff-neg {
+  color: var(--diff-neg);
+}
+
+.comp-diff-pill.diff-zero {
+  color: var(--k-muted);
+}
+
+/* Timestamp de vigencia de competencia */
+.comp-timestamp {
+  font-size: 0.55rem;
+  color: #8E9BAE;
+  margin-top: 1px;
+}
+
 /* --- Átomos de fila --- */
 .site-info {
   display: flex;

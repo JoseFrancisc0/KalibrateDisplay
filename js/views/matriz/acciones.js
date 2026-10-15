@@ -46,15 +46,6 @@ export function iniciarListenersMatriz() {
 /* ---------- Acciones ---------- */
 
 export const acciones = {
-  setModo(el) {
-    const modo = el.dataset.arg;
-    matrizState.modoActual = modo;
-    activar('btn-precios', modo === 'PRECIOS');
-    activar('btn-diferencial', modo === 'DIFERENCIAL');
-    actualizarIndicadorModo();
-    render();
-  },
-
   filtrarEstaciones() {
     matrizState.subPaginaGrupo = 0;
     render();

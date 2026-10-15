@@ -11,6 +11,7 @@ html, body {
 }
 
 body {
+  zoom: 0.9;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   background: var(--k-paper);
   color: var(--k-ink);

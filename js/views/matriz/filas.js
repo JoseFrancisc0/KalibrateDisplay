@@ -38,19 +38,32 @@ function celdasCompetidor(comp) {
       return `<td class="col-num no-data">—</td>`;
     }
 
-    if (state.modoActual === 'PRECIOS') {
-      return `<td class="col-num">${item.precio.toFixed(2)}</td>`;
-    } else {
-      const diff = item.diferencial;
-      if (diff === null || diff === undefined) return `<td class="col-num no-data">—</td>`;
-
+    // 1. Diferencial al lado del precio
+    let diffHtml = '';
+    const diff = item.diferencial;
+    if (diff !== null && diff !== undefined) {
       let claseDiff = 'diff-zero';
       let signo = '';
       if (diff > 0) { claseDiff = 'diff-pos'; signo = '+'; }
       else if (diff < 0) { claseDiff = 'diff-neg'; }
-
-      return `<td class="col-num ${claseDiff}">${signo}${diff.toFixed(2)}</td>`;
+      diffHtml = `<span class="comp-diff-pill ${claseDiff}">(${signo}${diff.toFixed(2)})</span>`;
     }
+
+    // 2. Fecha / timestamp de vigencia
+    const vigenciaHtml = item.vigencia 
+      ? `<span class="price-timestamp comp-timestamp">${item.vigencia}</span>` 
+      : '';
+
+    return `
+      <td class="col-num">
+        <div class="cell-comp-wrap">
+          <div class="comp-price-row">
+            ${diffHtml}
+            <span class="price-val">${item.precio.toFixed(2)}</span>
+          </div>
+          ${vigenciaHtml}
+        </div>
+      </td>`;
   }).join('');
 }
 

@@ -29,9 +29,7 @@ export const matriz = {
   alEntrar: poblarFiltroMarcas,
   render: renderMatriz,
   alRedimensionar: recalcularCapacidad,
-  etiquetaModo: () => (matrizState.modoActual === 'PRECIOS')
-    ? 'MÉTRICA ACTIVA: PRECIOS'
-    : 'MÉTRICA ACTIVA: DIFERENCIALES',
+  etiquetaModo: () => 'MATRIZ: PRECIOS VIGENTES',
 
   acciones,
   iniciarListeners: iniciarListenersMatriz,
