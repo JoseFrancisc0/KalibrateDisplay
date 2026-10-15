@@ -144,8 +144,8 @@ export const acciones = {
     }
     render();
   },
-  toggleDropdownMarcas() {
-    alternarDesplegable('dropdown-marcas-content');
+  toggleDropdownMarcas(el) {
+    alternarDesplegable(el, 'dropdown-marcas-content');
   },
   marcarTodasMarcas(el) {
     if (el.dataset.arg === 'true') {

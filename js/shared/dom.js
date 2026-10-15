@@ -32,11 +32,21 @@ export function activar(id, activo) {
   if (el) el.classList.toggle('active', activo);
 }
 
-/** Abre/cierra un desplegable alternando display none ↔ block. */
-export function alternarDesplegable(id) {
-  const drop = document.getElementById(id);
-  if (drop) {
-    drop.style.display = (drop.style.display === 'none' || !drop.style.display) ? 'block' : 'none';
+export function alternarDesplegable(btnId, dropId) {
+  const btn = typeof btnId === 'string' ? document.getElementById(btnId) : btnId;
+  const drop = document.getElementById(dropId);
+  if (!btn || !drop) return;
+
+  const estaVisible = drop.style.display === 'block';
+
+  if (estaVisible) {
+    drop.style.display = 'none';
+  } else {
+    // Calcular coordenadas del botón en la pantalla
+    const rect = btn.getBoundingClientRect();
+    drop.style.top = `${rect.top}px`;
+    drop.style.left = `${rect.right + 8}px`;
+    drop.style.display = 'block';
   }
 }
 

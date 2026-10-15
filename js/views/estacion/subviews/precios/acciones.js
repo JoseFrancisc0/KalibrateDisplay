@@ -23,8 +23,8 @@ export const acciones = {
     render();
   },
 
-  toggleDropdownEvoRivales() {
-    alternarDesplegable('dropdown-evo-rivales');
+  toggleDropdownEvoRivales(el) {
+    alternarDesplegable(el, 'dropdown-evo-rivales');
   },
 
   marcarTodasRivalesEvo(el) {

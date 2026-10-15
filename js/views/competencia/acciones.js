@@ -144,8 +144,8 @@ export const acciones = {
         competenciaSemanalState.distrito = el.value;
         render();
     },
-    toggleDropdownCSMarcas() {
-        alternarDesplegable('dropdown-cs-marcas-content');
+    toggleDropdownCSMarcas(el) {
+        alternarDesplegable(el, 'dropdown-cs-marcas-content');
     },
     marcarTodasCSMarcas(el) {
         const cs = competenciaSemanalState;

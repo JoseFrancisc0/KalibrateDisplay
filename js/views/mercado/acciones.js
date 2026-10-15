@@ -166,8 +166,8 @@ export const acciones = {
     render();
   },
 
-  toggleDropdownMarcasMargenMercado() {
-    alternarDesplegable('dropdown-mm-marcas');
+  toggleDropdownMarcasMargenMercado(el) {
+    alternarDesplegable(el, 'dropdown-mm-marcas');
   },
 
   marcarTodasMarcasMargenMercado(el) {

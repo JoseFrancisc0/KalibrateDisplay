@@ -32,28 +32,15 @@ export function fichaEstacionHTML() {
     <!-- LISTA DESCRIPTIVA -->
     <div class="estacion-rail-list">
       <div class="estacion-rail-field">
-        <span class="estacion-rail-label">Dirección</span>
         <span class="estacion-rail-val">${direccion}</span>
       </div>
       <div class="estacion-rail-field">
-        <span class="estacion-rail-label">Distrito / Provincia</span>
-        <span class="estacion-rail-val">${distrito} · ${provincia}</span>
+        <span class="estacion-rail-label">Distrito / Provincia / Departamento</span>
+        <span class="estacion-rail-val">${distrito} · ${provincia} · ${depto}</span>
       </div>
       <div class="estacion-rail-field">
-        <span class="estacion-rail-label">Departamento</span>
-        <span class="estacion-rail-val">${depto}</span>
-      </div>
-      <div class="estacion-rail-field">
-        <span class="estacion-rail-label">Zona</span>
-        <span class="estacion-rail-val">${zona}</span>
-      </div>
-      <div class="estacion-rail-field">
-        <span class="estacion-rail-label">Corredor</span>
-        <span class="estacion-rail-val">${corredor}</span>
-      </div>
-      <div class="estacion-rail-field">
-        <span class="estacion-rail-label">GPC Group</span>
-        <span class="estacion-rail-val">${gpc}</span>
+        <span class="estacion-rail-label">GPC Group / Zona / Corredor</span>
+        <span class="estacion-rail-val">${gpc} · ${zona} · ${corredor}</span>
       </div>
     </div>
   `;

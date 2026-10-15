@@ -10,7 +10,8 @@
   display: flex;
   flex-direction: column;
   padding: 14px 14px 12px;
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden; /* Cero scroll horizontal en el riel */
   box-sizing: border-box;
   height: 100%;
 }
@@ -185,17 +186,27 @@
 .multiselect-arrow { font-size: 0.75rem; color: #A08FA6; }
 
 .multiselect-dropdown {
-  position: absolute;
-  top: calc(100% + 4px);
-  left: 0;
-  width: 100%;
+  position: fixed;
+  width: 220px;
   background: #1C203E;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 4px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.55);
-  z-index: 100;
-  padding: 8px;
+  border-radius: 6px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.65);
+  z-index: 99999;
+  padding: 8px 10px;
   box-sizing: border-box;
+}
+
+.multiselect-dropdown::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: -6px;
+  width: 0;
+  height: 0;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-right: 6px solid #1C203E;
 }
 
 .multiselect-actions {
@@ -222,11 +233,12 @@
 }
 
 .multiselect-list {
-  max-height: 180px;
+  max-height: 80px;
   overflow-y: auto;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 4px;
 }
 .multiselect-list::-webkit-scrollbar { width: 4px; }
 .multiselect-list::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 2px; }
@@ -234,12 +246,18 @@
 .multiselect-item {
   display: flex;
   align-items: center;
-  gap: 7px;
+  gap: 8px;
   font-size: 0.68rem;
   color: #E2DBE5;
   cursor: pointer;
   user-select: none;
+  padding: 2px 0;
+  line-height: 1.2;
 }
+.multiselect-item:hover {
+  color: #fff;
+}
+
 .multiselect-item input[type="checkbox"] {
   cursor: pointer;
   accent-color: var(--k-emerald);

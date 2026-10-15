@@ -22,8 +22,8 @@ export const acciones = {
     render();
   },
 
-  toggleDropdownMargenRivales() {
-    alternarDesplegable('dropdown-margen-rivales');
+  toggleDropdownMargenRivales(el) {
+    alternarDesplegable(el, 'dropdown-margen-rivales');
   },
 
   marcarTodasRivalesMargen(el) {

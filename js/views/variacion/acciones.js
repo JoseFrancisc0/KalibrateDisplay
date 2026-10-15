@@ -155,8 +155,8 @@ export const acciones = {
     render();
   },
 
-  toggleDropdownVarMarcas() {
-    alternarDesplegable('dropdown-var-marcas-content');
+  toggleDropdownVarMarcas(el) {
+    alternarDesplegable(el, 'dropdown-var-marcas-content');
   },
 
   marcarTodasVarMarcas(el) {
