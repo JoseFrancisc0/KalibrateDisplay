@@ -1,5 +1,5 @@
 {
-  "actualizado_al": "2026-10-14T22:44:50",
+  "actualizado_al": "2026-10-15T09:03:16",
   "combustibles_orden": [
     "Diesel",
     "Regular",
@@ -283,7 +283,7 @@
         },
         {
           "site_id": "0e8ec440-efa2-4975-9124-cbe5ceda78eb",
-          "nombre_linea": "JE OPERADORES - J.E. OPERADORES S.A.C.",
+          "nombre_linea": "JE OPERADORES - ESTACION 715 GAMBETA",
           "marca": "WP",
           "tipo_actor": "COMPETENCIA",
           "es_competidor_propio": false,
@@ -316,7 +316,7 @@
         },
         {
           "site_id": "2ae11ce2-5632-449c-916a-d0955c16ea2c",
-          "nombre_linea": "WP CONTRERAS - SERVICENTRO Y TRANSPORTES CONTRERAS S.A.C. - SERTRACON S.A.C.",
+          "nombre_linea": "WP CONTRERAS - FUEL STATION CONTRERAS S.A.C.",
           "marca": "WP",
           "tipo_actor": "COMPETENCIA",
           "es_competidor_propio": false,
@@ -352,6 +352,10 @@
               "diferencial": 1.16,
               "main_marker": false
             },
+            "GLP": {
+              "precio": 6.79,
+              "main_marker": false
+            },
             "Premium": {
               "precio": 23.66,
               "diferencial": -0.07,
@@ -360,6 +364,24 @@
             "Regular": {
               "precio": 22.35,
               "diferencial": -0.4,
+              "main_marker": false
+            }
+          }
+        },
+        {
+          "site_id": "0f1efc28-a0a9-4378-bed5-3487da2096af",
+          "nombre_linea": "WP AGUKI - SERVICENTRO AGUKI S.A.",
+          "marca": "WP",
+          "tipo_actor": "COMPETENCIA",
+          "es_competidor_propio": false,
+          "distancia_km": 1.45,
+          "combustibles": {
+            "GLP": {
+              "precio": 7.38,
+              "main_marker": false
+            },
+            "GNV": {
+              "precio": 1.74,
               "main_marker": false
             }
           }
@@ -424,7 +446,7 @@
               "precio": 26.65,
               "costo": 24.92,
               "margen": 1.73,
-              "vigencia": "13/10 07:58",
+              "vigencia": "15/10 07:54",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -432,7 +454,7 @@
               "precio": 22.45,
               "costo": 21.92,
               "margen": 0.53,
-              "vigencia": "13/10 07:58",
+              "vigencia": "15/10 07:54",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -1551,13 +1573,13 @@
               "main_marker": true
             },
             "Premium": {
-              "precio": 24.49,
-              "diferencial": 0.2,
+              "precio": 24.99,
+              "diferencial": -0.3,
               "main_marker": true
             },
             "Regular": {
-              "precio": 22.49,
-              "diferencial": 0.2,
+              "precio": 22.99,
+              "diferencial": -0.3,
               "main_marker": true
             }
           }
@@ -1616,8 +1638,8 @@
               "main_marker": false
             },
             "GNV": {
-              "precio": 1.79,
-              "diferencial": 0.1,
+              "precio": 1.8,
+              "diferencial": 0.09,
               "main_marker": true
             },
             "GLP": {
@@ -1726,8 +1748,8 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 27.99,
-              "diferencial": -3.3,
+              "precio": 28.19,
+              "diferencial": -3.5,
               "main_marker": false
             },
             "Regular": {
@@ -1764,7 +1786,7 @@
               "precio": 26.29,
               "costo": 22.68,
               "margen": 3.61,
-              "vigencia": "13/10 08:56",
+              "vigencia": "15/10 08:51",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -1772,7 +1794,7 @@
               "precio": 23.69,
               "costo": 20.9,
               "margen": 2.79,
-              "vigencia": "13/10 08:56",
+              "vigencia": "15/10 08:51",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -1780,7 +1802,7 @@
               "precio": 21.49,
               "costo": 19.51,
               "margen": 1.98,
-              "vigencia": "13/10 08:56",
+              "vigencia": "15/10 08:51",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -2009,7 +2031,7 @@
               "precio": 22.99,
               "costo": 20.78,
               "margen": 2.21,
-              "vigencia": "14/10 09:25",
+              "vigencia": "15/10 08:45",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -2017,7 +2039,7 @@
               "precio": 25.29,
               "costo": 23.04,
               "margen": 2.25,
-              "vigencia": "14/10 09:25",
+              "vigencia": "15/10 08:45",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -2025,7 +2047,7 @@
               "precio": 21.19,
               "costo": 19.61,
               "margen": 1.58,
-              "vigencia": "14/10 09:25",
+              "vigencia": "15/10 08:45",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -2033,7 +2055,7 @@
               "precio": 1.67,
               "costo": 0.99,
               "margen": 0.68,
-              "vigencia": "14/10 09:25",
+              "vigencia": "15/10 08:45",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -2041,7 +2063,7 @@
               "precio": 7.65,
               "costo": 5.75,
               "margen": 1.9,
-              "vigencia": "14/10 09:25",
+              "vigencia": "15/10 08:45",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -2126,18 +2148,18 @@
           "distancia_km": 0.98,
           "combustibles": {
             "Premium": {
-              "precio": 21.74,
-              "diferencial": 1.25,
+              "precio": 21.58,
+              "diferencial": 1.41,
               "main_marker": false
             },
             "Diesel": {
-              "precio": 24.57,
-              "diferencial": 0.72,
+              "precio": 23.62,
+              "diferencial": 1.67,
               "main_marker": false
             },
             "Regular": {
-              "precio": 20.7,
-              "diferencial": 0.49,
+              "precio": 20.48,
+              "diferencial": 0.71,
               "main_marker": false
             },
             "GNV": {
@@ -2309,8 +2331,8 @@
       "distrito": "Miraflores",
       "gpc_group": "COESTI",
       "direccion": "AV. LA PAZ Y AV. ARMENDARIZ 575",
-      "own_lat": -12.13501,
-      "own_lon": -77.025222
+      "own_lat": -12.135009765625,
+      "own_lon": -77.02522277832031
     },
     {
       "own_site_id": "eba4d8bb-2649-4189-a6e8-7e2b18926230",
@@ -2763,62 +2785,15 @@
           }
         },
         {
-          "site_id": "021d4581-f528-4e93-9b85-f7c9ff6344d4",
-          "nombre_linea": "PETROPERU ROMANCE - SOLIER REYNOSO RAUL HUMBERTO",
-          "marca": "PETROPERU",
-          "tipo_actor": "COMPETENCIA",
-          "es_competidor_propio": false,
-          "combustibles": {
-            "Diesel": {
-              "precio": 24.19,
-              "diferencial": 0.3,
-              "main_marker": false
-            },
-            "Premium": {
-              "precio": 22.0,
-              "diferencial": 0.75,
-              "main_marker": false
-            },
-            "Regular": {
-              "precio": 20.8,
-              "diferencial": 0.15,
-              "main_marker": false
-            }
-          }
-        },
-        {
           "site_id": "3c23b1dc-9ca3-486e-b920-3bc752330b01",
           "nombre_linea": "REPSOL CAYMA ASIA - GRIFOS ESPINOZA S.A.",
           "marca": "REPSOL",
           "tipo_actor": "COMPETENCIA",
           "es_competidor_propio": false,
+          "distancia_km": 0.11,
           "combustibles": {
             "GNV": {
               "precio": 2.34,
-              "main_marker": false
-            }
-          }
-        },
-        {
-          "site_id": "4a19005c-4093-4275-b322-8d618a805d86",
-          "nombre_linea": "Copy of PETROPERU SAN PEDRO MALA - GRIFOSA S.A.C.",
-          "marca": "PETROPERU",
-          "tipo_actor": "COMPETENCIA",
-          "es_competidor_propio": false,
-          "combustibles": {
-            "Diesel": {
-              "precio": 24.2,
-              "diferencial": 0.29,
-              "main_marker": false
-            },
-            "Premium": {
-              "precio": 22.0,
-              "diferencial": 0.75,
-              "main_marker": false
-            },
-            "Regular": {
-              "precio": 20.8,
-              "diferencial": 0.15,
               "main_marker": false
             }
           }
@@ -2883,6 +2858,31 @@
           }
         },
         {
+          "site_id": "021d4581-f528-4e93-9b85-f7c9ff6344d4",
+          "nombre_linea": "PETROPERU ROMANCE - SOLIER REYNOSO RAUL HUMBERTO",
+          "marca": "PETROPERU",
+          "tipo_actor": "COMPETENCIA",
+          "es_competidor_propio": false,
+          "distancia_km": 5.5,
+          "combustibles": {
+            "Diesel": {
+              "precio": 24.19,
+              "diferencial": 0.3,
+              "main_marker": false
+            },
+            "Premium": {
+              "precio": 22.0,
+              "diferencial": 0.75,
+              "main_marker": false
+            },
+            "Regular": {
+              "precio": 20.8,
+              "diferencial": 0.15,
+              "main_marker": false
+            }
+          }
+        },
+        {
           "site_id": "3056f16f-bb74-45d2-9152-941e86086936",
           "nombre_linea": "REPSOL MELLIZA 2 - Recosac",
           "marca": "REPSOL",
@@ -2928,6 +2928,31 @@
             "Regular": {
               "precio": 23.99,
               "diferencial": -3.04,
+              "main_marker": false
+            }
+          }
+        },
+        {
+          "site_id": "4a19005c-4093-4275-b322-8d618a805d86",
+          "nombre_linea": "PETROPERU NONATO - GRUPO EMPRESARIAL NONATO E.I.R.L.",
+          "marca": "PETROPERU",
+          "tipo_actor": "COMPETENCIA",
+          "es_competidor_propio": false,
+          "distancia_km": 9.33,
+          "combustibles": {
+            "Diesel": {
+              "precio": 24.2,
+              "diferencial": 0.29,
+              "main_marker": false
+            },
+            "Premium": {
+              "precio": 22.0,
+              "diferencial": 0.75,
+              "main_marker": false
+            },
+            "Regular": {
+              "precio": 20.8,
+              "diferencial": 0.15,
               "main_marker": false
             }
           }
@@ -3417,7 +3442,7 @@
               "precio": 23.49,
               "costo": 20.68,
               "margen": 2.81,
-              "vigencia": "14/10 15:40",
+              "vigencia": "15/10 07:07",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -3425,7 +3450,7 @@
               "precio": 24.39,
               "costo": 22.8,
               "margen": 1.59,
-              "vigencia": "14/10 15:40",
+              "vigencia": "15/10 07:07",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -3433,7 +3458,7 @@
               "precio": 21.59,
               "costo": 19.49,
               "margen": 2.1,
-              "vigencia": "14/10 15:40",
+              "vigencia": "15/10 07:07",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -3441,7 +3466,7 @@
               "precio": 1.74,
               "costo": 1.01,
               "margen": 0.73,
-              "vigencia": "14/10 15:40",
+              "vigencia": "15/10 07:07",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -3449,7 +3474,7 @@
               "precio": 6.69,
               "costo": 5.85,
               "margen": 0.84,
-              "vigencia": "14/10 15:40",
+              "vigencia": "15/10 07:07",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -4050,8 +4075,8 @@
       "distrito": "Miraflores",
       "gpc_group": "COESTI",
       "direccion": "CALLE A. SCHEREIBER 124 CON CALLE SABOGAL AURORA -  MIRAFLORES",
-      "own_lat": -12.1226277777778,
-      "own_lon": -77.0110472222222
+      "own_lat": -12.122628211975098,
+      "own_lon": -77.01104736328125
     },
     {
       "own_site_id": "d3ecdda2-e1ef-4dff-93d5-b63f3537eb2d",
@@ -4241,13 +4266,13 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 22.99,
-              "diferencial": 0.4,
+              "precio": 22.29,
+              "diferencial": 1.1,
               "main_marker": false
             },
             "Regular": {
-              "precio": 21.45,
-              "diferencial": 0.7,
+              "precio": 20.75,
+              "diferencial": 1.4,
               "main_marker": false
             }
           }
@@ -4260,8 +4285,8 @@
       "distrito": "Nazca",
       "gpc_group": "COESTI",
       "direccion": "CARRETERA PANAMERICA SUR KM 460.5 VISTA ALEGRE ",
-      "own_lat": -14.903644,
-      "own_lon": -74.982895
+      "own_lat": -14.903643608093262,
+      "own_lon": -74.98289489746094
     },
     {
       "own_site_id": "98d955e3-4e72-4beb-a5c4-17fe0ea06b91",
@@ -4873,7 +4898,7 @@
               "precio": 25.45,
               "costo": 23.37,
               "margen": 2.08,
-              "vigencia": "14/10 15:17",
+              "vigencia": "15/10 08:37",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -4881,7 +4906,7 @@
               "precio": 23.15,
               "costo": 20.59,
               "margen": 2.56,
-              "vigencia": "14/10 15:17",
+              "vigencia": "15/10 08:37",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -4889,7 +4914,7 @@
               "precio": 21.45,
               "costo": 19.67,
               "margen": 1.78,
-              "vigencia": "14/10 15:17",
+              "vigencia": "15/10 08:37",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -5019,8 +5044,8 @@
       "distrito": "Barranco",
       "gpc_group": "COESTI",
       "direccion": "Av. El sol 697, esquina AV REP. PANAMA",
-      "own_lat": -12.13891,
-      "own_lon": -77.017956
+      "own_lat": -12.138910293579102,
+      "own_lon": -77.01795959472656
     },
     {
       "own_site_id": "2f594880-d604-4f81-bbb3-c9e7df58199f",
@@ -5231,7 +5256,7 @@
               "precio": 23.09,
               "costo": 20.75,
               "margen": 2.34,
-              "vigencia": "14/10 09:25",
+              "vigencia": "15/10 07:56",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -5239,7 +5264,7 @@
               "precio": 27.29,
               "costo": 23.54,
               "margen": 3.75,
-              "vigencia": "14/10 09:25",
+              "vigencia": "15/10 07:56",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -5247,7 +5272,7 @@
               "precio": 22.09,
               "costo": 19.52,
               "margen": 2.57,
-              "vigencia": "14/10 09:25",
+              "vigencia": "15/10 07:56",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -5255,7 +5280,7 @@
               "precio": 1.81,
               "costo": 1.02,
               "margen": 0.79,
-              "vigencia": "14/10 09:25",
+              "vigencia": "15/10 07:56",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -5263,7 +5288,7 @@
               "precio": 6.89,
               "costo": 5.79,
               "margen": 1.1,
-              "vigencia": "14/10 09:25",
+              "vigencia": "15/10 07:56",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -5278,8 +5303,8 @@
           "distancia_km": 0.73,
           "combustibles": {
             "Diesel": {
-              "precio": 26.74,
-              "diferencial": 0.55,
+              "precio": 24.74,
+              "diferencial": 2.55,
               "main_marker": false
             },
             "GLP": {
@@ -5363,8 +5388,8 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 24.99,
-              "diferencial": -1.9,
+              "precio": 25.19,
+              "diferencial": -2.1,
               "main_marker": false
             },
             "Regular": {
@@ -6208,8 +6233,8 @@
       "distrito": "Villa el Salvador",
       "gpc_group": "OMEGA",
       "direccion": "AA HH Villa de la Paz, Manzana C, Lote 17",
-      "own_lat": -12.23942304,
-      "own_lon": -76.91265908
+      "own_lat": -12.239422798156738,
+      "own_lon": -76.91265869140625
     },
     {
       "own_site_id": "3dc1cce5-7fe2-4b23-a393-5ac776612bb3",
@@ -7544,7 +7569,7 @@
               "precio": 26.29,
               "costo": 25.03,
               "margen": 1.26,
-              "vigencia": "14/10 15:03",
+              "vigencia": "15/10 08:11",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -7552,7 +7577,7 @@
               "precio": 7.75,
               "costo": 6.41,
               "margen": 1.34,
-              "vigencia": "14/10 15:03",
+              "vigencia": "15/10 08:11",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -7560,7 +7585,7 @@
               "precio": 23.55,
               "costo": 21.7,
               "margen": 1.85,
-              "vigencia": "14/10 15:03",
+              "vigencia": "15/10 08:11",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -7568,7 +7593,7 @@
               "precio": 22.85,
               "costo": 20.93,
               "margen": 1.92,
-              "vigencia": "14/10 15:03",
+              "vigencia": "15/10 08:11",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -7713,8 +7738,8 @@
           "distancia_km": 3.4,
           "combustibles": {
             "Diesel": {
-              "precio": 25.99,
-              "diferencial": 0.3,
+              "precio": 25.6,
+              "diferencial": 0.69,
               "main_marker": false
             },
             "GLP": {
@@ -8665,8 +8690,8 @@
       "distrito": "Characato",
       "gpc_group": "COESTI",
       "direccion": "VARIANTE DE UCHUMAYO KM. 06",
-      "own_lat": -16.407723,
-      "own_lon": -71.605553
+      "own_lat": -16.40772247314453,
+      "own_lon": -71.60555267333984
     },
     {
       "own_site_id": "c0570ed3-c5fc-4b6c-ae0c-ae10f362f2ee",
@@ -8816,7 +8841,7 @@
               "precio": 22.49,
               "costo": 20.97,
               "margen": 1.52,
-              "vigencia": "14/10 16:21",
+              "vigencia": "15/10 07:48",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -8824,7 +8849,7 @@
               "precio": 24.69,
               "costo": 22.99,
               "margen": 1.7,
-              "vigencia": "14/10 16:21",
+              "vigencia": "15/10 07:48",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -8832,7 +8857,7 @@
               "precio": 20.99,
               "costo": 19.68,
               "margen": 1.31,
-              "vigencia": "14/10 16:21",
+              "vigencia": "15/10 07:48",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -8840,7 +8865,7 @@
               "precio": 2.15,
               "costo": 1.04,
               "margen": 1.11,
-              "vigencia": "14/10 16:21",
+              "vigencia": "15/10 07:48",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -8848,7 +8873,7 @@
               "precio": 6.89,
               "costo": 6.16,
               "margen": 0.73,
-              "vigencia": "14/10 16:21",
+              "vigencia": "15/10 07:48",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -9107,8 +9132,8 @@
       "distrito": "Chilca",
       "gpc_group": "COESTI",
       "direccion": "CAR. PANAMERICANA SUR KM 63.5 -CHILCA-CAÃETE- LIMA",
-      "own_lat": -12.5084555555556,
-      "own_lon": -76.7376861111111
+      "own_lat": -12.508455276489258,
+      "own_lon": -76.73768615722656
     },
     {
       "own_site_id": "2b299067-dc61-4dcd-8267-7c01884f29e1",
@@ -9126,7 +9151,7 @@
               "precio": 22.35,
               "costo": 20.82,
               "margen": 1.53,
-              "vigencia": "14/10 15:32",
+              "vigencia": "15/10 08:28",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -9134,7 +9159,7 @@
               "precio": 26.69,
               "costo": 23.39,
               "margen": 3.3,
-              "vigencia": "14/10 15:32",
+              "vigencia": "15/10 08:28",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -9142,7 +9167,7 @@
               "precio": 21.35,
               "costo": 19.75,
               "margen": 1.6,
-              "vigencia": "14/10 15:32",
+              "vigencia": "15/10 08:28",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -9150,15 +9175,15 @@
               "precio": 1.76,
               "costo": 0.98,
               "margen": 0.78,
-              "vigencia": "14/10 15:32",
+              "vigencia": "15/10 08:28",
               "diferencial": 0.0,
               "main_marker": false
             },
             "GLP": {
-              "precio": 7.19,
+              "precio": 7.45,
               "costo": 5.73,
-              "margen": 1.46,
-              "vigencia": "14/10 15:32",
+              "margen": 1.72,
+              "vigencia": "15/10 08:28",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -9194,7 +9219,7 @@
             },
             "GLP": {
               "precio": 7.15,
-              "diferencial": 0.04,
+              "diferencial": 0.3,
               "main_marker": true
             }
           }
@@ -9214,7 +9239,7 @@
             },
             "GLP": {
               "precio": 7.19,
-              "diferencial": 0.0,
+              "diferencial": 0.26,
               "main_marker": false
             },
             "Premium": {
@@ -9284,7 +9309,7 @@
             },
             "GLP": {
               "precio": 7.15,
-              "diferencial": 0.04,
+              "diferencial": 0.3,
               "main_marker": false
             }
           }
@@ -9298,8 +9323,8 @@
           "distancia_km": 1.81,
           "combustibles": {
             "Premium": {
-              "precio": 22.35,
-              "diferencial": 0.0,
+              "precio": 22.65,
+              "diferencial": -0.3,
               "main_marker": false
             },
             "Diesel": {
@@ -9319,7 +9344,7 @@
             },
             "GLP": {
               "precio": 7.19,
-              "diferencial": 0.0,
+              "diferencial": 0.26,
               "main_marker": false
             }
           }
@@ -9351,7 +9376,7 @@
               "precio": 23.29,
               "costo": 21.01,
               "margen": 2.28,
-              "vigencia": "14/10 07:56",
+              "vigencia": "15/10 07:24",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -9359,7 +9384,7 @@
               "precio": 26.69,
               "costo": 23.07,
               "margen": 3.62,
-              "vigencia": "14/10 07:56",
+              "vigencia": "15/10 07:24",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -9367,7 +9392,7 @@
               "precio": 21.59,
               "costo": 19.69,
               "margen": 1.9,
-              "vigencia": "14/10 07:56",
+              "vigencia": "15/10 07:24",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -9375,7 +9400,7 @@
               "precio": 2.29,
               "costo": 1.83,
               "margen": 0.46,
-              "vigencia": "14/10 07:56",
+              "vigencia": "15/10 07:24",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -9383,7 +9408,7 @@
               "precio": 7.49,
               "costo": 5.99,
               "margen": 1.5,
-              "vigencia": "14/10 07:56",
+              "vigencia": "15/10 07:24",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -9858,7 +9883,7 @@
               "precio": 23.69,
               "costo": 20.74,
               "margen": 2.95,
-              "vigencia": "14/10 08:29",
+              "vigencia": "15/10 07:48",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -9866,7 +9891,7 @@
               "precio": 26.49,
               "costo": 23.22,
               "margen": 3.27,
-              "vigencia": "14/10 08:29",
+              "vigencia": "15/10 07:48",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -9874,7 +9899,7 @@
               "precio": 22.49,
               "costo": 19.57,
               "margen": 2.92,
-              "vigencia": "14/10 08:29",
+              "vigencia": "15/10 07:48",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -9882,7 +9907,7 @@
               "precio": 1.73,
               "costo": 0.98,
               "margen": 0.75,
-              "vigencia": "14/10 08:29",
+              "vigencia": "15/10 07:48",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -9890,7 +9915,7 @@
               "precio": 7.79,
               "costo": 5.72,
               "margen": 2.07,
-              "vigencia": "14/10 08:29",
+              "vigencia": "15/10 07:48",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -10010,8 +10035,8 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 24.99,
-              "diferencial": -1.3,
+              "precio": 25.49,
+              "diferencial": -1.8,
               "main_marker": false
             },
             "Regular": {
@@ -11040,8 +11065,8 @@
           "distancia_km": 1.63,
           "combustibles": {
             "Diesel": {
-              "precio": 23.99,
-              "diferencial": 0.6,
+              "precio": 23.49,
+              "diferencial": 1.1,
               "main_marker": false
             },
             "Premium": {
@@ -11366,8 +11391,8 @@
       "distrito": "Cerro Colorado",
       "gpc_group": "COESTI",
       "direccion": "VARIANTE DE UCHUMAYO KM. 05",
-      "own_lat": -16.4057277777778,
-      "own_lon": -71.5938972222222
+      "own_lat": -16.40572738647461,
+      "own_lon": -71.5938949584961
     },
     {
       "own_site_id": "1f414e84-cf0d-4dc9-8f8e-9aa1d2d1d1d1",
@@ -11385,7 +11410,7 @@
               "precio": 26.95,
               "costo": 22.91,
               "margen": 4.04,
-              "vigencia": "14/10 16:01",
+              "vigencia": "15/10 08:07",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -11393,7 +11418,7 @@
               "precio": 22.65,
               "costo": 21.41,
               "margen": 1.24,
-              "vigencia": "14/10 16:01",
+              "vigencia": "15/10 08:07",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -11538,7 +11563,7 @@
               "precio": 24.89,
               "costo": 24.6,
               "margen": 0.29,
-              "vigencia": "14/10 15:06",
+              "vigencia": "15/10 08:12",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -11546,7 +11571,7 @@
               "precio": 7.09,
               "costo": 6.43,
               "margen": 0.66,
-              "vigencia": "14/10 15:06",
+              "vigencia": "15/10 08:12",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -11554,7 +11579,7 @@
               "precio": 23.19,
               "costo": 21.46,
               "margen": 1.73,
-              "vigencia": "14/10 15:06",
+              "vigencia": "15/10 08:12",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -11562,7 +11587,7 @@
               "precio": 21.29,
               "costo": 20.91,
               "margen": 0.38,
-              "vigencia": "14/10 15:06",
+              "vigencia": "15/10 08:12",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -11736,8 +11761,8 @@
       "distrito": "Cerro Colorado",
       "gpc_group": "COESTI",
       "direccion": "VARIANTE DE UCHUMAYO KM 3.5-SEMIRURAL PACHACUTEC - CERRO COLORADO-AREQUIPA",
-      "own_lat": -16.404738,
-      "own_lon": -71.579
+      "own_lat": -16.40473747253418,
+      "own_lon": -71.5790023803711
     },
     {
       "own_site_id": "4e9a693e-e67d-4e60-8bd3-42b8b9e2b5b7",
@@ -11952,7 +11977,7 @@
               "precio": 26.49,
               "costo": 23.13,
               "margen": 3.36,
-              "vigencia": "14/10 08:07",
+              "vigencia": "15/10 08:50",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -11960,7 +11985,7 @@
               "precio": 23.69,
               "costo": 20.86,
               "margen": 2.83,
-              "vigencia": "14/10 08:07",
+              "vigencia": "15/10 08:50",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -11968,7 +11993,7 @@
               "precio": 21.89,
               "costo": 19.62,
               "margen": 2.27,
-              "vigencia": "14/10 08:07",
+              "vigencia": "15/10 08:50",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -12528,7 +12553,7 @@
               "precio": 24.09,
               "costo": 20.87,
               "margen": 3.22,
-              "vigencia": "14/10 15:18",
+              "vigencia": "15/10 08:22",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -12536,7 +12561,7 @@
               "precio": 26.19,
               "costo": 23.08,
               "margen": 3.11,
-              "vigencia": "14/10 15:18",
+              "vigencia": "15/10 08:22",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -12544,7 +12569,7 @@
               "precio": 21.39,
               "costo": 19.66,
               "margen": 1.73,
-              "vigencia": "14/10 15:18",
+              "vigencia": "15/10 08:22",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -12552,7 +12577,7 @@
               "precio": 1.78,
               "costo": 0.98,
               "margen": 0.8,
-              "vigencia": "14/10 15:18",
+              "vigencia": "15/10 08:22",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -12560,7 +12585,7 @@
               "precio": 7.65,
               "costo": 5.73,
               "margen": 1.92,
-              "vigencia": "14/10 15:18",
+              "vigencia": "15/10 08:22",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -12965,8 +12990,8 @@
       "distrito": "EL CARMEN",
       "gpc_group": "INACTIVAS",
       "direccion": "AUTOPISTA PANAMERICANA SUR KM 204, FUNDO POZUELO NORTE",
-      "own_lat": -13.57036,
-      "own_lon": -76.177447
+      "own_lat": -13.57036018371582,
+      "own_lon": -76.17744445800781
     },
     {
       "own_site_id": "fdf4d0f7-ed9c-4c22-8b87-a7f3c9c1d2db",
@@ -13101,8 +13126,8 @@
               "main_marker": false
             },
             "GLP": {
-              "precio": 7.19,
-              "diferencial": 0.0,
+              "precio": 7.45,
+              "diferencial": -0.26,
               "main_marker": false
             }
           }
@@ -13438,8 +13463,8 @@
           "distancia_km": 1.32,
           "combustibles": {
             "Premium": {
-              "precio": 21.29,
-              "diferencial": 2.3,
+              "precio": 21.49,
+              "diferencial": 2.1,
               "main_marker": false
             },
             "Diesel": {
@@ -13448,8 +13473,8 @@
               "main_marker": false
             },
             "Regular": {
-              "precio": 20.39,
-              "diferencial": 1.6,
+              "precio": 20.49,
+              "diferencial": 1.5,
               "main_marker": false
             },
             "GNV": {
@@ -14320,8 +14345,8 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 24.99,
-              "diferencial": -1.5,
+              "precio": 25.49,
+              "diferencial": -2.0,
               "main_marker": false
             },
             "Regular": {
@@ -14590,7 +14615,7 @@
               "precio": 25.99,
               "costo": 23.36,
               "margen": 2.63,
-              "vigencia": "14/10 08:02",
+              "vigencia": "15/10 08:07",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -14598,7 +14623,7 @@
               "precio": 7.65,
               "costo": 5.52,
               "margen": 2.13,
-              "vigencia": "14/10 08:02",
+              "vigencia": "15/10 08:07",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -14606,7 +14631,7 @@
               "precio": 24.09,
               "costo": 18.86,
               "margen": 5.23,
-              "vigencia": "14/10 08:02",
+              "vigencia": "15/10 08:07",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -14614,7 +14639,7 @@
               "precio": 21.49,
               "costo": 19.56,
               "margen": 1.93,
-              "vigencia": "14/10 08:02",
+              "vigencia": "15/10 08:07",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -14746,10 +14771,10 @@
           "distancia_km": 0.0,
           "combustibles": {
             "Premium": {
-              "precio": 22.35,
+              "precio": 22.65,
               "costo": 20.72,
-              "margen": 1.63,
-              "vigencia": "14/10 15:31",
+              "margen": 1.93,
+              "vigencia": "15/10 08:10",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -14757,7 +14782,7 @@
               "precio": 26.69,
               "costo": 22.96,
               "margen": 3.73,
-              "vigencia": "14/10 15:31",
+              "vigencia": "15/10 08:10",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -14765,7 +14790,7 @@
               "precio": 21.35,
               "costo": 19.5,
               "margen": 1.85,
-              "vigencia": "14/10 15:31",
+              "vigencia": "15/10 08:10",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -14773,7 +14798,7 @@
               "precio": 1.76,
               "costo": 1.01,
               "margen": 0.75,
-              "vigencia": "14/10 15:31",
+              "vigencia": "15/10 08:10",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -14781,7 +14806,7 @@
               "precio": 7.19,
               "costo": 5.7,
               "margen": 1.49,
-              "vigencia": "14/10 15:31",
+              "vigencia": "15/10 08:10",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -14797,7 +14822,7 @@
           "combustibles": {
             "Premium": {
               "precio": 21.89,
-              "diferencial": 0.46,
+              "diferencial": 0.76,
               "main_marker": true
             },
             "Diesel": {
@@ -14832,7 +14857,7 @@
           "combustibles": {
             "Premium": {
               "precio": 22.78,
-              "diferencial": -0.43,
+              "diferencial": -0.13,
               "main_marker": false
             },
             "Diesel": {
@@ -14877,7 +14902,7 @@
             },
             "Premium": {
               "precio": 21.88,
-              "diferencial": 0.47,
+              "diferencial": 0.77,
               "main_marker": false
             },
             "Regular": {
@@ -14897,7 +14922,7 @@
           "combustibles": {
             "Premium": {
               "precio": 22.29,
-              "diferencial": 0.06,
+              "diferencial": 0.36,
               "main_marker": false
             },
             "Diesel": {
@@ -14942,7 +14967,7 @@
             },
             "Premium": {
               "precio": 25.19,
-              "diferencial": -2.84,
+              "diferencial": -2.54,
               "main_marker": false
             },
             "Regular": {
@@ -14962,7 +14987,7 @@
           "combustibles": {
             "Premium": {
               "precio": 23.35,
-              "diferencial": -1.0,
+              "diferencial": -0.7,
               "main_marker": false
             },
             "Diesel": {
@@ -15007,7 +15032,7 @@
             },
             "Premium": {
               "precio": 22.29,
-              "diferencial": 0.06,
+              "diferencial": 0.36,
               "main_marker": false
             },
             "Regular": {
@@ -15025,8 +15050,8 @@
       "distrito": "Chorrillos",
       "gpc_group": "COESTI",
       "direccion": "AV.  GUARDIA CIVIL 333",
-      "own_lat": -12.183718,
-      "own_lon": -77.00322800000001
+      "own_lat": -12.183717727661133,
+      "own_lon": -77.00322723388672
     },
     {
       "own_site_id": "33aa31b5-422c-477f-a00f-e4b47db6b93d",
@@ -15487,8 +15512,8 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 23.69,
-              "diferencial": 0.0,
+              "precio": 23.49,
+              "diferencial": 0.2,
               "main_marker": false
             },
             "Regular": {
@@ -15566,8 +15591,8 @@
       "distrito": "Miraflores",
       "gpc_group": "COESTI",
       "direccion": "Av. Progreso 991",
-      "own_lat": -16.396387,
-      "own_lon": -71.518532
+      "own_lat": -16.396387100219727,
+      "own_lon": -71.5185317993164
     },
     {
       "own_site_id": "3bbcc201-3933-4afd-bd6d-9ec3be127ad3",
@@ -15585,7 +15610,7 @@
               "precio": 25.19,
               "costo": 22.92,
               "margen": 2.27,
-              "vigencia": "14/10 08:07",
+              "vigencia": "15/10 08:04",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -15593,7 +15618,7 @@
               "precio": 6.75,
               "costo": 5.46,
               "margen": 1.29,
-              "vigencia": "14/10 08:07",
+              "vigencia": "15/10 08:04",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -15601,7 +15626,7 @@
               "precio": 23.09,
               "costo": 21.08,
               "margen": 2.01,
-              "vigencia": "14/10 08:07",
+              "vigencia": "15/10 08:04",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -15609,7 +15634,7 @@
               "precio": 21.75,
               "costo": 19.49,
               "margen": 2.26,
-              "vigencia": "14/10 08:07",
+              "vigencia": "15/10 08:04",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -15663,8 +15688,8 @@
               "main_marker": false
             },
             "GLP": {
-              "precio": 6.69,
-              "diferencial": 0.06,
+              "precio": 7.04,
+              "diferencial": -0.29,
               "main_marker": false
             },
             "Premium": {
@@ -15707,8 +15732,8 @@
               "main_marker": false
             },
             "GLP": {
-              "precio": 6.75,
-              "diferencial": 0.0,
+              "precio": 6.95,
+              "diferencial": -0.2,
               "main_marker": false
             }
           }
@@ -15913,8 +15938,8 @@
           "distancia_km": 1.04,
           "combustibles": {
             "Diesel": {
-              "precio": 24.5,
-              "diferencial": 0.39,
+              "precio": 24.25,
+              "diferencial": 0.64,
               "main_marker": false
             },
             "GLP": {
@@ -15922,13 +15947,13 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 22.5,
-              "diferencial": 0.59,
+              "precio": 22.45,
+              "diferencial": 0.64,
               "main_marker": false
             },
             "Regular": {
-              "precio": 21.29,
-              "diferencial": 0.0,
+              "precio": 21.25,
+              "diferencial": 0.04,
               "main_marker": false
             }
           }
@@ -15985,7 +16010,7 @@
               "precio": 27.29,
               "costo": 24.12,
               "margen": 3.17,
-              "vigencia": "14/10 09:06",
+              "vigencia": "15/10 07:58",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -15993,7 +16018,7 @@
               "precio": 7.05,
               "costo": 6.21,
               "margen": 0.84,
-              "vigencia": "14/10 09:06",
+              "vigencia": "15/10 07:58",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -16001,7 +16026,7 @@
               "precio": 26.79,
               "costo": 23.53,
               "margen": 3.26,
-              "vigencia": "14/10 09:06",
+              "vigencia": "15/10 07:58",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -16009,7 +16034,7 @@
               "precio": 24.69,
               "costo": 20.98,
               "margen": 3.71,
-              "vigencia": "14/10 09:06",
+              "vigencia": "15/10 07:58",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -16465,7 +16490,7 @@
               "precio": 25.09,
               "costo": 22.79,
               "margen": 2.3,
-              "vigencia": "14/10 09:21",
+              "vigencia": "15/10 07:58",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -16473,7 +16498,7 @@
               "precio": 1.61,
               "costo": 0.99,
               "margen": 0.62,
-              "vigencia": "14/10 09:21",
+              "vigencia": "15/10 07:58",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -16481,7 +16506,7 @@
               "precio": 23.55,
               "costo": 20.69,
               "margen": 2.86,
-              "vigencia": "14/10 09:21",
+              "vigencia": "15/10 07:58",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -16489,7 +16514,7 @@
               "precio": 21.99,
               "costo": 19.37,
               "margen": 2.62,
-              "vigencia": "14/10 09:21",
+              "vigencia": "15/10 07:58",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -16940,7 +16965,7 @@
               "precio": 26.79,
               "costo": 23.13,
               "margen": 3.66,
-              "vigencia": "14/10 10:07",
+              "vigencia": "15/10 07:58",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -16948,7 +16973,7 @@
               "precio": 7.69,
               "costo": 5.79,
               "margen": 1.9,
-              "vigencia": "14/10 10:07",
+              "vigencia": "15/10 07:58",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -16956,7 +16981,7 @@
               "precio": 24.89,
               "costo": 20.81,
               "margen": 4.08,
-              "vigencia": "14/10 10:07",
+              "vigencia": "15/10 07:58",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -16964,7 +16989,7 @@
               "precio": 23.79,
               "costo": 19.63,
               "margen": 4.16,
-              "vigencia": "14/10 10:07",
+              "vigencia": "15/10 07:58",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -17014,8 +17039,8 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 26.99,
-              "diferencial": -2.1,
+              "precio": 27.49,
+              "diferencial": -2.6,
               "main_marker": false
             },
             "Regular": {
@@ -17039,8 +17064,8 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 26.99,
-              "diferencial": -2.1,
+              "precio": 27.49,
+              "diferencial": -2.6,
               "main_marker": false
             },
             "Regular": {
@@ -17387,8 +17412,8 @@
           "distancia_km": 0.1,
           "combustibles": {
             "Diesel": {
-              "precio": 24.25,
-              "diferencial": 0.64,
+              "precio": 24.2,
+              "diferencial": 0.69,
               "main_marker": false
             },
             "GLP": {
@@ -17416,18 +17441,18 @@
           "distancia_km": 0.38,
           "combustibles": {
             "Diesel": {
-              "precio": 24.25,
-              "diferencial": 0.64,
+              "precio": 24.2,
+              "diferencial": 0.69,
               "main_marker": false
             },
             "Premium": {
-              "precio": 20.59,
-              "diferencial": 2.6,
+              "precio": 22.0,
+              "diferencial": 1.19,
               "main_marker": false
             },
             "Regular": {
-              "precio": 21.29,
-              "diferencial": 0.0,
+              "precio": 21.15,
+              "diferencial": 0.14,
               "main_marker": false
             }
           }
@@ -17552,8 +17577,8 @@
       "distrito": "Cerro Colorado",
       "gpc_group": "COESTI",
       "direccion": "AV. LIBERTADOR SAN MARTIN CON  AV. VIA DE EVITAMIENTO",
-      "own_lat": -16.39284,
-      "own_lon": -71.582994
+      "own_lat": -16.392839431762695,
+      "own_lon": -71.58299255371094
     },
     {
       "own_site_id": "40e78862-9301-4083-b136-b70e0f198708",
@@ -17618,8 +17643,8 @@
           "distancia_km": 0.24,
           "combustibles": {
             "Premium": {
-              "precio": 22.99,
-              "diferencial": 0.9,
+              "precio": 23.29,
+              "diferencial": 0.6,
               "main_marker": false
             },
             "Diesel": {
@@ -17753,8 +17778,8 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 26.49,
-              "diferencial": -2.6,
+              "precio": 26.99,
+              "diferencial": -3.1,
               "main_marker": false
             },
             "Regular": {
@@ -17861,7 +17886,7 @@
               "precio": 23.99,
               "costo": 20.76,
               "margen": 3.23,
-              "vigencia": "14/10 15:24",
+              "vigencia": "15/10 08:31",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -17869,7 +17894,7 @@
               "precio": 25.89,
               "costo": 23.3,
               "margen": 2.59,
-              "vigencia": "14/10 15:24",
+              "vigencia": "15/10 08:31",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -17877,7 +17902,7 @@
               "precio": 21.39,
               "costo": 19.61,
               "margen": 1.78,
-              "vigencia": "14/10 15:24",
+              "vigencia": "15/10 08:31",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -17885,7 +17910,7 @@
               "precio": 1.8,
               "costo": 1.01,
               "margen": 0.79,
-              "vigencia": "14/10 15:24",
+              "vigencia": "15/10 08:31",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -17893,7 +17918,7 @@
               "precio": 7.65,
               "costo": 5.62,
               "margen": 2.03,
-              "vigencia": "14/10 15:24",
+              "vigencia": "15/10 08:31",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -18113,7 +18138,7 @@
         },
         {
           "site_id": "0e8ec440-efa2-4975-9124-cbe5ceda78eb",
-          "nombre_linea": "JE OPERADORES - J.E. OPERADORES S.A.C.",
+          "nombre_linea": "JE OPERADORES - ESTACION 715 GAMBETA",
           "marca": "WP",
           "tipo_actor": "COMPETENCIA",
           "es_competidor_propio": false,
@@ -18183,24 +18208,47 @@
           "es_competidor_propio": false,
           "distancia_km": 2.93,
           "combustibles": {
+            "Premium": {
+              "precio": 21.99,
+              "diferencial": 1.6,
+              "main_marker": false
+            },
             "Diesel": {
               "precio": 24.99,
               "diferencial": 1.1,
+              "main_marker": false
+            },
+            "Regular": {
+              "precio": 20.99,
+              "diferencial": 1.0,
+              "main_marker": false
+            },
+            "GNV": {
+              "precio": 1.74,
               "main_marker": false
             },
             "GLP": {
               "precio": 6.99,
               "diferencial": 0.0,
               "main_marker": false
-            },
-            "Premium": {
-              "precio": 21.99,
-              "diferencial": 1.6,
+            }
+          }
+        },
+        {
+          "site_id": "0f1efc28-a0a9-4378-bed5-3487da2096af",
+          "nombre_linea": "WP AGUKI - SERVICENTRO AGUKI S.A.",
+          "marca": "WP",
+          "tipo_actor": "COMPETENCIA",
+          "es_competidor_propio": false,
+          "distancia_km": 3.79,
+          "combustibles": {
+            "GLP": {
+              "precio": 7.38,
+              "diferencial": -0.39,
               "main_marker": false
             },
-            "Regular": {
-              "precio": 20.99,
-              "diferencial": 1.0,
+            "GNV": {
+              "precio": 1.74,
               "main_marker": false
             }
           }
@@ -18253,8 +18301,8 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 24.99,
-              "diferencial": -1.4,
+              "precio": 25.49,
+              "diferencial": -1.9,
               "main_marker": false
             },
             "Regular": {
@@ -18323,7 +18371,7 @@
         },
         {
           "site_id": "0e8ec440-efa2-4975-9124-cbe5ceda78eb",
-          "nombre_linea": "JE OPERADORES - J.E. OPERADORES S.A.C.",
+          "nombre_linea": "JE OPERADORES - ESTACION 715 GAMBETA",
           "marca": "WP",
           "tipo_actor": "COMPETENCIA",
           "es_competidor_propio": false,
@@ -18449,6 +18497,25 @@
           }
         },
         {
+          "site_id": "0f1efc28-a0a9-4378-bed5-3487da2096af",
+          "nombre_linea": "WP AGUKI - SERVICENTRO AGUKI S.A.",
+          "marca": "WP",
+          "tipo_actor": "COMPETENCIA",
+          "es_competidor_propio": false,
+          "distancia_km": 1.48,
+          "combustibles": {
+            "GLP": {
+              "precio": 7.38,
+              "diferencial": -0.39,
+              "main_marker": false
+            },
+            "GNV": {
+              "precio": 1.74,
+              "main_marker": false
+            }
+          }
+        },
+        {
           "site_id": "6b05a7da-6faf-4e76-9891-3160983b3874",
           "nombre_linea": "WP AGUKI - AGUKI COMBUSTIBLES LIQUIDOS S.A.",
           "marca": "WP",
@@ -18517,6 +18584,25 @@
           }
         },
         {
+          "site_id": "7e1a8e17-f3b6-4677-b10f-3b01dcbc2c54",
+          "nombre_linea": "PX LOS PORTALES GASES - ESTACION DE SERVICIOS EL PLEBEYO E.I.R.L.",
+          "marca": "PRIMAX",
+          "tipo_actor": "COMPETENCIA",
+          "es_competidor_propio": false,
+          "distancia_km": 1.58,
+          "combustibles": {
+            "GLP": {
+              "precio": 7.29,
+              "diferencial": -0.3,
+              "main_marker": false
+            },
+            "GNV": {
+              "precio": 1.79,
+              "main_marker": false
+            }
+          }
+        },
+        {
           "site_id": "035969ac-4a7e-48ec-a01f-1252f37fdb55",
           "nombre_linea": "E/S GAMBETA",
           "marca": "PRIMAX",
@@ -18573,7 +18659,7 @@
               "precio": 26.19,
               "costo": 25.07,
               "margen": 1.12,
-              "vigencia": "13/10 17:41",
+              "vigencia": "15/10 08:08",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -18581,7 +18667,7 @@
               "precio": 23.39,
               "costo": 22.38,
               "margen": 1.01,
-              "vigencia": "13/10 17:41",
+              "vigencia": "15/10 08:08",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -18589,7 +18675,7 @@
               "precio": 22.29,
               "costo": 21.75,
               "margen": 0.54,
-              "vigencia": "13/10 17:41",
+              "vigencia": "15/10 08:08",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -18848,8 +18934,8 @@
           "distancia_km": 1.55,
           "combustibles": {
             "Diesel": {
-              "precio": 24.59,
-              "diferencial": 2.0,
+              "precio": 25.19,
+              "diferencial": 1.4,
               "main_marker": false
             },
             "GLP": {
@@ -18877,18 +18963,18 @@
           "distancia_km": 3.91,
           "combustibles": {
             "Premium": {
-              "precio": 24.39,
-              "diferencial": 1.4,
+              "precio": 23.79,
+              "diferencial": 2.0,
               "main_marker": false
             },
             "Diesel": {
-              "precio": 25.99,
-              "diferencial": 0.6,
+              "precio": 25.45,
+              "diferencial": 1.14,
               "main_marker": false
             },
             "Regular": {
-              "precio": 22.59,
-              "diferencial": -0.1,
+              "precio": 21.95,
+              "diferencial": 0.54,
               "main_marker": false
             },
             "GNV": {
@@ -18897,7 +18983,7 @@
               "main_marker": false
             },
             "GLP": {
-              "precio": 6.88,
+              "precio": 6.54,
               "main_marker": false
             }
           }
@@ -19220,8 +19306,8 @@
               "main_marker": false
             },
             "GLP": {
-              "precio": 6.55,
-              "diferencial": 0.2,
+              "precio": 6.7,
+              "diferencial": 0.05,
               "main_marker": true
             },
             "Premium": {
@@ -19784,8 +19870,8 @@
           "distancia_km": 0.65,
           "combustibles": {
             "Premium": {
-              "precio": 21.29,
-              "diferencial": 2.4,
+              "precio": 21.49,
+              "diferencial": 2.2,
               "main_marker": false
             },
             "Diesel": {
@@ -19794,8 +19880,8 @@
               "main_marker": false
             },
             "Regular": {
-              "precio": 20.39,
-              "diferencial": 1.1,
+              "precio": 20.49,
+              "diferencial": 1.0,
               "main_marker": false
             },
             "GNV": {
@@ -19969,8 +20055,8 @@
           "distancia_km": 1.72,
           "combustibles": {
             "Premium": {
-              "precio": 22.99,
-              "diferencial": 0.7,
+              "precio": 23.29,
+              "diferencial": 0.4,
               "main_marker": false
             },
             "Diesel": {
@@ -20009,8 +20095,8 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 26.49,
-              "diferencial": -2.8,
+              "precio": 26.99,
+              "diferencial": -3.3,
               "main_marker": false
             },
             "Regular": {
@@ -20202,7 +20288,7 @@
               "precio": 23.29,
               "costo": 20.89,
               "margen": 2.4,
-              "vigencia": "14/10 15:33",
+              "vigencia": "15/10 08:54",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -20210,7 +20296,7 @@
               "precio": 25.99,
               "costo": 23.63,
               "margen": 2.36,
-              "vigencia": "14/10 15:33",
+              "vigencia": "15/10 08:54",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -20218,7 +20304,7 @@
               "precio": 21.49,
               "costo": 19.61,
               "margen": 1.88,
-              "vigencia": "14/10 15:33",
+              "vigencia": "15/10 08:54",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -20226,7 +20312,7 @@
               "precio": 1.72,
               "costo": 0.98,
               "margen": 0.74,
-              "vigencia": "14/10 15:33",
+              "vigencia": "15/10 08:54",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -20234,7 +20320,7 @@
               "precio": 6.89,
               "costo": 5.55,
               "margen": 1.34,
-              "vigencia": "14/10 15:33",
+              "vigencia": "15/10 08:54",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -20977,8 +21063,8 @@
           "distancia_km": 1.11,
           "combustibles": {
             "Premium": {
-              "precio": 22.49,
-              "diferencial": 0.5,
+              "precio": 22.59,
+              "diferencial": 0.4,
               "main_marker": false
             },
             "Diesel": {
@@ -20987,8 +21073,8 @@
               "main_marker": false
             },
             "Regular": {
-              "precio": 21.29,
-              "diferencial": 0.36,
+              "precio": 21.49,
+              "diferencial": 0.16,
               "main_marker": false
             },
             "GNV": {
@@ -21165,7 +21251,7 @@
               "precio": 27.89,
               "costo": 22.97,
               "margen": 4.92,
-              "vigencia": "14/10 16:03",
+              "vigencia": "15/10 08:16",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -21173,7 +21259,7 @@
               "precio": 7.89,
               "costo": 6.22,
               "margen": 1.67,
-              "vigencia": "14/10 16:03",
+              "vigencia": "15/10 08:16",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -21181,7 +21267,7 @@
               "precio": 25.99,
               "costo": 24.11,
               "margen": 1.88,
-              "vigencia": "14/10 16:03",
+              "vigencia": "15/10 08:16",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -21189,7 +21275,7 @@
               "precio": 23.19,
               "costo": 21.36,
               "margen": 1.83,
-              "vigencia": "14/10 16:03",
+              "vigencia": "15/10 08:16",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -21545,8 +21631,8 @@
               "main_marker": false
             },
             "Regular": {
-              "precio": 21.99,
-              "diferencial": 0.1,
+              "precio": 21.79,
+              "diferencial": 0.3,
               "main_marker": false
             }
           }
@@ -21588,8 +21674,8 @@
       "distrito": "Arequipa",
       "gpc_group": "COESTI",
       "direccion": "AV. PARRA 222",
-      "own_lat": -16.411466,
-      "own_lon": -71.544322
+      "own_lat": -16.411466598510742,
+      "own_lon": -71.54431915283203
     },
     {
       "own_site_id": "19c7d324-c42f-49b6-9a8b-3e422cda1b2b",
@@ -21964,7 +22050,7 @@
               "precio": 25.09,
               "costo": 23.36,
               "margen": 1.73,
-              "vigencia": "14/10 15:27",
+              "vigencia": "15/10 08:35",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -21972,7 +22058,7 @@
               "precio": 22.99,
               "costo": 20.74,
               "margen": 2.25,
-              "vigencia": "14/10 15:27",
+              "vigencia": "15/10 08:35",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -21980,7 +22066,7 @@
               "precio": 21.39,
               "costo": 19.62,
               "margen": 1.77,
-              "vigencia": "14/10 15:27",
+              "vigencia": "15/10 08:35",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -22413,7 +22499,7 @@
               "precio": 23.99,
               "costo": 20.72,
               "margen": 3.27,
-              "vigencia": "14/10 08:03",
+              "vigencia": "15/10 08:02",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -22421,7 +22507,7 @@
               "precio": 26.19,
               "costo": 23.41,
               "margen": 2.78,
-              "vigencia": "14/10 08:03",
+              "vigencia": "15/10 08:02",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -22429,7 +22515,7 @@
               "precio": 21.99,
               "costo": 19.55,
               "margen": 2.44,
-              "vigencia": "14/10 08:03",
+              "vigencia": "15/10 08:02",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -22437,7 +22523,7 @@
               "precio": 1.88,
               "costo": 1.0,
               "margen": 0.88,
-              "vigencia": "14/10 08:03",
+              "vigencia": "15/10 08:32",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -22445,7 +22531,7 @@
               "precio": 7.85,
               "costo": 5.71,
               "margen": 2.14,
-              "vigencia": "14/10 08:03",
+              "vigencia": "15/10 08:02",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -22638,7 +22724,7 @@
               "precio": 26.79,
               "costo": 23.67,
               "margen": 3.12,
-              "vigencia": "13/10 10:21",
+              "vigencia": "15/10 08:22",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -22646,23 +22732,23 @@
               "precio": 7.19,
               "costo": 5.58,
               "margen": 1.61,
-              "vigencia": "13/10 10:21",
+              "vigencia": "15/10 08:22",
               "diferencial": 0.0,
               "main_marker": false
             },
             "Premium": {
-              "precio": 22.39,
+              "precio": 22.59,
               "costo": 20.63,
-              "margen": 1.76,
-              "vigencia": "13/10 10:21",
+              "margen": 1.96,
+              "vigencia": "15/10 08:22",
               "diferencial": 0.0,
               "main_marker": false
             },
             "Regular": {
-              "precio": 20.99,
+              "precio": 21.15,
               "costo": 19.46,
-              "margen": 1.53,
-              "vigencia": "13/10 10:21",
+              "margen": 1.69,
+              "vigencia": "15/10 08:22",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -22688,12 +22774,12 @@
             },
             "Premium": {
               "precio": 23.99,
-              "diferencial": -1.6,
+              "diferencial": -1.4,
               "main_marker": false
             },
             "Regular": {
               "precio": 22.39,
-              "diferencial": -1.4,
+              "diferencial": -1.24,
               "main_marker": false
             }
           }
@@ -22708,7 +22794,7 @@
           "combustibles": {
             "Premium": {
               "precio": 21.89,
-              "diferencial": 0.5,
+              "diferencial": 0.7,
               "main_marker": true
             },
             "Diesel": {
@@ -22718,7 +22804,7 @@
             },
             "Regular": {
               "precio": 20.99,
-              "diferencial": 0.0,
+              "diferencial": 0.16,
               "main_marker": true
             },
             "GNV": {
@@ -22747,12 +22833,12 @@
             },
             "Premium": {
               "precio": 26.99,
-              "diferencial": -4.6,
+              "diferencial": -4.4,
               "main_marker": false
             },
             "Regular": {
               "precio": 24.99,
-              "diferencial": -4.0,
+              "diferencial": -3.84,
               "main_marker": false
             }
           }
@@ -22772,12 +22858,12 @@
             },
             "Premium": {
               "precio": 26.99,
-              "diferencial": -4.6,
+              "diferencial": -4.4,
               "main_marker": false
             },
             "Regular": {
               "precio": 24.99,
-              "diferencial": -4.0,
+              "diferencial": -3.84,
               "main_marker": false
             }
           }
@@ -22801,12 +22887,12 @@
             },
             "Premium": {
               "precio": 22.89,
-              "diferencial": -0.5,
+              "diferencial": -0.3,
               "main_marker": false
             },
             "Regular": {
               "precio": 21.69,
-              "diferencial": -0.7,
+              "diferencial": -0.54,
               "main_marker": false
             }
           }
@@ -23196,13 +23282,13 @@
           "es_competidor_propio": false,
           "combustibles": {
             "Diesel": {
-              "precio": 22.59,
-              "diferencial": 2.2,
+              "precio": 22.99,
+              "diferencial": 1.8,
               "main_marker": false
             },
             "Regular": {
-              "precio": 21.79,
-              "diferencial": 0.8,
+              "precio": 21.89,
+              "diferencial": 0.7,
               "main_marker": false
             }
           }
@@ -23654,7 +23740,7 @@
               "precio": 26.79,
               "costo": 23.46,
               "margen": 3.33,
-              "vigencia": "14/10 08:18",
+              "vigencia": "15/10 08:44",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -23662,7 +23748,7 @@
               "precio": 7.65,
               "costo": 5.75,
               "margen": 1.9,
-              "vigencia": "14/10 08:18",
+              "vigencia": "15/10 08:44",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -23670,7 +23756,7 @@
               "precio": 23.99,
               "costo": 20.74,
               "margen": 3.25,
-              "vigencia": "14/10 08:18",
+              "vigencia": "15/10 08:44",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -23678,7 +23764,7 @@
               "precio": 21.49,
               "costo": 19.55,
               "margen": 1.94,
-              "vigencia": "14/10 08:18",
+              "vigencia": "15/10 08:44",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -24504,8 +24590,8 @@
           "distancia_km": 1.38,
           "combustibles": {
             "Diesel": {
-              "precio": 24.59,
-              "diferencial": 2.0,
+              "precio": 25.19,
+              "diferencial": 1.4,
               "main_marker": false
             },
             "GLP": {
@@ -24898,7 +24984,7 @@
               "precio": 28.29,
               "costo": 23.96,
               "margen": 4.33,
-              "vigencia": "14/10 15:52",
+              "vigencia": "15/10 07:59",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -24906,7 +24992,7 @@
               "precio": 24.15,
               "costo": 23.09,
               "margen": 1.06,
-              "vigencia": "14/10 15:52",
+              "vigencia": "15/10 07:59",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -24914,7 +25000,7 @@
               "precio": 21.79,
               "costo": 21.26,
               "margen": 0.53,
-              "vigencia": "14/10 15:52",
+              "vigencia": "15/10 07:59",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -25088,7 +25174,7 @@
               "precio": 23.55,
               "costo": 20.8,
               "margen": 2.75,
-              "vigencia": "14/10 15:02",
+              "vigencia": "15/10 08:19",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -25096,7 +25182,7 @@
               "precio": 25.69,
               "costo": 22.9,
               "margen": 2.79,
-              "vigencia": "14/10 15:02",
+              "vigencia": "15/10 08:19",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -25104,7 +25190,7 @@
               "precio": 21.65,
               "costo": 19.59,
               "margen": 2.06,
-              "vigencia": "14/10 15:02",
+              "vigencia": "15/10 08:19",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -25112,15 +25198,15 @@
               "precio": 1.81,
               "costo": 0.98,
               "margen": 0.83,
-              "vigencia": "14/10 16:39",
+              "vigencia": "15/10 08:19",
               "diferencial": 0.0,
               "main_marker": false
             },
             "GLP": {
-              "precio": 7.49,
+              "precio": 7.59,
               "costo": 5.79,
-              "margen": 1.7,
-              "vigencia": "14/10 15:02",
+              "margen": 1.8,
+              "vigencia": "15/10 08:19",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -25156,7 +25242,7 @@
             },
             "GLP": {
               "precio": 7.29,
-              "diferencial": 0.2,
+              "diferencial": 0.3,
               "main_marker": false
             }
           }
@@ -25176,7 +25262,7 @@
             },
             "GLP": {
               "precio": 7.59,
-              "diferencial": -0.1,
+              "diferencial": 0.0,
               "main_marker": true
             },
             "Premium": {
@@ -25286,7 +25372,7 @@
             },
             "GLP": {
               "precio": 7.79,
-              "diferencial": -0.3,
+              "diferencial": -0.2,
               "main_marker": false
             },
             "Premium": {
@@ -25802,8 +25888,8 @@
           "distancia_km": 0.18,
           "combustibles": {
             "Diesel": {
-              "precio": 26.89,
-              "diferencial": 0.9,
+              "precio": 27.59,
+              "diferencial": 0.2,
               "main_marker": false
             },
             "GLP": {
@@ -25812,13 +25898,13 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 24.59,
-              "diferencial": 0.4,
+              "precio": 24.99,
+              "diferencial": 0.0,
               "main_marker": false
             },
             "Regular": {
-              "precio": 22.39,
-              "diferencial": 0.6,
+              "precio": 22.99,
+              "diferencial": 0.0,
               "main_marker": false
             }
           }
@@ -25895,7 +25981,7 @@
               "precio": 27.79,
               "costo": 23.2,
               "margen": 4.59,
-              "vigencia": "14/10 09:32",
+              "vigencia": "15/10 08:49",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -25903,7 +25989,7 @@
               "precio": 8.45,
               "costo": 7.24,
               "margen": 1.21,
-              "vigencia": "14/10 09:32",
+              "vigencia": "15/10 08:49",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -25911,7 +25997,7 @@
               "precio": 24.99,
               "costo": 22.56,
               "margen": 2.43,
-              "vigencia": "14/10 09:32",
+              "vigencia": "15/10 08:49",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -25919,7 +26005,7 @@
               "precio": 22.99,
               "costo": 20.48,
               "margen": 2.51,
-              "vigencia": "14/10 09:32",
+              "vigencia": "15/10 08:49",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -26059,8 +26145,8 @@
               "main_marker": false
             },
             "Regular": {
-              "precio": 21.09,
-              "diferencial": 0.8,
+              "precio": 20.99,
+              "diferencial": 0.9,
               "main_marker": false
             },
             "GNV": {
@@ -26724,7 +26810,7 @@
               "precio": 23.35,
               "costo": 20.78,
               "margen": 2.57,
-              "vigencia": "13/10 07:36",
+              "vigencia": "15/10 07:26",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -26732,7 +26818,7 @@
               "precio": 25.19,
               "costo": 22.94,
               "margen": 2.25,
-              "vigencia": "13/10 07:36",
+              "vigencia": "15/10 07:26",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -26740,7 +26826,7 @@
               "precio": 21.99,
               "costo": 19.6,
               "margen": 2.39,
-              "vigencia": "13/10 07:36",
+              "vigencia": "15/10 07:26",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -26748,7 +26834,7 @@
               "precio": 1.9,
               "costo": 1.02,
               "margen": 0.88,
-              "vigencia": "13/10 07:36",
+              "vigencia": "15/10 07:26",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -26756,7 +26842,7 @@
               "precio": 6.89,
               "costo": 6.02,
               "margen": 0.87,
-              "vigencia": "13/10 07:36",
+              "vigencia": "15/10 07:26",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -26786,8 +26872,8 @@
               "main_marker": false
             },
             "GNV": {
-              "precio": 1.9,
-              "diferencial": 0.0,
+              "precio": 1.89,
+              "diferencial": 0.01,
               "main_marker": true
             },
             "GLP": {
@@ -27222,8 +27308,8 @@
               "main_marker": true
             },
             "GLP": {
-              "precio": 6.76,
-              "diferencial": 0.93,
+              "precio": 6.96,
+              "diferencial": 0.73,
               "main_marker": true
             },
             "Premium": {
@@ -27627,7 +27713,7 @@
               "precio": 25.79,
               "costo": 22.96,
               "margen": 2.83,
-              "vigencia": "14/10 15:53",
+              "vigencia": "15/10 08:17",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -27635,15 +27721,15 @@
               "precio": 6.85,
               "costo": 5.85,
               "margen": 1.0,
-              "vigencia": "14/10 15:53",
+              "vigencia": "15/10 08:17",
               "diferencial": 0.0,
               "main_marker": false
             },
             "Premium": {
-              "precio": 22.59,
+              "precio": 23.15,
               "costo": 20.81,
-              "margen": 1.78,
-              "vigencia": "14/10 15:53",
+              "margen": 2.34,
+              "vigencia": "15/10 08:17",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -27651,7 +27737,7 @@
               "precio": 21.39,
               "costo": 19.43,
               "margen": 1.96,
-              "vigencia": "14/10 15:53",
+              "vigencia": "15/10 08:17",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -27672,7 +27758,7 @@
             },
             "Premium": {
               "precio": 22.99,
-              "diferencial": -0.4,
+              "diferencial": 0.16,
               "main_marker": true
             },
             "Regular": {
@@ -27702,7 +27788,7 @@
             },
             "Premium": {
               "precio": 23.99,
-              "diferencial": -1.4,
+              "diferencial": -0.84,
               "main_marker": false
             },
             "Regular": {
@@ -27722,7 +27808,7 @@
           "combustibles": {
             "Premium": {
               "precio": 24.03,
-              "diferencial": -1.44,
+              "diferencial": -0.88,
               "main_marker": false
             },
             "Diesel": {
@@ -27747,19 +27833,6 @@
           }
         },
         {
-          "site_id": "e15ff4de-0e26-4f70-84ce-3bcf39ca34d5",
-          "nombre_linea": "GRIFO JEVARO - GASBEL EQUIPOS & ASESORIA S.A.C.",
-          "marca": "PECSA",
-          "tipo_actor": "COMPETENCIA",
-          "es_competidor_propio": false,
-          "combustibles": {
-            "GNV": {
-              "precio": 1.99,
-              "main_marker": false
-            }
-          }
-        },
-        {
           "site_id": "aba8f78e-1be3-487f-ad71-0d26ed0e95bb",
           "nombre_linea": "PECSA GRUPO REVILLA - GRUPO REVILLA S.A.C.",
           "marca": "PECSA",
@@ -27779,7 +27852,7 @@
             },
             "Premium": {
               "precio": 21.99,
-              "diferencial": 0.6,
+              "diferencial": 1.16,
               "main_marker": false
             },
             "Regular": {
@@ -27824,12 +27897,26 @@
             },
             "Premium": {
               "precio": 22.19,
-              "diferencial": 0.4,
+              "diferencial": 0.96,
               "main_marker": false
             },
             "Regular": {
               "precio": 21.19,
               "diferencial": 0.2,
+              "main_marker": false
+            }
+          }
+        },
+        {
+          "site_id": "e15ff4de-0e26-4f70-84ce-3bcf39ca34d5",
+          "nombre_linea": "GRIFO JEVARO - GASBEL EQUIPOS & ASESORIA S.A.C.",
+          "marca": "WP",
+          "tipo_actor": "COMPETENCIA",
+          "es_competidor_propio": false,
+          "distancia_km": 1.17,
+          "combustibles": {
+            "GNV": {
+              "precio": 1.99,
               "main_marker": false
             }
           }
@@ -27842,8 +27929,8 @@
       "distrito": "Villa El Salvador",
       "gpc_group": "COESTI",
       "direccion": "AV.JOSE CARLOS MARIATEGUI ESQ. CON AV.REVOLUCIÃN SECTOR 3 GRUPO 15 MZ. A LTE. 12 Y 13 - VILLA EL SALVADOR - Lima",
-      "own_lat": -12.2206944444444,
-      "own_lon": -76.9325416666667
+      "own_lat": -12.220694541931152,
+      "own_lon": -76.93254089355469
     },
     {
       "own_site_id": "5c2bdbe8-a776-4367-aba8-b86aae864de9",
@@ -27944,8 +28031,8 @@
           "distancia_km": 1.22,
           "combustibles": {
             "Diesel": {
-              "precio": 25.5,
-              "diferencial": 0.15,
+              "precio": 24.5,
+              "diferencial": 1.15,
               "main_marker": false
             },
             "Regular": {
@@ -27984,13 +28071,13 @@
           "distancia_km": 1.59,
           "combustibles": {
             "Diesel": {
-              "precio": 22.59,
-              "diferencial": 3.06,
+              "precio": 22.99,
+              "diferencial": 2.66,
               "main_marker": false
             },
             "Regular": {
-              "precio": 21.79,
-              "diferencial": 1.4,
+              "precio": 21.89,
+              "diferencial": 1.3,
               "main_marker": false
             }
           }
@@ -28004,8 +28091,8 @@
           "distancia_km": 2.95,
           "combustibles": {
             "Diesel": {
-              "precio": 25.2,
-              "diferencial": 0.45,
+              "precio": 24.5,
+              "diferencial": 1.15,
               "main_marker": false
             },
             "Regular": {
@@ -28620,8 +28707,8 @@
       "distrito": "Villa María del Triunfo",
       "gpc_group": "COESTI",
       "direccion": "AV. LIMA NÂº. 2000 P.J. POETA JOSÃ GALVEZ (MZ. 159, LTE. 4)  VILLA MARIA DEL TRIUNFO -LIMA",
-      "own_lat": -12.2238305555556,
-      "own_lon": -76.9084416666667
+      "own_lat": -12.223830223083496,
+      "own_lon": -76.90843963623047
     },
     {
       "own_site_id": "68c79a8d-8c52-43fd-be01-0333fe138efe",
@@ -28994,7 +29081,7 @@
               "precio": 23.49,
               "costo": 20.8,
               "margen": 2.69,
-              "vigencia": "14/10 09:31",
+              "vigencia": "15/10 08:41",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -29002,7 +29089,7 @@
               "precio": 25.89,
               "costo": 22.87,
               "margen": 3.02,
-              "vigencia": "14/10 09:31",
+              "vigencia": "15/10 08:41",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -29010,7 +29097,7 @@
               "precio": 22.19,
               "costo": 19.62,
               "margen": 2.57,
-              "vigencia": "14/10 09:31",
+              "vigencia": "15/10 08:41",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -29018,7 +29105,7 @@
               "precio": 1.59,
               "costo": 1.0,
               "margen": 0.59,
-              "vigencia": "14/10 09:31",
+              "vigencia": "15/10 08:41",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -29026,7 +29113,7 @@
               "precio": 7.65,
               "costo": 5.92,
               "margen": 1.73,
-              "vigencia": "14/10 09:31",
+              "vigencia": "15/10 08:41",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -29317,8 +29404,8 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 24.99,
-              "diferencial": -1.4,
+              "precio": 25.49,
+              "diferencial": -1.9,
               "main_marker": false
             },
             "Regular": {
@@ -29396,24 +29483,28 @@
           "es_competidor_propio": false,
           "distancia_km": 3.83,
           "combustibles": {
-            "Diesel": {
-              "precio": 24.99,
-              "diferencial": 1.0,
-              "main_marker": false
-            },
-            "GLP": {
-              "precio": 6.99,
-              "diferencial": -0.2,
-              "main_marker": false
-            },
             "Premium": {
               "precio": 21.99,
               "diferencial": 1.6,
               "main_marker": false
             },
+            "Diesel": {
+              "precio": 24.99,
+              "diferencial": 1.0,
+              "main_marker": false
+            },
             "Regular": {
               "precio": 20.99,
               "diferencial": 0.7,
+              "main_marker": false
+            },
+            "GNV": {
+              "precio": 1.74,
+              "main_marker": false
+            },
+            "GLP": {
+              "precio": 6.99,
+              "diferencial": -0.2,
               "main_marker": false
             }
           }
@@ -29612,8 +29703,8 @@
       "distrito": "José Luis Bustamante y Rivero",
       "gpc_group": "COESTI",
       "direccion": "AV. DOLORES S/N CON AV. EE.UU.",
-      "own_lat": -16.429037,
-      "own_lon": -71.523947
+      "own_lat": -16.42903709411621,
+      "own_lon": -71.5239486694336
     },
     {
       "own_site_id": "c129fb8d-3936-4ca0-be78-b83c1a80ee71",
@@ -29883,8 +29974,8 @@
           "distancia_km": 1.13,
           "combustibles": {
             "Premium": {
-              "precio": 22.99,
-              "diferencial": 0.7,
+              "precio": 23.29,
+              "diferencial": 0.4,
               "main_marker": false
             },
             "Diesel": {
@@ -30165,13 +30256,13 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 21.49,
-              "diferencial": 1.5,
+              "precio": 20.89,
+              "diferencial": 2.1,
               "main_marker": false
             },
             "Regular": {
-              "precio": 20.39,
-              "diferencial": 1.0,
+              "precio": 19.89,
+              "diferencial": 1.5,
               "main_marker": false
             }
           }
@@ -30412,7 +30503,7 @@
               "precio": 24.35,
               "costo": 23.09,
               "margen": 1.26,
-              "vigencia": "13/10 07:49",
+              "vigencia": "15/10 08:02",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -30420,23 +30511,23 @@
               "precio": 2.35,
               "costo": 1.96,
               "margen": 0.39,
-              "vigencia": "13/10 07:49",
+              "vigencia": "15/10 08:05",
               "diferencial": 0.0,
               "main_marker": false
             },
             "Premium": {
-              "precio": 22.99,
+              "precio": 22.29,
               "costo": 21.41,
-              "margen": 1.58,
-              "vigencia": "13/10 07:49",
+              "margen": 0.88,
+              "vigencia": "15/10 08:02",
               "diferencial": 0.0,
               "main_marker": false
             },
             "Regular": {
-              "precio": 21.45,
+              "precio": 20.75,
               "costo": 20.27,
-              "margen": 1.18,
-              "vigencia": "13/10 07:49",
+              "margen": 0.48,
+              "vigencia": "15/10 08:02",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -30457,12 +30548,12 @@
             },
             "Premium": {
               "precio": 21.99,
-              "diferencial": 1.0,
+              "diferencial": 0.3,
               "main_marker": true
             },
             "Regular": {
               "precio": 20.49,
-              "diferencial": 0.96,
+              "diferencial": 0.26,
               "main_marker": true
             }
           }
@@ -30476,18 +30567,18 @@
           "distancia_km": 0.3,
           "combustibles": {
             "Diesel": {
-              "precio": 23.85,
-              "diferencial": 0.5,
+              "precio": 24.15,
+              "diferencial": 0.2,
               "main_marker": false
             },
             "Premium": {
               "precio": 20.99,
-              "diferencial": 2.0,
+              "diferencial": 1.3,
               "main_marker": false
             },
             "Regular": {
               "precio": 20.49,
-              "diferencial": 0.96,
+              "diferencial": 0.26,
               "main_marker": false
             }
           }
@@ -30507,12 +30598,12 @@
             },
             "Premium": {
               "precio": 22.59,
-              "diferencial": 0.4,
+              "diferencial": -0.3,
               "main_marker": false
             },
             "Regular": {
               "precio": 21.29,
-              "diferencial": 0.16,
+              "diferencial": -0.54,
               "main_marker": false
             }
           }
@@ -30532,12 +30623,12 @@
             },
             "Premium": {
               "precio": 22.59,
-              "diferencial": 0.4,
+              "diferencial": -0.3,
               "main_marker": false
             },
             "Regular": {
               "precio": 21.29,
-              "diferencial": 0.16,
+              "diferencial": -0.54,
               "main_marker": false
             }
           }
@@ -30557,12 +30648,12 @@
             },
             "Premium": {
               "precio": 22.59,
-              "diferencial": 0.4,
+              "diferencial": -0.3,
               "main_marker": false
             },
             "Regular": {
               "precio": 21.29,
-              "diferencial": 0.16,
+              "diferencial": -0.54,
               "main_marker": false
             }
           }
@@ -30586,12 +30677,12 @@
             },
             "Premium": {
               "precio": 22.69,
-              "diferencial": 0.3,
+              "diferencial": -0.4,
               "main_marker": false
             },
             "Regular": {
               "precio": 21.39,
-              "diferencial": 0.06,
+              "diferencial": -0.64,
               "main_marker": false
             }
           }
@@ -30604,8 +30695,8 @@
       "distrito": "Nazca",
       "gpc_group": "COESTI",
       "direccion": "CARRETERA PANAMERICANA SUR KM 446",
-      "own_lat": -14.821587,
-      "own_lon": -74.964929
+      "own_lat": -14.821586608886719,
+      "own_lon": -74.96492767333984
     },
     {
       "own_site_id": "d70e2a80-4567-4cbe-98bc-a9852f7f86fa",
@@ -30623,7 +30714,7 @@
               "precio": 26.79,
               "costo": 22.71,
               "margen": 4.08,
-              "vigencia": "14/10 10:20",
+              "vigencia": "15/10 08:23",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -30631,7 +30722,7 @@
               "precio": 22.99,
               "costo": 20.74,
               "margen": 2.25,
-              "vigencia": "14/10 10:20",
+              "vigencia": "15/10 08:23",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -30639,7 +30730,7 @@
               "precio": 20.99,
               "costo": 19.39,
               "margen": 1.6,
-              "vigencia": "14/10 10:20",
+              "vigencia": "15/10 08:23",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -30738,7 +30829,7 @@
               "main_marker": false
             },
             "GLP": {
-              "precio": 6.29,
+              "precio": 6.42,
               "main_marker": false
             },
             "Premium": {
@@ -30791,8 +30882,8 @@
           "distancia_km": 2.46,
           "combustibles": {
             "Diesel": {
-              "precio": 23.81,
-              "diferencial": 2.98,
+              "precio": 23.79,
+              "diferencial": 3.0,
               "main_marker": false
             },
             "GLP": {
@@ -30825,7 +30916,7 @@
               "main_marker": false
             },
             "GLP": {
-              "precio": 6.27,
+              "precio": 6.33,
               "main_marker": false
             },
             "Premium": {
@@ -31097,7 +31188,7 @@
               "precio": 26.79,
               "costo": 22.97,
               "margen": 3.82,
-              "vigencia": "14/10 16:07",
+              "vigencia": "15/10 08:38",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -31105,7 +31196,7 @@
               "precio": 7.45,
               "costo": 6.87,
               "margen": 0.58,
-              "vigencia": "14/10 16:07",
+              "vigencia": "15/10 08:38",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -31113,15 +31204,15 @@
               "precio": 24.65,
               "costo": 23.49,
               "margen": 1.16,
-              "vigencia": "14/10 16:07",
+              "vigencia": "15/10 08:38",
               "diferencial": 0.0,
               "main_marker": false
             },
             "Regular": {
-              "precio": 22.69,
+              "precio": 22.65,
               "costo": 21.69,
-              "margen": 1.0,
-              "vigencia": "14/10 16:07",
+              "margen": 0.96,
+              "vigencia": "15/10 08:38",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -31147,7 +31238,7 @@
             },
             "Regular": {
               "precio": 21.99,
-              "diferencial": 0.7,
+              "diferencial": 0.66,
               "main_marker": true
             },
             "GNV": {
@@ -31186,7 +31277,7 @@
             },
             "Regular": {
               "precio": 22.89,
-              "diferencial": -0.2,
+              "diferencial": -0.24,
               "main_marker": false
             }
           }
@@ -31216,7 +31307,7 @@
             },
             "Regular": {
               "precio": 20.95,
-              "diferencial": 1.74,
+              "diferencial": 1.7,
               "main_marker": false
             }
           }
@@ -31428,7 +31519,7 @@
               "precio": 28.29,
               "costo": 23.44,
               "margen": 4.85,
-              "vigencia": "14/10 16:50",
+              "vigencia": "15/10 08:52",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -31436,7 +31527,7 @@
               "precio": 6.95,
               "costo": 5.92,
               "margen": 1.03,
-              "vigencia": "14/10 16:50",
+              "vigencia": "15/10 08:52",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -31444,7 +31535,7 @@
               "precio": 25.69,
               "costo": 23.74,
               "margen": 1.95,
-              "vigencia": "14/10 16:50",
+              "vigencia": "15/10 08:52",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -31452,7 +31543,7 @@
               "precio": 22.79,
               "costo": 21.49,
               "margen": 1.3,
-              "vigencia": "14/10 16:50",
+              "vigencia": "15/10 08:52",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -31587,8 +31678,8 @@
           "distancia_km": 1.38,
           "combustibles": {
             "Diesel": {
-              "precio": 24.59,
-              "diferencial": 3.7,
+              "precio": 25.19,
+              "diferencial": 3.1,
               "main_marker": false
             },
             "GLP": {
@@ -31783,7 +31874,7 @@
               "precio": 24.89,
               "costo": 22.67,
               "margen": 2.22,
-              "vigencia": "14/10 17:07",
+              "vigencia": "15/10 07:50",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -31791,7 +31882,7 @@
               "precio": 6.69,
               "costo": 5.76,
               "margen": 0.93,
-              "vigencia": "14/10 17:07",
+              "vigencia": "15/10 07:50",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -31799,7 +31890,7 @@
               "precio": 22.99,
               "costo": 20.73,
               "margen": 2.26,
-              "vigencia": "14/10 17:07",
+              "vigencia": "15/10 07:50",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -31807,7 +31898,7 @@
               "precio": 20.99,
               "costo": 19.62,
               "margen": 1.37,
-              "vigencia": "14/10 17:07",
+              "vigencia": "15/10 07:50",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -32034,8 +32125,8 @@
       "distrito": "Lurin",
       "gpc_group": "COESTI",
       "direccion": "CARRETERA PANAMERICANA SUR KM. 30",
-      "own_lat": -12.27548,
-      "own_lon": -76.889283
+      "own_lat": -12.275480270385742,
+      "own_lon": -76.8892822265625
     },
     {
       "own_site_id": "efdd6bee-85c3-4e6e-8122-684077b35972",
@@ -32294,8 +32385,8 @@
       "distrito": "Parcona",
       "gpc_group": "COESTI",
       "direccion": "AV. PROLONGACION GRAU CDRA. 2, DISTRI. PARCONA, PROV. ICA DPTO. ICA.",
-      "own_lat": -14.0614444444444,
-      "own_lon": -75.7223055555556
+      "own_lat": -14.061444282531738,
+      "own_lon": -75.72230529785156
     },
     {
       "own_site_id": "96f1cfff-dd69-44d0-bcf5-96ce89f9b510",
@@ -32730,8 +32821,8 @@
       "distrito": "Magdalena del Mar",
       "gpc_group": "COESTI",
       "direccion": "AV. PASEO DE LA REPUBLICA 5545 CON AV. RICARDO PALMA",
-      "own_lat": -12.1194722222222,
-      "own_lon": -77.0252305555556
+      "own_lat": -12.11947250366211,
+      "own_lon": -77.02523040771484
     },
     {
       "own_site_id": "8a64f3c7-1983-4356-8345-14eaec3e5469",
@@ -32955,8 +33046,8 @@
       "distrito": "Majes",
       "gpc_group": "COESTI",
       "direccion": "ASOCIACION DE MICROEMPRESARIOS DE LA IRRIGACION MAJES “AMEIM” MZ. T, LOTE 6 Y 7",
-      "own_lat": -16.343569,
-      "own_lon": -72.193631
+      "own_lat": -16.343568801879883,
+      "own_lon": -72.19363403320312
     },
     {
       "own_site_id": "6968e0a7-c300-406a-9d87-758e0e9db1c6",
@@ -33048,8 +33139,8 @@
               "main_marker": false
             },
             "GLP": {
-              "precio": 6.35,
-              "diferencial": -0.06,
+              "precio": 6.45,
+              "diferencial": -0.16,
               "main_marker": false
             },
             "Premium": {
@@ -33403,8 +33494,8 @@
       "distrito": "Los Aquijes",
       "gpc_group": "COESTI",
       "direccion": "CARRETERA PANAMERICANA SUR KM 307",
-      "own_lat": -14.104898,
-      "own_lon": -75.717472
+      "own_lat": -14.104898452758789,
+      "own_lon": -75.71746826171875
     },
     {
       "own_site_id": "bd218e9d-3acb-4529-b803-aa3b70f9cb97",
@@ -33825,8 +33916,8 @@
       "distrito": "Miraflores",
       "gpc_group": "COESTI",
       "direccion": "Av. Progreso 401. Esquina Calle Calvario",
-      "own_lat": -16.392123,
-      "own_lon": -71.523949
+      "own_lat": -16.392122268676758,
+      "own_lon": -71.5239486694336
     },
     {
       "own_site_id": "58687b12-bece-4b0f-9b0b-cfb4a6eb23ca",
@@ -33901,8 +33992,8 @@
               "main_marker": true
             },
             "Regular": {
-              "precio": 21.09,
-              "diferencial": 0.1,
+              "precio": 20.99,
+              "diferencial": 0.2,
               "main_marker": true
             },
             "GNV": {
@@ -34041,8 +34132,8 @@
               "main_marker": false
             },
             "GNV": {
-              "precio": 1.9,
-              "diferencial": -0.09,
+              "precio": 1.89,
+              "diferencial": -0.08,
               "main_marker": false
             },
             "GLP": {
@@ -34266,8 +34357,8 @@
               "main_marker": false
             },
             "GLP": {
-              "precio": 6.27,
-              "diferencial": 0.32,
+              "precio": 6.33,
+              "diferencial": 0.26,
               "main_marker": false
             },
             "Premium": {
@@ -34586,8 +34677,8 @@
       "distrito": "Punta Hermosa",
       "gpc_group": "COESTI",
       "direccion": "CAR. PANAMERICANA SUR KM. 40 MZA. D LTE. 2 LIMA, LIMA, PUNTA HERMOSA",
-      "own_lat": -12.3167055555556,
-      "own_lon": -76.8317694444444
+      "own_lat": -12.316705703735352,
+      "own_lon": -76.83177185058594
     },
     {
       "own_site_id": "1d773683-0b95-4e7a-bf23-5c2a094c4213",
@@ -34937,8 +35028,8 @@
           "distancia_km": 0.82,
           "combustibles": {
             "Diesel": {
-              "precio": 24.29,
-              "diferencial": 3.6,
+              "precio": 24.39,
+              "diferencial": 3.5,
               "main_marker": false
             },
             "GLP": {
@@ -35110,8 +35201,8 @@
           "distancia_km": 0.82,
           "combustibles": {
             "Diesel": {
-              "precio": 25.5,
-              "diferencial": -0.05,
+              "precio": 24.5,
+              "diferencial": 0.95,
               "main_marker": false
             },
             "Regular": {
@@ -35150,13 +35241,13 @@
           "distancia_km": 2.0,
           "combustibles": {
             "Diesel": {
-              "precio": 22.59,
-              "diferencial": 2.86,
+              "precio": 22.99,
+              "diferencial": 2.46,
               "main_marker": false
             },
             "Regular": {
-              "precio": 21.79,
-              "diferencial": 1.4,
+              "precio": 21.89,
+              "diferencial": 1.3,
               "main_marker": false
             }
           }
@@ -35188,7 +35279,7 @@
               "precio": 27.09,
               "costo": 23.45,
               "margen": 3.64,
-              "vigencia": "13/10 07:56",
+              "vigencia": "15/10 08:40",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -35196,7 +35287,7 @@
               "precio": 24.99,
               "costo": 20.83,
               "margen": 4.16,
-              "vigencia": "13/10 07:56",
+              "vigencia": "15/10 08:40",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -35204,7 +35295,7 @@
               "precio": 22.99,
               "costo": 19.51,
               "margen": 3.48,
-              "vigencia": "13/10 07:56",
+              "vigencia": "15/10 08:40",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -35224,13 +35315,13 @@
               "main_marker": true
             },
             "Premium": {
-              "precio": 24.49,
-              "diferencial": 0.5,
+              "precio": 24.99,
+              "diferencial": 0.0,
               "main_marker": true
             },
             "Regular": {
-              "precio": 22.49,
-              "diferencial": 0.5,
+              "precio": 22.99,
+              "diferencial": 0.0,
               "main_marker": true
             }
           }
@@ -35366,7 +35457,7 @@
               "main_marker": false
             },
             "GNV": {
-              "precio": 1.79,
+              "precio": 1.8,
               "main_marker": false
             },
             "GLP": {
@@ -35452,7 +35543,7 @@
               "precio": 25.19,
               "costo": 23.01,
               "margen": 2.18,
-              "vigencia": "14/10 15:34",
+              "vigencia": "15/10 08:18",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -35460,7 +35551,7 @@
               "precio": 25.49,
               "costo": 20.78,
               "margen": 4.71,
-              "vigencia": "14/10 15:34",
+              "vigencia": "15/10 08:18",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -35468,7 +35559,7 @@
               "precio": 22.99,
               "costo": 19.64,
               "margen": 3.35,
-              "vigencia": "14/10 15:34",
+              "vigencia": "15/10 08:18",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -36039,8 +36130,8 @@
       "distrito": "Miraflores",
       "gpc_group": "COESTI",
       "direccion": "AV. MCAL. ANDRES A. CÃCERES 110, MIRAFLORES",
-      "own_lat": -12.1199666666667,
-      "own_lon": -77.0235194444444
+      "own_lat": -12.119966506958008,
+      "own_lon": -77.02352142333984
     },
     {
       "own_site_id": "0aae4c3c-21e8-4fdc-8d1a-025d22075316",
@@ -37470,8 +37561,8 @@
       "distrito": "Miraflores",
       "gpc_group": "COESTI",
       "direccion": "AV. PASEO DE LA REPUBLICA 5789 CON CL. SCHELL",
-      "own_lat": -12.123514,
-      "own_lon": -77.024108
+      "own_lat": -12.123514175415039,
+      "own_lon": -77.02410888671875
     },
     {
       "own_site_id": "6de4788f-9723-442a-a807-a7329ecf3b29",
@@ -38026,30 +38117,6 @@
           }
         },
         {
-          "site_id": "c6822446-e911-43f5-8834-63f421b6d48b",
-          "nombre_linea": "PEBSA - GRIFOS PEBSA S.A.",
-          "marca": "REPSOL",
-          "tipo_actor": "COMPETENCIA",
-          "es_competidor_propio": false,
-          "combustibles": {
-            "Diesel": {
-              "precio": 23.89,
-              "diferencial": 1.0,
-              "main_marker": false
-            },
-            "Premium": {
-              "precio": 21.39,
-              "diferencial": 1.6,
-              "main_marker": false
-            },
-            "Regular": {
-              "precio": 20.09,
-              "diferencial": 0.9,
-              "main_marker": false
-            }
-          }
-        },
-        {
           "site_id": "22ef0a4e-648f-404c-90c9-65fc7d23c25e",
           "nombre_linea": "AVA EL TREN - GLOBAL FUEL S.A",
           "marca": "AVA",
@@ -38058,8 +38125,8 @@
           "distancia_km": 5.21,
           "combustibles": {
             "Diesel": {
-              "precio": 24.19,
-              "diferencial": 0.7,
+              "precio": 24.37,
+              "diferencial": 0.52,
               "main_marker": false
             },
             "GLP": {
@@ -38068,8 +38135,8 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 21.49,
-              "diferencial": 1.5,
+              "precio": 21.65,
+              "diferencial": 1.34,
               "main_marker": false
             },
             "Regular": {
@@ -38100,6 +38167,31 @@
             "Regular": {
               "precio": 20.39,
               "diferencial": 0.6,
+              "main_marker": false
+            }
+          }
+        },
+        {
+          "site_id": "c6822446-e911-43f5-8834-63f421b6d48b",
+          "nombre_linea": "PEBSA - GRIFOS PEBSA S.A.",
+          "marca": "WP",
+          "tipo_actor": "COMPETENCIA",
+          "es_competidor_propio": false,
+          "distancia_km": 9.81,
+          "combustibles": {
+            "Diesel": {
+              "precio": 23.89,
+              "diferencial": 1.0,
+              "main_marker": false
+            },
+            "Premium": {
+              "precio": 21.39,
+              "diferencial": 1.6,
+              "main_marker": false
+            },
+            "Regular": {
+              "precio": 20.09,
+              "diferencial": 0.9,
               "main_marker": false
             }
           }
@@ -38146,8 +38238,8 @@
       "distrito": "Lurin",
       "gpc_group": "COESTI",
       "direccion": "Av. Panamericana Sur Km. 29.5 Lurin.",
-      "own_lat": -12.272292,
-      "own_lon": -76.897059
+      "own_lat": -12.272292137145996,
+      "own_lon": -76.89705657958984
     },
     {
       "own_site_id": "28af9814-0cf1-435d-96bb-945e053fcdbb",
@@ -38186,10 +38278,10 @@
               "main_marker": false
             },
             "GNV": {
-              "precio": 1.79,
+              "precio": 1.8,
               "costo": 1.0,
-              "margen": 0.79,
-              "vigencia": "17/08 15:44",
+              "margen": 0.8,
+              "vigencia": "15/10 07:31",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -38243,7 +38335,7 @@
             },
             "GNV": {
               "precio": 1.78,
-              "diferencial": 0.01,
+              "diferencial": 0.02,
               "main_marker": true
             },
             "Premium": {
@@ -38273,7 +38365,7 @@
             },
             "GNV": {
               "precio": 1.79,
-              "diferencial": 0.0,
+              "diferencial": 0.01,
               "main_marker": false
             },
             "Premium": {
@@ -39521,7 +39613,7 @@
               "precio": 27.39,
               "costo": 23.38,
               "margen": 4.01,
-              "vigencia": "14/10 16:26",
+              "vigencia": "15/10 08:20",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -39529,7 +39621,7 @@
               "precio": 7.05,
               "costo": 6.25,
               "margen": 0.8,
-              "vigencia": "14/10 16:26",
+              "vigencia": "15/10 08:20",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -39537,7 +39629,7 @@
               "precio": 25.55,
               "costo": 23.77,
               "margen": 1.78,
-              "vigencia": "14/10 16:26",
+              "vigencia": "15/10 08:20",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -39545,7 +39637,7 @@
               "precio": 22.89,
               "costo": 21.48,
               "margen": 1.41,
-              "vigencia": "14/10 16:26",
+              "vigencia": "15/10 08:20",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -40274,8 +40366,8 @@
           "distancia_km": 3.21,
           "combustibles": {
             "Diesel": {
-              "precio": 24.5,
-              "diferencial": 0.39,
+              "precio": 24.25,
+              "diferencial": 0.64,
               "main_marker": false
             },
             "GLP": {
@@ -40283,12 +40375,12 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 22.5,
+              "precio": 22.45,
               "main_marker": false
             },
             "Regular": {
-              "precio": 21.29,
-              "diferencial": 0.16,
+              "precio": 21.25,
+              "diferencial": 0.2,
               "main_marker": false
             }
           }
@@ -40302,13 +40394,13 @@
           "distancia_km": 3.48,
           "combustibles": {
             "Diesel": {
-              "precio": 24.25,
-              "diferencial": 0.64,
+              "precio": 24.2,
+              "diferencial": 0.69,
               "main_marker": false
             },
             "Regular": {
-              "precio": 21.2,
-              "diferencial": 0.25,
+              "precio": 21.59,
+              "diferencial": -0.14,
               "main_marker": false
             }
           }
@@ -40654,7 +40746,7 @@
               "precio": 27.39,
               "costo": 23.27,
               "margen": 4.12,
-              "vigencia": "14/10 17:42",
+              "vigencia": "15/10 08:07",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -40662,7 +40754,7 @@
               "precio": 7.15,
               "costo": 6.38,
               "margen": 0.77,
-              "vigencia": "14/10 17:42",
+              "vigencia": "15/10 08:07",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -40670,7 +40762,7 @@
               "precio": 26.05,
               "costo": 23.83,
               "margen": 2.22,
-              "vigencia": "14/10 17:42",
+              "vigencia": "15/10 08:07",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -40678,7 +40770,7 @@
               "precio": 22.89,
               "costo": 21.52,
               "margen": 1.37,
-              "vigencia": "14/10 17:42",
+              "vigencia": "15/10 08:07",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -40748,8 +40840,8 @@
           "distancia_km": 0.48,
           "combustibles": {
             "Diesel": {
-              "precio": 24.69,
-              "diferencial": 2.7,
+              "precio": 24.45,
+              "diferencial": 2.94,
               "main_marker": false
             },
             "GLP": {
@@ -40758,13 +40850,13 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 23.79,
-              "diferencial": 2.26,
+              "precio": 23.49,
+              "diferencial": 2.56,
               "main_marker": false
             },
             "Regular": {
-              "precio": 21.49,
-              "diferencial": 1.4,
+              "precio": 21.29,
+              "diferencial": 1.6,
               "main_marker": false
             }
           }
@@ -40778,8 +40870,8 @@
           "distancia_km": 0.66,
           "combustibles": {
             "Diesel": {
-              "precio": 24.2,
-              "diferencial": 3.19,
+              "precio": 24.25,
+              "diferencial": 3.14,
               "main_marker": false
             },
             "GLP": {
@@ -40788,8 +40880,8 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 23.89,
-              "diferencial": 2.16,
+              "precio": 23.59,
+              "diferencial": 2.46,
               "main_marker": false
             },
             "Regular": {
@@ -40998,8 +41090,8 @@
       "distrito": "Arequipa",
       "gpc_group": "COESTI",
       "direccion": "AV. SALAVERRY 608   URB. VALLECITO",
-      "own_lat": -16.404088,
-      "own_lon": -71.543304
+      "own_lat": -16.40408706665039,
+      "own_lon": -71.54330444335938
     },
     {
       "own_site_id": "cb9039ac-cd23-4b35-a8ad-ba971d631a1d",
@@ -41841,7 +41933,7 @@
               "precio": 23.15,
               "costo": 21.39,
               "margen": 1.76,
-              "vigencia": "14/10 08:02",
+              "vigencia": "15/10 08:02",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -41849,7 +41941,7 @@
               "precio": 25.29,
               "costo": 22.91,
               "margen": 2.38,
-              "vigencia": "14/10 08:02",
+              "vigencia": "15/10 08:02",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -41857,7 +41949,7 @@
               "precio": 21.79,
               "costo": 19.53,
               "margen": 2.26,
-              "vigencia": "14/10 08:02",
+              "vigencia": "15/10 08:02",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -41865,15 +41957,15 @@
               "precio": 2.25,
               "costo": 1.11,
               "margen": 1.14,
-              "vigencia": "14/10 08:02",
+              "vigencia": "15/10 08:03",
               "diferencial": 0.0,
               "main_marker": false
             },
             "GLP": {
-              "precio": 6.75,
+              "precio": 6.95,
               "costo": 6.0,
-              "margen": 0.75,
-              "vigencia": "14/10 08:02",
+              "margen": 0.95,
+              "vigencia": "15/10 08:02",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -41909,7 +42001,7 @@
             },
             "GLP": {
               "precio": 6.79,
-              "diferencial": -0.04,
+              "diferencial": 0.16,
               "main_marker": false
             }
           }
@@ -41928,8 +42020,8 @@
               "main_marker": false
             },
             "GLP": {
-              "precio": 6.69,
-              "diferencial": 0.06,
+              "precio": 7.04,
+              "diferencial": -0.09,
               "main_marker": true
             },
             "Premium": {
@@ -41959,7 +42051,7 @@
             },
             "GLP": {
               "precio": 6.75,
-              "diferencial": 0.0,
+              "diferencial": 0.2,
               "main_marker": false
             },
             "Premium": {
@@ -41989,7 +42081,7 @@
             },
             "GLP": {
               "precio": 6.59,
-              "diferencial": 0.16,
+              "diferencial": 0.36,
               "main_marker": false
             },
             "Premium": {
@@ -42019,7 +42111,7 @@
             },
             "GLP": {
               "precio": 6.75,
-              "diferencial": 0.0,
+              "diferencial": 0.2,
               "main_marker": false
             },
             "Premium": {
@@ -42884,7 +42976,7 @@
               "precio": 26.39,
               "costo": 25.15,
               "margen": 1.24,
-              "vigencia": "14/10 08:17",
+              "vigencia": "15/10 08:07",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -42892,15 +42984,15 @@
               "precio": 2.5,
               "costo": 2.24,
               "margen": 0.26,
-              "vigencia": "14/10 08:17",
+              "vigencia": "15/10 08:07",
               "diferencial": 0.0,
               "main_marker": false
             },
             "Premium": {
-              "precio": 23.29,
+              "precio": 23.35,
               "costo": 22.27,
-              "margen": 1.02,
-              "vigencia": "14/10 08:17",
+              "margen": 1.08,
+              "vigencia": "15/10 08:07",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -42908,7 +43000,7 @@
               "precio": 22.05,
               "costo": 21.56,
               "margen": 0.49,
-              "vigencia": "14/10 08:17",
+              "vigencia": "15/10 08:07",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -42929,7 +43021,7 @@
             },
             "Premium": {
               "precio": 23.27,
-              "diferencial": 0.02,
+              "diferencial": 0.08,
               "main_marker": true
             },
             "Regular": {
@@ -42954,7 +43046,7 @@
             },
             "Premium": {
               "precio": 22.89,
-              "diferencial": 0.4,
+              "diferencial": 0.46,
               "main_marker": false
             },
             "Regular": {
@@ -42979,7 +43071,7 @@
             },
             "Premium": {
               "precio": 22.92,
-              "diferencial": 0.37,
+              "diferencial": 0.43,
               "main_marker": false
             },
             "Regular": {
@@ -43004,7 +43096,7 @@
             },
             "Premium": {
               "precio": 22.69,
-              "diferencial": 0.6,
+              "diferencial": 0.66,
               "main_marker": false
             },
             "Regular": {
@@ -43029,7 +43121,7 @@
             },
             "Premium": {
               "precio": 22.89,
-              "diferencial": 0.4,
+              "diferencial": 0.46,
               "main_marker": false
             },
             "Regular": {
@@ -43054,7 +43146,7 @@
             },
             "Premium": {
               "precio": 23.57,
-              "diferencial": -0.28,
+              "diferencial": -0.22,
               "main_marker": false
             },
             "Regular": {
@@ -43072,8 +43164,8 @@
       "distrito": "San Sebastian",
       "gpc_group": "COESTI",
       "direccion": "PROLONGACION AV. LA CULTURA nro 1506",
-      "own_lat": -13.531056,
-      "own_lon": -71.930512
+      "own_lat": -13.53105640411377,
+      "own_lon": -71.93051147460938
     },
     {
       "own_site_id": "1bea1d6e-e1e0-4c57-b8d6-6712c7911939",
@@ -43091,7 +43183,7 @@
               "precio": 27.29,
               "costo": 24.63,
               "margen": 2.66,
-              "vigencia": "14/10 08:13",
+              "vigencia": "15/10 07:53",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -43099,7 +43191,7 @@
               "precio": 23.39,
               "costo": 21.43,
               "margen": 1.96,
-              "vigencia": "14/10 08:13",
+              "vigencia": "15/10 07:53",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -43107,7 +43199,7 @@
               "precio": 22.09,
               "costo": 20.82,
               "margen": 1.27,
-              "vigencia": "14/10 08:13",
+              "vigencia": "15/10 07:53",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -43146,8 +43238,8 @@
           "es_competidor_propio": false,
           "combustibles": {
             "Diesel": {
-              "precio": 25.78,
-              "diferencial": 1.51,
+              "precio": 26.12,
+              "diferencial": 1.17,
               "main_marker": false
             },
             "GLP": {
@@ -43185,8 +43277,8 @@
               "main_marker": false
             },
             "Regular": {
-              "precio": 21.99,
-              "diferencial": 0.1,
+              "precio": 21.79,
+              "diferencial": 0.3,
               "main_marker": false
             }
           }
@@ -43199,8 +43291,8 @@
       "distrito": "Arequipa",
       "gpc_group": "COESTI",
       "direccion": "AV. VENEZUELA 2515",
-      "own_lat": -16.414586,
-      "own_lon": -71.542096
+      "own_lat": -16.41458511352539,
+      "own_lon": -71.54209899902344
     },
     {
       "own_site_id": "38af2a81-4ed4-4bc2-8c10-253697d6fac9",
@@ -43370,8 +43462,8 @@
               "main_marker": false
             },
             "GLP": {
-              "precio": 7.49,
-              "diferencial": -0.2,
+              "precio": 7.59,
+              "diferencial": -0.3,
               "main_marker": false
             }
           }
@@ -43627,8 +43719,8 @@
           "distancia_km": 1.73,
           "combustibles": {
             "Diesel": {
-              "precio": 25.99,
-              "diferencial": 0.2,
+              "precio": 25.6,
+              "diferencial": 0.59,
               "main_marker": false
             },
             "GLP": {
@@ -43705,7 +43797,7 @@
               "precio": 26.19,
               "costo": 25.07,
               "margen": 1.12,
-              "vigencia": "14/10 08:39",
+              "vigencia": "15/10 08:21",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -43713,7 +43805,7 @@
               "precio": 7.75,
               "costo": 6.44,
               "margen": 1.31,
-              "vigencia": "14/10 08:39",
+              "vigencia": "15/10 08:21",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -43721,7 +43813,7 @@
               "precio": 23.49,
               "costo": 21.9,
               "margen": 1.59,
-              "vigencia": "14/10 08:39",
+              "vigencia": "15/10 08:21",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -43729,7 +43821,7 @@
               "precio": 22.85,
               "costo": 21.04,
               "margen": 1.81,
-              "vigencia": "14/10 08:39",
+              "vigencia": "15/10 08:21",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -43953,22 +44045,22 @@
           "distancia_km": 1.15,
           "combustibles": {
             "Diesel": {
-              "precio": 24.84,
-              "diferencial": 2.45,
+              "precio": 24.37,
+              "diferencial": 2.92,
               "main_marker": true
             },
             "GLP": {
-              "precio": 8.14,
+              "precio": 8.49,
               "main_marker": false
             },
             "Premium": {
-              "precio": 23.97,
-              "diferencial": 1.52,
+              "precio": 23.77,
+              "diferencial": 1.72,
               "main_marker": true
             },
             "Regular": {
-              "precio": 21.99,
-              "diferencial": 0.8,
+              "precio": 21.27,
+              "diferencial": 1.52,
               "main_marker": true
             }
           }
@@ -44011,22 +44103,22 @@
           "distancia_km": 1.24,
           "combustibles": {
             "Diesel": {
-              "precio": 24.77,
-              "diferencial": 2.52,
+              "precio": 24.17,
+              "diferencial": 3.12,
               "main_marker": false
             },
             "GLP": {
-              "precio": 8.47,
+              "precio": 8.45,
               "main_marker": false
             },
             "Premium": {
-              "precio": 23.95,
-              "diferencial": 1.54,
+              "precio": 23.67,
+              "diferencial": 1.82,
               "main_marker": false
             },
             "Regular": {
-              "precio": 21.77,
-              "diferencial": 1.02,
+              "precio": 21.07,
+              "diferencial": 1.72,
               "main_marker": false
             }
           }
@@ -44236,7 +44328,7 @@
               "precio": 26.29,
               "costo": 22.84,
               "margen": 3.45,
-              "vigencia": "14/10 15:15",
+              "vigencia": "15/10 08:13",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -44244,7 +44336,7 @@
               "precio": 1.78,
               "costo": 0.98,
               "margen": 0.8,
-              "vigencia": "14/10 15:15",
+              "vigencia": "15/10 08:13",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -44252,7 +44344,7 @@
               "precio": 22.89,
               "costo": 20.81,
               "margen": 2.08,
-              "vigencia": "14/10 15:15",
+              "vigencia": "15/10 08:13",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -44260,7 +44352,7 @@
               "precio": 21.69,
               "costo": 19.66,
               "margen": 2.03,
-              "vigencia": "14/10 15:15",
+              "vigencia": "15/10 08:13",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -44412,13 +44504,13 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 22.39,
-              "diferencial": 0.5,
+              "precio": 22.59,
+              "diferencial": 0.3,
               "main_marker": false
             },
             "Regular": {
-              "precio": 20.99,
-              "diferencial": 0.7,
+              "precio": 21.15,
+              "diferencial": 0.54,
               "main_marker": false
             }
           }
@@ -44597,18 +44689,18 @@
           "distancia_km": 0.55,
           "combustibles": {
             "Premium": {
-              "precio": 21.74,
-              "diferencial": 1.55,
+              "precio": 21.58,
+              "diferencial": 1.71,
               "main_marker": false
             },
             "Diesel": {
-              "precio": 24.57,
-              "diferencial": 0.92,
+              "precio": 23.62,
+              "diferencial": 1.87,
               "main_marker": false
             },
             "Regular": {
-              "precio": 20.7,
-              "diferencial": 1.15,
+              "precio": 20.48,
+              "diferencial": 1.37,
               "main_marker": false
             },
             "GNV": {
@@ -44705,15 +44797,15 @@
               "precio": 25.65,
               "costo": 22.92,
               "margen": 2.73,
-              "vigencia": "13/10 07:43",
+              "vigencia": "15/10 08:09",
               "diferencial": 0.0,
               "main_marker": false
             },
             "GLP": {
-              "precio": 6.35,
+              "precio": 6.45,
               "costo": 5.71,
-              "margen": 0.64,
-              "vigencia": "13/10 07:43",
+              "margen": 0.74,
+              "vigencia": "15/10 08:09",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -44721,7 +44813,7 @@
               "precio": 22.99,
               "costo": 21.44,
               "margen": 1.55,
-              "vigencia": "13/10 07:43",
+              "vigencia": "15/10 08:09",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -44729,7 +44821,7 @@
               "precio": 21.49,
               "costo": 19.75,
               "margen": 1.74,
-              "vigencia": "13/10 07:43",
+              "vigencia": "15/10 08:09",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -44744,13 +44836,13 @@
           "distancia_km": 1.11,
           "combustibles": {
             "Diesel": {
-              "precio": 25.29,
-              "diferencial": 0.36,
+              "precio": 25.49,
+              "diferencial": 0.16,
               "main_marker": false
             },
             "GLP": {
               "precio": 6.64,
-              "diferencial": -0.29,
+              "diferencial": -0.19,
               "main_marker": true
             },
             "Premium": {
@@ -44780,7 +44872,7 @@
             },
             "GLP": {
               "precio": 6.64,
-              "diferencial": -0.29,
+              "diferencial": -0.19,
               "main_marker": false
             },
             "Premium": {
@@ -44830,7 +44922,7 @@
             },
             "GLP": {
               "precio": 6.65,
-              "diferencial": -0.3,
+              "diferencial": -0.2,
               "main_marker": false
             },
             "Premium": {
@@ -44860,7 +44952,7 @@
             },
             "GLP": {
               "precio": 6.99,
-              "diferencial": -0.64,
+              "diferencial": -0.54,
               "main_marker": false
             },
             "Premium": {
@@ -44890,7 +44982,7 @@
             },
             "GLP": {
               "precio": 6.29,
-              "diferencial": 0.06,
+              "diferencial": 0.16,
               "main_marker": false
             },
             "Premium": {
@@ -44913,8 +45005,8 @@
       "distrito": "Pisco",
       "gpc_group": "COESTI",
       "direccion": "AV. FERMIN TANGUIS 220",
-      "own_lat": -13.711031,
-      "own_lon": -76.197078
+      "own_lat": -13.711030960083008,
+      "own_lon": -76.19707489013672
     },
     {
       "own_site_id": "680adfe2-c684-4bcd-9282-dc33a243801a",
@@ -44932,7 +45024,7 @@
               "precio": 23.19,
               "costo": 20.71,
               "margen": 2.48,
-              "vigencia": "14/10 15:06",
+              "vigencia": "15/10 08:19",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -44940,7 +45032,7 @@
               "precio": 25.59,
               "costo": 22.99,
               "margen": 2.6,
-              "vigencia": "14/10 15:06",
+              "vigencia": "15/10 08:19",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -44948,7 +45040,7 @@
               "precio": 21.99,
               "costo": 19.67,
               "margen": 2.32,
-              "vigencia": "14/10 15:06",
+              "vigencia": "15/10 08:19",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -44956,7 +45048,7 @@
               "precio": 1.8,
               "costo": 0.99,
               "margen": 0.81,
-              "vigencia": "14/10 15:06",
+              "vigencia": "15/10 08:19",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -44964,7 +45056,7 @@
               "precio": 7.69,
               "costo": 5.77,
               "margen": 1.92,
-              "vigencia": "14/10 15:06",
+              "vigencia": "15/10 08:19",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -45122,7 +45214,7 @@
               "precio": 23.49,
               "costo": 20.72,
               "margen": 2.77,
-              "vigencia": "14/10 16:29",
+              "vigencia": "15/10 08:35",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -45130,7 +45222,7 @@
               "precio": 26.79,
               "costo": 22.86,
               "margen": 3.93,
-              "vigencia": "14/10 16:29",
+              "vigencia": "15/10 08:35",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -45138,7 +45230,7 @@
               "precio": 22.19,
               "costo": 19.54,
               "margen": 2.65,
-              "vigencia": "14/10 16:29",
+              "vigencia": "15/10 08:35",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -45146,7 +45238,7 @@
               "precio": 1.76,
               "costo": 1.0,
               "margen": 0.76,
-              "vigencia": "14/10 16:29",
+              "vigencia": "15/10 08:35",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -45154,7 +45246,7 @@
               "precio": 6.75,
               "costo": 5.76,
               "margen": 0.99,
-              "vigencia": "14/10 16:29",
+              "vigencia": "15/10 08:35",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -45169,8 +45261,8 @@
           "distancia_km": 0.55,
           "combustibles": {
             "Premium": {
-              "precio": 22.49,
-              "diferencial": 1.0,
+              "precio": 22.59,
+              "diferencial": 0.9,
               "main_marker": false
             },
             "Diesel": {
@@ -45179,8 +45271,8 @@
               "main_marker": false
             },
             "Regular": {
-              "precio": 21.29,
-              "diferencial": 0.9,
+              "precio": 21.49,
+              "diferencial": 0.7,
               "main_marker": false
             },
             "GNV": {
@@ -45672,8 +45764,8 @@
               "main_marker": true
             },
             "Regular": {
-              "precio": 19.5,
-              "diferencial": 1.49,
+              "precio": 19.3,
+              "diferencial": 1.69,
               "main_marker": true
             }
           }
@@ -45808,7 +45900,7 @@
               "precio": 27.45,
               "costo": 24.1,
               "margen": 3.35,
-              "vigencia": "14/10 09:36",
+              "vigencia": "15/10 08:20",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -45816,7 +45908,7 @@
               "precio": 7.09,
               "costo": 6.08,
               "margen": 1.01,
-              "vigencia": "14/10 09:36",
+              "vigencia": "15/10 08:20",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -45824,7 +45916,7 @@
               "precio": 25.49,
               "costo": 23.28,
               "margen": 2.21,
-              "vigencia": "14/10 09:36",
+              "vigencia": "15/10 08:20",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -45832,7 +45924,7 @@
               "precio": 23.49,
               "costo": 21.29,
               "margen": 2.2,
-              "vigencia": "14/10 09:36",
+              "vigencia": "15/10 08:20",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -46146,7 +46238,7 @@
               "precio": 27.39,
               "costo": 23.65,
               "margen": 3.74,
-              "vigencia": "14/10 10:02",
+              "vigencia": "15/10 07:51",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -46154,7 +46246,7 @@
               "precio": 7.25,
               "costo": 6.24,
               "margen": 1.01,
-              "vigencia": "14/10 10:02",
+              "vigencia": "15/10 07:51",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -46162,7 +46254,7 @@
               "precio": 25.49,
               "costo": 23.12,
               "margen": 2.37,
-              "vigencia": "14/10 10:02",
+              "vigencia": "15/10 07:51",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -46170,7 +46262,7 @@
               "precio": 22.99,
               "costo": 21.21,
               "margen": 1.78,
-              "vigencia": "14/10 10:02",
+              "vigencia": "15/10 07:51",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -46185,8 +46277,8 @@
           "distancia_km": 0.11,
           "combustibles": {
             "Diesel": {
-              "precio": 24.94,
-              "diferencial": 2.45,
+              "precio": 24.89,
+              "diferencial": 2.5,
               "main_marker": true
             },
             "GLP": {
@@ -46446,8 +46538,8 @@
       "distrito": "Yanahuara",
       "gpc_group": "COESTI",
       "direccion": "AV. JOSE A. QUINONES CON CL. S N MZ. 1 LTS. 1-4 URB VALENCIA",
-      "own_lat": -16.3965416666667,
-      "own_lon": -71.5474
+      "own_lat": -16.396541595458984,
+      "own_lon": -71.54740142822266
     },
     {
       "own_site_id": "ea295324-c070-49bb-bde4-ab8c07a3c3b3",
@@ -46588,8 +46680,8 @@
       "distrito": "Yanahuara",
       "gpc_group": "COESTI",
       "direccion": "Calle Ricardo Palma 502 - Umacollo",
-      "own_lat": -16.403585,
-      "own_lon": -71.547548
+      "own_lat": -16.40358543395996,
+      "own_lon": -71.54754638671875
     },
     {
       "own_site_id": "4e214dd3-7dbb-4305-9b3d-706a6cb479b6",
@@ -46607,7 +46699,7 @@
               "precio": 26.59,
               "costo": 22.83,
               "margen": 3.76,
-              "vigencia": "14/10 09:58",
+              "vigencia": "15/10 08:12",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -46615,7 +46707,7 @@
               "precio": 7.69,
               "costo": 5.75,
               "margen": 1.94,
-              "vigencia": "14/10 09:58",
+              "vigencia": "15/10 08:12",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -46623,7 +46715,7 @@
               "precio": 24.89,
               "costo": 20.69,
               "margen": 4.2,
-              "vigencia": "14/10 09:58",
+              "vigencia": "15/10 08:12",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -46631,7 +46723,7 @@
               "precio": 23.99,
               "costo": 19.5,
               "margen": 4.49,
-              "vigencia": "14/10 09:58",
+              "vigencia": "15/10 08:12",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -46736,8 +46828,8 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 26.99,
-              "diferencial": -2.1,
+              "precio": 27.49,
+              "diferencial": -2.6,
               "main_marker": false
             },
             "Regular": {
@@ -46863,7 +46955,7 @@
               "precio": 25.35,
               "costo": 22.9,
               "margen": 2.45,
-              "vigencia": "14/10 08:12",
+              "vigencia": "15/10 08:12",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -46871,7 +46963,7 @@
               "precio": 22.95,
               "costo": 20.61,
               "margen": 2.34,
-              "vigencia": "14/10 08:12",
+              "vigencia": "15/10 08:12",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -46879,7 +46971,7 @@
               "precio": 21.75,
               "costo": 19.36,
               "margen": 2.39,
-              "vigencia": "14/10 08:12",
+              "vigencia": "15/10 08:12",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -47003,7 +47095,7 @@
               "precio": 24.09,
               "costo": 23.19,
               "margen": 0.9,
-              "vigencia": "12/10 10:07",
+              "vigencia": "15/10 08:03",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -47019,7 +47111,7 @@
               "precio": 21.79,
               "costo": 20.46,
               "margen": 1.33,
-              "vigencia": "12/10 10:07",
+              "vigencia": "15/10 08:03",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -47462,7 +47554,7 @@
               "precio": 24.55,
               "costo": 23.57,
               "margen": 0.98,
-              "vigencia": "14/10 10:35",
+              "vigencia": "15/10 08:03",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -47470,7 +47562,7 @@
               "precio": 26.39,
               "costo": 26.9,
               "margen": -0.51,
-              "vigencia": "14/10 10:35",
+              "vigencia": "15/10 08:03",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -47478,7 +47570,7 @@
               "precio": 20.99,
               "costo": 20.41,
               "margen": 0.58,
-              "vigencia": "14/10 10:35",
+              "vigencia": "15/10 08:03",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -47921,8 +48013,8 @@
           "es_competidor_propio": false,
           "combustibles": {
             "Diesel": {
-              "precio": 25.78,
-              "diferencial": 1.51,
+              "precio": 26.12,
+              "diferencial": 1.17,
               "main_marker": false
             },
             "GLP": {
@@ -47985,8 +48077,8 @@
               "main_marker": false
             },
             "Regular": {
-              "precio": 21.99,
-              "diferencial": 0.1,
+              "precio": 21.79,
+              "diferencial": 0.3,
               "main_marker": false
             }
           }
@@ -47999,8 +48091,8 @@
       "distrito": "Arequipa",
       "gpc_group": "COESTI",
       "direccion": "AV. VENEZUELA 2200",
-      "own_lat": -16.413938,
-      "own_lon": -71.543339
+      "own_lat": -16.413938522338867,
+      "own_lon": -71.54334259033203
     },
     {
       "own_site_id": "051b8065-ba81-4232-87b2-beef690563eb",
@@ -48018,7 +48110,7 @@
               "precio": 25.15,
               "costo": 22.63,
               "margen": 2.52,
-              "vigencia": "14/10 08:14",
+              "vigencia": "15/10 08:10",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -48026,7 +48118,7 @@
               "precio": 6.95,
               "costo": 5.84,
               "margen": 1.11,
-              "vigencia": "14/10 08:14",
+              "vigencia": "15/10 08:10",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -48034,7 +48126,7 @@
               "precio": 22.75,
               "costo": 20.85,
               "margen": 1.9,
-              "vigencia": "14/10 08:14",
+              "vigencia": "15/10 08:10",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -48042,7 +48134,7 @@
               "precio": 21.39,
               "costo": 19.37,
               "margen": 2.02,
-              "vigencia": "14/10 08:14",
+              "vigencia": "15/10 08:10",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -48190,8 +48282,8 @@
       "distrito": "Villa El Salvador",
       "gpc_group": "COESTI",
       "direccion": "MATEO PUMACAHUA MZA D- LOTE 5 - VILLA EL SALVADOR",
-      "own_lat": -12.193288,
-      "own_lon": -76.96425
+      "own_lat": -12.19328784942627,
+      "own_lon": -76.96424865722656
     },
     {
       "own_site_id": "eaba7ed3-adc0-4750-83cd-a47e97ecf0c3",
@@ -48790,8 +48882,8 @@
           "distancia_km": 2.2,
           "combustibles": {
             "Diesel": {
-              "precio": 24.5,
-              "diferencial": 0.39,
+              "precio": 24.25,
+              "diferencial": 0.64,
               "main_marker": false
             },
             "GLP": {
@@ -48799,13 +48891,13 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 22.5,
-              "diferencial": 0.59,
+              "precio": 22.45,
+              "diferencial": 0.64,
               "main_marker": false
             },
             "Regular": {
-              "precio": 21.29,
-              "diferencial": 0.0,
+              "precio": 21.25,
+              "diferencial": 0.04,
               "main_marker": false
             }
           }
@@ -48819,13 +48911,13 @@
           "distancia_km": 4.47,
           "combustibles": {
             "Diesel": {
-              "precio": 24.25,
-              "diferencial": 0.64,
+              "precio": 24.2,
+              "diferencial": 0.69,
               "main_marker": false
             },
             "Regular": {
-              "precio": 21.2,
-              "diferencial": 0.09,
+              "precio": 21.59,
+              "diferencial": -0.3,
               "main_marker": false
             }
           }
@@ -48966,7 +49058,7 @@
               "precio": 23.25,
               "costo": 20.63,
               "margen": 2.62,
-              "vigencia": "14/10 10:43",
+              "vigencia": "15/10 07:25",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -48974,7 +49066,7 @@
               "precio": 25.49,
               "costo": 22.78,
               "margen": 2.71,
-              "vigencia": "14/10 10:43",
+              "vigencia": "15/10 07:25",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -48982,15 +49074,15 @@
               "precio": 22.15,
               "costo": 19.37,
               "margen": 2.78,
-              "vigencia": "14/10 10:43",
+              "vigencia": "15/10 07:25",
               "diferencial": 0.0,
               "main_marker": false
             },
             "GNV": {
-              "precio": 1.9,
+              "precio": 1.89,
               "costo": 1.0,
-              "margen": 0.9,
-              "vigencia": "14/10 10:43",
+              "margen": 0.89,
+              "vigencia": "15/10 07:25",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -48998,7 +49090,7 @@
               "precio": 7.05,
               "costo": 5.81,
               "margen": 1.24,
-              "vigencia": "14/10 10:43",
+              "vigencia": "15/10 07:25",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -49029,7 +49121,7 @@
             },
             "GNV": {
               "precio": 1.9,
-              "diferencial": 0.0,
+              "diferencial": -0.01,
               "main_marker": true
             },
             "GLP": {
@@ -49083,8 +49175,8 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 24.99,
-              "diferencial": -1.74,
+              "precio": 25.49,
+              "diferencial": -2.24,
               "main_marker": false
             },
             "Regular": {
@@ -49119,7 +49211,7 @@
             },
             "GNV": {
               "precio": 1.81,
-              "diferencial": 0.09,
+              "diferencial": 0.08,
               "main_marker": false
             },
             "GLP": {
@@ -49156,7 +49248,7 @@
               "precio": 23.49,
               "costo": 20.92,
               "margen": 2.57,
-              "vigencia": "14/10 17:10",
+              "vigencia": "15/10 07:31",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -49164,7 +49256,7 @@
               "precio": 24.39,
               "costo": 23.09,
               "margen": 1.3,
-              "vigencia": "14/10 17:10",
+              "vigencia": "15/10 07:31",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -49172,7 +49264,7 @@
               "precio": 21.59,
               "costo": 19.64,
               "margen": 1.95,
-              "vigencia": "14/10 17:10",
+              "vigencia": "15/10 07:31",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -49180,7 +49272,7 @@
               "precio": 1.74,
               "costo": 0.98,
               "margen": 0.76,
-              "vigencia": "14/10 17:10",
+              "vigencia": "15/10 07:31",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -49188,7 +49280,7 @@
               "precio": 6.79,
               "costo": 5.69,
               "margen": 1.1,
-              "vigencia": "14/10 17:10",
+              "vigencia": "15/10 07:31",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -49645,7 +49737,7 @@
               "precio": 28.29,
               "costo": 23.29,
               "margen": 5.0,
-              "vigencia": "14/10 09:15",
+              "vigencia": "15/10 08:51",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -49653,7 +49745,7 @@
               "precio": 8.29,
               "costo": 7.42,
               "margen": 0.87,
-              "vigencia": "14/10 09:15",
+              "vigencia": "15/10 08:51",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -49661,7 +49753,7 @@
               "precio": 26.29,
               "costo": 22.44,
               "margen": 3.85,
-              "vigencia": "14/10 09:15",
+              "vigencia": "15/10 08:51",
               "diferencial": 0.0,
               "main_marker": false
             },
@@ -49669,7 +49761,7 @@
               "precio": 23.19,
               "costo": 20.32,
               "margen": 2.87,
-              "vigencia": "14/10 09:15",
+              "vigencia": "15/10 08:51",
               "diferencial": 0.0,
               "main_marker": false
             }
@@ -49744,8 +49836,8 @@
           "distancia_km": 0.47,
           "combustibles": {
             "Diesel": {
-              "precio": 26.89,
-              "diferencial": 1.4,
+              "precio": 27.59,
+              "diferencial": 0.7,
               "main_marker": false
             },
             "GLP": {
@@ -49754,13 +49846,13 @@
               "main_marker": false
             },
             "Premium": {
-              "precio": 24.59,
-              "diferencial": 1.7,
+              "precio": 24.99,
+              "diferencial": 1.3,
               "main_marker": false
             },
             "Regular": {
-              "precio": 22.39,
-              "diferencial": 0.8,
+              "precio": 22.99,
+              "diferencial": 0.2,
               "main_marker": false
             }
           }
@@ -50343,8 +50435,8 @@
       "distrito": "Surquillo",
       "gpc_group": "COESTI",
       "direccion": "AV. ANGAMOS ESTE N° 2398, URB. LA CALERA DE LA MERCED",
-      "own_lat": -12.112334,
-      "own_lon": -77.005809
+      "own_lat": -12.112334251403809,
+      "own_lon": -77.00580596923828
     },
     {
       "own_site_id": "4ea05f20-40bf-4313-8695-56883cedf715",
