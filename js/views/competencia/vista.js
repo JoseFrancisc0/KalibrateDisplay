@@ -93,15 +93,17 @@ export function renderCompetenciaSemanal() {
             : 'Dinámica Semanal de Precios por Competidor';
     }
 
-    // 1. Filtrar observaciones por producto, período y ubicación
-    const prodSel = cs.producto;
-    const deptoSel = cs.departamento;
-    const provSel = cs.provincia;
-    const distSel = cs.distrito;
+    // 1. Filtrar observaciones por producto, período y ubicación normalizada
+    const prodSel = (cs.producto || '').trim().toUpperCase();
+    const deptoSel = (cs.departamento || 'TODOS').trim().toUpperCase();
+    const provSel = (cs.provincia || 'TODOS').trim().toUpperCase();
+    const distSel = (cs.distrito || 'TODOS').trim().toUpperCase();
 
     const baseFiltrada = cs.datosCrudos.filter(item => {
         if (item.periodo && item.periodo !== periodoActual) return false;
-        if (item.producto !== prodSel) return false;
+        
+        const prodItem = (item.producto || '').trim().toUpperCase();
+        if (prodItem !== prodSel) return false;
 
         const d = (item.departamento || '').trim().toUpperCase();
         const pv = (item.provincia || '').trim().toUpperCase();
@@ -116,7 +118,7 @@ export function renderCompetenciaSemanal() {
         const ubicacionTexto = deptoSel === 'TODOS' 
             ? 'Red Nacional' 
             : `${deptoSel}${provSel !== 'TODOS' ? ' · ' + provSel : ''}${distSel !== 'TODOS' ? ' · ' + distSel : ''}`;
-        subtitulo.innerText = `Producto: ${prodSel.toUpperCase()} · ${ubicacionTexto}`;
+        subtitulo.innerText = `Producto: ${cs.producto.toUpperCase()} · ${ubicacionTexto}`;
     }
 
     // =========================================================================
@@ -126,11 +128,13 @@ export function renderCompetenciaSemanal() {
         const marcasMap = {};
 
         baseFiltrada.forEach(item => {
-            const marcaKey = (item.marca || 'OTRAS').trim().toUpperCase();
+            const esPropio = item.es_propio === true || (item.marca || '').trim().toUpperCase() === 'COESTI';
+            const marcaKey = esPropio ? 'COESTI' : (item.marca || 'OTRAS').trim().toUpperCase();
+
             if (!marcasMap[marcaKey]) {
                 marcasMap[marcaKey] = {
                     marca: marcaKey,
-                    es_coesti: marcaKey === 'COESTI' || item.es_propio === true,
+                    es_coesti: esPropio,
                     sitesSet: new Set(),
                     dias: {}
                 };
@@ -139,18 +143,23 @@ export function renderCompetenciaSemanal() {
                 });
             }
 
-            marcasMap[marcaKey].sitesSet.add(item.site_id);
-            if (marcasMap[marcaKey].dias[item.dia] && item.precio > 0) {
-                marcasMap[marcaKey].dias[item.dia].precios.push(item.precio);
-                if (item.dia !== 'lunes') {
-                    if (item.direccion === 'SUBIO') marcasMap[marcaKey].dias[item.dia].subieron++;
-                    if (item.direccion === 'BAJO') marcasMap[marcaKey].dias[item.dia].bajaron++;
+            // Identificador unívoco de la estación para el conteo de sites
+            const idEstacion = item.site_id || item.competidor;
+            if (idEstacion) {
+                marcasMap[marcaKey].sitesSet.add(idEstacion);
+            }
+
+            const diaKey = (item.dia || '').toLowerCase();
+            if (marcasMap[marcaKey].dias[diaKey] && item.precio !== null && item.precio > 0) {
+                marcasMap[marcaKey].dias[diaKey].precios.push(item.precio);
+                if (diaKey !== 'lunes') {
+                    if (item.direccion === 'SUBIO') marcasMap[marcaKey].dias[diaKey].subieron++;
+                    if (item.direccion === 'BAJO') marcasMap[marcaKey].dias[diaKey].bajaron++;
                 }
             }
         });
 
-        // Separar estrictamente COESTI de los competidores
-        let objetoCoesti = marcasMap['COESTI'] || null;
+        const objetoCoesti = marcasMap['COESTI'] || null;
         const listaCompetidores = Object.values(marcasMap)
             .filter(m => !m.es_coesti)
             .sort((a, b) => b.sitesSet.size - a.sitesSet.size);
@@ -161,7 +170,7 @@ export function renderCompetenciaSemanal() {
             return;
         }
 
-        // Renderizar en el cuerpo ÚNICAMENTE las marcas competidoras
+        // Renderizar competidores en el cuerpo
         tbody.innerHTML = listaCompetidores.map(m => {
             const logoUrl = getBrandLogo(m.marca);
 
@@ -206,7 +215,7 @@ export function renderCompetenciaSemanal() {
             `;
         }).join('');
 
-        // Totales de PROMEDIO DE MERCADO (Calculado EXCLUSIVAMENTE con competidores)
+        // Totales de PROMEDIO DE MERCADO (excluye COESTI)
         const metricasPieMercado = DIAS_SEMANA.map(dia => {
             let suma = 0;
             let conteo = 0;
@@ -231,7 +240,7 @@ export function renderCompetenciaSemanal() {
             };
         });
 
-        // Fila de COESTI para ubicar justo debajo de Mercado en tfoot
+        // Fila inferior fija para COESTI (benchmark)
         let htmlFilaCoesti = '';
         if (objetoCoesti) {
             const logoCoesti = getBrandLogo('COESTI');
@@ -313,7 +322,7 @@ export function renderCompetenciaSemanal() {
     // =========================================================================
     // MODO B: DETALLE DE ESTACIONES (Excluye COESTI)
     // =========================================================================
-    const registrosEstaciones = baseFiltrada.filter(item => !item.es_propio && item.marca !== 'COESTI');
+    const registrosEstaciones = baseFiltrada.filter(item => !item.es_propio && (item.marca || '').trim().toUpperCase() !== 'COESTI');
 
     if (registrosEstaciones.length === 0) {
         tbody.innerHTML = `<tr><td colspan="8" class="cs-empty">No se encontraron estaciones competidoras para los filtros seleccionados.</td></tr>`;
@@ -323,7 +332,7 @@ export function renderCompetenciaSemanal() {
 
     const matrizEstaciones = {};
     registrosEstaciones.forEach(item => {
-        const sid = item.site_id;
+        const sid = item.site_id || item.competidor;
         if (!matrizEstaciones[sid]) {
             matrizEstaciones[sid] = {
                 site_id: sid,
@@ -332,7 +341,8 @@ export function renderCompetenciaSemanal() {
                 dias: {}
             };
         }
-        matrizEstaciones[sid].dias[item.dia] = {
+        const diaKey = (item.dia || '').toLowerCase();
+        matrizEstaciones[sid].dias[diaKey] = {
             precio: item.precio,
             direccion: item.direccion || 'IGUAL'
         };
