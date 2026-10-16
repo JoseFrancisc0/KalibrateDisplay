@@ -6,11 +6,11 @@ export const margenMercadoState = {
   cargandoHistorico: false,
   
   // Checklist de métricas graficables simultáneamente
-  metricasActivas: new Set(['PRECIOS', 'COSTOS']), // 'PRECIOS' | 'COSTOS' | 'MARGEN'
+  metricasActivas: new Set(['PRECIOS']), // 'PRECIOS' | 'COSTOS' | 'MARGEN'
   
   producto: 'Diesel',
-  fechaInicio: '2026-08-01',
-  fechaFin: '2026-10-08',
+  fechaInicio: '2026-10-01',
+  fechaFin: '2026-10-07',
 
   // Filtros territoriales
   corredor: 'TODOS',

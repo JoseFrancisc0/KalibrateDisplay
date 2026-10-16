@@ -1,8 +1,9 @@
 /* ==========================================================
    views/mercado/grafico.js — Render de Análisis de Mercado
-   Gráfica combinada: Precios, Costo COESTI y Margen Unitario
    ========================================================== */
 import { margenMercadoState } from './state.js';
+import { refrescarChecklistMarcasMMDOM } from './acciones.js';
+import { render } from '../../core/router.js';
 
 let chartInstancia = null;
 
@@ -33,6 +34,11 @@ function generarRangoFechas(f1, f2) {
 }
 
 export function renderMargenMercado(container) {
+  if (chartInstancia) {
+    chartInstancia.destroy();
+    chartInstancia = null;
+  }
+
   if (margenMercadoState.cargandoHistorico) {
     container.innerHTML = `<div class="empty-state" style="margin:auto; font-weight:600; color:var(--k-muted);">Descargando datos históricos del mercado...</div>`;
     return;
@@ -49,11 +55,14 @@ export function renderMargenMercado(container) {
   const f1 = mm.fechaInicio;
   const f2 = mm.fechaFin;
 
-  const mostrarPrecios = mm.metricasActivas.has('PRECIOS');
-  const mostrarCostos = mm.metricasActivas.has('COSTOS');
-  const mostrarMargen = mm.metricasActivas.has('MARGEN');
+  const tienePrecios = mm.metricasActivas.has('PRECIOS');
+  const tieneCostos = mm.metricasActivas.has('COSTOS');
+  const tieneMargen = mm.metricasActivas.has('MARGEN');
 
-  // 1. Filtrar observaciones por producto y territorio
+  const usarEjeIzquierdo = tienePrecios || tieneCostos;
+  const usarEjeDerecho = tieneMargen;
+
+  // 1. Filtrado territorial
   const corrSel = mm.corredor || 'TODOS';
   const deptoSel = mm.departamento || 'TODOS';
   const provSel = mm.provincia || 'TODOS';
@@ -77,7 +86,7 @@ export function renderMargenMercado(container) {
     return;
   }
 
-  // 2. Mapear precios de venta y costos representativos por fecha
+  // 2. Mapeo de precios y costos representativos
   const marcaFechaMap = {};
   const costoFechaMap = {};
 
@@ -85,7 +94,6 @@ export function renderMargenMercado(container) {
     let rawMarca = (item.m || '').trim().toUpperCase();
     const m = (rawMarca === 'PRIMAX') ? 'COESTI' : rawMarca;
 
-    // Precios
     if (!marcaFechaMap[m]) marcaFechaMap[m] = {};
     if (!marcaFechaMap[m][item.f]) {
       marcaFechaMap[m][item.f] = { suma: 0, pesoTotal: 0 };
@@ -93,7 +101,6 @@ export function renderMargenMercado(container) {
     marcaFechaMap[m][item.f].suma += (item.pr * item.n);
     marcaFechaMap[m][item.f].pesoTotal += item.n;
 
-    // Costos
     if (item.cs !== undefined && item.cs !== null && item.cs > 0) {
       if (!costoFechaMap[item.f]) {
         costoFechaMap[item.f] = { suma: 0, pesoTotal: 0 };
@@ -105,7 +112,7 @@ export function renderMargenMercado(container) {
 
   const labelsX = generarRangoFechas(f1, f2);
 
-  // Serie continua de costo con forward-fill
+  // Serie continua de costo COESTI (Forward-fill)
   const fechasCostoOrdenadas = Object.keys(costoFechaMap).sort();
   const obtenerCostoEn = (fechaCorte) => {
     const validas = fechasCostoOrdenadas.filter(f => f <= fechaCorte);
@@ -119,15 +126,16 @@ export function renderMargenMercado(container) {
     return c !== null ? Number(c.toFixed(2)) : null;
   });
 
-  // 3. Montar Datasets para Chart.js
+  // 3. Montar Datasets asignados a cada eje Y
   const datasets = [];
   const marcasActivas = mm.marcasSeleccionadas || new Set(Object.keys(marcaFechaMap));
 
-  // A. Serie de Costo COESTI
-  if (mostrarCostos) {
+  // A. Serie Costo COESTI -> Eje Izquierdo ('yPrecios')
+  if (tieneCostos) {
     datasets.push({
       label: 'Costo COESTI',
       data: serieCosto,
+      yAxisID: 'yPrecios',
       borderColor: '#0F172A',
       backgroundColor: 'transparent',
       borderWidth: 2.8,
@@ -138,31 +146,32 @@ export function renderMargenMercado(container) {
     });
   }
 
-  // B. Series de Precios y/o Márgenes por Marca
+  // B. Series de Precios y Márgenes por Marca
   Object.entries(marcaFechaMap).forEach(([marca, fechasObj]) => {
     if (!marcasActivas.has(marca)) return;
 
     const estilo = ESTILOS_MARCAS[marca] || { color: '#64748B', dash: [], point: 'circle', width: 2 };
     const fechasOrdenadas = Object.keys(fechasObj).sort();
-    let ultimaObs = null;
+    let ultimaObsPrecio = null;
 
-    // Serie de Precio
-    if (mostrarPrecios) {
+    // Serie de Precios -> Eje Izquierdo ('yPrecios')
+    if (tienePrecios) {
       const dataPrecio = labelsX.map(fecha => {
         const obsFechas = fechasOrdenadas.filter(f => f <= fecha);
         if (obsFechas.length > 0) {
           const ultFecha = obsFechas[obsFechas.length - 1];
           const entry = fechasObj[ultFecha];
           if (entry && entry.pesoTotal > 0) {
-            ultimaObs = Number((entry.suma / entry.pesoTotal).toFixed(2));
+            ultimaObsPrecio = Number((entry.suma / entry.pesoTotal).toFixed(2));
           }
         }
-        return ultimaObs;
+        return ultimaObsPrecio;
       });
 
       datasets.push({
         label: `Precio: ${marca}`,
         data: dataPrecio,
+        yAxisID: 'yPrecios',
         borderColor: estilo.color,
         backgroundColor: estilo.color,
         borderWidth: estilo.width,
@@ -175,8 +184,8 @@ export function renderMargenMercado(container) {
       });
     }
 
-    // Serie de Margen Unitario (Precio - Costo)
-    if (mostrarMargen) {
+    // Serie de Margen -> Eje Derecho ('yMargen')
+    if (tieneMargen) {
       let ultPrecio = null;
       const dataMargen = labelsX.map((fecha, idx) => {
         const obsFechas = fechasOrdenadas.filter(f => f <= fecha);
@@ -197,30 +206,31 @@ export function renderMargenMercado(container) {
       datasets.push({
         label: `Margen: ${marca}`,
         data: dataMargen,
+        yAxisID: 'yMargen',
         borderColor: estilo.color,
         backgroundColor: 'transparent',
         borderWidth: 1.8,
         borderDash: [3, 3],
         pointStyle: 'crossRot',
-        pointRadius: 2,
+        pointRadius: 2.5,
         tension: 0.12,
         order: 4
       });
     }
   });
 
-  // 4. Renderizar Contenedor y Canvas
+  // 4. Renderizar Contenedor
   container.innerHTML = `
-    <div style="background:#fff; border:1px solid var(--k-line); border-radius:8px; padding:16px 20px 14px; box-shadow:0 2px 10px rgba(22,24,47,.05); width:100%; height:100%; display:flex; flex-direction:column; box-sizing:border-box;">
+    <div style="background:#fff; border:1px solid var(--k-line); border-radius:8px; padding:14px 18px 10px; box-shadow:0 2px 10px rgba(22,24,47,.05); width:100%; height:100%; display:flex; flex-direction:column; box-sizing:border-box; overflow:hidden;">
       
       <!-- HEADER -->
-      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; flex-shrink:0;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; flex-shrink:0;">
         <div>
           <h2 style="margin:0; font-size:1.15rem; color:var(--k-ink); font-weight:800; letter-spacing:-0.01em;">
-            Análisis Dinámico de Mercado (S/)
+            Análisis Dinámico de Mercado
           </h2>
           <p style="margin:2px 0 0 0; color:var(--k-muted); font-size:0.75rem;">
-            Evolución histórica consolidada de ${prodSel.toUpperCase()} · Período: ${f1} ➔ ${f2}
+            Evolución de ${prodSel.toUpperCase()} · Período: ${f1} ➔ ${f2}
           </p>
         </div>
         <div style="display:flex; align-items:center; gap:8px;">
@@ -230,22 +240,75 @@ export function renderMargenMercado(container) {
         </div>
       </div>
 
-      <!-- CANVAS -->
+      <!-- CANVAS CON EJE DUAL -->
       <div style="flex:1 1 0; min-height:0; position:relative; width:100%;">
-        <canvas id="chart-mercado-dinamico" style="position:absolute; inset:0; width:100%!important; height:100%!important;"></canvas>
+        <canvas id="chart-mercado-dual" style="position:absolute; inset:0; width:100%!important; height:100%!important;"></canvas>
       </div>
 
     </div>
   `;
 
-  if (chartInstancia) {
-    chartInstancia.destroy();
-    chartInstancia = null;
-  }
-
-  const ctx = document.getElementById('chart-mercado-dinamico');
+  const ctx = document.getElementById('chart-mercado-dual');
   if (!ctx || typeof Chart === 'undefined') return;
 
+  // 5. Configurar Escalas para el Eje Dual
+  const scalesConfig = {
+    x: {
+      grid: { color: 'rgba(226, 232, 240, 0.5)' },
+      ticks: {
+        font: { family: "'Inter', sans-serif", size: 9.5, weight: '500' },
+        color: '#64748B',
+        maxRotation: 0,
+        autoSkip: true,
+        maxTicksLimit: 12
+      }
+    }
+  };
+
+  // Eje Y Izquierdo: PRECIOS / COSTOS
+  if (usarEjeIzquierdo) {
+    scalesConfig.yPrecios = {
+      type: 'linear',
+      position: 'left',
+      grid: { color: 'rgba(226, 232, 240, 0.7)' },
+      title: {
+        display: usarEjeDerecho,
+        text: 'Precios y Costo (S/)',
+        font: { family: "'Poppins', sans-serif", size: 10, weight: '700' },
+        color: '#1E293B'
+      },
+      ticks: {
+        font: { family: "'Poppins', sans-serif", size: 9.5, weight: '600' },
+        color: '#1E293B',
+        callback: (val) => `S/ ${val.toFixed(2)}`
+      }
+    };
+  }
+
+  // Eje Y Derecho: MARGEN UNITARIO
+  if (usarEjeDerecho) {
+    scalesConfig.yMargen = {
+      type: 'linear',
+      position: 'right',
+      grid: {
+        drawOnChartArea: !usarEjeIzquierdo, // No superponer líneas de cuadrícula si ya está el eje izquierdo
+        color: 'rgba(2, 132, 199, 0.15)'
+      },
+      title: {
+        display: usarEjeIzquierdo,
+        text: 'Margen Unitario (S/)',
+        font: { family: "'Poppins', sans-serif", size: 10, weight: '700' },
+        color: '#0284C7'
+      },
+      ticks: {
+        font: { family: "'Poppins', sans-serif", size: 9.5, weight: '700' },
+        color: '#0284C7',
+        callback: (val) => `S/ ${val.toFixed(2)}`
+      }
+    };
+  }
+
+  // 6. Instanciación Chart.js
   chartInstancia = new Chart(ctx, {
     type: 'line',
     data: {
@@ -268,6 +331,35 @@ export function renderMargenMercado(container) {
             font: { family: "'Poppins', sans-serif", size: 9.5, weight: '600' },
             color: '#334155',
             padding: 8
+          },
+          onClick: (e, legendItem, legend) => {
+            const chart = legend.chart;
+            const dataset = chart.data.datasets[legendItem.datasetIndex];
+            const label = dataset.label || '';
+
+            if (label === 'Costo COESTI') {
+              chart.setDatasetVisibility(legendItem.datasetIndex, !chart.isDatasetVisible(legendItem.datasetIndex));
+              chart.update();
+              return;
+            }
+
+            const partes = label.split(':');
+            const marca = partes.length > 1 ? partes[1].trim() : label.trim();
+
+            if (!margenMercadoState.marcasSeleccionadas) {
+              margenMercadoState.marcasSeleccionadas = new Set(margenMercadoState.marcasDisponibles);
+            }
+
+            if (margenMercadoState.marcasSeleccionadas.has(marca)) {
+              if (margenMercadoState.marcasSeleccionadas.size > 1) {
+                margenMercadoState.marcasSeleccionadas.delete(marca);
+              }
+            } else {
+              margenMercadoState.marcasSeleccionadas.add(marca);
+            }
+
+            refrescarChecklistMarcasMMDOM();
+            render();
           }
         },
         tooltip: {
@@ -283,26 +375,7 @@ export function renderMargenMercado(container) {
           }
         }
       },
-      scales: {
-        x: {
-          grid: { color: 'rgba(226, 232, 240, 0.5)' },
-          ticks: {
-            font: { family: "'Inter', sans-serif", size: 10, weight: '500' },
-            color: '#64748B',
-            maxRotation: 0,
-            autoSkip: true,
-            maxTicksLimit: 12
-          }
-        },
-        y: {
-          grid: { color: 'rgba(226, 232, 240, 0.7)' },
-          ticks: {
-            font: { family: "'Poppins', sans-serif", size: 10, weight: '600' },
-            color: '#64748B',
-            callback: (val) => `S/ ${val.toFixed(2)}`
-          }
-        }
-      }
+      scales: scalesConfig
     }
   });
 }

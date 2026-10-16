@@ -37,68 +37,74 @@ export function railMargenMercadoHTML() {
       </div>
     </div>
 
-    <!-- CHECKLIST DE MÉTRICAS VISIBLES (DARK THEME INTEGRADO) -->
+    <!-- SELECTOR DE MÉTRICAS: BOTONES HORIZONTALES (PRECIO | COSTO | MARGEN) -->
     <div class="rail-section">
       <div class="rail-label">Métricas en Gráfica</div>
-      <div style="display: flex; flex-direction: column; gap: 4px; background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 4px; padding: 6px 8px;">
+      <div style="display: flex; gap: 4px; width: 100%; box-sizing: border-box;">
         
-        <!-- Precios -->
-        <label style="display: flex; align-items: center; gap: 8px; font-size: 0.72rem; font-weight: 600; cursor: pointer; color: #E2E8F0; padding: 3px 2px; user-select: none;">
-          <input type="checkbox" value="PRECIOS" ${tienePrecios ? 'checked' : ''} data-change="onToggleMetricaMM"
-                 style="accent-color: var(--k-emerald, #00D58A); width: 14px; height: 14px; cursor: pointer;">
-          <span>Precios de Venta</span>
-        </label>
+        <!-- Botón PRECIOS -->
+        <button type="button" 
+                data-click="togglePillMetricaMM" 
+                data-arg="PRECIOS"
+                class="mm-metric-pill ${tienePrecios ? 'active' : ''}"
+                style="flex: 1; padding: 7px 2px; font-family: 'Poppins', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.04em; border-radius: 4px; cursor: pointer; transition: all 0.15s ease; text-align: center; border: 1px solid ${tienePrecios ? 'var(--k-emerald, #00D58A)' : 'rgba(255,255,255,0.18)'}; background: ${tienePrecios ? 'var(--k-emerald, #00D58A)' : 'rgba(255,255,255,0.06)'}; color: ${tienePrecios ? 'var(--k-plum, #16182F)' : '#D6CBD9'};">
+          PRECIO
+        </button>
 
-        <!-- Costo COESTI -->
-        <label style="display: flex; align-items: center; justify-content: space-between; font-size: 0.72rem; font-weight: 600; cursor: pointer; color: #E2E8F0; padding: 3px 2px; user-select: none;">
-          <div style="display: flex; align-items: center; gap: 8px;">
-            <input type="checkbox" value="COSTOS" ${tieneCostos ? 'checked' : ''} data-change="onToggleMetricaMM"
-                   style="accent-color: var(--k-emerald, #00D58A); width: 14px; height: 14px; cursor: pointer;">
-            <span>Costo COESTI</span>
-          </div>
-          <!-- Indicador visual del trazo punteado de la curva -->
-          <span style="display: inline-block; width: 18px; height: 0; border-top: 2px dashed #94A3B8;"></span>
-        </label>
+        <!-- Botón COSTOS -->
+        <button type="button" 
+                data-click="togglePillMetricaMM" 
+                data-arg="COSTOS"
+                class="mm-metric-pill ${tieneCostos ? 'active' : ''}"
+                style="flex: 1; padding: 7px 2px; font-family: 'Poppins', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.04em; border-radius: 4px; cursor: pointer; transition: all 0.15s ease; text-align: center; border: 1px solid ${tieneCostos ? 'var(--k-emerald, #00D58A)' : 'rgba(255,255,255,0.18)'}; background: ${tieneCostos ? 'var(--k-emerald, #00D58A)' : 'rgba(255,255,255,0.06)'}; color: ${tieneCostos ? 'var(--k-plum, #16182F)' : '#D6CBD9'};">
+          COSTO
+        </button>
 
-        <!-- Margen -->
-        <label style="display: flex; align-items: center; gap: 8px; font-size: 0.72rem; font-weight: 600; cursor: pointer; color: #E2E8F0; padding: 3px 2px; user-select: none;">
-          <input type="checkbox" value="MARGEN" ${tieneMargen ? 'checked' : ''} data-change="onToggleMetricaMM"
-                 style="accent-color: var(--k-emerald, #00D58A); width: 14px; height: 14px; cursor: pointer;">
-          <span>Margen Unitario (P - C)</span>
-        </label>
+        <!-- Botón MARGEN -->
+        <button type="button" 
+                data-click="togglePillMetricaMM" 
+                data-arg="MARGEN"
+                class="mm-metric-pill ${tieneMargen ? 'active' : ''}"
+                style="flex: 1; padding: 7px 2px; font-family: 'Poppins', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.04em; border-radius: 4px; cursor: pointer; transition: all 0.15s ease; text-align: center; border: 1px solid ${tieneMargen ? 'var(--k-emerald, #00D58A)' : 'rgba(255,255,255,0.18)'}; background: ${tieneMargen ? 'var(--k-emerald, #00D58A)' : 'rgba(255,255,255,0.06)'}; color: ${tieneMargen ? 'var(--k-plum, #16182F)' : '#D6CBD9'};">
+          MARGEN
+        </button>
 
       </div>
     </div>
 
-    <!-- FILTRO CORREDOR -->
+    <!-- FILTROS -->
     <div class="rail-section">
-      <div class="rail-label">Corredor</div>
-      <div class="select-wrap">
-        <select id="sel-mm-corredor" data-change="cambiarCorredorMM">
-          <option value="TODOS">Todos los corredores</option>
-        </select>
-      </div>
-    </div>
+      <div class="rail-label">Filtros</div>
+      <div class="select-stack">
 
-    <!-- CASCADA GEOGRÁFICA -->
-    <div class="rail-section">
-      <div class="rail-label">Ubicación Geográfica</div>
-      <div style="display:flex; flex-direction:column; gap:6px;">
+        <!-- Corredor -->
+        <div class="select-wrap">
+          <select id="sel-mm-corredor" data-change="cambiarCorredorMM">
+            <option value="TODOS">Todos los corredores</option>
+          </select>
+        </div>
+
+        <!-- Departamento -->
         <div class="select-wrap">
           <select id="sel-mm-depto" data-change="cambiarDeptoMM">
             <option value="TODOS">Todos los departamentos</option>
           </select>
         </div>
-        <div class="select-wrap">
-          <select id="sel-mm-provincia" data-change="cambiarProvinciaMM">
-            <option value="TODOS">Todas las provincias</option>
-          </select>
+
+        <!-- Provincia | Distrito -->
+        <div class="select-row-2">
+          <div class="select-wrap">
+            <select id="sel-mm-provincia" data-change="cambiarProvinciaMM">
+              <option value="TODOS">Provincia</option>
+            </select>
+          </div>
+          <div class="select-wrap">
+            <select id="sel-mm-distrito" data-change="cambiarDistritoMM">
+              <option value="TODOS">Distrito</option>
+            </select>
+          </div>
         </div>
-        <div class="select-wrap">
-          <select id="sel-mm-distrito" data-change="cambiarDistritoMM">
-            <option value="TODOS">Todos los distritos</option>
-          </select>
-        </div>
+
       </div>
     </div>
 

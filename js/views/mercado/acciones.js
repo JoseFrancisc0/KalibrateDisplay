@@ -5,6 +5,7 @@ import { render } from '../../core/router.js';
 import { state } from '../../core/state.js';
 import { cargarHistoricoMarcas } from '../../core/data.js';
 import { valorDe, alternarDesplegable, cerrarAlClicFuera, repoblarSelect } from '../../shared/dom.js';
+import { inicializarSearchableSelect } from '../../shared/combobox.js';
 import { poblarSelectsSegmentacion, valoresUnicos } from '../../shared/segmentacion.js';
 import { margenMercadoState } from './state.js';
 
@@ -73,6 +74,10 @@ export function poblarFiltrosMargenMercado() {
 
   sincronizarCascadaGeograficaMM(estaciones);
 
+  ['sel-mm-corredor', 'sel-mm-depto', 'sel-mm-provincia', 'sel-mm-distrito'].forEach(id => {
+    inicializarSearchableSelect(id);
+  });
+
   if (margenMercadoState.historicoMarcasData?.datos) {
     const setM = new Set();
     margenMercadoState.historicoMarcasData.datos.forEach(d => {
@@ -88,6 +93,26 @@ export function poblarFiltrosMargenMercado() {
   }
 
   construirChecklistMarcasMM();
+}
+
+export function refrescarChecklistMarcasMMDOM() {
+  const container = document.getElementById('checklist-mm-marcas-items');
+  if (container && margenMercadoState.marcasDisponibles) {
+    container.querySelectorAll('input[type="checkbox"]').forEach(chk => {
+      const marca = chk.value;
+      const isChecked = margenMercadoState.marcasSeleccionadas
+        ? margenMercadoState.marcasSeleccionadas.has(marca)
+        : true;
+      chk.checked = isChecked;
+    });
+  }
+
+  const badgeConteo = document.getElementById('mm-marcas-conteo');
+  if (badgeConteo && margenMercadoState.marcasDisponibles && margenMercadoState.marcasSeleccionadas) {
+    const total = margenMercadoState.marcasDisponibles.length;
+    const sel = margenMercadoState.marcasSeleccionadas.size;
+    badgeConteo.textContent = (sel === total) ? 'Todas' : `${sel}/${total}`;
+  }
 }
 
 function construirChecklistMarcasMM() {
@@ -125,18 +150,27 @@ export function iniciarListenersMargenMercado() {
 }
 
 export const acciones = {
-  // Manejador del checklist de métricas
-  onToggleMetricaMM(el) {
-    const metrica = el.value;
-    if (el.checked) {
-      margenMercadoState.metricasActivas.add(metrica);
-    } else {
+  togglePillMetricaMM(el) {
+    const metrica = el.dataset.arg;
+    if (!metrica) return;
+
+    if (margenMercadoState.metricasActivas.has(metrica)) {
       if (margenMercadoState.metricasActivas.size > 1) {
         margenMercadoState.metricasActivas.delete(metrica);
-      } else {
-        el.checked = true; // Evitar apagar todas las métricas
       }
+    } else {
+      margenMercadoState.metricasActivas.add(metrica);
     }
+
+    document.querySelectorAll('.mm-metric-pill').forEach(btn => {
+      const arg = btn.dataset.arg;
+      const activo = margenMercadoState.metricasActivas.has(arg);
+      btn.classList.toggle('active', activo);
+      btn.style.borderColor = activo ? 'var(--k-emerald, #00D58A)' : 'rgba(255,255,255,0.18)';
+      btn.style.background = activo ? 'var(--k-emerald, #00D58A)' : 'rgba(255,255,255,0.06)';
+      btn.style.color = activo ? 'var(--k-plum, #16182F)' : '#D6CBD9';
+    });
+
     render();
   },
 
