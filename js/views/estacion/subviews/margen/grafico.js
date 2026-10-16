@@ -1,7 +1,9 @@
 /* ==========================================================
    views/estacion/subviews/margen/grafico.js — Gráfico Dual Margen
    ========================================================== */
+import { refrescarChecklistRivalesSubViewDOM } from './acciones.js';
 import { estacionState } from '../../state.js';
+import { render } from '../../../../core/router.js';
 
 let chartInstancia = null;
 
@@ -148,6 +150,7 @@ export function renderMargen(container, est) {
     if (mostrarPrecios) {
       datasets.push({
         label: `${nombre}${dist} (Precio)`,
+        siteId: siteId,
         data: seriePrecioComp,
         yAxisID: 'yPrecios',
         borderColor: estilo.color,
@@ -170,6 +173,7 @@ export function renderMargen(container, est) {
 
       datasets.push({
         label: `${nombre}${dist} (Margen Est.)`,
+        siteId: siteId,
         data: serieMargenComp,
         yAxisID: 'yMargen',
         borderColor: estilo.color,
@@ -246,7 +250,30 @@ export function renderMargen(container, est) {
       plugins: {
         legend: {
           position: 'bottom',
-          labels: { boxWidth: 14, usePointStyle: true, font: { family: "'Poppins', sans-serif", size: 9.5, weight: '600' }, color: '#334155', padding: 8 }
+          labels: { boxWidth: 14, usePointStyle: true, font: { family: "'Poppins', sans-serif", size: 9.5, weight: '600' }, color: '#334155', padding: 8 },
+          onClick: (e, legendItem, legend) => {
+            const chart = legend.chart;
+            const ds = chart.data.datasets[legendItem.datasetIndex];
+
+            // Si es la serie propia o de costo propio, alternar visibilidad nativa en el canvas
+            if (!ds.siteId) {
+              chart.setDatasetVisibility(legendItem.datasetIndex, !chart.isDatasetVisible(legendItem.datasetIndex));
+              chart.update();
+              return;
+            }
+
+            // Si es un competidor, sincronizar con competidoresSeleccionados
+            const siteId = ds.siteId;
+            const selSet = estacionState.filtros.competidoresSeleccionados;
+            if (selSet.has(siteId)) {
+              if (selSet.size > 1) selSet.delete(siteId);
+            } else {
+              selSet.add(siteId);
+            }
+
+            refrescarChecklistRivalesSubViewDOM();
+            render();
+          }
         },
         tooltip: {
           backgroundColor: '#16182F',

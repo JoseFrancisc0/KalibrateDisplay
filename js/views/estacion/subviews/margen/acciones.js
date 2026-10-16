@@ -5,6 +5,27 @@ import { render } from '../../../../core/router.js';
 import { alternarDesplegable } from '../../../../shared/dom.js';
 import { estacionState } from '../../state.js';
 
+export function refrescarChecklistRivalesSubViewDOM() {
+  const container = document.getElementById('dropdown-sub-rivales');
+  const est = estacionState.dataActiva;
+  const comps = (est?.actores || []).filter(a => a.tipo_actor !== 'PROPIO');
+  const selSet = estacionState.filtros.competidoresSeleccionados;
+
+  if (container && selSet) {
+    container.querySelectorAll('input[type="checkbox"]').forEach(chk => {
+      chk.checked = selSet.has(chk.value);
+    });
+  }
+
+  // Actualizar el texto del botón (ej. "RIVALES (2/5)")
+  const labelBtn = document.getElementById('label-rivales-conteo') || 
+                   document.querySelector('#section-margen-rivales .multiselect-btn span:first-child') ||
+                   document.querySelector('#section-diff-rivales .multiselect-btn span:first-child');
+  if (labelBtn && selSet) {
+    labelBtn.textContent = `RIVALES (${selSet.size}/${comps.length})`;
+  }
+}
+
 export const acciones = {
   togglePillMargen(el) {
     const metrica = el.dataset.arg;
@@ -29,6 +50,7 @@ export const acciones = {
     estacionState.filtros.competidoresSeleccionados = todos
       ? new Set(comps.map(c => c.site_id))
       : new Set();
+    refrescarChecklistRivalesSubViewDOM();
     render();
   },
 
@@ -40,6 +62,7 @@ export const acciones = {
     } else {
       set.delete(id);
     }
+    refrescarChecklistRivalesSubViewDOM();
     render();
   },
 
