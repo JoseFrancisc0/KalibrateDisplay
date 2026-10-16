@@ -1,24 +1,29 @@
 /* ==========================================================
-   views/margen/acciones.js — Controladores y Poblado de Filtros
+   views/mercado/acciones.js — Controladores reactivos
    ========================================================== */
-import { render, refrescarViewBar } from '../../core/router.js';
+import { render } from '../../core/router.js';
 import { state } from '../../core/state.js';
-import { cargarHistoricoMarcas, cargarDetalleEstacion } from '../../core/data.js';
-import { valorDe, activar, alternarDesplegable, cerrarAlClicFuera, repoblarSelect } from '../../shared/dom.js';
-import { inicializarSearchableSelect } from '../../shared/combobox.js';
+import { cargarHistoricoMarcas } from '../../core/data.js';
+import { valorDe, alternarDesplegable, cerrarAlClicFuera, repoblarSelect } from '../../shared/dom.js';
 import { poblarSelectsSegmentacion, valoresUnicos } from '../../shared/segmentacion.js';
 import { margenMercadoState } from './state.js';
 
 export async function entrarMargenMercado() {
-    if (!margenMercadoState.historicoMarcasData && !margenMercadoState.cargandoHistorico) {
-        margenMercadoState.cargandoHistorico = true;
-        render();
-
-        margenMercadoState.historicoMarcasData = await cargarHistoricoMarcas();
-        margenMercadoState.cargandoHistorico = false;
+  if (!margenMercadoState.historicoMarcasData && !margenMercadoState.cargandoHistorico) {
+    margenMercadoState.cargandoHistorico = true;
+    render();
+    try {
+      margenMercadoState.historicoMarcasData = await cargarHistoricoMarcas();
+    } catch (e) {
+      console.error("Error cargando histórico en Análisis Mercado:", e);
+    } finally {
+      margenMercadoState.cargandoHistorico = false;
     }
-    poblarFiltrosMargenMercado();
-    sincronizarInputsFechaMM();
+  }
+
+  poblarFiltrosMargenMercado();
+  sincronizarInputsFechaMM();
+  render();
 }
 
 function sincronizarInputsFechaMM() {
@@ -26,6 +31,7 @@ function sincronizarInputsFechaMM() {
   const inF2 = document.getElementById('txt-mm-f2');
   if (inF1) inF1.value = margenMercadoState.fechaInicio;
   if (inF2) inF2.value = margenMercadoState.fechaFin;
+
   const inP = document.getElementById('sel-mm-prod');
   if (inP) inP.value = margenMercadoState.producto;
 }
@@ -67,10 +73,6 @@ export function poblarFiltrosMargenMercado() {
 
   sincronizarCascadaGeograficaMM(estaciones);
 
-  ['sel-mm-corredor', 'sel-mm-depto', 'sel-mm-provincia', 'sel-mm-distrito'].forEach(id => {
-    inicializarSearchableSelect(id);
-  });
-
   if (margenMercadoState.historicoMarcasData?.datos) {
     const setM = new Set();
     margenMercadoState.historicoMarcasData.datos.forEach(d => {
@@ -79,6 +81,7 @@ export function poblarFiltrosMargenMercado() {
       if (m) setM.add(m);
     });
     margenMercadoState.marcasDisponibles = Array.from(setM).sort();
+
     if (!margenMercadoState.marcasSeleccionadas) {
       margenMercadoState.marcasSeleccionadas = new Set(margenMercadoState.marcasDisponibles);
     }
@@ -90,104 +93,130 @@ export function poblarFiltrosMargenMercado() {
 function construirChecklistMarcasMM() {
   const container = document.getElementById('checklist-mm-marcas-items');
   if (!container || !margenMercadoState.marcasDisponibles) return;
-  container.innerHTML = '';
 
+  container.innerHTML = '';
   margenMercadoState.marcasDisponibles.forEach(marca => {
-    const isChecked = margenMercadoState.marcasSeleccionadas
-      ? margenMercadoState.marcasSeleccionadas.has(marca)
+    const isChecked = margenMercadoState.marcasSeleccionadas 
+      ? margenMercadoState.marcasSeleccionadas.has(marca) 
       : true;
-    const labelDisplay = (marca === 'COESTI') ? 'COESTI (PRIMAX)' : (marca === 'WP' ? 'WHITE PRODUCTS' : marca);
+    const labelDisplay = (marca === 'PRIMAX' || marca === 'COESTI') 
+      ? 'COESTI (PRIMAX)' 
+      : (marca === 'WP' ? 'WHITE PRODUCTS' : marca);
+
     const row = document.createElement('label');
     row.className = 'multiselect-item';
     row.innerHTML = `
-      <input type="checkbox" value="${marca}" ${isChecked ? 'checked' : ''} data-change="onToggleMarcaCheckMargenMercado">
+      <input type="checkbox" value="${marca}" ${isChecked ? 'checked' : ''} data-change="onToggleMMMarcaCheck">
       <span>${labelDisplay}</span>
     `;
     container.appendChild(row);
   });
+
+  const badgeConteo = document.getElementById('mm-marcas-conteo');
+  if (badgeConteo && margenMercadoState.marcasSeleccionadas) {
+    const total = margenMercadoState.marcasDisponibles.length;
+    const sel = margenMercadoState.marcasSeleccionadas.size;
+    badgeConteo.textContent = (sel === total) ? 'Todas' : `${sel}/${total}`;
+  }
 }
 
 export function iniciarListenersMargenMercado() {
-  cerrarAlClicFuera('section-mm-marcas', 'dropdown-mm-marcas');
+  cerrarAlClicFuera('section-mm-marcas', 'dropdown-mm-marcas-content');
 }
 
 export const acciones = {
-  cambiarMetricaMercado(el) {
-    const metrica = el.dataset.arg;
-    margenMercadoState.modoMetrica = metrica;
-    activar('btn-mm-precios', metrica === 'PRECIOS');
-    activar('btn-mm-margen', metrica === 'MARGEN');
-    refrescarViewBar();
+  // Manejador del checklist de métricas
+  onToggleMetricaMM(el) {
+    const metrica = el.value;
+    if (el.checked) {
+      margenMercadoState.metricasActivas.add(metrica);
+    } else {
+      if (margenMercadoState.metricasActivas.size > 1) {
+        margenMercadoState.metricasActivas.delete(metrica);
+      } else {
+        el.checked = true; // Evitar apagar todas las métricas
+      }
+    }
     render();
   },
 
-  async cambiarProductoMargenMercado(el) {
+  cambiarF1MM(el) {
+    if (!el.value) return;
+    margenMercadoState.fechaInicio = el.value;
+    render();
+  },
+
+  cambiarF2MM(el) {
+    if (!el.value) return;
+    margenMercadoState.fechaFin = el.value;
+    render();
+  },
+
+  cambiarProductoMM(el) {
     const v = el?.value || valorDe('sel-mm-prod');
-    if (v) {
-      margenMercadoState.producto = v;
-      refrescarViewBar();
-      render();
+    if (v) margenMercadoState.producto = v;
+    render();
+  },
+
+  cambiarCorredorMM(el) {
+    const v = el?.value || valorDe('sel-mm-corredor');
+    if (v !== undefined) margenMercadoState.corredor = v;
+    render();
+  },
+
+  cambiarDeptoMM(el) {
+    const v = el?.value || valorDe('sel-mm-depto');
+    if (v !== undefined) {
+      margenMercadoState.departamento = v;
+      sincronizarCascadaGeograficaMM(state.rawData.estaciones);
     }
+    render();
   },
 
-  cambiarF1MargenMercado(el) {
-    if (el.value) {
-      margenMercadoState.fechaInicio = el.value;
-      render();
+  cambiarProvinciaMM(el) {
+    const v = el?.value || valorDe('sel-mm-provincia');
+    if (v !== undefined) {
+      margenMercadoState.provincia = v;
+      sincronizarCascadaGeograficaMM(state.rawData.estaciones);
     }
+    render();
   },
 
-  cambiarF2MargenMercado(el) {
-    if (el.value) {
-      margenMercadoState.fechaFin = el.value;
-      render();
+  cambiarDistritoMM(el) {
+    const v = el?.value || valorDe('sel-mm-distrito');
+    if (v !== undefined) margenMercadoState.distrito = v;
+    render();
+  },
+
+  toggleDropdownMMMarcas(el) {
+    alternarDesplegable(el, 'dropdown-mm-marcas-content');
+  },
+
+  marcarTodasMMMarcas(el) {
+    if (el.dataset.arg === 'true') {
+      margenMercadoState.marcasSeleccionadas = new Set(margenMercadoState.marcasDisponibles);
+    } else {
+      margenMercadoState.marcasSeleccionadas = new Set(['COESTI']);
     }
-  },
-
-  cambiarCorredorMargenMercado(el) {
-    margenMercadoState.corredor = el.value;
-    render();
-  },
-
-  cambiarDeptoMargenMercado(el) {
-    margenMercadoState.departamento = el.value;
-    sincronizarCascadaGeograficaMM(state.rawData.estaciones);
-    render();
-  },
-
-  cambiarProvinciaMargenMercado(el) {
-    margenMercadoState.provincia = el.value;
-    sincronizarCascadaGeograficaMM(state.rawData.estaciones);
-    render();
-  },
-
-  cambiarDistritoMargenMercado(el) {
-    margenMercadoState.distrito = el.value;
-    render();
-  },
-
-  toggleDropdownMarcasMargenMercado(el) {
-    alternarDesplegable(el, 'dropdown-mm-marcas');
-  },
-
-  marcarTodasMarcasMargenMercado(el) {
-    const todas = el.dataset.arg === 'true';
-    margenMercadoState.marcasSeleccionadas = todas
-      ? new Set(margenMercadoState.marcasDisponibles)
-      : new Set();
     construirChecklistMarcasMM();
     render();
   },
 
-  onToggleMarcaCheckMargenMercado(el) {
-    const m = el.value;
+  onToggleMMMarcaCheck(el) {
+    const marca = el.value;
     if (!margenMercadoState.marcasSeleccionadas) {
       margenMercadoState.marcasSeleccionadas = new Set(margenMercadoState.marcasDisponibles);
     }
     if (el.checked) {
-      margenMercadoState.marcasSeleccionadas.add(m);
+      margenMercadoState.marcasSeleccionadas.add(marca);
     } else {
-      margenMercadoState.marcasSeleccionadas.delete(m);
+      margenMercadoState.marcasSeleccionadas.delete(marca);
+    }
+    const badgeConteo = document.getElementById('mm-marcas-conteo');
+    if (badgeConteo) {
+      const total = margenMercadoState.marcasDisponibles.length;
+      const sel = margenMercadoState.marcasSeleccionadas.size;
+      badgeConteo.textContent = (sel === total) ? 'Todas' : `${sel}/${total}`;
     }
     render();
   }
