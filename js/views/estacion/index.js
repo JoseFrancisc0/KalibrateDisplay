@@ -10,21 +10,18 @@ import { state } from '../../core/state.js';
 import { cargarDetalleEstacion } from '../../core/data.js';
 
 import { estadoSubView } from './subviews/estado/index.js';
-import { evolucionPreciosSubView } from './subviews/precios/index.js';
 import { evolucionDiffSubView } from './subviews/deltas/index.js';
 import { margenSubView } from './subviews/margen/index.js';
 import { variacionSubView } from './subviews/variacion/index.js';
 
-// Registro de sub-vistas del nivel estación
+// Subvistas activas (EVOLUCION_PRECIOS reservada para VOLUMEN a futuro)
 const SUBVIEWS = {
   'ESTADO': estadoSubView,
-  'EVOLUCION_PRECIOS': evolucionPreciosSubView,
   'EVOLUCION_DIFF': evolucionDiffSubView,
   'MARGEN': margenSubView,
   'VARIACION': variacionSubView
 };
 
-// Acciones base de navegación dentro del nivel
 const accionesBase = {
   async abrirDetalleEstacion(el, ev) {
     detenerPropagacion(ev);
@@ -64,16 +61,14 @@ const accionesBase = {
   }
 };
 
-// Renderizado del main shell
 function detalleEstacionHTML() {
   return `
-    <div id="detalle-estacion-shell" class="estacion-shell" style="display: none;">
-      <div id="estacion-subview-content" style="flex: 1 1 auto; display: flex; flex-direction: column; min-height: 0; height: 100%; overflow: hidden;"></div>
-    </div>
+  <div id="detalle-estacion-shell" class="estacion-shell" style="display: none;">
+    <div id="estacion-subview-content" style="flex: 1 1 auto; display: flex; flex-direction: column; min-height: 0; height: 100%; overflow: hidden;"></div>
+  </div>
   `;
 }
 
-// Despacho del render a la sub-vista activa
 function renderDetalleEstacion() {
   const contentBox = document.getElementById('estacion-subview-content');
   if (!contentBox) return;
@@ -92,21 +87,11 @@ function renderDetalleEstacion() {
   const sub = SUBVIEWS[estacionState.subVista];
   if (sub && sub.render) {
     sub.render(contentBox, est);
-  } else {
-    contentBox.innerHTML = `
-      <div class="empty-state">
-        <h3>${SUBVISTAS[estacionState.subVista] || estacionState.subVista}</h3>
-        <p>Próximamente disponible.</p>
-      </div>
-    `;
   }
 }
 
-// Despacho del rail: Ficha técnica base + Controles específicos de la sub-vista
 function railEstacionHTML() {
-  return `
-    <div id="rail-panel-estacion" class="rail-panel" style="display:none;"></div>
-  `;
+  return `<div id="rail-panel-estacion" class="rail-panel" style="display:none;"></div>`;
 }
 
 function actualizarRailEstacion() {

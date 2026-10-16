@@ -2,48 +2,59 @@
    views/estacion/subviews/margen/acciones.js
    ========================================================== */
 import { render } from '../../../../core/router.js';
-import { valorDe, alternarDesplegable } from '../../../../shared/dom.js';
+import { alternarDesplegable } from '../../../../shared/dom.js';
 import { estacionState } from '../../state.js';
 
 export const acciones = {
-  cambiarProductoMargen() {
-    const v = valorDe('sel-margen-prod');
-    if (v) estacionState.margen.producto = v;
+  togglePillMargen(el) {
+    const metrica = el.dataset.arg;
+    if (!metrica) return;
+    const m = estacionState.metricasMargen;
+    if (m.has(metrica)) {
+      if (m.size > 1) m.delete(metrica);
+    } else {
+      m.add(metrica);
+    }
     render();
   },
 
-  cambiarF1Margen(el) {
-    if (el.value) estacionState.margen.fechaInicio = el.value;
-    render();
+  toggleDropdownRivalCheck(el) {
+    alternarDesplegable(el, 'dropdown-sub-rivales');
   },
 
-  cambiarF2Margen(el) {
-    if (el.value) estacionState.margen.fechaFin = el.value;
-    render();
-  },
-
-  toggleDropdownMargenRivales(el) {
-    alternarDesplegable(el, 'dropdown-margen-rivales');
-  },
-
-  marcarTodasRivalesMargen(el) {
+  marcarTodasRivalesComun(el) {
     const todos = el.dataset.arg === 'true';
     const est = estacionState.dataActiva;
     const comps = (est?.actores || []).filter(a => a.tipo_actor !== 'PROPIO');
-    estacionState.margen.competidoresSeleccionados = todos
+    estacionState.filtros.competidoresSeleccionados = todos
       ? new Set(comps.map(c => c.site_id))
       : new Set();
     render();
   },
 
-  onToggleRivalCheckMargen(el) {
+  onToggleRivalCheckComun(el) {
     const id = el.value;
-    const set = estacionState.margen.competidoresSeleccionados;
+    const set = estacionState.filtros.competidoresSeleccionados;
     if (el.checked) {
       set.add(id);
     } else {
       set.delete(id);
     }
+    render();
+  },
+
+  cambiarProductoComun(el) {
+    if (el.value) estacionState.filtros.producto = el.value;
+    render();
+  },
+
+  cambiarF1Comun(el) {
+    if (el.value) estacionState.filtros.fechaInicio = el.value;
+    render();
+  },
+
+  cambiarF2Comun(el) {
+    if (el.value) estacionState.filtros.fechaFin = el.value;
     render();
   }
 };
