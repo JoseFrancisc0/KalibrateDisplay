@@ -1,7 +1,5 @@
 /* ==========================================================
-   views/analisis/grafico.js — Análisis Ponderado
-   - Modo DISTRIBUCION: 2 Histogramas side-by-side con Gauss (Chart.js)
-   - Modo MARCA: Dot-Plot SVG con Logos y KPIs de Benchmark
+   views/analisis/grafico.js — Análisis Estadístico de Precios
    ========================================================== */
 
 import { getBrandLogo } from '../../config/marcas.js';
@@ -22,28 +20,51 @@ export function analyticsHTML() {
       <p id="analytics-chart-sub" style="font-size:0.72rem; color:var(--k-muted); margin:2px 0 0 0;"></p>
     </div>
 
-    <!-- TARJETAS KPIS GENERALES (Modo DISTRIBUCION) -->
-    <div class="analytics-kpis-grid" id="analytics-kpis-wrap" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 10px; flex: 0 0 auto;">
-      <div class="analytics-kpi-card" style="background:#fff; border:1px solid var(--k-line); border-radius:6px; padding:6px 12px;">
-        <span style="font-size:0.6rem; font-weight:700; color:var(--k-muted); text-transform:uppercase;">COESTI Ponderado</span>
-        <div style="font-size:1.05rem; font-weight:800; color:var(--k-ink);" id="kpi-val-coesti">—</div>
-        <span style="font-size:0.62rem; color:var(--k-muted);" id="kpi-sub-coesti">EESS Propias</span>
+    <!-- TARJETAS KPIS GENERALES (Modo DISTRIBUCION - 6 Cards Atómicas) -->
+    <div class="analytics-kpis-grid" id="analytics-kpis-wrap" style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; margin-bottom: 10px; flex: 0 0 auto;">
+      
+      <!-- Card 1: Promedio Propio -->
+      <div class="analytics-kpi-card" style="background:#fff; border:1px solid var(--k-line); border-radius:6px; padding:6px 10px;">
+        <span style="font-size:0.58rem; font-weight:700; color:var(--k-muted); text-transform:uppercase;">Promedio COESTI</span>
+        <div style="font-size:1.05rem; font-weight:800; color:#00D58A;" id="kpi-val-coesti">—</div>
+        <span style="font-size:0.6rem; color:var(--k-muted);" id="kpi-sub-coesti">EESS Propias</span>
       </div>
-      <div class="analytics-kpi-card" style="background:#fff; border:1px solid var(--k-line); border-radius:6px; padding:6px 12px;">
-        <span style="font-size:0.6rem; font-weight:700; color:var(--k-muted); text-transform:uppercase;">Promedio Competencia</span>
-        <div style="font-size:1.05rem; font-weight:800; color:var(--k-ink);" id="kpi-val-comp">—</div>
-        <span style="font-size:0.62rem; color:var(--k-muted);" id="kpi-sub-comp">Rivales Directos</span>
+
+      <!-- Card 2: Promedio Competencia -->
+      <div class="analytics-kpi-card" style="background:#fff; border:1px solid var(--k-line); border-radius:6px; padding:6px 10px;">
+        <span style="font-size:0.58rem; font-weight:700; color:var(--k-muted); text-transform:uppercase;">Promedio Comp.</span>
+        <div style="font-size:1.05rem; font-weight:800; color:#0284C7;" id="kpi-val-comp">—</div>
+        <span style="font-size:0.6rem; color:var(--k-muted);" id="kpi-sub-comp">Rivales Directos</span>
       </div>
-      <div class="analytics-kpi-card" style="background:#fff; border:1px solid var(--k-line); border-radius:6px; padding:6px 12px;">
-        <span style="font-size:0.6rem; font-weight:700; color:var(--k-muted); text-transform:uppercase;">Diferencial Mercado</span>
-        <div style="font-size:1.05rem; font-weight:800;" id="kpi-val-diff">—</div>
-        <span style="font-size:0.62rem; color:var(--k-muted);">Spread Ponderado</span>
+
+      <!-- Card 3: Spread Diferencial -->
+      <div class="analytics-kpi-card" style="background:#fff; border:1px solid var(--k-line); border-radius:6px; padding:6px 10px;">
+        <span style="font-size:0.58rem; font-weight:700; color:var(--k-muted); text-transform:uppercase;">Spread Mercado</span>
+        <div style="font-size:1.05rem; font-weight:800;" id="kpi-val-spread">—</div>
+        <span style="font-size:0.6rem; color:var(--k-muted);">Diferencial Simple</span>
       </div>
-      <div class="analytics-kpi-card" style="background:#fff; border:1px solid var(--k-line); border-radius:6px; padding:6px 12px;">
-        <span style="font-size:0.6rem; font-weight:700; color:var(--k-muted); text-transform:uppercase;">Rango Precios</span>
-        <div style="font-size:1.05rem; font-weight:800; color:var(--k-ink);" id="kpi-val-rango">—</div>
-        <span style="font-size:0.62rem; color:var(--k-muted);">Mínimo — Máximo</span>
+
+      <!-- Card 4: Moda COESTI -->
+      <div class="analytics-kpi-card" style="background:#fff; border:1px solid var(--k-line); border-radius:6px; padding:6px 10px;">
+        <span style="font-size:0.58rem; font-weight:700; color:var(--k-muted); text-transform:uppercase;">Moda COESTI</span>
+        <div style="font-size:1.05rem; font-weight:800; color:var(--k-ink);" id="kpi-val-moda">—</div>
+        <span style="font-size:0.6rem; color:var(--k-muted);" id="kpi-sub-moda">—</span>
       </div>
+
+      <!-- Card 5: Postura vs Rival -->
+      <div class="analytics-kpi-card" style="background:#fff; border:1px solid var(--k-line); border-radius:6px; padding:6px 10px;">
+        <span style="font-size:0.58rem; font-weight:700; color:var(--k-muted); text-transform:uppercase;">Postura vs Rival</span>
+        <div style="font-size:1.05rem; font-weight:800; color:var(--k-ink);" id="kpi-val-postura">—</div>
+        <span style="font-size:0.6rem; color:var(--k-muted);" id="kpi-sub-postura">% Sobre / Par / Bajo</span>
+      </div>
+
+      <!-- Card 6: Dispersión COESTI -->
+      <div class="analytics-kpi-card" style="background:#fff; border:1px solid var(--k-line); border-radius:6px; padding:6px 10px;">
+        <span style="font-size:0.58rem; font-weight:700; color:var(--k-muted); text-transform:uppercase;">Dispersión COESTI</span>
+        <div style="font-size:1.05rem; font-weight:800; color:var(--k-ink);" id="kpi-val-dispersion">—</div>
+        <span style="font-size:0.6rem; color:var(--k-muted);" id="kpi-sub-dispersion">IQR: —</span>
+      </div>
+
     </div>
 
     <!-- CONTENEDOR 1: HISTOGRAMAS SIDE-BY-SIDE (Modo DISTRIBUCION) -->
@@ -104,15 +125,26 @@ export function analyticsHTML() {
 
 /* ---------- Cálculos Estadísticos Auxiliares ---------- */
 function stats(arr) {
-  if (!arr || arr.length === 0) return { mean: 0, stdev: 0, min: 0, max: 0, count: 0 };
-  const mean = arr.reduce((a, b) => a + b, 0) / arr.length;
-  const variance = arr.reduce((a, b) => a + Math.pow(b - mean, 2), 0) / (arr.length > 1 ? arr.length - 1 : 1);
+  if (!arr || arr.length === 0) {
+    return { mean: 0, stdev: 0, min: 0, max: 0, count: 0, p25: 0, p75: 0, iqr: 0 };
+  }
+  const ordenados = [...arr].sort((a, b) => a - b);
+  const n = ordenados.length;
+  const mean = ordenados.reduce((a, b) => a + b, 0) / n;
+  const variance = ordenados.reduce((a, b) => a + Math.pow(b - mean, 2), 0) / (n > 1 ? n - 1 : 1);
+
+  const p25 = ordenados[Math.floor(n * 0.25)];
+  const p75 = ordenados[Math.floor(n * 0.75)];
+
   return {
     mean,
     stdev: Math.sqrt(variance),
-    min: Math.min(...arr),
-    max: Math.max(...arr),
-    count: arr.length
+    min: ordenados[0],
+    max: ordenados[n - 1],
+    count: n,
+    p25,
+    p75,
+    iqr: p75 - p25
   };
 }
 
@@ -132,7 +164,44 @@ function calcularBenchmarkCOESTI(listaEstaciones, combustible) {
 }
 
 /* ==========================================================
-   externalTooltipHandler con filtro para la Campana de Gauss
+   Plugin Chart.js: Etiqueta numérica sobre la barra Modal
+   ========================================================== */
+const topModalLabelPlugin = {
+  id: 'topModalLabelPlugin',
+  afterDatasetsDraw(chart) {
+    const { ctx } = chart;
+    const barMeta = chart.getDatasetMeta(1); // Dataset de barras
+    if (!barMeta || !barMeta.data || barMeta.data.length === 0) return;
+
+    let maxVal = -1;
+    let maxIndex = -1;
+
+    chart.data.datasets[1].data.forEach((val, idx) => {
+      if (val > maxVal) {
+        maxVal = val;
+        maxIndex = idx;
+      }
+    });
+
+    if (maxVal <= 0 || maxIndex === -1) return;
+
+    const barElement = barMeta.data[maxIndex];
+    if (!barElement) return;
+
+    ctx.save();
+    ctx.font = 'bold 11px Inter, sans-serif';
+    ctx.fillStyle = chart.data.datasets[1].borderColor || '#16182F';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'bottom';
+    
+    // Dibujar conteo y texto con padding superior de 3px
+    ctx.fillText(`${maxVal} EESS`, barElement.x, barElement.y - 4);
+    ctx.restore();
+  }
+};
+
+/* ==========================================================
+   External Tooltip Handler
    ========================================================== */
 function externalTooltipHandler(context) {
   let tooltipEl = document.getElementById('chartjs-external-tooltip');
@@ -156,43 +225,28 @@ function externalTooltipHandler(context) {
   }
 
   const { chart, tooltip } = context;
-
   if (tooltip.opacity === 0) {
     tooltipEl.style.opacity = '0';
     return;
   }
 
-  const puntosVisibles = (tooltip.dataPoints || []).filter(dp => {
-    return dp.dataset.type !== 'line';
-  });
-
+  const puntosVisibles = (tooltip.dataPoints || []).filter(dp => dp.dataset.type !== 'line');
   if (puntosVisibles.length === 0) {
     tooltipEl.style.opacity = '0';
     return;
   }
 
-  const titleLines = tooltip.title || [];
-  let innerHtml = '<div style="font-weight:700; margin-bottom:4px; font-family:\'Poppins\',sans-serif; color:#fff;">';
-  titleLines.forEach(title => {
-    innerHtml += title;
-  });
-  innerHtml += '</div>';
-
+  let innerHtml = `<div style="font-weight:700; margin-bottom:4px; font-family:'Poppins',sans-serif; color:#fff;">${tooltip.title?.[0] || ''}</div>`;
   puntosVisibles.forEach(dp => {
-    const color = dp.dataset.borderColor || dp.dataset.backgroundColor;
     const colorBox = `<span style="display:inline-block; width:9px; height:9px; margin-right:6px; border-radius:2px; background:${dp.dataset.backgroundColor}; border:1px solid ${dp.dataset.borderColor};"></span>`;
     innerHtml += `<div style="display:flex; align-items:center; margin-top:2px; font-size:0.72rem; color:#E2E8F0;">${colorBox}Estaciones: ${dp.parsed.y}</div>`;
   });
 
   tooltipEl.innerHTML = innerHtml;
-
   const canvasRect = chart.canvas.getBoundingClientRect();
-  const posX = canvasRect.left + tooltip.caretX;
-  const posY = canvasRect.top + tooltip.caretY;
-
   tooltipEl.style.opacity = '1';
-  tooltipEl.style.left = `${posX}px`;
-  tooltipEl.style.top = `${posY}px`;
+  tooltipEl.style.left = `${canvasRect.left + tooltip.caretX}px`;
+  tooltipEl.style.top = `${canvasRect.top + tooltip.caretY}px`;
   tooltipEl.style.transform = 'translate(-50%, -115%)';
 }
 
@@ -203,7 +257,6 @@ export function renderAnalisis(todasLasEstaciones) {
   const combustible = analisisState.producto || 'Diesel';
   const modo = (analisisState.modo === 'MARCA') ? 'MARCA' : 'DISTRIBUCION';
 
-  // 1. Filtrar estaciones según controles del rail
   const estaciones = todasLasEstaciones.filter(e =>
     cumpleSegmentacion(e, {
       corredor: analisisState.corredor,
@@ -223,11 +276,10 @@ export function renderAnalisis(todasLasEstaciones) {
     if (analisisState.departamento && analisisState.departamento !== 'TODOS') filtros.push(`Depto: ${analisisState.departamento}`);
     const tagFiltro = filtros.length ? `(${filtros.join(' · ')})` : '(Red Total)';
     sub.innerText = (modo === 'MARCA')
-      ? `Promedio consolidado por marca vs COESTI PONDERADO ${tagFiltro}.`
-      : `Distribución bimodal de frecuencias por rangos de precio ${tagFiltro}.`;
+      ? `Promedio simple por marca vs COESTI ${tagFiltro}.`
+      : `Distribución de frecuencias por rangos de precio ${tagFiltro}.`;
   }
 
-  // Alternancia de contenedores
   const distWrap = document.getElementById('analytics-distribucion-wrap');
   const marcaWrap = document.getElementById('analytics-marca-wrap');
   const kpisWrap = document.getElementById('analytics-kpis-wrap');
@@ -236,7 +288,7 @@ export function renderAnalisis(todasLasEstaciones) {
     if (distWrap) distWrap.style.display = 'flex';
     if (kpisWrap) kpisWrap.style.display = 'grid';
     if (marcaWrap) marcaWrap.style.display = 'none';
-    renderModoDistribucion(estaciones, combustible, benchmark);
+    renderModoDistribucion(estaciones, combustible);
   } else {
     if (distWrap) distWrap.style.display = 'none';
     if (kpisWrap) kpisWrap.style.display = 'none';
@@ -252,13 +304,17 @@ function destruirCharts() {
 }
 
 /* ==========================================================
-   MODO 1: HISTOGRAMAS CON BINS DE 1 SOL (Chart.js)
+   MODO 1: HISTOGRAMAS DINÁMICOS SIDE-BY-SIDE (Chart.js)
    ========================================================== */
-function renderModoDistribucion(estaciones, combustible, benchmark) {
+function renderModoDistribucion(estaciones, combustible) {
   destruirCharts();
 
   const preciosCoesti = [];
   const preciosComp = [];
+  let sobreMercadoCount = 0;
+  let paridadCount = 0;
+  let bajoMercadoCount = 0;
+  let eessConRivalValido = 0;
 
   estaciones.forEach(est => {
     const propio = est.actores?.find(a => a.tipo_actor === 'PROPIO');
@@ -266,60 +322,59 @@ function renderModoDistribucion(estaciones, combustible, benchmark) {
     if (pPropio && pPropio > 0) preciosCoesti.push(pPropio);
 
     const comps = est.actores?.filter(esCompetenciaExterna) || [];
+    const preciosRivalEstacion = [];
     comps.forEach(c => {
       const p = c.combustibles?.[combustible]?.precio;
-      if (p && p > 0) preciosComp.push(p);
+      if (p && p > 0) {
+        preciosComp.push(p);
+        preciosRivalEstacion.push(p);
+      }
     });
+
+    // Comparativa de postura comercial directa (vs rival más cercano / promedio local)
+    if (pPropio && pPropio > 0 && preciosRivalEstacion.length > 0) {
+      eessConRivalValido++;
+      const pRivalMedio = preciosRivalEstacion.reduce((a, b) => a + b, 0) / preciosRivalEstacion.length;
+      const diff = Math.round((pPropio - pRivalMedio) * 100) / 100;
+      if (diff > 0.05) sobreMercadoCount++;
+      else if (diff < -0.05) bajoMercadoCount++;
+      else paridadCount++;
+    }
   });
 
   const stCoesti = stats(preciosCoesti);
   const stComp = stats(preciosComp);
-
-  // Actualizar Cards KPI
-  const elKpiCoesti = document.getElementById('kpi-val-coesti');
-  const elKpiComp = document.getElementById('kpi-val-comp');
-  const elKpiDiff = document.getElementById('kpi-val-diff');
-  const elKpiRango = document.getElementById('kpi-val-rango');
-
-  if (elKpiCoesti) elKpiCoesti.textContent = stCoesti.mean > 0 ? `S/ ${stCoesti.mean.toFixed(2)}` : '—';
-  if (elKpiComp) elKpiComp.textContent = stComp.mean > 0 ? `S/ ${stComp.mean.toFixed(2)}` : '—';
-
-  if (elKpiDiff && stCoesti.mean > 0 && stComp.mean > 0) {
-    const d = stCoesti.mean - stComp.mean;
-    elKpiDiff.textContent = `${d > 0 ? '+' : ''}S/ ${d.toFixed(2)}`;
-    elKpiDiff.style.color = d > 0 ? 'var(--diff-neg)' : 'var(--diff-pos)';
-  } else if (elKpiDiff) {
-    elKpiDiff.textContent = '—';
-    elKpiDiff.style.color = 'var(--k-ink)';
-  }
-
   const todos = [...preciosCoesti, ...preciosComp];
-  if (elKpiRango) {
-    elKpiRango.textContent = todos.length ? `S/ ${Math.min(...todos).toFixed(2)} — ${Math.max(...todos).toFixed(2)}` : '—';
-  }
 
   if (todos.length === 0) return;
 
-  // Bins enteros (paso de S/ 1.00): [10-11>, [11-12>, etc.
-  const minBin = Math.floor(Math.min(...todos));
-  const maxBin = Math.ceil(Math.max(...todos));
+  // 1. DETERMINAR PASO (BIN STEP) DINÁMICO
+  const minVal = Math.min(...todos);
+  const maxVal = Math.max(...todos);
+  const rangoTotal = maxVal - minVal;
+
+  // Si el rango es estrecho (ej. GNV o GLP < 4 soles de dispersión), bin de 0.50, si no de 1.00
+  const binStep = rangoTotal <= 4.0 ? 0.5 : 1.0;
+
+  const minBin = Math.floor(minVal / binStep) * binStep;
+  const maxBin = Math.ceil(maxVal / binStep) * binStep;
 
   const binsLabels = [];
   const binEdges = [];
-  for (let b = minBin; b < maxBin; b++) {
+  for (let b = minBin; b < maxBin; b = Number((b + binStep).toFixed(2))) {
     binEdges.push(b);
-    binsLabels.push(`S/ ${b} - ${b + 1}`);
+    binsLabels.push(`S/ ${b.toFixed(2)} - ${(b + binStep).toFixed(2)}`);
   }
-  // Si minBin == maxBin, agregar al menos 1
+
   if (binEdges.length === 0) {
     binEdges.push(minBin);
-    binsLabels.push(`S/ ${minBin} - ${minBin + 1}`);
+    binsLabels.push(`S/ ${minBin.toFixed(2)} - ${(minBin + binStep).toFixed(2)}`);
   }
 
   function conteoBins(precios) {
     const counts = new Array(binEdges.length).fill(0);
     precios.forEach(p => {
-      let idx = Math.floor(p - minBin);
+      let idx = Math.floor((p - minBin) / binStep);
       if (idx < 0) idx = 0;
       if (idx >= counts.length) idx = counts.length - 1;
       counts[idx]++;
@@ -330,24 +385,97 @@ function renderModoDistribucion(estaciones, combustible, benchmark) {
   const freqComp = conteoBins(preciosComp);
   const freqCoesti = conteoBins(preciosCoesti);
 
-  // Puntos medios de bin para evaluar la campana de Gauss
-  const centrosX = binEdges.map(b => b + 0.5);
+  // 2. IDENTIFICAR MODA POR BIN
+  let maxFreqComp = -1, idxModaComp = 0;
+  freqComp.forEach((f, i) => { if (f > maxFreqComp) { maxFreqComp = f; idxModaComp = i; } });
 
+  let maxFreqCoesti = -1, idxModaCoesti = 0;
+  freqCoesti.forEach((f, i) => { if (f > maxFreqCoesti) { maxFreqCoesti = f; idxModaCoesti = i; } });
+
+  const labelModaCoesti = binEdges[idxModaCoesti] !== undefined ? `${binEdges[idxModaCoesti].toFixed(2)}` : '—';
+  const labelModaComp = binEdges[idxModaComp] !== undefined ? `${binEdges[idxModaComp].toFixed(2)}` : '—';
+
+  // 3. ACTUALIZAR KPIS ESTRATÉGICOS
+  const elCoesti = document.getElementById('kpi-val-coesti');
+  const elSubCoesti = document.getElementById('kpi-sub-coesti');
+  const elComp = document.getElementById('kpi-val-comp');
+  const elSubComp = document.getElementById('kpi-sub-comp');
+  const elSpread = document.getElementById('kpi-val-spread');
+  const elModa = document.getElementById('kpi-val-moda');
+  const elSubModa = document.getElementById('kpi-sub-moda');
+  const elPostura = document.getElementById('kpi-val-postura');
+  const elSubPostura = document.getElementById('kpi-sub-postura');
+  const elDispersion = document.getElementById('kpi-val-dispersion');
+  const elSubDisp = document.getElementById('kpi-sub-dispersion');
+
+  // Card 1: Promedio COESTI
+  if (elCoesti) elCoesti.textContent = stCoesti.mean > 0 ? `S/ ${stCoesti.mean.toFixed(2)}` : '—';
+  if (elSubCoesti) elSubCoesti.textContent = `${stCoesti.count} EESS Propias`;
+
+  // Card 2: Promedio Competencia
+  if (elComp) elComp.textContent = stComp.mean > 0 ? `S/ ${stComp.mean.toFixed(2)}` : '—';
+  if (elSubComp) elSubComp.textContent = `${stComp.count} Rivales Directos`;
+
+  // Card 3: Spread Mercado
+  if (elSpread && stCoesti.mean > 0 && stComp.mean > 0) {
+    const diff = stCoesti.mean - stComp.mean;
+    elSpread.textContent = `${diff >= 0 ? '+' : ''}S/ ${diff.toFixed(2)}`;
+    // Más caro = rojo/alerta (neg), más barato = verde (pos)
+    elSpread.style.color = diff > 0.05 ? 'var(--diff-neg)' : (diff < -0.05 ? 'var(--diff-pos)' : 'var(--k-muted)');
+  } else if (elSpread) {
+    elSpread.textContent = '—';
+    elSpread.style.color = 'var(--k-ink)';
+  }
+
+  // Card 4: Moda COESTI (con referencia al rival en subtexto)
+  if (elModa) {
+    elModa.textContent = labelModaCoesti !== '—' ? `S/ ${labelModaCoesti}` : '—';
+  }
+  if (elSubModa) {
+    elSubModa.textContent = `${maxFreqCoesti} EESS (Rival: S/ ${labelModaComp})`;
+  }
+
+  // Card 5: Postura vs Rival Directo
+  if (elPostura && eessConRivalValido > 0) {
+    const pctSobre = Math.round((sobreMercadoCount / eessConRivalValido) * 100);
+    const pctPar = Math.round((paridadCount / eessConRivalValido) * 100);
+    const pctBajo = Math.round((bajoMercadoCount / eessConRivalValido) * 100);
+    elPostura.textContent = `${pctSobre}% / ${pctPar}% / ${pctBajo}%`;
+    if (elSubPostura) elSubPostura.textContent = `${pctSobre}% Sobre · ${pctPar}% Par · ${pctBajo}% Bajo`;
+  } else if (elPostura) {
+    elPostura.textContent = '—';
+  }
+
+  // Card 6: Dispersión COESTI (Desviación e IQR)
+  if (elDispersion) {
+    elDispersion.textContent = `± S/ ${stCoesti.stdev.toFixed(2)}`;
+  }
+  if (elSubDisp) {
+    elSubDisp.textContent = `IQR: S/ ${stCoesti.iqr.toFixed(2)} (Comp: ±${stComp.stdev.toFixed(2)})`;
+  }
+
+  // 4. PREPARACIÓN DE GAUSS
+  const centrosX = binEdges.map(b => b + (binStep / 2));
   const gaussComp = centrosX.map(x => {
     if (stComp.stdev === 0) return 0;
-    return Number((pdfGauss(x, stComp.mean, stComp.stdev) * stComp.count * 1.0).toFixed(2));
+    return Number((pdfGauss(x, stComp.mean, stComp.stdev) * stComp.count * binStep).toFixed(2));
   });
 
   const gaussCoesti = centrosX.map(x => {
     if (stCoesti.stdev === 0) return 0;
-    return Number((pdfGauss(x, stCoesti.mean, stCoesti.stdev) * stCoesti.count * 1.0).toFixed(2));
+    return Number((pdfGauss(x, stCoesti.mean, stCoesti.stdev) * stCoesti.count * binStep).toFixed(2));
   });
 
-  // 1. Chart Competencia
+  // Headroom en Eje Y (+25% para que la etiqueta superior no se corte)
+  const yMaxComp = Math.ceil(Math.max(...freqComp, ...gaussComp) * 1.10);
+  const yMaxCoesti = Math.ceil(Math.max(...freqCoesti, ...gaussCoesti) * 1.10);
+
+  // 5. CHART COMPETENCIA
   const ctxComp = document.getElementById('chart-comp-canvas');
   if (ctxComp) {
     chartCompInstancia = new Chart(ctxComp, {
       type: 'bar',
+      plugins: [topModalLabelPlugin],
       data: {
         labels: binsLabels,
         datasets: [
@@ -376,33 +504,31 @@ function renderModoDistribucion(estaciones, combustible, benchmark) {
       options: {
         responsive: true,
         maintainAspectRatio: false,
-        interaction: {
-          mode: 'index',
-          intersect: false
-        },
+        layout: { padding: { top: 12 } },
+        interaction: { mode: 'index', intersect: false },
         plugins: {
-          legend: { 
-            position: 'bottom', 
-            labels: { boxWidth: 12, font: { size: 9.5, weight: '600' } } 
-          },
-          tooltip: {
-            enabled: false,
-            external: externalTooltipHandler
-          }
+          legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 9.5, weight: '600' } } },
+          tooltip: { enabled: false, external: externalTooltipHandler }
         },
         scales: {
           x: { grid: { color: 'rgba(226, 232, 240, 0.6)' }, ticks: { font: { size: 9, weight: '600' } } },
-          y: { beginAtZero: true, grid: { color: 'rgba(226, 232, 240, 0.6)' }, title: { display: true, text: 'Frecuencia (EESS)', font: { size: 9.5 } } }
+          y: {
+            beginAtZero: true,
+            max: yMaxComp,
+            grid: { color: 'rgba(226, 232, 240, 0.6)' },
+            title: { display: true, text: 'Frecuencia (EESS)', font: { size: 10, weight: '600' } }
+          }
         }
       }
     });
   }
 
-  // 2. Chart COESTI
+  // 6. CHART COESTI
   const ctxCoesti = document.getElementById('chart-coesti-canvas');
   if (ctxCoesti) {
     chartCoestiInstancia = new Chart(ctxCoesti, {
       type: 'bar',
+      plugins: [topModalLabelPlugin],
       data: {
         labels: binsLabels,
         datasets: [
@@ -420,7 +546,7 @@ function renderModoDistribucion(estaciones, combustible, benchmark) {
             type: 'bar',
             label: `Estaciones (${stCoesti.count} EESS)`,
             data: freqCoesti,
-            backgroundColor: 'rgba(0, 213, 138, 0.55)',
+            backgroundColor: 'rgba(0, 213, 138, 0.45)',
             borderColor: '#00D58A',
             borderWidth: 1.5,
             borderRadius: 4,
@@ -431,23 +557,20 @@ function renderModoDistribucion(estaciones, combustible, benchmark) {
       options: {
         responsive: true,
         maintainAspectRatio: false,
-        interaction: {
-          mode: 'index',
-          intersect: false
-        },
+        layout: { padding: { top: 12 } },
+        interaction: { mode: 'index', intersect: false },
         plugins: {
-          legend: { 
-            position: 'bottom', 
-            labels: { boxWidth: 12, font: { size: 9.5, weight: '600' } } 
-          },
-          tooltip: {
-            enabled: false,
-            external: externalTooltipHandler,
-          }
+          legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 9.5, weight: '600' } } },
+          tooltip: { enabled: false, external: externalTooltipHandler }
         },
         scales: {
           x: { grid: { color: 'rgba(226, 232, 240, 0.6)' }, ticks: { font: { size: 9, weight: '600' } } },
-          y: { beginAtZero: true, grid: { color: 'rgba(226, 232, 240, 0.6)' }, title: { display: true, text: 'Frecuencia (EESS)', font: { size: 9.5 } } }
+          y: {
+            beginAtZero: true,
+            max: yMaxCoesti,
+            grid: { color: 'rgba(226, 232, 240, 0.6)' },
+            title: { display: true, text: 'Frecuencia (EESS)', font: { size: 10, weight: '600' } }
+          }
         }
       }
     });
@@ -455,176 +578,97 @@ function renderModoDistribucion(estaciones, combustible, benchmark) {
 }
 
 /* ==========================================================
-   MODO 2: PROMEDIO POR MARCAS (Motor SVG Nativo con Logos)
+   MODO 2: DOT-PLOT POR MARCAS (Preservado intacto)
    ========================================================== */
 function renderModoMarca(estaciones, combustible, benchmark) {
-  const wrap = document.getElementById('analytics-svg-wrap');
-  if (!wrap) return;
+  const container = document.getElementById('analytics-svg-wrap');
+  if (!container) return;
+  container.innerHTML = '';
 
-  // 1. Agrupar precios por marca
-  const acumulador = {};
+  const marcasSel = analisisState.marcasSeleccionadas || new Set();
+  const datosPorMarca = new Map();
+
   estaciones.forEach(est => {
-    const comps = est.actores?.filter(esCompetenciaExterna) || [];
+    const comps = (est.actores || []).filter(esCompetenciaExterna);
     comps.forEach(c => {
-      const m = normalizarMarca(c.marca);
-      if (!m || m === 'SIN MARCA') return;
-      if (analisisState.marcasSeleccionadas && !analisisState.marcasSeleccionadas.has(m)) return;
-
+      const marcaNorm = normalizarMarca(c.marca);
+      if (!marcasSel.has(marcaNorm)) return;
       const p = c.combustibles?.[combustible]?.precio;
       if (p && p > 0) {
-        if (!acumulador[m]) acumulador[m] = { suma: 0, conteo: 0, estaciones: new Set() };
-        acumulador[m].suma += p;
-        acumulador[m].conteo++;
-        acumulador[m].estaciones.add(c.site_id || c.nombre_linea);
+        if (!datosPorMarca.has(marcaNorm)) datosPorMarca.set(marcaNorm, []);
+        datosPorMarca.get(marcaNorm).push(p);
       }
     });
   });
 
-  const items = [];
-  Object.keys(acumulador).forEach(m => {
-    let nombreDisplay = m;
-    let marcaDisplay = m;
-    if (m === 'PRIMAX') { nombreDisplay = 'PRIMAX (DEALERS)'; marcaDisplay = 'PRIMAX (DEALER)'; }
-    else if (m === 'WP') { nombreDisplay = 'WHITE PRODUCTS'; marcaDisplay = 'WHITE PRODUCTS'; }
-
-    items.push({
-      id: m,
-      nombre: nombreDisplay,
-      marca: marcaDisplay,
-      rawMarca: m,
-      totalEstaciones: acumulador[m].estaciones.size,
-      precio: acumulador[m].suma / acumulador[m].conteo,
-      esBenchmark: false
-    });
+  const filas = [];
+  datosPorMarca.forEach((precios, marca) => {
+    const s = stats(precios);
+    filas.push({ marca, ...s });
   });
 
-  // 2. Benchmark propio
-  let totalEstacionesCoesti = 0;
-  const setCoesti = new Set();
-  estaciones.forEach(est => {
-    const propio = est.actores?.find(a => a.tipo_actor === 'PROPIO');
-    if (propio?.combustibles?.[combustible]?.precio > 0) {
-      setCoesti.add(est.own_site_id);
-    }
+  filas.sort((a, b) => b.mean - a.mean);
+
+  // KPIs de benchmark flotantes
+  let bajoCount = 0, sobreCount = 0;
+  filas.forEach(f => {
+    if (f.mean < benchmark) bajoCount += f.count;
+    else if (f.mean > benchmark) sobreCount += f.count;
   });
-  totalEstacionesCoesti = setCoesti.size;
 
-  if (benchmark > 0) {
-    items.push({
-      id: 'coesti-ponderado-node',
-      nombre: 'COESTI PONDERADO',
-      marca: 'PRIMAX (COESTI)',
-      rawMarca: 'COESTI',
-      totalEstaciones: totalEstacionesCoesti,
-      precio: benchmark,
-      esBenchmark: true
-    });
-  }
+  const elValBajo = document.getElementById('val-bajo-coesti');
+  const elEessBajo = document.getElementById('eess-bajo-coesti');
+  const elValSobre = document.getElementById('val-sobre-coesti');
+  const elEessSobre = document.getElementById('eess-sobre-coesti');
 
-  if (items.length === 0) {
-    wrap.innerHTML = `<div style="text-align:center; padding:60px; color:var(--k-muted);">No hay marcas para los filtros seleccionados.</div>`;
+  if (elValBajo) elValBajo.textContent = benchmark > 0 ? `S/ ${benchmark.toFixed(2)}` : '—';
+  if (elEessBajo) elEessBajo.textContent = `${bajoCount} EESS`;
+  if (elValSobre) elValSobre.textContent = benchmark > 0 ? `S/ ${benchmark.toFixed(2)}` : '—';
+  if (elEessSobre) elEessSobre.textContent = `${sobreCount} EESS`;
+
+  if (filas.length === 0) {
+    container.innerHTML = '<div class="empty-state" style="margin:auto;">Sin marcas seleccionadas</div>';
     return;
   }
 
-  // 3. KPIs de marcas sobre y bajo COESTI
-  let sumaArriba = 0, eessArriba = 0;
-  let sumaAbajo = 0, eessAbajo = 0;
+  // Geometría SVG
+  const w = container.clientWidth || 800;
+  const h = container.clientHeight || 450;
+  const padL = 90, padR = 40, padT = 30, padB = 40;
 
-  items.filter(d => !d.esBenchmark).forEach(d => {
-    if (d.precio > benchmark) {
-      sumaArriba += (d.precio * d.totalEstaciones);
-      eessArriba += d.totalEstaciones;
-    } else if (d.precio < benchmark) {
-      sumaAbajo += (d.precio * d.totalEstaciones);
-      eessAbajo += d.totalEstaciones;
-    }
-  });
+  const todosPrecios = filas.map(f => f.mean);
+  if (benchmark > 0) todosPrecios.push(benchmark);
+  const minX = Math.min(...todosPrecios) - 0.4;
+  const maxX = Math.max(...todosPrecios) + 0.4;
 
-  const valBajo = document.getElementById('val-bajo-coesti');
-  const eessBajo = document.getElementById('eess-bajo-coesti');
-  const valSobre = document.getElementById('val-sobre-coesti');
-  const eessSobre = document.getElementById('eess-sobre-coesti');
+  const scaleX = val => padL + ((val - minX) / (maxX - minX)) * (w - padL - padR);
+  const stepY = (h - padT - padB) / (filas.length + 1);
 
-  if (valBajo) valBajo.textContent = eessAbajo > 0 ? `S/ ${(sumaAbajo / eessAbajo).toFixed(2)}` : '—';
-  if (eessBajo) eessBajo.textContent = `${eessAbajo} EESS`;
-  if (valSobre) valSobre.textContent = eessArriba > 0 ? `S/ ${(sumaArriba / eessArriba).toFixed(2)}` : '—';
-  if (eessSobre) eessSobre.textContent = `${eessArriba} EESS`;
+  let svg = `<svg class="analytics-svg" viewBox="0 0 ${w} ${h}">`;
 
-  // 4. Renderizado SVG
-  const sorted = [...items].sort((a, b) => a.precio - b.precio);
+  // Línea Guía Benchmark COESTI
+  if (benchmark > 0) {
+    const xBm = scaleX(benchmark);
+    svg += `
+      <line x1="${xBm}" y1="${padT - 10}" x2="${xBm}" y2="${h - padB + 10}" stroke="var(--k-emerald, #00D58A)" stroke-width="2" stroke-dasharray="4,4"/>
+      <text x="${xBm}" y="${padT - 14}" fill="var(--k-emerald, #00D58A)" font-size="10" font-weight="700" text-anchor="middle">COESTI: S/ ${benchmark.toFixed(2)}</text>
+    `;
+  }
 
-  const W = 1600;
-  const H = 680;
-  const topPad = 140;
-  const bottomPad = 140;
-  const leftPad = 80;
-  const rightPad = 80;
+  // Filas por Marca
+  filas.forEach((f, idx) => {
+    const y = padT + (idx + 1) * stepY;
+    const x = scaleX(f.mean);
+    const logo = getBrandLogo(f.marca);
 
-  const precios = sorted.map(d => d.precio);
-  const minP = Math.min(...precios) - 0.25;
-  const maxP = Math.max(...precios) + 0.25;
-
-  const chartH = H - topPad - bottomPad;
-  const scaleY = (val) => (H - bottomPad) - ((val - minP) / (maxP - minP || 1)) * chartH;
-  const benchY = scaleY(benchmark);
-
-  const chartW = W - leftPad - rightPad;
-  const stepX = chartW / Math.max(1, sorted.length - 1);
-
-  let elementsSvg = '';
-
-  // Línea roja punteada del Benchmark COESTI
-  elementsSvg += `
-    <line x1="${leftPad - 30}" y1="${benchY}" x2="${W - rightPad + 30}" y2="${benchY}" 
-          stroke="#D92D4E" stroke-width="1.8" stroke-dasharray="4,4" />
-    <text x="${leftPad - 30}" y="${benchY - 8}" font-size="13" font-weight="800" fill="#D92D4E" font-family="'Poppins', sans-serif">
-      COESTI PONDERADO: S/ ${benchmark.toFixed(2)}
-    </text>
-  `;
-
-  sorted.forEach((d, i) => {
-    const cx = leftPad + (i * stepX);
-    const cy = scaleY(d.precio);
-    const isBench = d.esBenchmark;
-
-    // Conector vertical
-    elementsSvg += `<line x1="${cx}" y1="${benchY}" x2="${cx}" y2="${cy}" stroke="${isBench ? '#D92D4E' : '#D8E0E9'}" stroke-width="${isBench ? 2 : 1.2}" stroke-dasharray="${isBench ? '3,3' : 'none'}" />`;
-
-    // Nodo/Punto
-    elementsSvg += `<circle cx="${cx}" cy="${cy}" r="${isBench ? 6 : 5}" fill="${isBench ? '#D92D4E' : '#2E3192'}" />`;
-
-    const posArriba = cy < benchY;
-    const logoY = posArriba ? (cy - 74) : (cy + 24);
-    const textY = posArriba ? (cy - 116) : (cy + 96);
-    const countY = posArriba ? (cy - 98) : (cy + 114);
-    const priceY = posArriba ? (cy - 80) : (cy + 134);
-
-    if (!isBench) {
-      const logoUrl = getBrandLogo(d.rawMarca);
-      elementsSvg += `
-        <image href="${logoUrl}" x="${cx - 22}" y="${logoY}" width="44" height="44" preserveAspectRatio="xMidYMid meet" style="filter: drop-shadow(0 2px 4px rgba(0,0,0,0.14));" />
-      `;
-    }
-
-    const countText = d.totalEstaciones ? `${d.totalEstaciones} EESS` : '';
-
-    elementsSvg += `
-      <text x="${cx}" y="${isBench ? (posArriba ? cy - 42 : cy + 44) : textY}" text-anchor="middle" font-size="14" font-weight="${isBench ? '800' : '700'}" fill="${isBench ? '#D92D4E' : '#16182F'}" font-family="'Inter', sans-serif">
-        ${d.nombre}
-      </text>
-      ${countText ? `
-      <text x="${cx}" y="${isBench ? (posArriba ? cy - 24 : cy + 62) : countY}" text-anchor="middle" font-size="12" font-weight="600" fill="${isBench ? '#D92D4E' : '#7A8699'}" font-family="'Inter', sans-serif">
-        ${countText}
-      </text>` : ''}
-      <text x="${cx}" y="${isBench ? (posArriba ? cy - 6 : cy + 80) : priceY}" text-anchor="middle" font-size="15" font-weight="800" fill="${isBench ? '#D92D4E' : '#505F79'}" font-family="'Poppins', sans-serif">
-        S/ ${d.precio.toFixed(2)}
-      </text>
+    svg += `
+      <line x1="${padL}" y1="${y}" x2="${w - padR}" y2="${y}" stroke="rgba(226, 232, 240, 0.8)" stroke-width="1"/>
+      <text x="${padL - 10}" y="${y + 4}" fill="var(--k-ink)" font-size="11" font-weight="600" text-anchor="end">${f.marca}</text>
+      <circle cx="${x}" cy="${y}" r="6" fill="#0284C7" class="dot-node"/>
+      <text x="${x}" y="${y - 9}" fill="#0284C7" font-size="10" font-weight="700" text-anchor="middle">S/ ${f.mean.toFixed(2)}</text>
     `;
   });
 
-  wrap.innerHTML = `
-    <svg viewBox="0 0 ${W} ${H}" style="width:100%; height:100%; display:block;" preserveAspectRatio="xMidYMid meet">
-      ${elementsSvg}
-    </svg>
-  `;
+  svg += '</svg>';
+  container.innerHTML = svg;
 }

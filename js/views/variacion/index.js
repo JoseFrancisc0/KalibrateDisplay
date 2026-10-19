@@ -10,7 +10,7 @@ import { acciones, entrarVariacion, iniciarListenersVariacion } from './acciones
 
 export const variacion = {
   id: 'VARIACION',
-  label: 'VARIACIÓN HISTÓRICA',
+  label: 'VARIACIÓN',
   tabId: 'tab-view-variacion',
   shellSelector: '#variacion-shell',
   display: 'block',

@@ -11,7 +11,7 @@ import { acciones, poblarFiltrosAnalisis, iniciarListenersAnalisis } from './acc
 
 export const analisis = {
   id: 'ANALISIS',
-  label: 'ANÁLISIS PONDERADO',
+  label: 'ANÁLISIS',
   tabId: 'tab-view-analisis',
   shellSelector: '#analytics-shell',
   display: 'flex',

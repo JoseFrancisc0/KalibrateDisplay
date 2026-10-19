@@ -11,7 +11,7 @@ import { acciones, poblarFiltrosAlineacion } from './acciones.js';
 
 export const alineacion = {
   id: 'ALINEACION',
-  label: 'ALINEACIÓN COMPETITIVA',
+  label: 'ALINEACIÓN',
   tabId: 'tab-view-alineacion',
   shellSelector: '#alineacion-shell',
   display: 'flex',

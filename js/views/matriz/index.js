@@ -15,7 +15,7 @@ export { estacionesListadas } from './filtros.js';
 
 export const matriz = {
   id: 'MATRIZ',
-  label: 'MATRIZ COMPETITIVA',
+  label: 'PRECIOS',
   tabId: 'tab-view-matriz',
   shellSelector: '.table-shell',
   display: 'flex',

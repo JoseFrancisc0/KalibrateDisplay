@@ -8,7 +8,7 @@ import { margenMercadoState } from './state.js';
 
 export const margenMercado = {
   id: 'MARGEN_MERCADO',
-  label: 'ANÁLISIS MERCADO',
+  label: 'MERCADO',
   tabId: 'tab-view-margen-mercado',
   shellSelector: '#margen-mercado-shell',
   display: 'flex',
