@@ -3,6 +3,7 @@
    ========================================================== */
 
 import { getBrandLogo } from '../../config/marcas.js';
+import { obtenerCompetidoresUnicos } from '../../shared/competidores.js';
 import { normalizarMarca, esCompetenciaExterna } from '../../shared/marcas.js';
 import { cumpleSegmentacion } from '../../shared/segmentacion.js';
 import { analisisState } from './state.js';
@@ -68,46 +69,47 @@ export function analyticsHTML() {
     </div>
 
     <!-- CONTENEDOR 1: HISTOGRAMAS SIDE-BY-SIDE (Modo DISTRIBUCION) -->
-    <div id="analytics-distribucion-wrap" style="flex: 1 1 0; min-height: 0; display: flex; gap: 12px; width: 100%;">
+    <div id="analytics-distribucion-wrap" style="flex: 0 0 auto; display: flex; gap: 12px; width: 100%; align-items: flex-start; margin-bottom: 14px;">
       
       <!-- Panel Competencia -->
-      <div style="flex: 1 1 50%; display: flex; flex-direction: column; background: #fff; border: 1px solid var(--k-line); border-radius: 6px; padding: 10px 12px; position: relative; min-width: 0;">
-        <span style="font-family:'Poppins',sans-serif; font-size:0.75rem; font-weight:700; color:#0284C7; margin-bottom:4px; flex-shrink: 0;">
+      <div style="flex: 1 1 50%; display: flex; flex-direction: column; background: #fff; border: 1px solid var(--k-line); border-radius: 6px; padding: 12px 14px; position: relative; min-width: 0;">
+        <span style="font-family:'Poppins',sans-serif; font-size:0.75rem; font-weight:700; color:#0284C7; margin-bottom:6px; flex-shrink: 0;">
           DISTRIBUCIÓN: COMPETENCIA
         </span>
-        <div id="canvas-comp-container" style="flex: 1 1 0; min-height: 160px; position: relative; width: 100%;">
+        <!-- Altura fija para que nunca se encoja el gráfico -->
+        <div id="canvas-comp-container" style="height: 320px; flex: 0 0 320px; position: relative; width: 100%;">
           <canvas id="chart-comp-canvas" style="position: absolute; inset: 0; width: 100%!important; height: 100%!important;"></canvas>
         </div>
 
-        <!-- Drill-down In-place Competencia -->
-        <div id="drilldown-comp-wrap" style="display: none; flex-direction: column; border-top: 1px solid var(--k-line); margin-top: 8px; padding-top: 8px; flex: 0 0 230px; min-height: 0;">
+        <!-- Cuadro Drill-down Debajo del Gráfico -->
+        <div id="drilldown-comp-wrap" style="display: none; flex-direction: column; border-top: 1px solid var(--k-line); margin-top: 12px; padding-top: 10px; flex: 0 0 auto;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; flex-shrink: 0;">
-            <span id="drilldown-comp-title" style="font-family:'Poppins',sans-serif; font-size:0.72rem; font-weight:700; color:#0284C7;">—</span>
-            <button type="button" onclick="window.cerrarDrillDownBin('comp')" style="background:none; border:none; font-size:1.1rem; cursor:pointer; color:var(--k-muted); line-height:1;">&times;</button>
+            <span id="drilldown-comp-title" style="font-family:'Poppins',sans-serif; font-size:0.75rem; font-weight:700; color:#0284C7;">—</span>
+            <button type="button" onclick="window.cerrarDrillDownBin('comp')" style="background:none; border:none; font-size:1.2rem; cursor:pointer; color:var(--k-muted); line-height:1; padding:0 4px;" title="Cerrar">&times;</button>
           </div>
-          <div id="drilldown-comp-list" style="flex: 1; overflow-y: auto; display: flex; flex-direction: column;"></div>
+          <div id="drilldown-comp-list" style="max-height: 290px; overflow-y: auto; display: flex; flex-direction: column; padding-right: 4px;"></div>
         </div>
       </div>
 
       <!-- Panel COESTI -->
-      <div style="flex: 1 1 50%; display: flex; flex-direction: column; background: #fff; border: 1px solid var(--k-line); border-radius: 6px; padding: 10px 12px; position: relative; min-width: 0;">
-        <span style="font-family:'Poppins',sans-serif; font-size:0.75rem; font-weight:700; color:#00D58A; margin-bottom:4px; flex-shrink: 0;">
+      <div style="flex: 1 1 50%; display: flex; flex-direction: column; background: #fff; border: 1px solid var(--k-line); border-radius: 6px; padding: 12px 14px; position: relative; min-width: 0;">
+        <span style="font-family:'Poppins',sans-serif; font-size:0.75rem; font-weight:700; color:#00D58A; margin-bottom:6px; flex-shrink: 0;">
           DISTRIBUCIÓN: COESTI (PROPIAS)
         </span>
-        <div id="canvas-coesti-container" style="flex: 1 1 0; min-height: 160px; position: relative; width: 100%;">
+        <!-- Altura fija para que nunca se encoja el gráfico -->
+        <div id="canvas-coesti-container" style="height: 320px; flex: 0 0 320px; position: relative; width: 100%;">
           <canvas id="chart-coesti-canvas" style="position: absolute; inset: 0; width: 100%!important; height: 100%!important;"></canvas>
         </div>
 
-        <!-- Drill-down In-place COESTI -->
-        <div id="drilldown-coesti-wrap" style="display: none; flex-direction: column; border-top: 1px solid var(--k-line); margin-top: 8px; padding-top: 8px; flex: 0 0 230px; min-height: 0;">
+        <!-- Cuadro Drill-down Debajo del Gráfico -->
+        <div id="drilldown-coesti-wrap" style="display: none; flex-direction: column; border-top: 1px solid var(--k-line); margin-top: 12px; padding-top: 10px; flex: 0 0 auto;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; flex-shrink: 0;">
-            <span id="drilldown-coesti-title" style="font-family:'Poppins',sans-serif; font-size:0.72rem; font-weight:700; color:#00D58A;">—</span>
-            <button type="button" onclick="window.cerrarDrillDownBin('coesti')" style="background:none; border:none; font-size:1.1rem; cursor:pointer; color:var(--k-muted); line-height:1;">&times;</button>
+            <span id="drilldown-coesti-title" style="font-family:'Poppins',sans-serif; font-size:0.75rem; font-weight:700; color:#00D58A;">—</span>
+            <button type="button" onclick="window.cerrarDrillDownBin('coesti')" style="background:none; border:none; font-size:1.2rem; cursor:pointer; color:var(--k-muted); line-height:1; padding:0 4px;" title="Cerrar">&times;</button>
           </div>
-          <div id="drilldown-coesti-list" style="flex: 1; overflow-y: auto; display: flex; flex-direction: column;"></div>
+          <div id="drilldown-coesti-list" style="max-height: 290px; overflow-y: auto; display: flex; flex-direction: column; padding-right: 4px;"></div>
         </div>
       </div>
-
     </div>
 
     <!-- CONTENEDOR 2: DOT-PLOT POR MARCAS (Modo MARCA) -->
@@ -341,15 +343,8 @@ function renderModoDistribucion(estaciones, combustible) {
   window.cerrarDrillDownBin('comp');
   window.cerrarDrillDownBin('coesti');
 
-  // Arrays de objetos con metadata completa
+  // 1. Propias COESTI (ya únicas a nivel de estación cabecera)
   const registrosCoesti = [];
-  const registrosComp = [];
-  
-  let sobreMercadoCount = 0;
-  let paridadCount = 0;
-  let bajoMercadoCount = 0;
-  let eessConRivalValido = 0;
-
   estaciones.forEach(est => {
     const propio = est.actores?.find(a => a.tipo_actor === 'PROPIO');
     const pPropio = propio?.combustibles?.[combustible]?.precio;
@@ -362,27 +357,29 @@ function renderModoDistribucion(estaciones, combustible) {
         provincia: est.provincia || '—',
         distrito: est.distrito || '—',
         propioDe: null,
-        distanciaKm: null
+        distanciaKm: null,
+        rivalidades: []
       });
     }
+  });
 
-    const comps = est.actores?.filter(esCompetenciaExterna) || [];
+  // 2. Competencia Deduplicada Globalmente
+  const registrosComp = obtenerCompetidoresUnicos(estaciones, combustible);
+
+  // 3. Postura Comercial (Se mantiene contextual por cada propia frente a sus rivales locales)
+  let sobreMercadoCount = 0;
+  let paridadCount = 0;
+  let bajoMercadoCount = 0;
+  let eessConRivalValido = 0;
+
+  estaciones.forEach(est => {
+    const propio = est.actores?.find(a => a.tipo_actor === 'PROPIO');
+    const pPropio = propio?.combustibles?.[combustible]?.precio;
+    const comps = (est.actores || []).filter(esCompetenciaExterna);
     const preciosRivalEstacion = [];
     comps.forEach(c => {
       const p = c.combustibles?.[combustible]?.precio;
-      if (p && p > 0) {
-        registrosComp.push({
-          nombre: c.nombre_linea || c.competidor || 'Competidor',
-          marca: normalizarMarca(c.marca),
-          precio: p,
-          departamento: est.departamento || '—',
-          provincia: est.provincia || '—',
-          distrito: est.distrito || '—',
-          propioDe: est.estacion || est.estacion_cabecera || 'E/S Propia',
-          distanciaKm: c.distancia_km
-        });
-        preciosRivalEstacion.push(p);
-      }
+      if (p && p > 0) preciosRivalEstacion.push(p);
     });
 
     if (pPropio && pPropio > 0 && preciosRivalEstacion.length > 0) {
@@ -423,7 +420,6 @@ function renderModoDistribucion(estaciones, combustible) {
     binsLabels.push(`S/ ${minBin.toFixed(2)} - ${(minBin + binStep).toFixed(2)}`);
   }
 
-  // Agrupador de registros por bin
   function clasificarEnBins(registros) {
     const bins = binEdges.map(() => []);
     registros.forEach(r => {
@@ -457,7 +453,7 @@ function renderModoDistribucion(estaciones, combustible) {
   if (elCoesti) elCoesti.textContent = stCoesti.mean > 0 ? `S/ ${stCoesti.mean.toFixed(2)}` : '—';
   if (elSubCoesti) elSubCoesti.textContent = `${stCoesti.count} EESS Propias`;
   if (elComp) elComp.textContent = stComp.mean > 0 ? `S/ ${stComp.mean.toFixed(2)}` : '—';
-  if (elSubComp) elSubComp.textContent = `${stComp.count} Rivales Directos`;
+  if (elSubComp) elSubComp.textContent = `${stComp.count} Rivales Físicos`;
 
   if (elSpread && stCoesti.mean > 0 && stComp.mean > 0) {
     const diff = stCoesti.mean - stComp.mean;
@@ -492,7 +488,7 @@ function renderModoDistribucion(estaciones, combustible) {
   const yMaxComp = Math.ceil(Math.max(...freqComp, ...gaussComp) * 1.10);
   const yMaxCoesti = Math.ceil(Math.max(...freqCoesti, ...gaussCoesti) * 1.10);
 
-  // Función interna para renderizar las tarjetas drill-down
+  // Renderizador Drill-Down con agrupación 1-a-Muchos
   function mostrarDrillDown(tipo, binIndex) {
     const wrap = document.getElementById(`drilldown-${tipo}-wrap`);
     const title = document.getElementById(`drilldown-${tipo}-title`);
@@ -510,16 +506,36 @@ function renderModoDistribucion(estaciones, combustible) {
       return;
     }
 
-    // Ordenar de mayor a menor precio
     items.sort((a, b) => b.precio - a.precio);
 
     list.innerHTML = items.map(item => {
       const logoUrl = getBrandLogo(item.marca);
-      const rivalHtml = item.propioDe ? `
-        <div style="font-size: 0.6rem; color: #0284C7; font-weight: 600; margin-top: 2px;">
-          Rival de: <b>${item.propioDe}</b> ${item.distanciaKm !== undefined && item.distanciaKm !== null ? `(${Number(item.distanciaKm).toFixed(1)} km)` : ''}
-        </div>
-      ` : '';
+
+      // Renderizar rivalidad: Más cercana + badge [+N] con tooltip
+      let rivalHtml = '';
+      if (item.rivalidades && item.rivalidades.length > 0) {
+        const masCercano = item.rivalidades[0];
+        const distStr = masCercano.distanciaKm !== null ? `(${masCercano.distanciaKm.toFixed(1)} km)` : '';
+        const cantidadExtra = item.rivalidades.length - 1;
+
+        // Texto completo de las estaciones adicionales para el tooltip
+        const listaCompletaTooltip = item.rivalidades
+          .map(r => `• ${r.nombrePropio}${r.distanciaKm !== null ? ` (${r.distanciaKm.toFixed(1)} km)` : ''}`)
+          .join('\n');
+
+        const badgeExtra = cantidadExtra > 0 ? `
+          <span style="display: inline-block; font-size: 0.58rem; font-weight: 700; color: #0284C7; background: rgba(2, 132, 199, 0.12); padding: 1px 4px; border-radius: 3px; cursor: help; margin-left: 3px;" 
+                title="También compite con:\n${listaCompletaTooltip}">
+            [+${cantidadExtra}]
+          </span>
+        ` : '';
+
+        rivalHtml = `
+          <div style="font-size: 0.62rem; color: #0284C7; margin-top: 2px; line-height: 1.3;">
+            Rival de: <b>${masCercano.nombrePropio}</b> ${distStr}${badgeExtra}
+          </div>
+        `;
+      }
 
       return `
         <div style="display: flex; align-items: center; justify-content: space-between; padding: 7px 4px; border-bottom: 1px solid rgba(226, 232, 240, 0.7); gap: 10px;">
@@ -541,9 +557,13 @@ function renderModoDistribucion(estaciones, combustible) {
         </div>
       `;
     }).join('');
+
+    setTimeout(() => {
+      wrap.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }, 60);
   }
 
-  // 1. Chart Competencia
+  // Instanciación Chart Competencia
   const ctxComp = document.getElementById('chart-comp-canvas');
   if (ctxComp) {
     chartCompInstancia = new Chart(ctxComp, {
@@ -578,7 +598,7 @@ function renderModoDistribucion(estaciones, combustible) {
     });
   }
 
-  // 2. Chart COESTI
+  // Instanciación Chart COESTI
   const ctxCoesti = document.getElementById('chart-coesti-canvas');
   if (ctxCoesti) {
     chartCoestiInstancia = new Chart(ctxCoesti, {
@@ -625,17 +645,12 @@ function renderModoMarca(estaciones, combustible, benchmark) {
   const marcasSel = analisisState.marcasSeleccionadas || new Set();
   const datosPorMarca = new Map();
 
-  estaciones.forEach(est => {
-    const comps = (est.actores || []).filter(esCompetenciaExterna);
-    comps.forEach(c => {
-      const marcaNorm = normalizarMarca(c.marca);
-      if (!marcasSel.has(marcaNorm)) return;
-      const p = c.combustibles?.[combustible]?.precio;
-      if (p && p > 0) {
-        if (!datosPorMarca.has(marcaNorm)) datosPorMarca.set(marcaNorm, []);
-        datosPorMarca.get(marcaNorm).push(p);
-      }
-    });
+  const competidoresUnicos = obtenerCompetidoresUnicos(estaciones, combustible);
+
+  competidoresUnicos.forEach(comp => {
+    if (!marcasSel.has(comp.marca)) return;
+    if (!datosPorMarca.has(comp.marca)) datosPorMarca.set(comp.marca, []);
+    datosPorMarca.get(comp.marca).push(comp.precio);
   });
 
   const filas = [];
