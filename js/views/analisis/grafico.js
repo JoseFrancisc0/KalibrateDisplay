@@ -112,28 +112,31 @@ export function analyticsHTML() {
       </div>
     </div>
 
-    <!-- CONTENEDOR 2: DOT-PLOT POR MARCAS (Modo MARCA) -->
+    <!-- CONTENEDOR 2: DOT-PLOT / SCATTER (Modos MARCA, COMPETENCIA y PROPIAS) -->
     <div id="analytics-marca-wrap" style="flex: 1 1 0; min-height: 0; width: 100%; display: none; position: relative; background: #fff; border: 1px solid var(--k-line); border-radius: 6px; overflow: hidden;">
       
-      <!-- CUADRANTE SUPERIOR IZQUIERDO: Competencia Bajo COESTI -->
+      <!-- CUADRANTE SUPERIOR IZQUIERDO -->
       <div id="card-bajo-coesti" style="position: absolute; top: 16px; left: 20px; z-index: 10; background: #fff; border: 1px solid var(--k-line); border-left: 4px solid var(--k-indigo); border-radius: 5px; padding: 7px 13px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
-        <div style="font-size: 0.58rem; font-weight: 700; color: var(--k-indigo); text-transform: uppercase;">Competencia Bajo COESTI</div>
-        <div style="font-size: 0.55rem; color: var(--k-muted); margin-bottom: 2px;">Marcas bajo benchmark propio</div>
+        <div style="font-size: 0.58rem; font-weight: 700; color: var(--k-indigo); text-transform: uppercase;" id="card-bajo-title">Competencia Bajo COESTI</div>
+        <div style="font-size: 0.55rem; color: var(--k-muted); margin-bottom: 2px;" id="card-bajo-sub">Bajo benchmark propio</div>
         <div style="display: flex; align-items: baseline; gap: 8px;">
           <span style="font-size: 1.1rem; font-weight: 800; color: var(--k-ink);" id="val-bajo-coesti">—</span>
           <span style="font-size: 0.65rem; font-weight: 700; color: var(--k-indigo);" id="eess-bajo-coesti">— EESS</span>
         </div>
       </div>
 
-      <!-- CUADRANTE INFERIOR DERECHO: Competencia Sobre COESTI -->
-      <div id="card-sobre-coesti" style="position: absolute; bottom: 95px; right: 20px; z-index: 10; background: #fff; border: 1px solid var(--k-line); border-left: 4px solid #D92D4E; border-radius: 5px; padding: 7px 13px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
-        <div style="font-size: 0.58rem; font-weight: 700; color: #D92D4E; text-transform: uppercase;">Competencia Sobre COESTI</div>
-        <div style="font-size: 0.55rem; color: var(--k-muted); margin-bottom: 2px;">Marcas sobre benchmark propio</div>
+      <!-- CUADRANTE INFERIOR DERECHO -->
+      <div id="card-sobre-coesti" style="position: absolute; bottom: 30px; right: 20px; z-index: 10; background: #fff; border: 1px solid var(--k-line); border-left: 4px solid #D92D4E; border-radius: 5px; padding: 7px 13px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+        <div style="font-size: 0.58rem; font-weight: 700; color: #D92D4E; text-transform: uppercase;" id="card-sobre-title">Competencia Sobre COESTI</div>
+        <div style="font-size: 0.55rem; color: var(--k-muted); margin-bottom: 2px;" id="card-sobre-sub">Sobre benchmark propio</div>
         <div style="display: flex; align-items: baseline; gap: 8px;">
           <span style="font-size: 1.1rem; font-weight: 800; color: var(--k-ink);" id="val-sobre-coesti">—</span>
           <span style="font-size: 0.65rem; font-weight: 700; color: #D92D4E;" id="eess-sobre-coesti">— EESS</span>
         </div>
       </div>
+
+      <!-- Tooltip Flotante de Alta Precisión -->
+      <div id="scatter-hover-tooltip" style="position: absolute; display: none; pointer-events: none; z-index: 1000; background: rgba(22, 24, 47, 0.96); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 6px; padding: 8px 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.35); min-width: 220px; max-width: 300px; transition: opacity 0.1s ease;"></div>
 
       <!-- SVG Render -->
       <div id="analytics-svg-wrap" style="width: 100%; height: 100%;"></div>
@@ -275,7 +278,7 @@ function externalTooltipHandler(context) {
    ========================================================== */
 export function renderAnalisis(todasLasEstaciones) {
   const combustible = analisisState.producto || 'Diesel';
-  const modo = (analisisState.modo === 'MARCA') ? 'MARCA' : 'DISTRIBUCION';
+  const modo = analisisState.modo || 'DISTRIBUCION';
 
   const estaciones = todasLasEstaciones.filter(e =>
     cumpleSegmentacion(e, {
@@ -301,9 +304,15 @@ export function renderAnalisis(todasLasEstaciones) {
     if (analisisState.corredor && analisisState.corredor !== 'TODOS') filtros.push(`Corredor: ${analisisState.corredor}`);
     if (analisisState.departamento && analisisState.departamento !== 'TODOS') filtros.push(`Depto: ${analisisState.departamento}`);
     const tagFiltro = filtros.length ? `(${filtros.join(' · ')})` : '(Red Total)';
-    sub.innerText = (modo === 'MARCA')
-      ? `Promedio simple por marca vs COESTI ${tagFiltro}.`
-      : `Distribución de frecuencias por rangos de precio ${tagFiltro}.`;
+    if (modo === 'DISTRIBUCION') {
+      sub.innerText = `Distribución de frecuencias por rangos de precio ${tagFiltro}.`;
+    } else if (modo === 'MARCA') {
+      sub.innerText = `Promedio ponderado por marca vs COESTI ${tagFiltro}.`;
+    } else if (modo === 'COMPETENCIA') {
+      sub.innerText = `Dispersión de estaciones competidoras vs benchmark COESTI ${tagFiltro}.`;
+    } else if (modo === 'PROPIAS') {
+      sub.innerText = `Dispersión de estaciones propias vs benchmark COESTI ${tagFiltro}.`;
+    }
   }
 
   const distWrap = document.getElementById('analytics-distribucion-wrap');
@@ -320,7 +329,14 @@ export function renderAnalisis(todasLasEstaciones) {
     if (kpisWrap) kpisWrap.style.display = 'none';
     if (marcaWrap) marcaWrap.style.display = 'block';
     destruirCharts();
-    renderModoMarca(estaciones, combustible, benchmark);
+    
+    if (modo === 'MARCA') {
+      renderModoMarca(estaciones, combustible, benchmark);
+    } else if (modo === 'COMPETENCIA') {
+      renderModoPuntosEstaciones(estaciones, combustible, benchmark, 'COMPETENCIA');
+    } else if (modo === 'PROPIAS') {
+      renderModoPuntosEstaciones(estaciones, combustible, benchmark, 'PROPIAS');
+    }
   }
 }
 
@@ -684,6 +700,8 @@ function renderModoMarca(estaciones, combustible, benchmark) {
   const elEessBajo = document.getElementById('eess-bajo-coesti');
   const elValSobre = document.getElementById('val-sobre-coesti');
   const elEessSobre = document.getElementById('eess-sobre-coesti');
+  const elCardBajoTitle = document.getElementById('card-bajo-title');
+  const elCardSobreTitle = document.getElementById('card-sobre-title');
 
   if (elValBajo) {
     elValBajo.textContent = promBajoPonderado > 0 ? `S/ ${promBajoPonderado.toFixed(2)}` : '—';
@@ -696,6 +714,12 @@ function renderModoMarca(estaciones, combustible, benchmark) {
   }
   if (elEessSobre) {
     elEessSobre.textContent = `${countSobre} EESS`;
+  }
+  if (elCardBajoTitle) { 
+    elCardBajoTitle.textContent = 'COMPETENCIA BAJO COESTI';
+  }
+  if (elCardSobreTitle) {
+    elCardSobreTitle.textContent = 'COMPETENCIA SOBRE COESTI';
   }
 
   if (filas.length === 0) {
@@ -849,4 +873,338 @@ function renderModoMarca(estaciones, combustible, benchmark) {
 
   svg += '</svg>';
   container.innerHTML = svg;
+}
+
+/* ==========================================================
+   MODO 3 & 4: DISPERSIÓN DE ESTACIONES
+   ========================================================== */
+function renderModoPuntosEstaciones(estaciones, combustible, benchmark, tipoModo) {
+  const container = document.getElementById('analytics-svg-wrap');
+  const tooltip = document.getElementById('scatter-hover-tooltip');
+  if (!container) return;
+  container.innerHTML = '';
+  if (tooltip) tooltip.style.display = 'none';
+
+  // 1. Recolección de registros según el modo
+  let puntosData = [];
+
+  if (tipoModo === 'COMPETENCIA') {
+    const marcasSel = analisisState.marcasSeleccionadas;
+    const compsUnicos = obtenerCompetidoresUnicos(estaciones, combustible);
+    
+    puntosData = compsUnicos
+      .filter(c => !marcasSel || marcasSel.has(c.marca))
+      .map(c => ({
+        siteId: c.siteId,
+        nombre: c.nombre,
+        marca: c.marca,
+        precio: c.precio,
+        departamento: c.departamento,
+        provincia: c.provincia,
+        distrito: c.distrito,
+        rivalidades: c.rivalidades || []
+      }));
+  } else {
+    // Modo PROPIAS
+    estaciones.forEach(est => {
+      const propio = est.actores?.find(a => a.tipo_actor === 'PROPIO');
+      const p = propio?.combustibles?.[combustible]?.precio;
+      if (p && p > 0) {
+        puntosData.push({
+          siteId: est.own_site_id || est.site_id,
+          nombre: est.estacion || est.estacion_cabecera || 'E/S Propia',
+          marca: 'COESTI',
+          precio: p,
+          departamento: est.departamento || '—',
+          provincia: est.provincia || '—',
+          distrito: est.distrito || '—',
+          rivalidades: []
+        });
+      }
+    });
+  }
+
+  // Orden ascendente de precio (genera la diagonal)
+  puntosData.sort((a, b) => a.precio - b.precio);
+
+  // 2. Cálculo de métricas por cuadrante
+  let sumaBajo = 0, countBajo = 0;
+  let sumaSobre = 0, countSobre = 0;
+
+  puntosData.forEach(p => {
+    if (p.precio < benchmark) {
+      sumaBajo += p.precio;
+      countBajo++;
+    } else if (p.precio > benchmark) {
+      sumaSobre += p.precio;
+      countSobre++;
+    }
+  });
+
+  const promBajo = countBajo > 0 ? (sumaBajo / countBajo) : 0;
+  const promSobre = countSobre > 0 ? (sumaSobre / countSobre) : 0;
+
+  const lblBajo = tipoModo === 'COMPETENCIA' ? 'COMPETENCIA BAJO COESTI' : 'PROPIAS BAJO BENCHMARK';
+  const lblSobre = tipoModo === 'COMPETENCIA' ? 'COMPETENCIA SOBRE COESTI' : 'PROPIAS SOBRE BENCHMARK';
+  
+  const elCardBajoTitle = document.getElementById('card-bajo-title');
+  const elCardSobreTitle = document.getElementById('card-sobre-title');
+  if (elCardBajoTitle) elCardBajoTitle.textContent = lblBajo;
+  if (elCardSobreTitle) elCardSobreTitle.textContent = lblSobre;
+
+  const elValBajo = document.getElementById('val-bajo-coesti');
+  const elEessBajo = document.getElementById('eess-bajo-coesti');
+  const elValSobre = document.getElementById('val-sobre-coesti');
+  const elEessSobre = document.getElementById('eess-sobre-coesti');
+
+  if (elValBajo) elValBajo.textContent = promBajo > 0 ? `S/ ${promBajo.toFixed(2)}` : '—';
+  if (elEessBajo) elEessBajo.textContent = `${countBajo} EESS`;
+  if (elValSobre) elValSobre.textContent = promSobre > 0 ? `S/ ${promSobre.toFixed(2)}` : '—';
+  if (elEessSobre) elEessSobre.textContent = `${countSobre} EESS`;
+
+  if (puntosData.length === 0) {
+    container.innerHTML = '<div class="empty-state" style="margin:auto; font-weight:600; color:var(--k-muted);">No se registraron estaciones con los filtros activos.</div>';
+    return;
+  }
+
+  // 3. Geometría SVG: Márgenes ampliados para alojar las etiquetas superior e inferior
+  const w = container.clientWidth || 950;
+  const h = container.clientHeight || 530;
+  const padL = 50, padR = 120, padT = 75, padB = 75;
+
+  const todosPrecios = puntosData.map(p => p.precio);
+  if (benchmark > 0) todosPrecios.push(benchmark);
+  const minY = Math.min(...todosPrecios) - 0.25;
+  const maxY = Math.max(...todosPrecios) + 0.25;
+  const scaleY = val => (h - padB) - ((val - minY) / (maxY - minY)) * (h - padT - padB);
+
+  const totalPuntos = puntosData.length;
+  const stepX = (w - padL - padR) / (totalPuntos > 1 ? totalPuntos - 1 : 1);
+  const getX = idx => padL + idx * stepX;
+  const yBm = benchmark > 0 ? scaleY(benchmark) : (h - padB) / 2;
+
+  // Frontera X divisoria de cuadrantes
+  const ultimoBajoIdx = puntosData.map(p => p.precio <= benchmark).lastIndexOf(true);
+  let xFrontera = null;
+  if (ultimoBajoIdx !== -1 && ultimoBajoIdx < totalPuntos - 1) {
+    xFrontera = (getX(ultimoBajoIdx) + getX(ultimoBajoIdx + 1)) / 2;
+  } else if (ultimoBajoIdx === totalPuntos - 1) {
+    xFrontera = getX(ultimoBajoIdx) + (stepX / 2);
+  } else if (totalPuntos > 0) {
+    xFrontera = getX(0) - (stepX / 2);
+  }
+
+  // Identificación de índices por Deciles (0%, 10%, 20%, ..., 100%)
+  const indicesDeciles = new Set();
+  for (let pct = 0; pct <= 100; pct += 10) {
+    const idx = Math.min(Math.round((pct / 100) * (totalPuntos - 1)), totalPuntos - 1);
+    indicesDeciles.add(idx);
+  }
+
+  let svg = `
+  <svg class="analytics-svg" viewBox="0 0 ${w} ${h}" style="width:100%; height:100%; overflow:visible;">
+    <defs>
+      <filter id="pill-shadow-decil" x="-20%" y="-20%" width="140%" height="140%">
+        <feDropShadow dx="0" dy="1.5" stdDeviation="2" flood-opacity="0.12"/>
+      </filter>
+    </defs>
+  `;
+
+  // 1. Línea Base Inferior (Eje X)
+  svg += `<line x1="${padL - 10}" y1="${h - padB}" x2="${w - padR + 10}" y2="${h - padB}" stroke="var(--k-line)" stroke-width="1.5"/>`;
+
+  // 2. Línea Vertical Gris Divisoria de Cuadrantes
+  if (xFrontera !== null) {
+    svg += `
+      <line x1="${xFrontera}" y1="12" x2="${xFrontera}" y2="${h - 15}" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="4,4" opacity="0.65"/>
+    `;
+  }
+
+  // 3. Líneas Verticales SIEMPRE VISIBLES hacia la línea COESTI
+  puntosData.forEach((p, idx) => {
+    const x = getX(idx);
+    const y = scaleY(p.precio);
+    const diff = benchmark > 0 ? (p.precio - benchmark) : 0;
+    const colorLinea = diff > 0.02 ? '#D92D4E' : (diff < -0.02 ? '#0284C7' : '#00D58A');
+
+    // Opacidad sutil para que no sature la vista en conjuntos densos
+    const opacidadLinea = totalPuntos > 300 ? 0.35 : 0.55;
+
+    svg += `
+      <line x1="${x}" y1="${yBm}" x2="${x}" y2="${y}" stroke="${colorLinea}" stroke-width="0.5" stroke-dasharray="2,1" opacity="${opacidadLinea}"/>
+    `;
+  });
+
+  // 4. Línea Horizontal Benchmark COESTI
+  if (benchmark > 0) {
+    svg += `
+      <line x1="${padL - 10}" y1="${yBm}" x2="${w - padR + 10}" y2="${yBm}" stroke="#00D58A" stroke-width="2" stroke-dasharray="6,4"/>
+      <g filter="url(#pill-shadow-decil)">
+        <rect x="${w - padR + 10}" y="${yBm - 11}" width="105" height="22" rx="4" fill="#00D58A"/>
+        <text x="${w - padR + 62}" y="${yBm + 4}" fill="#16182F" font-family="'Poppins', sans-serif" font-size="10" font-weight="800" text-anchor="middle">
+          COESTI: S/ ${benchmark.toFixed(2)}
+        </text>
+      </g>
+    `;
+  }
+
+  // 5. Renderizado de Puntos
+  puntosData.forEach((p, idx) => {
+    const x = getX(idx);
+    const y = scaleY(p.precio);
+    const diff = benchmark > 0 ? (p.precio - benchmark) : 0;
+    const colorPunto = diff > 0.02 ? '#D92D4E' : (diff < -0.02 ? '#0284C7' : '#00D58A');
+    const esHito = indicesDeciles.has(idx);
+
+    svg += `
+      <circle 
+        cx="${x}" cy="${y}" r="${esHito ? 1.5 : 1.0}" 
+        fill="${colorPunto}" 
+        opacity="0.85"
+        class="scatter-point-node"
+        data-idx="${idx}"
+        data-color="${colorPunto}"
+        data-eshito="${esHito}"
+        style="cursor: pointer; transition: r 0.1s ease;"
+      />
+    `;
+  });
+
+  // 6. Etiquetas de Hitos Deciles (0%, 10%, 20%, ..., 100%)
+  indicesDeciles.forEach(idx => {
+    const p = puntosData[idx];
+    const x = getX(idx);
+    const y = scaleY(p.precio);
+    const diff = benchmark > 0 ? (p.precio - benchmark) : 0;
+    const signo = diff > 0 ? '+' : '';
+    const diffText = benchmark > 0 ? `${signo}${diff.toFixed(2)}` : '';
+    const estaSobre = diff > 0.02;
+    const color = estaSobre ? '#D92D4E' : '#0284C7';
+
+    // Cortar nombre largo si excede 18 caracteres
+    const nombreDisplay = p.nombre.length > 18 ? p.nombre.slice(0, 16) + '…' : p.nombre;
+
+    if (estaSobre) {
+      // PROYECCIÓN AL TECHO (Cuadrante Superior)
+      const labelY = padT - 25;
+      svg += `
+        <g opacity="0.9">
+          <!-- Guía sólida tenue que sube a la etiqueta superior -->
+          <line x1="${x}" y1="${y}" x2="${x}" y2="${labelY + 20}" stroke="${color}" stroke-width="1" stroke-dasharray="2,2" opacity="0.45"/>
+          <text x="${x}" y="${labelY}" fill="var(--k-ink)" font-family="'Poppins', sans-serif" font-size="8" font-weight="700" text-anchor="middle">
+            ${nombreDisplay}
+          </text>
+          <text x="${x}" y="${labelY + 11}" fill="${color}" font-family="'Inter', sans-serif" font-size="8" font-weight="800" text-anchor="middle">
+            S/ ${p.precio.toFixed(2)} <tspan font-size="7" font-weight="600" fill="var(--k-muted)">(${diffText})</tspan>
+          </text>
+        </g>
+      `;
+    } else {
+      // PROYECCIÓN AL PISO (Cuadrante Inferior)
+      const labelY = h - padB + 22;
+      svg += `
+        <g opacity="0.9">
+          <!-- Guía sólida tenue que baja a la etiqueta inferior -->
+          <line x1="${x}" y1="${y}" x2="${x}" y2="${labelY - 10}" stroke="${color}" stroke-width="1" stroke-dasharray="2,2" opacity="0.45"/>
+          <text x="${x}" y="${labelY}" fill="var(--k-ink)" font-family="'Poppins', sans-serif" font-size="8" font-weight="700" text-anchor="middle">
+            ${nombreDisplay}
+          </text>
+          <text x="${x}" y="${labelY + 11}" fill="${color}" font-family="'Inter', sans-serif" font-size="8" font-weight="800" text-anchor="middle">
+            S/ ${p.precio.toFixed(2)} <tspan font-size="7" font-weight="600" fill="var(--k-muted)">(${diffText})</tspan>
+          </text>
+        </g>
+      `;
+    }
+  });
+
+  svg += '</svg>';
+  container.innerHTML = svg;
+
+  // 7. Eventos de Hover Robustos (Con reseteo garantizado)
+  const puntosElements = container.querySelectorAll('.scatter-point-node');
+
+  function restaurarTodosLosPuntos() {
+    puntosElements.forEach(pt => {
+      const esHito = pt.dataset.eshito === 'true';
+      pt.setAttribute('r', esHito ? '1.5' : '1.0');
+      pt.removeAttribute('stroke');
+      pt.removeAttribute('stroke-width');
+      pt.setAttribute('opacity', '0.85');
+    });
+  }
+
+  puntosElements.forEach(pt => {
+    pt.addEventListener('mouseenter', e => {
+      restaurarTodosLosPuntos();
+
+      const idx = Number(e.target.dataset.idx);
+      const item = puntosData[idx];
+      if (!item || !tooltip) return;
+
+      // Resaltar punto activo
+      e.target.setAttribute('r', '7');
+      e.target.setAttribute('stroke', '#ffffff');
+      e.target.setAttribute('stroke-width', '2');
+      e.target.setAttribute('opacity', '1');
+
+      const diff = benchmark > 0 ? (item.precio - benchmark) : 0;
+      const signo = diff > 0 ? '+' : '';
+      const colorDiff = diff > 0.02 ? '#D92D4E' : (diff < -0.02 ? '#00D58A' : '#94A3B8');
+      const logoUrl = getBrandLogo(item.marca);
+
+      let rivalHtml = '';
+      if (tipoModo === 'COMPETENCIA' && item.rivalidades && item.rivalidades.length > 0) {
+        const masCercano = item.rivalidades[0];
+        const distStr = masCercano.distanciaKm !== null ? `(${masCercano.distanciaKm.toFixed(1)} km)` : '';
+        const cantidadExtra = item.rivalidades.length - 1;
+        const extraBadge = cantidadExtra > 0 ? ` <span style="color:#00D58A;">[+${cantidadExtra}]</span>` : '';
+
+        rivalHtml = `
+          <div style="margin-top: 5px; padding-top: 4px; border-top: 1px dashed rgba(255,255,255,0.15); font-size: 0.65rem; color: #93C5FD;">
+            Rival de: <b>${masCercano.nombrePropio}</b> ${distStr}${extraBadge}
+          </div>
+        `;
+      }
+
+      tooltip.innerHTML = `
+        <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
+          <img src="${logoUrl}" style="width:20px; height:20px; object-fit:contain; border-radius:50%; background:#fff; padding:1px; flex-shrink:0;">
+          <div style="font-weight:700; font-size:0.75rem; color:#fff; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${item.nombre}</div>
+        </div>
+        <div style="font-size:0.65rem; color:#94A3B8; margin-bottom:4px;">
+          ${item.distrito} · ${item.provincia} · ${item.departamento}
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:baseline; margin-top:2px;">
+          <span style="font-size:0.7rem; color:#CBD5E1;">Precio Vigente:</span>
+          <span style="font-size:0.85rem; font-weight:800; color:#fff;">
+            S/ ${item.precio.toFixed(2)} 
+            <span style="font-size:0.72rem; font-weight:700; color:${colorDiff};">(${signo}${diff.toFixed(2)})</span>
+          </span>
+        </div>
+        ${rivalHtml}
+      `;
+
+      tooltip.style.display = 'block';
+    });
+
+    pt.addEventListener('mousemove', e => {
+      if (!tooltip) return;
+      const wrapRect = container.parentElement.getBoundingClientRect();
+      const xPos = e.clientX - wrapRect.left;
+      const yPos = e.clientY - wrapRect.top;
+
+      const tooltipW = tooltip.offsetWidth || 220;
+      const posX = (xPos + tooltipW + 20 > wrapRect.width) ? (xPos - tooltipW - 15) : (xPos + 15);
+      const posY = Math.max(10, yPos - 50);
+
+      tooltip.style.left = `${posX}px`;
+      tooltip.style.top = `${posY}px`;
+    });
+  });
+
+  // Salida segura del contenedor SVG: limpia cualquier punto residual
+  container.addEventListener('mouseleave', () => {
+    restaurarTodosLosPuntos();
+    if (tooltip) tooltip.style.display = 'none';
+  });
 }

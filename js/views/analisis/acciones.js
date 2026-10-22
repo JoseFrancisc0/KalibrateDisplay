@@ -202,8 +202,14 @@ export const acciones = {
     analisisState.modo = modo;
     activar('btn-scope-dist', modo === 'DISTRIBUCION');
     activar('btn-scope-marca', modo === 'MARCA');
+    activar('btn-scope-comp', modo === 'COMPETENCIA');
+    activar('btn-scope-propias', modo === 'PROPIAS');
+
     const secMarcas = document.getElementById('section-filtro-marcas');
-    if (secMarcas) secMarcas.style.display = (modo === 'MARCA') ? 'block' : 'none';
+    if (secMarcas) {
+      secMarcas.style.display = (modo === 'MARCA' || modo === 'COMPETENCIA') ? 'block' : 'none';
+    }
+
     render();
   },
 
