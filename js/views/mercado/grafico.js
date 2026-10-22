@@ -63,6 +63,9 @@ export function renderMargenMercado(container) {
   const usarEjeDerecho = tieneMargen;
 
   // 1. Filtrado territorial
+  const gpcSel = mm.gpc || 'TODOS';
+  const gopSel = mm.gop || 'TODOS';
+  const jopSel = mm.jop || 'TODOS';
   const corrSel = mm.corredor || 'TODOS';
   const deptoSel = mm.departamento || 'TODOS';
   const provSel = mm.provincia || 'TODOS';
@@ -70,12 +73,18 @@ export function renderMargenMercado(container) {
 
   const observaciones = hData.datos.filter(item => {
     if (item.p !== prodSel) return false;
+    const gpc = (item.g || item.gpc || '').trim().toUpperCase();
+    const gop = (item.gop || '').trim().toUpperCase();
+    const jop = (item.jop || '').trim().toUpperCase();
     const c = (item.c || '').trim().toUpperCase();
     const d = (item.d || '').trim().toUpperCase();
     const pv = (item.pv || '').trim().toUpperCase();
     const dt = (item.dt || '').trim().toUpperCase();
 
-    return (corrSel === 'TODOS' || c === corrSel) &&
+    return (gpcSel === 'TODOS' || gpc === gpcSel) &&
+           (gopSel === 'TODOS' || gop === gopSel) &&
+           (jopSel === 'TODOS' || jop === jopSel) &&
+           (corrSel === 'TODOS' || c === corrSel) &&
            (deptoSel === 'TODOS' || d === deptoSel) &&
            (provSel === 'TODOS' || pv === provSel) &&
            (distSel === 'TODOS' || dt === distSel);

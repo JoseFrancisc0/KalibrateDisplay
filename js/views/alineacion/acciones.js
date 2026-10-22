@@ -13,28 +13,24 @@ import { alineacionState } from './state.js';
 
 /* ---------- Cascada Geográfica Dinámica ---------- */
 function sincronizarCascadaGeografica(estaciones) {
-  // 1. Filtrar estaciones según el Departamento elegido
   const estacionesDepto = estaciones.filter(e => {
     if (alineacionState.departamento === 'TODOS') return true;
     const d = (e.departamento || '').trim().toUpperCase();
     return d === alineacionState.departamento;
   });
 
-  // Repoblar Provincias con las del departamento actual
   alineacionState.provincia = repoblarSelect(
     'sel-alineacion-provincia',
     () => valoresUnicos(estacionesDepto, 'provincia'),
     alineacionState.provincia
   );
 
-  // 2. Filtrar estaciones según Departamento Y Provincia elegidos
   const estacionesProv = estacionesDepto.filter(e => {
     if (alineacionState.provincia === 'TODOS') return true;
     const p = (e.provincia || '').trim().toUpperCase();
     return p === alineacionState.provincia;
   });
 
-  // Repoblar Distritos con los de la provincia actual
   alineacionState.distrito = repoblarSelect(
     'sel-alineacion-distrito',
     () => valoresUnicos(estacionesProv, 'distrito'),
@@ -54,13 +50,24 @@ export function poblarFiltrosAlineacion() {
   actualizarVisibilidadCriterio();
 
   poblarSelectsSegmentacion(estaciones, {
+    gpc: 'sel-alineacion-gpc',
+    gop: 'sel-alineacion-gop',
+    jop: 'sel-alineacion-jop',
     corredor: 'sel-alineacion-corredor',
     departamento: 'sel-alineacion-depto',
   });
 
   sincronizarCascadaGeografica(estaciones);
 
-  ['sel-alineacion-corredor', 'sel-alineacion-depto', 'sel-alineacion-provincia', 'sel-alineacion-distrito'].forEach(id => {
+  [
+    'sel-alineacion-gpc',
+    'sel-alineacion-gop',
+    'sel-alineacion-jop',
+    'sel-alineacion-corredor',
+    'sel-alineacion-depto',
+    'sel-alineacion-provincia',
+    'sel-alineacion-distrito'
+  ].forEach(id => {
     inicializarSearchableSelect(id);
   });
 }
@@ -77,6 +84,14 @@ function actualizarVisibilidadCriterio() {
 /* ---------- Acciones ---------- */
 
 export const acciones = {
+  toggleDrawerAlineacion() {
+    alineacionState.drawerAbierto = !alineacionState.drawerAbierto;
+    const panel = document.getElementById('drawer-panel-alineacion');
+    const badge = document.getElementById('badge-alineacion-filtros');
+    if (panel) panel.style.display = alineacionState.drawerAbierto ? 'block' : 'none';
+    if (badge) badge.textContent = alineacionState.drawerAbierto ? '▲ Ocultar' : '▼ Configurar';
+  },
+
   cambiarMarcaAlineacion() {
     const v = valorDe('sel-alineacion-marca');
     if (v !== undefined) alineacionState.marcaCompetidora = v;
@@ -89,6 +104,24 @@ export const acciones = {
     alineacionState.criterioRival = criterio;
     activar('btn-alineacion-cercano', criterio === 'CERCANO');
     activar('btn-alineacion-promedio', criterio === 'PROMEDIO');
+    render();
+  },
+
+  cambiarGPCAlineacion() {
+    const v = valorDe('sel-alineacion-gpc');
+    if (v !== undefined) alineacionState.gpc = v;
+    render();
+  },
+
+  cambiarGOPAlineacion() {
+    const v = valorDe('sel-alineacion-gop');
+    if (v !== undefined) alineacionState.gop = v;
+    render();
+  },
+
+  cambiarJOPAlineacion() {
+    const v = valorDe('sel-alineacion-jop');
+    if (v !== undefined) alineacionState.jop = v;
     render();
   },
 
@@ -119,6 +152,33 @@ export const acciones = {
   cambiarDistritoAlineacion() {
     const v = valorDe('sel-alineacion-distrito');
     if (v !== undefined) alineacionState.distrito = v;
+    render();
+  },
+
+  limpiarFiltrosAlineacion() {
+    const ids = [
+      'sel-alineacion-gpc', 'sel-alineacion-gop', 'sel-alineacion-jop',
+      'sel-alineacion-corredor', 'sel-alineacion-depto',
+      'sel-alineacion-provincia', 'sel-alineacion-distrito'
+    ];
+
+    alineacionState.gpc = 'TODOS';
+    alineacionState.gop = 'TODOS';
+    alineacionState.jop = 'TODOS';
+    alineacionState.corredor = 'TODOS';
+    alineacionState.departamento = 'TODOS';
+    alineacionState.provincia = 'TODOS';
+    alineacionState.distrito = 'TODOS';
+
+    ids.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.value = 'TODOS';
+        el.dispatchEvent(new Event('change', { bubbles: true }));
+      }
+    });
+
+    sincronizarCascadaGeografica(state.rawData.estaciones);
     render();
   },
 

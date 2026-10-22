@@ -68,13 +68,24 @@ export function poblarFiltrosMargenMercado() {
   const estaciones = state.rawData.estaciones;
 
   poblarSelectsSegmentacion(estaciones, {
+    gpc: 'sel-mm-gpc',
+    gop: 'sel-mm-gop',
+    jop: 'sel-mm-jop',
     corredor: 'sel-mm-corredor',
     departamento: 'sel-mm-depto'
   });
 
   sincronizarCascadaGeograficaMM(estaciones);
 
-  ['sel-mm-corredor', 'sel-mm-depto', 'sel-mm-provincia', 'sel-mm-distrito'].forEach(id => {
+  [
+    'sel-mm-gpc',
+    'sel-mm-gop',
+    'sel-mm-jop',
+    'sel-mm-corredor',
+    'sel-mm-depto',
+    'sel-mm-provincia',
+    'sel-mm-distrito'
+  ].forEach(id => {
     inicializarSearchableSelect(id);
   });
 
@@ -150,6 +161,14 @@ export function iniciarListenersMargenMercado() {
 }
 
 export const acciones = {
+  toggleDrawerMM() {
+    margenMercadoState.drawerAbierto = !margenMercadoState.drawerAbierto;
+    const panel = document.getElementById('drawer-panel-mm');
+    const badge = document.getElementById('badge-mm-filtros');
+    if (panel) panel.style.display = margenMercadoState.drawerAbierto ? 'block' : 'none';
+    if (badge) badge.textContent = margenMercadoState.drawerAbierto ? '▲ Ocultar' : '▼ Configurar';
+  },
+
   togglePillMetricaMM(el) {
     const metrica = el.dataset.arg;
     if (!metrica) return;
@@ -192,6 +211,24 @@ export const acciones = {
     render();
   },
 
+  cambiarGPCMM() {
+    const v = valorDe('sel-mm-gpc');
+    if (v !== undefined) margenMercadoState.gpc = v;
+    render();
+  },
+
+  cambiarGOPMM() {
+    const v = valorDe('sel-mm-gop');
+    if (v !== undefined) margenMercadoState.gop = v;
+    render();
+  },
+
+  cambiarJOPMM() {
+    const v = valorDe('sel-mm-jop');
+    if (v !== undefined) margenMercadoState.jop = v;
+    render();
+  },
+
   cambiarCorredorMM(el) {
     const v = el?.value || valorDe('sel-mm-corredor');
     if (v !== undefined) margenMercadoState.corredor = v;
@@ -219,6 +256,33 @@ export const acciones = {
   cambiarDistritoMM(el) {
     const v = el?.value || valorDe('sel-mm-distrito');
     if (v !== undefined) margenMercadoState.distrito = v;
+    render();
+  },
+
+  limpiarFiltrosMM() {
+    const ids = [
+      'sel-mm-gpc', 'sel-mm-gop', 'sel-mm-jop',
+      'sel-mm-corredor', 'sel-mm-depto',
+      'sel-mm-provincia', 'sel-mm-distrito'
+    ];
+
+    margenMercadoState.gpc = 'TODOS';
+    margenMercadoState.gop = 'TODOS';
+    margenMercadoState.jop = 'TODOS';
+    margenMercadoState.corredor = 'TODOS';
+    margenMercadoState.departamento = 'TODOS';
+    margenMercadoState.provincia = 'TODOS';
+    margenMercadoState.distrito = 'TODOS';
+
+    ids.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.value = 'TODOS';
+        el.dispatchEvent(new Event('change', { bubbles: true }));
+      }
+    });
+
+    sincronizarCascadaGeografica(state.rawData.estaciones);
     render();
   },
 

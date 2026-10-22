@@ -259,6 +259,9 @@ export function renderAnalisis(todasLasEstaciones) {
 
   const estaciones = todasLasEstaciones.filter(e =>
     cumpleSegmentacion(e, {
+      gpc: analisisState.gpc,
+      gop: analisisState.gop,
+      jop: analisisState.jop,
       corredor: analisisState.corredor,
       departamento: analisisState.departamento,
       provincia: analisisState.provincia,
@@ -272,6 +275,9 @@ export function renderAnalisis(todasLasEstaciones) {
   const sub = document.getElementById('analytics-chart-sub');
   if (sub) {
     const filtros = [];
+    if (analisisState.gpc && analisisState.gpc !== 'TODOS') filtros.push(`GPC: ${analisisState.gpc}`);
+    if (analisisState.gop && analisisState.gop !== 'TODOS') filtros.push(`GOP: ${analisisState.gop}`);
+    if (analisisState.jop && analisisState.jop !== 'TODOS') filtros.push(`JOP: ${analisisState.jop}`);
     if (analisisState.corredor && analisisState.corredor !== 'TODOS') filtros.push(`Corredor: ${analisisState.corredor}`);
     if (analisisState.departamento && analisisState.departamento !== 'TODOS') filtros.push(`Depto: ${analisisState.departamento}`);
     const tagFiltro = filtros.length ? `(${filtros.join(' · ')})` : '(Red Total)';

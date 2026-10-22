@@ -13,6 +13,9 @@ export const margenMercadoState = {
   fechaFin: '2026-10-07',
 
   // Filtros territoriales
+  gpc: 'TODOS',
+  gop: 'TODOS',
+  jop: 'TODOS',
   corredor: 'TODOS',
   departamento: 'TODOS',
   provincia: 'TODOS',

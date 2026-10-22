@@ -13,6 +13,33 @@ export const AGRUPACIONES = [
     esJerarquico: false
   },
   {
+    id: 'GPC GROUP',
+    label: 'GPC GROUP',
+    plural: 'grupos',
+    campo: 'gpc_group',
+    sinValor: 'SIN GRUPO',
+    prefijo: 'GPC GROUP ',
+    esJerarquico: false
+  },
+  {
+    id: 'GOP',
+    label: 'GOP',
+    plural: 'gops',
+    campo: 'gop',
+    sinValor: 'SIN GOP',
+    prefijo: 'GOP ',
+    esJerarquico: false
+  },
+  {
+    id: 'JOP',
+    label: 'JOP',
+    plural: 'jops',
+    campo: 'jop',
+    sinValor: 'SIN JOP',
+    prefijo: 'JOP ',
+    esJerarquico: false
+  },
+  {
     id: 'UBICACION',
     label: 'Ubicación Política',
     plural: 'ubicaciones',

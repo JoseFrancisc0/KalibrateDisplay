@@ -4,13 +4,18 @@
 
 export const analisisState = {
   producto: 'Diesel',          // 'Diesel' | 'Regular' | 'Premium' | 'GNV' | 'GLP'
-  modo: 'COMPETENCIA',         // 'COESTI' | 'COMPETENCIA' | 'MARCA'
+  modo: 'DISTRIBUCION',         // 'DISTRIBUCION' | 'MARCA'
 
   // filtros avanzados
+  gpc: 'TODOS',
+  gop: 'TODOS',
+  jop: 'TODOS',
   corredor: 'TODOS',
   departamento: 'TODOS',
   provincia: 'TODOS',
   distrito: 'TODOS',
+
+  drawerAbierto: false,
 
   marcasDisponibles: [],       // Lista completa de marcas detectadas en la red
   marcasSeleccionadas: null,   // Set de marcas seleccionadas (null = todas por defecto)

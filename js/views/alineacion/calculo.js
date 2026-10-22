@@ -13,6 +13,9 @@ import { alineacionState } from './state.js';
  * Procesa todas las estaciones y calcula los diagnósticos
  */
 export function procesarDatosAlineacion(estaciones) {
+  const gpcSel = alineacionState.gpc || 'TODOS';
+  const gopSel = alineacionState.gop || 'TODOS';
+  const jopSel = alineacionState.jop || 'TODOS';
   const corrSel = alineacionState.corredor || 'TODOS';
   const deptoSel = alineacionState.departamento || 'TODOS';
   const provSel = alineacionState.provincia || 'TODOS';
@@ -23,9 +26,13 @@ export function procesarDatosAlineacion(estaciones) {
   // 1. Filtrado geográfico base con la jerarquía completa
   const estacionesFiltradasBase = estaciones.filter(e => {
     const tienePropio = e.actores && e.actores.some(a => a.tipo_actor === 'PROPIO');
-    if (!tienePropio || e.gpc_group === 'INACTIVAS') return false;
+    const gpcVal = (e.gpc_group || e.gpc || '').trim().toUpperCase();
+    if (!tienePropio || gpcVal === 'INACTIVAS') return false;
 
     return cumpleSegmentacion(e, {
+      gpc: gpcSel,
+      gop: gopSel,
+      jop: jopSel,
       corredor: corrSel,
       departamento: deptoSel,
       provincia: provSel,
@@ -141,6 +148,9 @@ export function procesarDatosAlineacion(estaciones) {
       res.items.push({
         siteId: est.own_site_id,
         nombre: est.estacion_cabecera,
+        gpc: est.gpc_group || est.gpc || 'SIN GPC GROUP',
+        gop: est.gop || 'SIN GOP',
+        jop: est.jop || 'SIN JOP',
         corredor: est.corredor || 'SIN CORREDOR',
         departamento: est.departamento || 'SIN DEPTO',
         provincia: est.provincia || 'SIN PROVINCIA',

@@ -94,6 +94,9 @@ export function renderVariacionHistorica() {
 
   if (subtitulo) {
     const filtros = [];
+    if (variacionState.gpc && variacionState.gpc !== 'TODOS') filtros.push(`GPC GROUP: ${variacionState.gpc}`);
+    if (variacionState.gop && variacionState.gop !== 'TODOS') filtros.push(`GOP: ${variacionState.gop}`);
+    if (variacionState.jop && variacionState.jop !== 'TODOS') filtros.push(`JOP: ${variacionState.jop}`);
     if (variacionState.corredor && variacionState.corredor !== 'TODOS') filtros.push(`Corredor: ${variacionState.corredor}`);
     if (variacionState.departamento && variacionState.departamento !== 'TODOS') filtros.push(`Depto: ${variacionState.departamento}`);
     subtitulo.innerText = `Evaluando ${variacionState.producto.toUpperCase()} ${filtros.length ? '· ' + filtros.join(' · ') : '· Red Nacional'}`;

@@ -38,6 +38,9 @@ export function procesarVariacionHistorica() {
   const f1 = variacionState.fechaInicio;
   const f2 = variacionState.fechaFin;
 
+  const gpcSel = variacionState.gpc || 'TODOS';
+  const gopSel = variacionState.gop || 'TODOS';
+  const jopSel = variacionState.jop || 'TODOS';
   const corrSel = variacionState.corredor || 'TODOS';
   const deptoSel = variacionState.departamento || 'TODOS';
   const provSel = variacionState.provincia || 'TODOS';
@@ -46,12 +49,18 @@ export function procesarVariacionHistorica() {
   const observaciones = variacionState.historicoMarcasData.datos.filter(item => {
     if (item.p !== prodSel) return false;
 
+    const gpc = (item.g || item.gpc || '').trim().toUpperCase();
+    const gop = (item.gop || '').trim().toUpperCase();
+    const jop = (item.jop || '').trim().toUpperCase();
     const c = (item.c || '').trim().toUpperCase();
     const d = (item.d || '').trim().toUpperCase();
     const pv = (item.pv || '').trim().toUpperCase();
     const dt = (item.dt || '').trim().toUpperCase();
 
-    return (corrSel === 'TODOS' || c === corrSel) &&
+    return (gpcSel === 'TODOS' || gpc === gpcSel) &&
+           (gopSel === 'TODOS' || gop === gopSel) &&
+           (jopSel === 'TODOS' || jop === jopSel) &&
+           (corrSel === 'TODOS' || c === corrSel) &&
            (deptoSel === 'TODOS' || d === deptoSel) &&
            (provSel === 'TODOS' || pv === provSel) &&
            (distSel === 'TODOS' || dt === distSel);

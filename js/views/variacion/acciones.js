@@ -57,13 +57,24 @@ function poblarFiltrosVariacion() {
   const estaciones = state.rawData.estaciones;
 
   poblarSelectsSegmentacion(estaciones, {
+    gpc: 'sel-var-gpc',
+    gop: 'sel-var-gop',
+    jop: 'sel-var-jop',
     corredor: 'sel-var-corredor',
     departamento: 'sel-var-depto'
   });
 
   sincronizarCascadaGeografica(estaciones);
 
-  ['sel-var-corredor', 'sel-var-depto', 'sel-var-provincia', 'sel-var-distrito'].forEach(id => {
+  [
+    'sel-var-gpc',
+    'sel-var-gop',
+    'sel-var-jop',
+    'sel-var-corredor',
+    'sel-var-depto',
+    'sel-var-provincia',
+    'sel-var-distrito'
+  ].forEach(id => {
     inicializarSearchableSelect(id);
   });
 
@@ -106,6 +117,14 @@ export function iniciarListenersVariacion() {
 /* ---------- Acciones ---------- */
 
 export const acciones = {
+  toggleDrawerVariacion() {
+    variacionState.drawerAbierto = !variacionState.drawerAbierto;
+    const panel = document.getElementById('drawer-panel-var');
+    const badge = document.getElementById('badge-var-filtros');
+    if (panel) panel.style.display = variacionState.drawerAbierto ? 'block' : 'none';
+    if (badge) badge.textContent = variacionState.drawerAbierto ? '▲ Ocultar' : '▼ Configurar';
+  },
+
   cambiarFechaF1(el) {
     if (!el.value) return;
     variacionState.fechaInicio = el.value;
@@ -122,6 +141,24 @@ export const acciones = {
     const v = valorDe('sel-var-prod');
     if (v !== undefined) variacionState.producto = v;
     actualizarIndicadorModo();
+    render();
+  },
+
+  cambiarGPCVariacion() {
+    const v = valorDe('sel-var-gpc');
+    if (v !== undefined) variacionState.gpc = v;
+    render();
+  },
+
+  cambiarGOPVariacion() {
+    const v = valorDe('sel-var-gop');
+    if (v !== undefined) variacionState.gop = v;
+    render();
+  },
+
+  cambiarJOPVariacion() {
+    const v = valorDe('sel-var-jop');
+    if (v !== undefined) variacionState.jop = v;
     render();
   },
 
@@ -153,6 +190,33 @@ export const acciones = {
     const v = valorDe('sel-var-distrito');
     if (v !== undefined) variacionState.distrito = v;
     render();
+  },
+
+  limpiarFiltrosVariacion() {
+    const ids = [
+      'sel-var-gpc', 'sel-var-gop', 'sel-var-jop',
+      'sel-var-corredor', 'sel-var-depto',
+      'sel-var-provincia', 'sel-var-distrito'
+    ];
+
+    variacionState.gpc = 'TODOS';
+    variacionState.gop = 'TODOS';
+    variacionState.jop = 'TODOS';
+    variacionState.corredor = 'TODOS';
+    variacionState.departamento = 'TODOS';
+    variacionState.provincia = 'TODOS';
+    variacionState.distrito = 'TODOS';
+
+    ids.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.value = 'TODOS';
+        el.dispatchEvent(new Event('change', { bubbles: true }));
+      }
+    });
+
+    sincronizarCascadaGeografica(state.rawData.estaciones);
+    render();    
   },
 
   toggleDropdownVarMarcas(el) {

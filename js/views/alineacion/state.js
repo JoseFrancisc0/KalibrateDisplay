@@ -7,10 +7,15 @@ export const alineacionState = {
   criterioRival: 'CERCANO',         // 'CERCANO' | 'PROMEDIO'
   productoSeleccionado: 'Diesel',
 
+  gpc: 'TODOS',
+  gop: 'TODOS',
+  jop: 'TODOS',
   corredor: 'TODOS',
   departamento: 'TODOS',
   provincia: 'TODOS',
   distrito: 'TODOS',
+
+  drawerAbierto: false,
 
   filtroDetalle: 'TODOS',           // 'TODOS' | 'BAJO_LM' | 'BAJO_ZONA' | 'BAJO_AMBOS'
 };

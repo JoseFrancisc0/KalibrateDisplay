@@ -15,11 +15,16 @@ export const variacionState = {
   fechaInicio: '2026-10-01',   // f1 por defecto (inicio de agosto)
   fechaFin: '2026-10-07',      // f2 por defecto
   
+  gpc: 'TODOS',
+  gop: 'TODOS',
+  jop: 'TODOS',
   corredor: 'TODOS',
   departamento: 'TODOS',
   provincia: 'TODOS',
   distrito: 'TODOS',
   
+  drawerAbierto: false,
+
   marcasDisponibles: [],       // Lista de marcas en el historico
   marcasSeleccionadas: null,   // Set de marcas activas (null = todas)
 };

@@ -78,6 +78,9 @@ export function renderAlineacion(estaciones) {
       const labelM = marcaFiltro === 'WP' ? 'WHITE PRODUCTS' : marcaFiltro;
       filtros.push(`Marca: ${labelM} (${criterioRival === 'CERCANO' ? 'Más cercano' : 'Promedio'})`);
     }
+    if (alineacionState.gpc !== 'TODOS') filtros.push(`GPC: ${alineacionState.gpc}`);
+    if (alineacionState.gop !== 'TODOS') filtros.push(`GOP: ${alineacionState.gop}`);
+    if (alineacionState.jop !== 'TODOS') filtros.push(`JOP: ${alineacionState.jop}`);
     if (alineacionState.corredor !== 'TODOS') filtros.push(`Corredor: ${alineacionState.corredor}`);
     if (alineacionState.departamento !== 'TODOS') filtros.push(`Depto: ${alineacionState.departamento}`);
     if (alineacionState.provincia !== 'TODOS') filtros.push(`Prov: ${alineacionState.provincia}`);
@@ -237,7 +240,7 @@ function renderDrillDown(resumenPorProd, marcaFiltro, criterioRival) {
         <td>
           <div class="site-main-info">
             <b class="site-name-text">${item.nombre}</b>
-            <small class="site-sub-text">GPC: ${item.gpcGroup}</small>
+            <small class="site-sub-text">GPC: ${item.gpc}</small>
           </div>
         </td>
         <td>
