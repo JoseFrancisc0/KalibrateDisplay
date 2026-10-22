@@ -5,7 +5,9 @@
 
 import { mapaState } from './state.js';
 import { procesarDatosMapa } from './calculo.js';
-import { generarMapaPeruSVG, generarBadgesCentroidesSVG } from './perumap.js';
+import { precargarMapaPeruSVG, componerMapaPeruSVG } from './perumap.js';
+
+let rawSvgCache = null;
 
 export function mapaHTML() {
   return `
@@ -124,64 +126,41 @@ export function mapaHTML() {
 /**
  * Renderizador principal de la vista
  */
-export function renderMapa(todasLasEstaciones) {
+export async function renderMapa(todasLasEstaciones) {
   const shell = document.getElementById('mapa-shell');
   if (!shell) return;
+
+  if (!rawSvgCache) {
+    rawSvgCache = await precargarMapaPeruSVG();
+  }
 
   const { porDepartamento, resumenNacional, deptoActivoData } = procesarDatosMapa(todasLasEstaciones);
   const combustible = mapaState.producto || 'Diesel';
   const deptoActivo = mapaState.deptoSeleccionado;
 
-  // 1. Subtítulo del Header Principal
+  // 1. Subtítulos y tags
   const headerSub = document.getElementById('mapa-header-sub');
   const headerTag = document.getElementById('mapa-header-tag');
-  if (headerSub) {
-    headerSub.innerText = `Evaluando ${combustible.toUpperCase()} en las 12 plazas operativas.`;
-  }
-  if (headerTag) {
-    headerTag.innerText = deptoActivo ? deptoActivo : 'RED NACIONAL';
-  }
+  if (headerSub) headerSub.innerText = `Evaluando ${combustible.toUpperCase()} en las 12 plazas operativas.`;
+  if (headerTag) headerTag.innerText = deptoActivo ? deptoActivo : 'RED NACIONAL';
 
-  // 2. Control del Botón "Volver a Red Nacional"
+  // 2. Botón Volver a Red Nacional
   const btnVolver = document.getElementById('btn-mapa-volver-nacional');
-  if (btnVolver) {
-    btnVolver.style.display = deptoActivo ? 'block' : 'none';
-  }
+  if (btnVolver) btnVolver.style.display = deptoActivo ? 'block' : 'none';
 
-  // 3. Renderizar Mapa SVG
+  // 3. Inyección del SVG Oficial enriquecido
   const svgWrapper = document.getElementById('mapa-svg-wrapper');
-  if (svgWrapper) {
-    const pathsSvg = generarMapaPeruSVG(porDepartamento, deptoActivo);
-    const badgesSvg = generarBadgesCentroidesSVG(porDepartamento, deptoActivo);
-
-    svgWrapper.innerHTML = `
-      <svg viewBox="0 0 600 800" style="width: 100%; height: 100%; max-height: 100%; object-fit: contain;">
-        <defs>
-          <filter id="map-badge-shadow" x="-20%" y="-20%" width="140%" height="140%">
-            <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.35"/>
-          </filter>
-        </defs>
-        <g id="map-layer-deptos">
-          ${pathsSvg}
-        </g>
-        <g id="map-layer-badges">
-          ${badgesSvg}
-        </g>
-      </svg>
-    `;
+  if (svgWrapper && rawSvgCache) {
+    svgWrapper.innerHTML = componerMapaPeruSVG(rawSvgCache, porDepartamento, deptoActivo);
   }
 
-  // 4. Actualizar Ficha Lateral (KPIs y Contexto)
+  // 4. Actualizar Ficha Lateral
   const tituloFicha = document.getElementById('mapa-ficha-titulo');
   const badgeEessFicha = document.getElementById('mapa-ficha-badge-eess');
   const subFicha = document.getElementById('mapa-ficha-subtitulo');
 
-  if (tituloFicha) {
-    tituloFicha.innerText = deptoActivo ? deptoActivo : 'RED NACIONAL';
-  }
-  if (badgeEessFicha) {
-    badgeEessFicha.innerText = `${deptoActivoData.totalPropias} EESS`;
-  }
+  if (tituloFicha) tituloFicha.innerText = deptoActivo ? deptoActivo : 'RED NACIONAL';
+  if (badgeEessFicha) badgeEessFicha.innerText = `${deptoActivoData.totalPropias} EESS`;
   if (subFicha) {
     subFicha.innerText = deptoActivo 
       ? `Plaza operativa de ${deptoActivo} · ${deptoActivoData.totalPropias} estaciones evaluadas.`

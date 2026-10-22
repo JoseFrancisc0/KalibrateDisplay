@@ -8,6 +8,7 @@ import { mapaState } from './state.js';
 import { railHTML } from './rail.js';
 import { mapaHTML, renderMapa } from './vista.js';
 import { acciones, poblarFiltrosMapa } from './acciones.js';
+import { precargarMapaPeruSVG } from './perumap.js';
 
 export const mapa = {
   id: 'MAPA',
@@ -21,7 +22,10 @@ export const mapa = {
   railHTML,
   mainHTML: mapaHTML,
 
-  alEntrar: poblarFiltrosMapa,
+  alEntrar: async () => {
+    poblarFiltrosMapa();
+    await precargarMapaPeruSVG();
+  },
   render: () => renderMapa(state.rawData.estaciones),
   etiquetaModo: () => `PRODUCTO: ${(mapaState.producto || 'DIESEL').toUpperCase()}`,
 

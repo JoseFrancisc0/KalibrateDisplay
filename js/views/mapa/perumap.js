@@ -1,267 +1,200 @@
 /* ==========================================================
-   views/mapa/perumap.js — Geometría vectorial SVG del Perú
-   y centroides calibrados para los micro-badges flotantes.
+   views/mapa/perumap.js — Motor de integración del SVG Oficial
+   Mapeo de IDs UBIGEO/ISO y extracción de centroides dinámicos.
    ========================================================== */
 
-/**
- * Coordenadas (cx, cy) de los badges flotantes sobre el viewBox="0 0 600 800".
- * Posicionadas en los centros visuales óptimos de las 12 plazas operativas.
- */
-export const CENTROIDES_DEPTOS = {
-  'LORETO':      { cx: 370, cy: 155 },
-  'PIURA':       { cx: 95,  cy: 145 },
-  'LAMBAYEQUE':  { cx: 90,  cy: 215 },
-  'LA LIBERTAD': { cx: 135, cy: 260 },
-  'ANCASH':      { cx: 165, cy: 335 },
-  'UCAYALI':     { cx: 405, cy: 380 },
-  'JUNIN':       { cx: 275, cy: 420 },
-  'LIMA':        { cx: 195, cy: 475 },
-  'ICA':         { cx: 255, cy: 555 },
-  'CUZCO':       { cx: 400, cy: 535 },
-  'AREQUIPA':    { cx: 360, cy: 645 },
-  'TACNA':       { cx: 470, cy: 745 }
+export const MAPEO_ID_A_DEPTO = {
+  "PEANC": "ANCASH",
+  "PEARE": "AREQUIPA",
+  "PECUS": "CUZCO",
+  "PEICA": "ICA",
+  "PEJUN": "JUNIN",
+  "PELAL": "LA LIBERTAD",
+  "PELAM": "LAMBAYEQUE",
+  "PELMA": "LIMA",
+  "PELIM": "LIMA",
+  "PECAL": "LIMA",
+  "PELOR": "LORETO",
+  "PEPIU": "PIURA",
+  "PETAC": "TACNA",
+  "PEUCA": "UCAYALI"
 };
 
-/**
- * Polígonos SVG simplificados y optimizados de los 24 departamentos (viewBox: 0 0 600 800).
- */
-export const DEPTOS_PATHS = [
-  // 12 DEPARTAMENTOS ACTIVOS
-  {
-    id: 'LORETO',
-    nombre: 'LORETO',
-    d: 'M 195 105 L 265 40 L 375 25 L 475 75 L 565 140 L 515 220 L 470 240 L 415 235 L 350 280 L 295 240 L 245 250 L 210 200 Z'
-  },
-  {
-    id: 'PIURA',
-    nombre: 'PIURA',
-    d: 'M 55 120 L 115 105 L 140 145 L 115 185 L 60 180 L 45 145 Z'
-  },
-  {
-    id: 'LAMBAYEQUE',
-    nombre: 'LAMBAYEQUE',
-    d: 'M 65 190 L 120 185 L 135 225 L 105 245 L 70 230 Z'
-  },
-  {
-    id: 'LA LIBERTAD',
-    nombre: 'LA LIBERTAD',
-    d: 'M 105 245 L 160 220 L 195 250 L 180 300 L 125 305 L 95 270 Z'
-  },
-  {
-    id: 'ANCASH',
-    nombre: 'ANCASH',
-    d: 'M 125 310 L 185 300 L 215 345 L 175 390 L 140 375 Z'
-  },
-  {
-    id: 'UCAYALI',
-    nombre: 'UCAYALI',
-    d: 'M 350 285 L 420 245 L 485 320 L 480 435 L 410 445 L 360 405 L 340 330 Z'
-  },
-  {
-    id: 'JUNIN',
-    nombre: 'JUNIN',
-    d: 'M 225 385 L 295 375 L 335 425 L 295 465 L 240 445 Z'
-  },
-  {
-    id: 'LIMA',
-    nombre: 'LIMA',
-    d: 'M 155 405 L 215 390 L 240 455 L 215 520 L 175 490 Z'
-  },
-  {
-    id: 'ICA',
-    nombre: 'ICA',
-    d: 'M 205 525 L 255 515 L 290 565 L 260 615 L 215 580 Z'
-  },
-  {
-    id: 'CUZCO',
-    nombre: 'CUZCO',
-    d: 'M 345 470 L 415 450 L 465 520 L 430 600 L 365 580 L 340 520 Z'
-  },
-  {
-    id: 'AREQUIPA',
-    nombre: 'AREQUIPA',
-    d: 'M 275 615 L 355 585 L 420 620 L 405 690 L 330 685 L 285 645 Z'
-  },
-  {
-    id: 'TACNA',
-    nombre: 'TACNA',
-    d: 'M 440 710 L 495 720 L 485 770 L 445 765 Z'
-  },
+// ID preferente para obtener el centroide del badge
+const ID_CENTROIDE_DEPTO = {
+  "ANCASH": "PEANC",
+  "AREQUIPA": "PEARE",
+  "CUZCO": "PECUS",
+  "ICA": "PEICA",
+  "JUNIN": "PEJUN",
+  "LA LIBERTAD": "PELAL",
+  "LAMBAYEQUE": "PELAM",
+  "LIMA": "PELMA",
+  "LORETO": "PELOR",
+  "PIURA": "PEPIU",
+  "TACNA": "PETAC",
+  "UCAYALI": "PEUCA"
+};
 
-  // 12 DEPARTAMENTOS SIN RED PROPIA (FONDO NEUTRO)
-  {
-    id: 'TUMBES',
-    nombre: 'TUMBES',
-    d: 'M 55 75 L 85 70 L 80 110 L 50 100 Z'
-  },
-  {
-    id: 'CAJAMARCA',
-    nombre: 'CAJAMARCA',
-    d: 'M 125 150 L 175 140 L 185 230 L 135 220 Z'
-  },
-  {
-    id: 'AMAZONAS',
-    nombre: 'AMAZONAS',
-    d: 'M 180 115 L 240 105 L 240 235 L 185 225 Z'
-  },
-  {
-    id: 'SAN MARTIN',
-    nombre: 'SAN MARTIN',
-    d: 'M 245 205 L 305 195 L 315 285 L 235 285 Z'
-  },
-  {
-    id: 'HUANUCO',
-    nombre: 'HUANUCO',
-    d: 'M 205 320 L 275 305 L 295 375 L 225 380 Z'
-  },
-  {
-    id: 'PASCO',
-    nombre: 'PASCO',
-    d: 'M 220 375 L 270 370 L 265 410 L 215 405 Z'
-  },
-  {
-    id: 'HUANCAVELICA',
-    nombre: 'HUANCAVELICA',
-    d: 'M 245 460 L 295 455 L 285 520 L 240 515 Z'
-  },
-  {
-    id: 'AYACUCHO',
-    nombre: 'AYACUCHO',
-    d: 'M 290 475 L 340 470 L 335 580 L 280 565 Z'
-  },
-  {
-    id: 'APURIMAC',
-    nombre: 'APURIMAC',
-    d: 'M 335 525 L 375 520 L 370 585 L 325 580 Z'
-  },
-  {
-    id: 'PUNO',
-    nombre: 'PUNO',
-    d: 'M 435 545 L 515 540 L 490 680 L 420 645 Z'
-  },
-  {
-    id: 'MOQUEGUA',
-    nombre: 'MOQUEGUA',
-    d: 'M 410 685 L 455 680 L 440 735 L 395 720 Z'
-  },
-  {
-    id: 'MADRE DE DIOS',
-    nombre: 'MADRE DE DIOS',
-    d: 'M 445 420 L 555 425 L 530 520 L 440 485 Z'
+let svgRawCache = null;
+let centroidesCache = null;
+
+/**
+ * Descarga y cachea el archivo SVG oficial del Perú
+ */
+export async function precargarMapaPeruSVG() {
+  if (svgRawCache) return svgRawCache;
+  try {
+    const resp = await fetch('assets/pe.svg');
+    if (!resp.ok) throw new Error(`HTTP ${resp.status} al cargar assets/pe.svg`);
+    svgRawCache = await resp.text();
+    return svgRawCache;
+  } catch (err) {
+    console.error("Error al cargar assets/pe.svg:", err);
+    return null;
   }
-];
-
-/**
- * Genera la estructura vectorial SVG del mapa completo.
- * Aplica estilos neutros a los departamentos inactivos y habilita
- * interacción por clic y hover sobre los 12 departamentos operativos.
- */
-export function generarMapaPeruSVG(porDepartamento, deptoActivoId) {
-  let svgPaths = '';
-
-  DEPTOS_PATHS.forEach(dep => {
-    const dataDepto = porDepartamento[dep.id];
-    const esOperativo = !!dataDepto && dataDepto.tienePresencia;
-    const esSeleccionado = deptoActivoId === dep.id;
-
-    if (esOperativo) {
-      // Color base uniforme para departamentos activos
-      const colorFill = esSeleccionado ? 'rgba(0, 213, 138, 0.22)' : 'rgba(255, 255, 255, 0.07)';
-      const colorStroke = esSeleccionado ? '#00D58A' : 'rgba(255, 255, 255, 0.35)';
-      const strokeWidth = esSeleccionado ? '2.5' : '1.2';
-
-      svgPaths += `
-        <path
-          id="poly-depto-${dep.id}"
-          d="${dep.d}"
-          class="map-depto-poly activo ${esSeleccionado ? 'selected' : ''}"
-          data-depto="${dep.id}"
-          data-click="seleccionarDepartamentoMapa"
-          data-arg="${dep.id}"
-          fill="${colorFill}"
-          stroke="${colorStroke}"
-          stroke-width="${strokeWidth}"
-          stroke-linejoin="round"
-          style="cursor: pointer; transition: all 0.15s ease;"
-        >
-          <title>${dep.nombre} (${dataDepto.totalPropias} EESS)</title>
-        </path>
-      `;
-    } else {
-      // Estilo neutro para departamentos sin estaciones
-      svgPaths += `
-        <path
-          id="poly-depto-${dep.id}"
-          d="${dep.d}"
-          class="map-depto-poly inactivo"
-          data-depto="${dep.id}"
-          fill="rgba(0, 0, 0, 0.25)"
-          stroke="rgba(255, 255, 255, 0.08)"
-          stroke-width="0.8"
-          stroke-linejoin="round"
-          style="pointer-events: none;"
-        >
-          <title>${dep.nombre} (Sin presencia)</title>
-        </path>
-      `;
-    }
-  });
-
-  return svgPaths;
 }
 
 /**
- * Genera los micro-badges flotantes con precio, margen y volumen
- * ubicados en los centroides de los 12 departamentos con red propia.
+ * Extrae las coordenadas (cx, cy) de cada departamento desde <g id="label_points">
  */
-export function generarBadgesCentroidesSVG(porDepartamento, deptoActivoId) {
-  let badgesSvg = '';
+function extraerCentroides(docSVG) {
+  if (centroidesCache) return centroidesCache;
+  const mapa = {};
+  const labelGroup = docSVG.getElementById('label_points');
 
-  Object.entries(CENTROIDES_DEPTOS).forEach(([deptoId, pos]) => {
+  if (labelGroup) {
+    const circles = labelGroup.querySelectorAll('circle');
+    circles.forEach(c => {
+      const id = c.getAttribute('id');
+      const cx = parseFloat(c.getAttribute('cx'));
+      const cy = parseFloat(c.getAttribute('cy'));
+      if (id && !isNaN(cx) && !isNaN(cy)) {
+        mapa[id] = { cx, cy };
+      }
+    });
+  }
+  centroidesCache = mapa;
+  return mapa;
+}
+
+/**
+ * Procesa el SVG oficial: colorea departamentos, agrega data-click y superpone badges
+ */
+export function componerMapaPeruSVG(rawSVGText, porDepartamento, deptoActivoId) {
+  if (!rawSVGText) return '<div class="empty-state">No se pudo cargar el mapa.</div>';
+
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(rawSVGText, 'image/svg+xml');
+  const svgEl = doc.querySelector('svg');
+
+  if (!svgEl) return rawSVGText;
+
+  // Ajustes del SVG raíz para responsividad y fondo transparente
+  svgEl.setAttribute('width', '100%');
+  svgEl.setAttribute('height', '100%');
+  svgEl.setAttribute('style', 'max-height: 100%; object-fit: contain; overflow: visible;');
+  svgEl.removeAttribute('fill');
+  svgEl.removeAttribute('stroke');
+
+  // Ocultar capas auxiliares que no deben verse
+  const pointsLayer = doc.getElementById('points');
+  if (pointsLayer) pointsLayer.style.display = 'none';
+
+  const labelPointsLayer = doc.getElementById('label_points');
+  const centroides = extraerCentroides(doc);
+  if (labelPointsLayer) labelPointsLayer.style.display = 'none';
+
+  // Inyectar filtro de sombra para los badges flotantes
+  let defs = doc.querySelector('defs');
+  if (!defs) {
+    defs = doc.createElementNS('http://www.w3.org/2000/svg', 'defs');
+    svgEl.insertBefore(defs, svgEl.firstChild);
+  }
+  defs.innerHTML += `
+    <filter id="map-badge-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.45"/>
+    </filter>
+  `;
+
+  // Estilizar cada polígono departamental en <g id="features">
+  const features = doc.getElementById('features');
+  if (features) {
+    const paths = features.querySelectorAll('path');
+    paths.forEach(p => {
+      const id = p.getAttribute('id');
+      const deptoNormalizado = MAPEO_ID_A_DEPTO[id];
+      const dataDepto = deptoNormalizado ? porDepartamento[deptoNormalizado] : null;
+      const esOperativo = !!dataDepto && dataDepto.tienePresencia;
+      const esSeleccionado = deptoNormalizado && deptoActivoId === deptoNormalizado;
+
+      if (esOperativo) {
+        p.setAttribute('class', `map-depto-poly activo ${esSeleccionado ? 'selected' : ''}`);
+        p.setAttribute('data-depto', deptoNormalizado);
+        p.setAttribute('data-click', 'seleccionarDepartamentoMapa');
+        p.setAttribute('data-arg', deptoNormalizado);
+        p.setAttribute('style', `cursor: pointer; transition: all 0.15s ease;`);
+        
+        // Estilo visual de plaza activa
+        p.setAttribute('fill', esSeleccionado ? 'rgba(0, 213, 138, 0.28)' : 'rgba(255, 255, 255, 0.08)');
+        p.setAttribute('stroke', esSeleccionado ? '#00D58A' : 'rgba(255, 255, 255, 0.40)');
+        p.setAttribute('stroke-width', esSeleccionado ? '2' : '0.8');
+      } else {
+        p.setAttribute('class', 'map-depto-poly inactivo');
+        p.setAttribute('fill', 'rgba(0, 0, 0, 0.28)');
+        p.setAttribute('stroke', 'rgba(255, 255, 255, 0.09)');
+        p.setAttribute('stroke-width', '0.5');
+        p.setAttribute('style', 'pointer-events: none;');
+      }
+    });
+  }
+
+  // Generar capa de Badges interactivos en los centroides oficiales
+  const badgesGroup = doc.createElementNS('http://www.w3.org/2000/svg', 'g');
+  badgesGroup.setAttribute('id', 'map-layer-badges');
+
+  Object.entries(ID_CENTROIDE_DEPTO).forEach(([deptoId, svgId]) => {
+    const pos = centroides[svgId];
     const data = porDepartamento[deptoId];
-    if (!data || !data.tienePresencia) return;
+    if (!pos || !data || !data.tienePresencia) return;
 
     const esSeleccionado = deptoActivoId === deptoId;
     const precioTxt = data.promPrecioPropio !== null ? `S/ ${data.promPrecioPropio.toFixed(2)}` : '—';
     const margenTxt = data.promMargenPropio !== null ? `Mg: S/ ${data.promMargenPropio.toFixed(2)}` : 'Mg: —';
 
-    // Dimensiones compactas del badge flotante
-    const badgeW = 100;
-    const badgeH = 34;
+    // Dimensiones en la escala 1000x1000
+    const badgeW = 114;
+    const badgeH = 38;
     const x = pos.cx - (badgeW / 2);
     const y = pos.cy - (badgeH / 2);
 
-    const strokeColor = esSeleccionado ? '#00D58A' : 'rgba(255, 255, 255, 0.2)';
-    const headerColor = esSeleccionado ? '#00D58A' : 'var(--k-muted, #94A3B8)';
+    const strokeColor = esSeleccionado ? '#00D58A' : 'rgba(255, 255, 255, 0.25)';
+    const headerColor = esSeleccionado ? '#00D58A' : '#94A3B8';
 
-    badgesSvg += `
-      <g 
-        class="map-depto-badge ${esSeleccionado ? 'selected' : ''}" 
-        data-click="seleccionarDepartamentoMapa"
-        data-arg="${deptoId}"
-        style="cursor: pointer;"
-      >
-        <!-- Tarjeta del Badge con filtro de sombra -->
-        <rect 
-          x="${x}" y="${y}" width="${badgeW}" height="${badgeH}" rx="5" 
-          fill="#16182F" 
-          stroke="${strokeColor}" 
-          stroke-width="${esSeleccionado ? '2' : '1'}"
-          filter="url(#map-badge-shadow)"
-        />
-        
-        <!-- Fila 1: Departamento + EESS -->
-        <text x="${pos.cx}" y="${y + 12}" text-anchor="middle" font-family="'Poppins', sans-serif" font-size="7.5" font-weight="700" fill="${headerColor}">
-          ${deptoId} · <tspan fill="#ffffff">${data.totalPropias} EESS</tspan>
-        </text>
+    const gBadge = doc.createElementNS('http://www.w3.org/2000/svg', 'g');
+    gBadge.setAttribute('class', `map-depto-badge ${esSeleccionado ? 'selected' : ''}`);
+    gBadge.setAttribute('data-click', 'seleccionarDepartamentoMapa');
+    gBadge.setAttribute('data-arg', deptoId);
+    gBadge.setAttribute('style', 'cursor: pointer;');
 
-        <!-- Fila 2: Precio Promedio + Margen -->
-        <text x="${pos.cx}" y="${y + 25}" text-anchor="middle" font-family="'Inter', sans-serif" font-size="8.2" font-weight="800" fill="#ffffff">
-          ${precioTxt} <tspan font-size="7.5" font-weight="700" fill="#00D58A">· ${margenTxt}</tspan>
-        </text>
-      </g>
+    gBadge.innerHTML = `
+      <rect 
+        x="${x}" y="${y}" width="${badgeW}" height="${badgeH}" rx="6" 
+        fill="#16182F" 
+        stroke="${strokeColor}" 
+        stroke-width="${esSeleccionado ? '2.2' : '1.2'}"
+        filter="url(#map-badge-shadow)"
+      />
+      <text x="${pos.cx}" y="${y + 14}" text-anchor="middle" font-family="'Poppins', sans-serif" font-size="8.5" font-weight="700" fill="${headerColor}">
+        ${deptoId} · <tspan fill="#ffffff">${data.totalPropias} EESS</tspan>
+      </text>
+      <text x="${pos.cx}" y="${y + 28}" text-anchor="middle" font-family="'Inter', sans-serif" font-size="9.5" font-weight="800" fill="#ffffff">
+        ${precioTxt} <tspan font-size="8.5" font-weight="700" fill="#00D58A">· ${margenTxt}</tspan>
+      </text>
     `;
+    badgesGroup.appendChild(gBadge);
   });
 
-  return badgesSvg;
+  svgEl.appendChild(badgesGroup);
+  return svgEl.outerHTML;
 }
