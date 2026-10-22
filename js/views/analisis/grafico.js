@@ -662,22 +662,41 @@ function renderModoMarca(estaciones, combustible, benchmark) {
   // Orden ascendente de precio (menor a mayor)
   filas.sort((a, b) => a.mean - b.mean);
 
-  // Conteo global para tarjetas de cuadrante
-  let bajoCount = 0, sobreCount = 0;
+  // Cálculo de Precios Ponderados y Conteo por Cuadrante
+  let sumaBajo = 0, countBajo = 0;
+  let sumaSobre = 0, countSobre = 0;
+
   filas.forEach(f => {
-    if (f.mean < benchmark) bajoCount += f.count;
-    else if (f.mean > benchmark) sobreCount += f.count;
+    const totalPonderadoMarca = f.mean * f.count;
+    if (f.mean < benchmark) {
+      sumaBajo += totalPonderadoMarca;
+      countBajo += f.count;
+    } else if (f.mean > benchmark) {
+      sumaSobre += totalPonderadoMarca;
+      countSobre += f.count;
+    }
   });
+
+  const promBajoPonderado = countBajo > 0 ? (sumaBajo / countBajo) : 0;
+  const promSobrePonderado = countSobre > 0 ? (sumaSobre / countSobre) : 0;
 
   const elValBajo = document.getElementById('val-bajo-coesti');
   const elEessBajo = document.getElementById('eess-bajo-coesti');
   const elValSobre = document.getElementById('val-sobre-coesti');
   const elEessSobre = document.getElementById('eess-sobre-coesti');
 
-  if (elValBajo) elValBajo.textContent = benchmark > 0 ? `S/ ${benchmark.toFixed(2)}` : '—';
-  if (elEessBajo) elEessBajo.textContent = `${bajoCount} EESS`;
-  if (elValSobre) elValSobre.textContent = benchmark > 0 ? `S/ ${benchmark.toFixed(2)}` : '—';
-  if (elEessSobre) elEessSobre.textContent = `${sobreCount} EESS`;
+  if (elValBajo) {
+    elValBajo.textContent = promBajoPonderado > 0 ? `S/ ${promBajoPonderado.toFixed(2)}` : '—';
+  }
+  if (elEessBajo) {
+    elEessBajo.textContent = `${countBajo} EESS`;
+  }
+  if (elValSobre) {
+    elValSobre.textContent = promSobrePonderado > 0 ? `S/ ${promSobrePonderado.toFixed(2)}` : '—';
+  }
+  if (elEessSobre) {
+    elEessSobre.textContent = `${countSobre} EESS`;
+  }
 
   if (filas.length === 0) {
     container.innerHTML = '<div class="empty-state" style="margin:auto; font-weight:600; color:var(--k-muted);">Sin marcas seleccionadas</div>';
