@@ -114,7 +114,7 @@ export function railHTML() {
     <div class="rail-section">
       <div class="rail-label">Alcance / Nivel</div>
       <div class="btn-group-vertical">
-        <button id="btn-scope-dist" class="active" data-click="cambiarModoAnalisis" data-arg="DISTRIBUCION">DISTRIBUCIÓN (HISTOGRAMA)</button>
+        <button id="btn-scope-dist" class="active" data-click="cambiarModoAnalisis" data-arg="DISTRIBUCION">DISTRIBUCIÓN</button>
         <button id="btn-scope-marca" data-click="cambiarModoAnalisis" data-arg="MARCA">PROMEDIO MARCAS</button>
       </div>
     </div>
