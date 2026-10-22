@@ -28,16 +28,23 @@ export function mapaHTML() {
       <!-- PANEL IZQUIERDO: MAPA SVG INTERACTIVO (65%) -->
       <div style="flex: 1 1 65%; min-width: 0; height: 100%; background: #16182F; border: 1px solid var(--k-line); border-radius: 8px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 10px rgba(22,24,47,0.08);">
         
-        <!-- Botón Flotante para Volver a Red Nacional -->
+        <!-- Botón Volver a Red Nacional -->
         <button id="btn-mapa-volver-nacional" 
                 type="button" 
                 data-click="deseleccionarDeptoMapa"
-                style="display: none; position: absolute; top: 14px; left: 16px; z-index: 10; background: rgba(255,255,255,0.1); backdrop-filter: blur(4px); border: 1px solid rgba(255,255,255,0.2); border-radius: 4px; padding: 6px 12px; color: #fff; font-family:'Poppins',sans-serif; font-size: 0.68rem; font-weight: 700; cursor: pointer; transition: background 0.15s ease;">
+                style="display: none; position: absolute; top: 14px; left: 16px; z-index: 10; background: rgba(255,255,255,0.1); backdrop-filter: blur(4px); border: 1px solid rgba(255,255,255,0.2); border-radius: 4px; padding: 6px 12px; color: #fff; font-family:'Poppins',sans-serif; font-size: 0.68rem; font-weight: 700; cursor: pointer;">
           ← Ver Red Nacional
         </button>
 
-        <!-- Leyenda Flotante en el Pie del Mapa -->
-        <div style="position: absolute; bottom: 12px; left: 16px; z-index: 5; display: flex; gap: 10px; font-size: 0.65rem; color: var(--k-muted);">
+        <!-- BOTONES FLOTANTES DE ZOOM (+, -, Reset) -->
+        <div style="position: absolute; top: 14px; right: 16px; z-index: 10; display: flex; flex-direction: column; gap: 4px;">
+          <button id="btn-zoom-in" type="button" title="Acercar (+)" style="width: 30px; height: 30px; border-radius: 4px; background: rgba(22,24,47,0.85); border: 1px solid rgba(255,255,255,0.2); color: #fff; font-weight: 800; font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; line-height: 1;">+</button>
+          <button id="btn-zoom-out" type="button" title="Alejar (-)" style="width: 30px; height: 30px; border-radius: 4px; background: rgba(22,24,47,0.85); border: 1px solid rgba(255,255,255,0.2); color: #fff; font-weight: 800; font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; line-height: 1;">−</button>
+          <button id="btn-zoom-reset" type="button" title="Restablecer vista" style="width: 30px; height: 30px; border-radius: 4px; background: rgba(22,24,47,0.85); border: 1px solid rgba(255,255,255,0.2); color: #00D58A; font-weight: 800; font-size: 0.95rem; cursor: pointer; display: flex; align-items: center; justify-content: center; line-height: 1;">↺</button>
+        </div>
+
+        <!-- Leyenda Flotante -->
+        <div style="position: absolute; bottom: 12px; left: 16px; z-index: 5; display: flex; gap: 10px; font-size: 0.65rem; color: var(--k-muted); pointer-events: none;">
           <span style="display: flex; align-items: center; gap: 4px;">
             <span style="width: 8px; height: 8px; border-radius: 2px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.4);"></span> Plazas con Red
           </span>
@@ -46,14 +53,16 @@ export function mapaHTML() {
           </span>
         </div>
 
-        <!-- SVG Dinámico del Mapa -->
-        <div id="mapa-svg-wrapper" style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"></div>
+        <!-- CONTENEDOR PAN & ZOOM DIRECTO -->
+        <div id="mapa-viewport-container" style="width: 100%; height: 100%; overflow: hidden; cursor: grab; position: relative;">
+          <div id="mapa-svg-wrapper" style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"></div>
+        </div>
+
       </div>
 
       <!-- PANEL DERECHO: FICHA DE INTELIGENCIA DEPARTAMENTAL (35%) -->
       <div style="flex: 0 0 35%; width: 35%; min-width: 320px; height: 100%; background: #fff; border: 1px solid var(--k-line); border-radius: 8px; padding: 14px 16px; display: flex; flex-direction: column; box-sizing: border-box; overflow: hidden; box-shadow: 0 2px 10px rgba(22,24,47,0.04);">
         
-        <!-- Header de la Ficha Lateral -->
         <div style="border-bottom: 1px solid var(--k-line); padding-bottom: 8px; margin-bottom: 10px; flex-shrink: 0;">
           <div style="display: flex; justify-content: space-between; align-items: center;">
             <h3 id="mapa-ficha-titulo" style="font-family:'Poppins',sans-serif; font-size: 1.05rem; font-weight: 800; color: var(--k-ink); margin: 0;">
@@ -66,48 +75,33 @@ export function mapaHTML() {
           </p>
         </div>
 
-        <!-- Grid de 6 KPIs Atómicos -->
         <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; margin-bottom: 12px; flex-shrink: 0;">
-          
-          <!-- KPI 1: Promedio COESTI -->
           <div style="background: #F8FAFC; border: 1px solid var(--k-line); border-radius: 6px; padding: 6px 10px;">
             <span style="font-size: 0.58rem; font-weight: 700; color: var(--k-muted); text-transform: uppercase;">Promedio COESTI</span>
             <div id="kpi-mapa-precio" style="font-size: 1.05rem; font-weight: 800; color: #00D58A;">—</div>
           </div>
-
-          <!-- KPI 2: Costo COESTI -->
           <div style="background: #F8FAFC; border: 1px solid var(--k-line); border-radius: 6px; padding: 6px 10px;">
             <span style="font-size: 0.58rem; font-weight: 700; color: var(--k-muted); text-transform: uppercase;">Costo Propio</span>
             <div id="kpi-mapa-costo" style="font-size: 1.05rem; font-weight: 800; color: var(--k-ink);">—</div>
           </div>
-
-          <!-- KPI 3: Margen COESTI -->
           <div style="background: #F8FAFC; border: 1px solid var(--k-line); border-radius: 6px; padding: 6px 10px;">
             <span style="font-size: 0.58rem; font-weight: 700; color: var(--k-muted); text-transform: uppercase;">Margen Propio</span>
             <div id="kpi-mapa-margen" style="font-size: 1.05rem; font-weight: 800; color: var(--k-ink);">—</div>
           </div>
-
-          <!-- KPI 4: Promedio Competencia -->
           <div style="background: #F8FAFC; border: 1px solid var(--k-line); border-radius: 6px; padding: 6px 10px;">
             <span style="font-size: 0.58rem; font-weight: 700; color: var(--k-muted); text-transform: uppercase;">Promedio Comp.</span>
             <div id="kpi-mapa-comp" style="font-size: 1.05rem; font-weight: 800; color: #0284C7;">—</div>
           </div>
-
-          <!-- KPI 5: Delta vs Mercado -->
           <div style="background: #F8FAFC; border: 1px solid var(--k-line); border-radius: 6px; padding: 6px 10px;">
             <span style="font-size: 0.58rem; font-weight: 700; color: var(--k-muted); text-transform: uppercase;">Delta Mercado</span>
             <div id="kpi-mapa-delta" style="font-size: 1.05rem; font-weight: 800;">—</div>
           </div>
-
-          <!-- KPI 6: Rivales Físicos Monitoreados -->
           <div style="background: #F8FAFC; border: 1px solid var(--k-line); border-radius: 6px; padding: 6px 10px;">
             <span style="font-size: 0.58rem; font-weight: 700; color: var(--k-muted); text-transform: uppercase;">Rivales Físicos</span>
             <div id="kpi-mapa-rivales" style="font-size: 1.05rem; font-weight: 800; color: var(--k-ink);">—</div>
           </div>
-
         </div>
 
-        <!-- Lista de Estaciones Evaluadas con Scroll Interno -->
         <div style="flex: 1 1 0; min-height: 0; display: flex; flex-direction: column;">
           <div style="font-family:'Poppins',sans-serif; font-size: 0.72rem; font-weight: 700; color: var(--k-ink); margin-bottom: 6px; flex-shrink: 0;">
             Estaciones Propias en la Zona
@@ -121,6 +115,136 @@ export function mapaHTML() {
 
   </div>
   `;
+}
+
+/* ---------- Motor de Pan & Zoom Vectorial Puro (viewBox) ---------- */
+const VB_BASE = { x: 0, y: 0, w: 1000, h: 1000 };
+let currentVB = { ...VB_BASE };
+
+let pzState = {
+  isDragging: false,
+  dragStartX: 0,
+  dragStartY: 0,
+  hasMoved: false,
+  initialized: false
+};
+
+function aplicarViewBox() {
+  const svgEl = document.querySelector('#mapa-svg-wrapper svg');
+  if (svgEl) {
+    svgEl.setAttribute('viewBox', `${currentVB.x} ${currentVB.y} ${currentVB.w} ${currentVB.h}`);
+  }
+}
+
+export function resetearZoomMapa() {
+  currentVB = { ...VB_BASE };
+  aplicarViewBox();
+}
+
+function inicializarEventosPanZoom() {
+  if (pzState.initialized) return;
+  const container = document.getElementById('mapa-viewport-container');
+  if (!container) return;
+
+  pzState.initialized = true;
+
+  // Zoom enfocado en el puntero usando viewBox
+  container.addEventListener('wheel', e => {
+    e.preventDefault();
+    const rect = container.getBoundingClientRect();
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+
+    // Coordenada del mouse proyectada en el espacio geométrico SVG
+    const svgX = currentVB.x + (mouseX / rect.width) * currentVB.w;
+    const svgY = currentVB.y + (mouseY / rect.height) * currentVB.h;
+
+    // Factor: acerca al girar hacia arriba, aleja al girar hacia abajo
+    const factor = e.deltaY < 0 ? 0.82 : 1.22;
+    const newW = Math.min(Math.max(currentVB.w * factor, 180), 1250); // Límite: de 180 (zoom ~5.5x) a 1250
+    const newH = newW; // Mantener relación de aspecto 1:1
+
+    // Reubicar origen para fijar el punto bajo el mouse
+    currentVB.x = svgX - (mouseX / rect.width) * newW;
+    currentVB.y = svgY - (mouseY / rect.height) * newH;
+    currentVB.w = newW;
+    currentVB.h = newH;
+
+    aplicarViewBox();
+  }, { passive: false });
+
+  // Iniciar Arrastre (MouseDown)
+  container.addEventListener('mousedown', e => {
+    if (e.target.closest('button')) return;
+
+    pzState.isDragging = true;
+    pzState.hasMoved = false;
+    pzState.dragStartX = e.clientX;
+    pzState.dragStartY = e.clientY;
+    container.style.cursor = 'grabbing';
+  });
+
+  // Mover Vista (MouseMove)
+  window.addEventListener('mousemove', e => {
+    if (!pzState.isDragging) return;
+
+    const dx = e.clientX - pzState.dragStartX;
+    const dy = e.clientY - pzState.dragStartY;
+
+    if (!pzState.hasMoved && Math.hypot(dx, dy) > 4) {
+      pzState.hasMoved = true;
+    }
+
+    const rect = container.getBoundingClientRect();
+    // Convertir desplazamiento de pantalla a unidades del SVG
+    currentVB.x -= dx * (currentVB.w / rect.width);
+    currentVB.y -= dy * (currentVB.h / rect.height);
+
+    pzState.dragStartX = e.clientX;
+    pzState.dragStartY = e.clientY;
+    aplicarViewBox();
+  });
+
+  // Soltar Arrastre (MouseUp)
+  window.addEventListener('mouseup', () => {
+    if (!pzState.isDragging) return;
+    pzState.isDragging = false;
+    if (container) container.style.cursor = 'grab';
+  });
+
+  // Prevenir click accidental en departamentos al arrastrar
+  container.addEventListener('click', e => {
+    if (pzState.hasMoved) {
+      e.stopPropagation();
+      e.preventDefault();
+      pzState.hasMoved = false;
+    }
+  }, true);
+
+  // Botones flotantes (+, -, Reset)
+  document.getElementById('btn-zoom-in')?.addEventListener('click', () => {
+    const factor = 0.75;
+    const newW = Math.max(currentVB.w * factor, 180);
+    const newH = newW;
+    currentVB.x += (currentVB.w - newW) / 2;
+    currentVB.y += (currentVB.h - newH) / 2;
+    currentVB.w = newW;
+    currentVB.h = newH;
+    aplicarViewBox();
+  });
+
+  document.getElementById('btn-zoom-out')?.addEventListener('click', () => {
+    const factor = 1.30;
+    const newW = Math.min(currentVB.w * factor, 1250);
+    const newH = newW;
+    currentVB.x += (currentVB.w - newW) / 2;
+    currentVB.y += (currentVB.h - newH) / 2;
+    currentVB.w = newW;
+    currentVB.h = newH;
+    aplicarViewBox();
+  });
+
+  document.getElementById('btn-zoom-reset')?.addEventListener('click', resetearZoomMapa);
 }
 
 /**
@@ -152,7 +276,10 @@ export async function renderMapa(todasLasEstaciones) {
   const svgWrapper = document.getElementById('mapa-svg-wrapper');
   if (svgWrapper && rawSvgCache) {
     svgWrapper.innerHTML = componerMapaPeruSVG(rawSvgCache, porDepartamento, deptoActivo);
+    aplicarViewBox();
   }
+
+  inicializarEventosPanZoom();
 
   // 4. Actualizar Ficha Lateral
   const tituloFicha = document.getElementById('mapa-ficha-titulo');
