@@ -19,8 +19,18 @@ import { estacion } from './estacion/index.js';
 import { margenMercado } from './mercado/index.js';
 import { competenciaSemanal } from './competencia/index.js';
 import { mapa } from './mapa/index.js';
+import { heatmap } from './heatmap/index.js';
 
-export const VISTAS = [matriz, analisis, alineacion, variacion, margenMercado, competenciaSemanal, mapa];
+export const VISTAS = [
+  matriz, 
+  analisis, 
+  alineacion, 
+  variacion, 
+  margenMercado, 
+  competenciaSemanal, 
+  mapa, 
+  heatmap
+];
 
 // Nivel de detalle (no es una pestaña: se abre desde la Matriz)
 export const NIVEL_ESTACION = estacion;
