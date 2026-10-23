@@ -1,7 +1,7 @@
 /* ==========================================================
    views/competencia/acciones.js
    ========================================================== */
-import { render, refrescarViewBar } from '../../core/router.js';
+import { render, actualizarIndicadorModo } from '../../core/router.js';
 import { valorDe, repoblarSelect, activar, alternarDesplegable, cerrarAlClicFuera } from '../../shared/dom.js';
 import { inicializarSearchableSelect } from '../../shared/combobox.js';
 import { CAMBIOS_SEMANALES_URL } from '../../config/datos.js';
@@ -126,7 +126,7 @@ export const acciones = {
         const v = el?.value || valorDe('sel-cs-prod');
         if (v) {
             competenciaSemanalState.producto = v;
-            refrescarViewBar();
+            actualizarIndicadorModo();
             render();
         }
     },

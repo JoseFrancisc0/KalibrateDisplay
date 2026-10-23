@@ -1,7 +1,7 @@
 /* ==========================================================
    views/mercado/acciones.js — Controladores reactivos
    ========================================================== */
-import { render } from '../../core/router.js';
+import { render, actualizarIndicadorModo } from '../../core/router.js';
 import { state } from '../../core/state.js';
 import { cargarHistoricoMarcas } from '../../core/data.js';
 import { valorDe, alternarDesplegable, cerrarAlClicFuera, repoblarSelect } from '../../shared/dom.js';
@@ -208,6 +208,7 @@ export const acciones = {
   cambiarProductoMM(el) {
     const v = el?.value || valorDe('sel-mm-prod');
     if (v) margenMercadoState.producto = v;
+    actualizarIndicadorModo();
     render();
   },
 

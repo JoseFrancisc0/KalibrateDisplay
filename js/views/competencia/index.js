@@ -18,7 +18,7 @@ export const competenciaSemanal = {
     mainHTML: competenciaSemanalHTML,
     alEntrar: entrarCompetenciaSemanal,
     render: renderCompetenciaSemanal,
-    etiquetaModo: () => `PRODUCTO: ${(competenciaSemanalState.producto || 'DIESEL').toUpperCase()} (CAMBIOS SEMANALES)`,
+    etiquetaModo: () => `PRODUCTO: ${(competenciaSemanalState.producto || 'DIESEL').toUpperCase()}`,
     acciones,
     iniciarListeners: iniciarListenersCompetenciaSemanal
 };

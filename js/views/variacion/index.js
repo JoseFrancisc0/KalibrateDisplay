@@ -22,7 +22,7 @@ export const variacion = {
 
   alEntrar: entrarVariacion,
   render: renderVariacionHistorica,
-  etiquetaModo: () => `PRODUCTO: ${(variacionState.producto || 'DIESEL').toUpperCase()} (VARIACIÓN)`,
+  etiquetaModo: () => `PRODUCTO: ${(variacionState.producto || 'DIESEL').toUpperCase()}`,
 
   acciones,
   iniciarListeners: iniciarListenersVariacion,

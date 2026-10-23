@@ -9,6 +9,7 @@ import { mapaState, DEPARTAMENTOS_OPERATIVOS } from './state.js';
 function normDepto(nombre) {
   const d = (nombre || '').trim().toUpperCase();
   if (d === 'CUSCO') return 'CUZCO';
+  if (d === 'JUNÍN') return 'JUNIN'
   return d;
 }
 

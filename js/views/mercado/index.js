@@ -23,7 +23,7 @@ export const margenMercado = {
     const shell = document.getElementById('margen-mercado-shell');
     if (shell) renderMargenMercado(shell);
   },
-  etiquetaModo: () => `PRODUCTO: ${(margenMercadoState.producto || 'DIESEL').toUpperCase()} (${margenMercadoState.modoMetrica})`,
+  etiquetaModo: () => `PRODUCTO: ${(margenMercadoState.producto || 'DIESEL').toUpperCase()}`,
   acciones,
   iniciarListeners: iniciarListenersMargenMercado
 };
