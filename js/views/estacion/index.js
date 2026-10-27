@@ -1,5 +1,5 @@
 /* ==========================================================
-   views/estacion/index.js — Orquestador del nivel "Detalle de Estación".
+   views/estacion/index.js — Orquestador con soporte de Volumen
    ========================================================== */
 import { estacionState, SUBVISTAS } from './state.js';
 import { barraEstacionHTML } from './barra.js';
@@ -7,19 +7,20 @@ import { fichaEstacionHTML } from './rail_base.js';
 import { render, refrescarViewBar } from '../../core/router.js';
 import { detenerPropagacion } from '../../core/events.js';
 import { state } from '../../core/state.js';
-import { cargarDetalleEstacion } from '../../core/data.js';
+import { cargarDetalleEstacion, cargarVolumenEstacion } from '../../core/data.js';
 
 import { estadoSubView } from './subviews/estado/index.js';
 import { evolucionDiffSubView } from './subviews/deltas/index.js';
 import { margenSubView } from './subviews/margen/index.js';
 import { variacionSubView } from './subviews/variacion/index.js';
+import { volumenSubView } from './subviews/volumen/index.js';
 
-// Subvistas activas (EVOLUCION_PRECIOS reservada para VOLUMEN a futuro)
 const SUBVIEWS = {
   'ESTADO': estadoSubView,
   'EVOLUCION_DIFF': evolucionDiffSubView,
   'MARGEN': margenSubView,
-  'VARIACION': variacionSubView
+  'VARIACION': variacionSubView,
+  'VOLUMEN': volumenSubView
 };
 
 const accionesBase = {
@@ -37,7 +38,12 @@ const accionesBase = {
     } else {
       estacionState.cargando = true;
       render();
+      
       const data = await cargarDetalleEstacion(siteId);
+      if (data) {
+        data.volumen_historico = await cargarVolumenEstacion(siteId);
+      }
+
       estacionState.dataActiva = data;
       estacionState.cache[siteId] = data;
       estacionState.cargando = false;
@@ -54,8 +60,15 @@ const accionesBase = {
     render();
   },
 
-  setSubVistaEstacion(el) {
-    estacionState.subVista = el.dataset.arg;
+  async setSubVistaEstacion(el) {
+    const sub = el.dataset.arg;
+    estacionState.subVista = sub;
+
+    // Si se pulsa VOLUMEN y la estación no tenía cargado el arreglo aún
+    if (sub === 'VOLUMEN' && estacionState.dataActiva && !estacionState.dataActiva.volumen_historico) {
+      estacionState.dataActiva.volumen_historico = await cargarVolumenEstacion(estacionState.seleccionadaId);
+    }
+
     refrescarViewBar();
     render();
   }

@@ -16,18 +16,32 @@ export function barraEstacionHTML() {
       ${estNombre}
     </div>
     <div class="view-tabs">
+
+      <!--- ESTADO ACTUAL --->
       <button class="view-tab ${sub === 'ESTADO' ? 'active' : ''}" data-click="setSubVistaEstacion" data-arg="ESTADO">
         ESTADO ACTUAL
       </button>
+
+      <!--- DELTAS --->
       <button class="view-tab ${sub === 'EVOLUCION_DIFF' ? 'active' : ''}" data-click="setSubVistaEstacion" data-arg="EVOLUCION_DIFF">
         DELTAS
       </button>
+
+      <!--- MARGEN --->
       <button class="view-tab ${sub === 'MARGEN' ? 'active' : ''}" data-click="setSubVistaEstacion" data-arg="MARGEN">
         MARGEN
       </button>
+
+      <!--- VARIACION --->
       <button class="view-tab ${sub === 'VARIACION' ? 'active' : ''}" data-click="setSubVistaEstacion" data-arg="VARIACION">
         VARIACIÓN
       </button>
+
+      <!--- VOLUMEN --->
+      <button class="view-tab ${sub === 'VOLUMEN' ? 'active' : ''}" data-click="setSubVistaEstacion" data-arg="VOLUMEN" style="color: #6EE7B7; font-weight:800;">
+        VOLUMEN & VENTAS
+      </button>
+
     </div>
     <div class="view-spacer"></div>
     <div class="view-mode" id="view-mode" style="padding-right:14px;">

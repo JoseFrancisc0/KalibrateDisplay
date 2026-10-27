@@ -2,7 +2,9 @@
    core/data.js — único punto de acceso a los JSON.
    ========================================================== */
 
-import { DATA_URL, HISTORICO_URL, DETALLE_ESTACION_URL } from '../config/datos.js';
+import { DATA_URL, HISTORICO_URL, DETALLE_ESTACION_URL, VOLUMEN_VENTAS_URL } from '../config/datos.js';
+
+let cacheVolumenVentas = null;
 
 export async function cargarMatriz() {
   const response = await fetch(DATA_URL);
@@ -38,4 +40,28 @@ export async function cargarDetalleEstacion(siteId) {
     console.error(`No se pudo cargar el detalle de la estación ${siteId}:`, err);
     return null;
   }
+}
+
+export async function cargarVolumenVentas() {
+  if (cacheVolumenVentas) return cacheVolumenVentas;
+  try {
+    const resp = await fetch(VOLUMEN_VENTAS_URL);
+    if (!resp.ok) {
+      throw new Error(`Error HTTP ${resp.status} al cargar ${VOLUMEN_VENTAS_URL}`);
+    }
+    const json = await resp.json();
+    cacheVolumenVentas = json.datos || [];
+    return cacheVolumenVentas;
+  } catch (err) {
+    console.error("No se pudo cargar volumen_ventas_calle.json:", err);
+    return [];
+  }
+}
+
+export async function cargarVolumenEstacion(siteId) {
+  const todosLosDatos = await cargarVolumenVentas();
+  if (!todosLosDatos || todosLosDatos.length === 0) return [];
+  
+  // Filtra por own_site_id
+  return todosLosDatos.filter(r => r.own_site_id === siteId);
 }
