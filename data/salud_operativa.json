@@ -1,6 +1,6 @@
 {
   "fecha_corte": "2026-10-30",
-  "actualizado_al": "2026-10-30T14:09:00-05:00",
+  "actualizado_al": "2026-10-30T15:09:10-05:00",
   "resumen_general": {
     "total_estaciones": 258,
     "estaciones_criticas": 21,
@@ -2900,8 +2900,8 @@
           "modo": "Review Before Export",
           "propuestas_ayer": 41,
           "aprobados_ayer": 16,
-          "ts_ultima_propuesta": "2026-10-30T12:00:51",
-          "ts_ultimo_aprobado": "2026-10-30T08:35:49",
+          "ts_ultima_propuesta": "2026-10-30T14:45:44",
+          "ts_ultimo_aprobado": "2026-10-30T14:45:44",
           "dias_sin_proponer": 0,
           "dias_sin_aprobar": 0,
           "alerta": "NORMAL"

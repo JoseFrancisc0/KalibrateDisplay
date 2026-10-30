@@ -9,7 +9,7 @@
       "hasta": "2026-10-25"
     }
   },
-  "actualizado_al": "2026-10-30T14:00:44-05:00",
+  "actualizado_al": "2026-10-30T15:00:11-05:00",
   "total_filas": 42072,
   "datos": [
     {
@@ -585444,8 +585444,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 23.49,
-      "direccion": "IGUAL"
+      "precio": 23.29,
+      "direccion": "BAJO"
     },
     {
       "site_id": "ee77a414-eb4b-41bf-bdcf-0e59e09d625b",
