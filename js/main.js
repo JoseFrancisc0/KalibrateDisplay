@@ -14,7 +14,7 @@ import { state } from './core/state.js';
 import { cargarMatriz } from './core/data.js';
 import { iniciarEventos, registrarAcciones } from './core/events.js';
 import {
-  configurarRouter, render, setVista, viewBarHTML,
+  configurarRouter, render, setCapa, setVista, viewBarHTML,
   vistaActual, alRedimensionar
 } from './core/router.js';
 
@@ -51,7 +51,11 @@ montar('#cmp-tabbar', VISTAS.map(v => v.tabbarHTML ? v.tabbarHTML() : '').join('
 
 /* ---------- 4. Acciones y listeners de cada vista ---------- */
 
-registrarAcciones({ setVista: (el) => setVista(el.dataset.arg) });
+registrarAcciones({ 
+  setVista: (el) => setVista(el.dataset.arg),
+  setCapa: (el) => setCapa(el.dataset.arg)
+});
+
 [...VISTAS, NIVEL_ESTACION].forEach(v => {
   if (v.acciones) registrarAcciones(v.acciones);
   if (v.iniciarListeners) v.iniciarListeners();

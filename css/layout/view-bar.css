@@ -76,3 +76,126 @@
   color: var(--k-lime);
   white-space: nowrap;
 }
+
+/* 1. Contenedor Maestro: Ocupa todo el ancho sin márgenes */
+.view-bar-container.view-bar {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  min-height: 64px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  background: var(--k-indigo-dk, #0D0E1F) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  flex: 0 0 auto !important;
+  overflow: visible !important;
+}
+
+/* 2. Fila Superior: Ámbito / Capas */
+.view-bar-capas {
+  width: 100% !important;
+  box-sizing: border-box !important;
+  height: 28px !important;
+  display: flex !important;
+  align-items: center !important;
+  background: rgba(0, 0, 0, 0.45) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 0 16px 0 14px !important;
+}
+
+.capas-lead {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.4);
+  margin-right: 14px;
+  white-space: nowrap;
+}
+
+.capas-tabs {
+  display: flex;
+  height: 100%;
+  gap: 4px;
+  align-items: center;
+}
+
+.capa-tab {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 12px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8C92C8;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.capa-tab .capa-indicator {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: transparent;
+  transition: all 0.15s ease;
+}
+
+.capa-tab:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.capa-tab.active {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.capa-tab.active .capa-indicator {
+  background: var(--k-lime, #76F747);
+  box-shadow: 0 0 6px var(--k-lime, #76F747);
+}
+
+/* 3. Fila Inferior: Sub-vistas y Modo */
+.view-bar-subviews {
+  width: 100% !important;
+  box-sizing: border-box !important;
+  height: 36px !important;
+  display: flex !important;
+  align-items: center !important;
+  background: var(--k-indigo, #16182F) !important;
+  padding: 0 16px 0 0 !important;
+  overflow: hidden;
+}
+
+.view-bar-subviews .view-lead {
+  flex: 0 0 auto !important;
+  height: 100% !important;
+}
+
+.view-bar-subviews .view-tabs {
+  display: flex !important;
+  align-items: center !important;
+  height: 100% !important;
+  gap: 2px !important;
+  flex: 0 0 auto !important;
+}
+
+.view-bar-subviews .view-spacer {
+  flex: 1 1 auto !important;
+}
+
+.view-bar-subviews .view-mode {
+  flex: 0 0 auto !important;
+  margin-left: auto !important;
+  padding-right: 14px !important;
+}
