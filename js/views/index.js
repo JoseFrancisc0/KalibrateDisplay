@@ -2,6 +2,7 @@
    views/index.js — REGISTRO DE VISTAS.
    ========================================================== */
 
+import { cockpit } from './cockpit/index.js';
 import { matriz } from './matriz/index.js';
 import { analisis } from './analisis/index.js';
 import { alineacion } from './alineacion/index.js';
@@ -17,7 +18,7 @@ export const CAPAS = [
     id: 'CAPA_CONTROL',
     label: 'CONTROL ROOM & ESTADO',
     vistas: [
-      // Aquí entrará 'cockpit' como primera vista
+      cockpit,
       matriz,     // 'PRECIOS'
       analisis,   // 'ANÁLISIS'
       alineacion  // 'ALINEACIÓN'
