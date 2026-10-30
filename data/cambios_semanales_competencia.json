@@ -9,7 +9,7 @@
       "hasta": "2026-10-25"
     }
   },
-  "actualizado_al": "2026-10-30T12:05:53-05:00",
+  "actualizado_al": "2026-10-30T13:06:11-05:00",
   "total_filas": 42072,
   "datos": [
     {
@@ -12099,21 +12099,6 @@
       "periodo": "ACTUAL",
       "dia": "martes",
       "fecha": "2026-10-27",
-      "precio": 19.89,
-      "direccion": "IGUAL"
-    },
-    {
-      "site_id": "02bbffda-c19b-456d-8329-050be71ee98a",
-      "competidor": "PETROPERU SAN ANTONIO - EDS San Antonio",
-      "marca": "PETROPERU",
-      "es_propio": false,
-      "producto": "Regular",
-      "departamento": "Loreto",
-      "provincia": "Maynas",
-      "distrito": "Punchana",
-      "periodo": "ACTUAL",
-      "dia": "miercoles",
-      "fecha": "2026-10-28",
       "precio": 20.99,
       "direccion": "SUBIO"
     },
@@ -12127,9 +12112,24 @@
       "provincia": "Maynas",
       "distrito": "Punchana",
       "periodo": "ACTUAL",
+      "dia": "miercoles",
+      "fecha": "2026-10-28",
+      "precio": 19.89,
+      "direccion": "BAJO"
+    },
+    {
+      "site_id": "02bbffda-c19b-456d-8329-050be71ee98a",
+      "competidor": "PETROPERU SAN ANTONIO - EDS San Antonio",
+      "marca": "PETROPERU",
+      "es_propio": false,
+      "producto": "Regular",
+      "departamento": "Loreto",
+      "provincia": "Maynas",
+      "distrito": "Punchana",
+      "periodo": "ACTUAL",
       "dia": "jueves",
       "fecha": "2026-10-29",
-      "precio": 20.99,
+      "precio": 19.89,
       "direccion": "IGUAL"
     },
     {
@@ -12145,7 +12145,7 @@
       "dia": "viernes",
       "fecha": "2026-10-30",
       "precio": 20.29,
-      "direccion": "BAJO"
+      "direccion": "SUBIO"
     },
     {
       "site_id": "02bbffda-c19b-456d-8329-050be71ee98a",
@@ -12159,7 +12159,7 @@
       "periodo": "PASADA",
       "dia": "lunes",
       "fecha": "2026-10-19",
-      "precio": 20.39,
+      "precio": 21.79,
       "direccion": "IGUAL"
     },
     {
@@ -12175,7 +12175,7 @@
       "dia": "martes",
       "fecha": "2026-10-20",
       "precio": 20.39,
-      "direccion": "IGUAL"
+      "direccion": "BAJO"
     },
     {
       "site_id": "02bbffda-c19b-456d-8329-050be71ee98a",
@@ -12189,8 +12189,8 @@
       "periodo": "PASADA",
       "dia": "miercoles",
       "fecha": "2026-10-21",
-      "precio": 20.39,
-      "direccion": "IGUAL"
+      "precio": 21.79,
+      "direccion": "SUBIO"
     },
     {
       "site_id": "02bbffda-c19b-456d-8329-050be71ee98a",
@@ -12219,8 +12219,8 @@
       "periodo": "PASADA",
       "dia": "viernes",
       "fecha": "2026-10-23",
-      "precio": 20.99,
-      "direccion": "SUBIO"
+      "precio": 19.89,
+      "direccion": "IGUAL"
     },
     {
       "site_id": "02bbffda-c19b-456d-8329-050be71ee98a",
@@ -12235,7 +12235,7 @@
       "dia": "sabado",
       "fecha": "2026-10-24",
       "precio": 19.89,
-      "direccion": "BAJO"
+      "direccion": "IGUAL"
     },
     {
       "site_id": "02bbffda-c19b-456d-8329-050be71ee98a",
@@ -15384,8 +15384,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 25.55,
-      "direccion": "IGUAL"
+      "precio": 25.19,
+      "direccion": "BAJO"
     },
     {
       "site_id": "03881ec6-1a4d-48b2-8463-ca02353e23ad",
@@ -27264,8 +27264,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 1.67,
-      "direccion": "IGUAL"
+      "precio": 1.66,
+      "direccion": "BAJO"
     },
     {
       "site_id": "06f479d0-157e-4ae5-b119-382cedb79eab",
@@ -34284,8 +34284,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 22.69,
-      "direccion": "IGUAL"
+      "precio": 22.49,
+      "direccion": "BAJO"
     },
     {
       "site_id": "08d2327f-7d1e-40b8-854d-3450cbd01e20",
@@ -34464,8 +34464,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 21.49,
-      "direccion": "IGUAL"
+      "precio": 20.99,
+      "direccion": "BAJO"
     },
     {
       "site_id": "08d2327f-7d1e-40b8-854d-3450cbd01e20",
@@ -36444,8 +36444,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 25.55,
-      "direccion": "IGUAL"
+      "precio": 25.19,
+      "direccion": "BAJO"
     },
     {
       "site_id": "09e687df-0c2f-441a-b0c0-f19105092e30",
@@ -59439,8 +59439,8 @@
       "periodo": "ACTUAL",
       "dia": "martes",
       "fecha": "2026-10-27",
-      "precio": 21.8,
-      "direccion": "IGUAL"
+      "precio": 12.89,
+      "direccion": "BAJO"
     },
     {
       "site_id": "10cdd415-be0c-45ce-93ed-88b5f9835473",
@@ -59454,7 +59454,7 @@
       "periodo": "ACTUAL",
       "dia": "miercoles",
       "fecha": "2026-10-28",
-      "precio": 21.8,
+      "precio": 12.89,
       "direccion": "IGUAL"
     },
     {
@@ -59469,7 +59469,7 @@
       "periodo": "ACTUAL",
       "dia": "jueves",
       "fecha": "2026-10-29",
-      "precio": 21.8,
+      "precio": 12.89,
       "direccion": "IGUAL"
     },
     {
@@ -59484,8 +59484,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 12.89,
-      "direccion": "BAJO"
+      "precio": 21.8,
+      "direccion": "SUBIO"
     },
     {
       "site_id": "10cdd415-be0c-45ce-93ed-88b5f9835473",
@@ -59589,8 +59589,8 @@
       "periodo": "PASADA",
       "dia": "domingo",
       "fecha": "2026-10-25",
-      "precio": 12.89,
-      "direccion": "BAJO"
+      "precio": 21.8,
+      "direccion": "IGUAL"
     },
     {
       "site_id": "1131173a-3a9b-4f68-8cae-b7a4442427e3",
@@ -69204,8 +69204,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 6.99,
-      "direccion": "IGUAL"
+      "precio": 7.25,
+      "direccion": "SUBIO"
     },
     {
       "site_id": "148bbebc-b34d-4b03-97c7-2806f1c26432",
@@ -82344,8 +82344,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 23.39,
-      "direccion": "IGUAL"
+      "precio": 23.29,
+      "direccion": "BAJO"
     },
     {
       "site_id": "19d723b2-775f-4626-8f0d-214737357857",
@@ -98364,8 +98364,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 20.49,
-      "direccion": "IGUAL"
+      "precio": 20.07,
+      "direccion": "BAJO"
     },
     {
       "site_id": "22ef0a4e-648f-404c-90c9-65fc7d23c25e",
@@ -120684,8 +120684,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 26.19,
-      "direccion": "IGUAL"
+      "precio": 25.99,
+      "direccion": "BAJO"
     },
     {
       "site_id": "2b5397ad-68f9-4d3e-ba52-17c84a2de896",
@@ -121224,8 +121224,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 23.29,
-      "direccion": "IGUAL"
+      "precio": 22.99,
+      "direccion": "BAJO"
     },
     {
       "site_id": "2b5397ad-68f9-4d3e-ba52-17c84a2de896",
@@ -121404,8 +121404,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 21.99,
-      "direccion": "IGUAL"
+      "precio": 21.59,
+      "direccion": "BAJO"
     },
     {
       "site_id": "2b5397ad-68f9-4d3e-ba52-17c84a2de896",
@@ -128934,8 +128934,8 @@
       "periodo": "ACTUAL",
       "dia": "miercoles",
       "fecha": "2026-10-28",
-      "precio": 21.0,
-      "direccion": "IGUAL"
+      "precio": 18.95,
+      "direccion": "BAJO"
     },
     {
       "site_id": "2facbb86-a90b-48d0-a5e2-45280a809b66",
@@ -128949,7 +128949,7 @@
       "periodo": "ACTUAL",
       "dia": "jueves",
       "fecha": "2026-10-29",
-      "precio": 21.0,
+      "precio": 18.95,
       "direccion": "IGUAL"
     },
     {
@@ -128964,8 +128964,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 18.95,
-      "direccion": "BAJO"
+      "precio": 21.0,
+      "direccion": "SUBIO"
     },
     {
       "site_id": "2facbb86-a90b-48d0-a5e2-45280a809b66",
@@ -129009,21 +129009,6 @@
       "periodo": "PASADA",
       "dia": "miercoles",
       "fecha": "2026-10-21",
-      "precio": 21.0,
-      "direccion": "IGUAL"
-    },
-    {
-      "site_id": "2facbb86-a90b-48d0-a5e2-45280a809b66",
-      "competidor": "WP CESAR - Grifo Cesar SRL",
-      "marca": "WP",
-      "es_propio": false,
-      "producto": "Regular",
-      "departamento": "Loreto",
-      "provincia": "Maynas",
-      "distrito": "Punchana",
-      "periodo": "PASADA",
-      "dia": "jueves",
-      "fecha": "2026-10-22",
       "precio": 19.5,
       "direccion": "BAJO"
     },
@@ -129037,10 +129022,25 @@
       "provincia": "Maynas",
       "distrito": "Punchana",
       "periodo": "PASADA",
+      "dia": "jueves",
+      "fecha": "2026-10-22",
+      "precio": 21.0,
+      "direccion": "SUBIO"
+    },
+    {
+      "site_id": "2facbb86-a90b-48d0-a5e2-45280a809b66",
+      "competidor": "WP CESAR - Grifo Cesar SRL",
+      "marca": "WP",
+      "es_propio": false,
+      "producto": "Regular",
+      "departamento": "Loreto",
+      "provincia": "Maynas",
+      "distrito": "Punchana",
+      "periodo": "PASADA",
       "dia": "viernes",
       "fecha": "2026-10-23",
-      "precio": 18.95,
-      "direccion": "BAJO"
+      "precio": 21.0,
+      "direccion": "IGUAL"
     },
     {
       "site_id": "2facbb86-a90b-48d0-a5e2-45280a809b66",
@@ -129054,8 +129054,8 @@
       "periodo": "PASADA",
       "dia": "sabado",
       "fecha": "2026-10-24",
-      "precio": 21.0,
-      "direccion": "SUBIO"
+      "precio": 18.95,
+      "direccion": "BAJO"
     },
     {
       "site_id": "2facbb86-a90b-48d0-a5e2-45280a809b66",
@@ -129070,7 +129070,7 @@
       "dia": "domingo",
       "fecha": "2026-10-25",
       "precio": 18.95,
-      "direccion": "BAJO"
+      "direccion": "IGUAL"
     },
     {
       "site_id": "2fae62e4-279a-499e-a921-3df540fb9d32",
@@ -129684,8 +129684,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 25.55,
-      "direccion": "IGUAL"
+      "precio": 25.19,
+      "direccion": "BAJO"
     },
     {
       "site_id": "302f330d-d74a-4cb9-8939-b8cd7bfa0443",
@@ -136104,7 +136104,7 @@
       "periodo": "ACTUAL",
       "dia": "lunes",
       "fecha": "2026-10-26",
-      "precio": 20.49,
+      "precio": 21.99,
       "direccion": "IGUAL"
     },
     {
@@ -136120,7 +136120,7 @@
       "dia": "martes",
       "fecha": "2026-10-27",
       "precio": 20.49,
-      "direccion": "IGUAL"
+      "direccion": "BAJO"
     },
     {
       "site_id": "32feadb5-a6a5-4e43-ad01-d7d5e1b096b8",
@@ -136134,8 +136134,8 @@
       "periodo": "ACTUAL",
       "dia": "miercoles",
       "fecha": "2026-10-28",
-      "precio": 21.99,
-      "direccion": "SUBIO"
+      "precio": 20.49,
+      "direccion": "IGUAL"
     },
     {
       "site_id": "32feadb5-a6a5-4e43-ad01-d7d5e1b096b8",
@@ -136150,7 +136150,7 @@
       "dia": "jueves",
       "fecha": "2026-10-29",
       "precio": 20.49,
-      "direccion": "BAJO"
+      "direccion": "IGUAL"
     },
     {
       "site_id": "32feadb5-a6a5-4e43-ad01-d7d5e1b096b8",
@@ -136194,8 +136194,8 @@
       "periodo": "PASADA",
       "dia": "martes",
       "fecha": "2026-10-20",
-      "precio": 21.99,
-      "direccion": "SUBIO"
+      "precio": 20.49,
+      "direccion": "IGUAL"
     },
     {
       "site_id": "32feadb5-a6a5-4e43-ad01-d7d5e1b096b8",
@@ -136209,7 +136209,7 @@
       "periodo": "PASADA",
       "dia": "miercoles",
       "fecha": "2026-10-21",
-      "precio": 21.99,
+      "precio": 20.49,
       "direccion": "IGUAL"
     },
     {
@@ -136225,7 +136225,7 @@
       "dia": "jueves",
       "fecha": "2026-10-22",
       "precio": 21.99,
-      "direccion": "IGUAL"
+      "direccion": "SUBIO"
     },
     {
       "site_id": "32feadb5-a6a5-4e43-ad01-d7d5e1b096b8",
@@ -136254,8 +136254,8 @@
       "periodo": "PASADA",
       "dia": "sabado",
       "fecha": "2026-10-24",
-      "precio": 21.99,
-      "direccion": "SUBIO"
+      "precio": 20.49,
+      "direccion": "IGUAL"
     },
     {
       "site_id": "32feadb5-a6a5-4e43-ad01-d7d5e1b096b8",
@@ -136270,7 +136270,7 @@
       "dia": "domingo",
       "fecha": "2026-10-25",
       "precio": 20.49,
-      "direccion": "BAJO"
+      "direccion": "IGUAL"
     },
     {
       "site_id": "330aabcb-4c3a-4401-b440-335cb8b37109",
@@ -137214,8 +137214,8 @@
       "periodo": "ACTUAL",
       "dia": "miercoles",
       "fecha": "2026-10-28",
-      "precio": 19.0,
-      "direccion": "BAJO"
+      "precio": 19.9,
+      "direccion": "IGUAL"
     },
     {
       "site_id": "33593a69-cf2e-4f6c-98b0-7b4df2ed788b",
@@ -137230,7 +137230,7 @@
       "dia": "jueves",
       "fecha": "2026-10-29",
       "precio": 19.9,
-      "direccion": "SUBIO"
+      "direccion": "IGUAL"
     },
     {
       "site_id": "33593a69-cf2e-4f6c-98b0-7b4df2ed788b",
@@ -137259,7 +137259,7 @@
       "periodo": "PASADA",
       "dia": "lunes",
       "fecha": "2026-10-19",
-      "precio": 20.4,
+      "precio": 19.5,
       "direccion": "IGUAL"
     },
     {
@@ -137275,7 +137275,7 @@
       "dia": "martes",
       "fecha": "2026-10-20",
       "precio": 19.5,
-      "direccion": "BAJO"
+      "direccion": "IGUAL"
     },
     {
       "site_id": "33593a69-cf2e-4f6c-98b0-7b4df2ed788b",
@@ -137289,8 +137289,8 @@
       "periodo": "PASADA",
       "dia": "miercoles",
       "fecha": "2026-10-21",
-      "precio": 20.4,
-      "direccion": "SUBIO"
+      "precio": 19.5,
+      "direccion": "IGUAL"
     },
     {
       "site_id": "33593a69-cf2e-4f6c-98b0-7b4df2ed788b",
@@ -137319,21 +137319,6 @@
       "periodo": "PASADA",
       "dia": "viernes",
       "fecha": "2026-10-23",
-      "precio": 19.0,
-      "direccion": "IGUAL"
-    },
-    {
-      "site_id": "33593a69-cf2e-4f6c-98b0-7b4df2ed788b",
-      "competidor": "PETROPERU MASUSA - Comerc. Imp. Madre Selva SAC",
-      "marca": "PETROPERU",
-      "es_propio": false,
-      "producto": "Regular",
-      "departamento": "Loreto",
-      "provincia": "Maynas",
-      "distrito": "Punchana",
-      "periodo": "PASADA",
-      "dia": "sabado",
-      "fecha": "2026-10-24",
       "precio": 19.9,
       "direccion": "SUBIO"
     },
@@ -137347,10 +137332,25 @@
       "provincia": "Maynas",
       "distrito": "Punchana",
       "periodo": "PASADA",
-      "dia": "domingo",
-      "fecha": "2026-10-25",
+      "dia": "sabado",
+      "fecha": "2026-10-24",
       "precio": 19.0,
       "direccion": "BAJO"
+    },
+    {
+      "site_id": "33593a69-cf2e-4f6c-98b0-7b4df2ed788b",
+      "competidor": "PETROPERU MASUSA - Comerc. Imp. Madre Selva SAC",
+      "marca": "PETROPERU",
+      "es_propio": false,
+      "producto": "Regular",
+      "departamento": "Loreto",
+      "provincia": "Maynas",
+      "distrito": "Punchana",
+      "periodo": "PASADA",
+      "dia": "domingo",
+      "fecha": "2026-10-25",
+      "precio": 19.9,
+      "direccion": "SUBIO"
     },
     {
       "site_id": "33aa31b5-422c-477f-a00f-e4b47db6b93d",
@@ -144804,8 +144804,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 23.29,
-      "direccion": "IGUAL"
+      "precio": 23.35,
+      "direccion": "SUBIO"
     },
     {
       "site_id": "34f2a930-5d56-4f6a-b94d-2918537d5aaa",
@@ -144984,8 +144984,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 22.19,
-      "direccion": "IGUAL"
+      "precio": 22.25,
+      "direccion": "SUBIO"
     },
     {
       "site_id": "34f2a930-5d56-4f6a-b94d-2918537d5aaa",
@@ -150879,8 +150879,8 @@
       "periodo": "ACTUAL",
       "dia": "martes",
       "fecha": "2026-10-27",
-      "precio": 19.9,
-      "direccion": "SUBIO"
+      "precio": 18.7,
+      "direccion": "IGUAL"
     },
     {
       "site_id": "39c60f32-62de-4ae2-92d5-283adc8051b3",
@@ -150894,7 +150894,7 @@
       "periodo": "ACTUAL",
       "dia": "miercoles",
       "fecha": "2026-10-28",
-      "precio": 19.9,
+      "precio": 18.7,
       "direccion": "IGUAL"
     },
     {
@@ -150910,7 +150910,7 @@
       "dia": "jueves",
       "fecha": "2026-10-29",
       "precio": 18.7,
-      "direccion": "BAJO"
+      "direccion": "IGUAL"
     },
     {
       "site_id": "39c60f32-62de-4ae2-92d5-283adc8051b3",
@@ -150924,8 +150924,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 18.7,
-      "direccion": "IGUAL"
+      "precio": 17.9,
+      "direccion": "BAJO"
     },
     {
       "site_id": "39c60f32-62de-4ae2-92d5-283adc8051b3",
@@ -150939,7 +150939,7 @@
       "periodo": "PASADA",
       "dia": "lunes",
       "fecha": "2026-10-19",
-      "precio": 18.7,
+      "precio": 20.2,
       "direccion": "IGUAL"
     },
     {
@@ -150954,8 +150954,8 @@
       "periodo": "PASADA",
       "dia": "martes",
       "fecha": "2026-10-20",
-      "precio": 20.2,
-      "direccion": "SUBIO"
+      "precio": 18.7,
+      "direccion": "BAJO"
     },
     {
       "site_id": "39c60f32-62de-4ae2-92d5-283adc8051b3",
@@ -150969,8 +150969,8 @@
       "periodo": "PASADA",
       "dia": "miercoles",
       "fecha": "2026-10-21",
-      "precio": 18.7,
-      "direccion": "BAJO"
+      "precio": 20.2,
+      "direccion": "SUBIO"
     },
     {
       "site_id": "39c60f32-62de-4ae2-92d5-283adc8051b3",
@@ -150985,7 +150985,7 @@
       "dia": "jueves",
       "fecha": "2026-10-22",
       "precio": 18.7,
-      "direccion": "IGUAL"
+      "direccion": "BAJO"
     },
     {
       "site_id": "39c60f32-62de-4ae2-92d5-283adc8051b3",
@@ -150999,8 +150999,8 @@
       "periodo": "PASADA",
       "dia": "viernes",
       "fecha": "2026-10-23",
-      "precio": 18.7,
-      "direccion": "IGUAL"
+      "precio": 19.9,
+      "direccion": "SUBIO"
     },
     {
       "site_id": "39c60f32-62de-4ae2-92d5-283adc8051b3",
@@ -151015,7 +151015,7 @@
       "dia": "sabado",
       "fecha": "2026-10-24",
       "precio": 19.9,
-      "direccion": "SUBIO"
+      "direccion": "IGUAL"
     },
     {
       "site_id": "39c60f32-62de-4ae2-92d5-283adc8051b3",
@@ -158304,8 +158304,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 8.25,
-      "direccion": "IGUAL"
+      "precio": 8.09,
+      "direccion": "BAJO"
     },
     {
       "site_id": "3bbcc201-3933-4afd-bd6d-9ec3be127ad3",
@@ -170904,8 +170904,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 22.19,
-      "direccion": "IGUAL"
+      "precio": 21.99,
+      "direccion": "BAJO"
     },
     {
       "site_id": "40e78862-9301-4083-b136-b70e0f198708",
@@ -173424,8 +173424,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 21.4,
-      "direccion": "BAJO"
+      "precio": 23.1,
+      "direccion": "IGUAL"
     },
     {
       "site_id": "42ca8203-b86e-4fac-92e7-4f191d8555ca",
@@ -173439,7 +173439,7 @@
       "periodo": "PASADA",
       "dia": "lunes",
       "fecha": "2026-10-19",
-      "precio": 21.4,
+      "precio": 23.1,
       "direccion": "IGUAL"
     },
     {
@@ -173454,8 +173454,8 @@
       "periodo": "PASADA",
       "dia": "martes",
       "fecha": "2026-10-20",
-      "precio": 23.1,
-      "direccion": "SUBIO"
+      "precio": 21.4,
+      "direccion": "BAJO"
     },
     {
       "site_id": "42ca8203-b86e-4fac-92e7-4f191d8555ca",
@@ -173470,7 +173470,7 @@
       "dia": "miercoles",
       "fecha": "2026-10-21",
       "precio": 21.4,
-      "direccion": "BAJO"
+      "direccion": "IGUAL"
     },
     {
       "site_id": "42ca8203-b86e-4fac-92e7-4f191d8555ca",
@@ -173484,8 +173484,8 @@
       "periodo": "PASADA",
       "dia": "jueves",
       "fecha": "2026-10-22",
-      "precio": 23.1,
-      "direccion": "SUBIO"
+      "precio": 21.4,
+      "direccion": "IGUAL"
     },
     {
       "site_id": "42ca8203-b86e-4fac-92e7-4f191d8555ca",
@@ -173499,8 +173499,8 @@
       "periodo": "PASADA",
       "dia": "viernes",
       "fecha": "2026-10-23",
-      "precio": 21.4,
-      "direccion": "BAJO"
+      "precio": 23.1,
+      "direccion": "SUBIO"
     },
     {
       "site_id": "42ca8203-b86e-4fac-92e7-4f191d8555ca",
@@ -173514,8 +173514,8 @@
       "periodo": "PASADA",
       "dia": "sabado",
       "fecha": "2026-10-24",
-      "precio": 23.1,
-      "direccion": "SUBIO"
+      "precio": 21.4,
+      "direccion": "BAJO"
     },
     {
       "site_id": "42ca8203-b86e-4fac-92e7-4f191d8555ca",
@@ -173530,7 +173530,7 @@
       "dia": "domingo",
       "fecha": "2026-10-25",
       "precio": 23.1,
-      "direccion": "IGUAL"
+      "direccion": "SUBIO"
     },
     {
       "site_id": "4303a1d4-b425-4d62-9dc6-8ae86067d2f9",
@@ -200064,8 +200064,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 8.85,
-      "direccion": "IGUAL"
+      "precio": 9.39,
+      "direccion": "SUBIO"
     },
     {
       "site_id": "4c846088-ec19-4b87-b23a-c93a823031ca",
@@ -222204,8 +222204,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 26.89,
-      "direccion": "IGUAL"
+      "precio": 26.59,
+      "direccion": "BAJO"
     },
     {
       "site_id": "53b36f92-d6c7-4a1c-8bd7-f18c5c93b0a8",
@@ -223794,8 +223794,8 @@
       "periodo": "ACTUAL",
       "dia": "miercoles",
       "fecha": "2026-10-28",
-      "precio": 18.9,
-      "direccion": "BAJO"
+      "precio": 20.0,
+      "direccion": "IGUAL"
     },
     {
       "site_id": "546b7831-2f9f-4e7a-b5d1-f3457692ef3d",
@@ -223809,7 +223809,7 @@
       "periodo": "ACTUAL",
       "dia": "jueves",
       "fecha": "2026-10-29",
-      "precio": 18.9,
+      "precio": 20.0,
       "direccion": "IGUAL"
     },
     {
@@ -223824,7 +223824,7 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 18.9,
+      "precio": 20.0,
       "direccion": "IGUAL"
     },
     {
@@ -223854,8 +223854,8 @@
       "periodo": "PASADA",
       "dia": "martes",
       "fecha": "2026-10-20",
-      "precio": 20.3,
-      "direccion": "SUBIO"
+      "precio": 19.4,
+      "direccion": "BAJO"
     },
     {
       "site_id": "546b7831-2f9f-4e7a-b5d1-f3457692ef3d",
@@ -223870,7 +223870,7 @@
       "dia": "miercoles",
       "fecha": "2026-10-21",
       "precio": 20.0,
-      "direccion": "BAJO"
+      "direccion": "SUBIO"
     },
     {
       "site_id": "546b7831-2f9f-4e7a-b5d1-f3457692ef3d",
@@ -223884,8 +223884,8 @@
       "periodo": "PASADA",
       "dia": "jueves",
       "fecha": "2026-10-22",
-      "precio": 18.9,
-      "direccion": "BAJO"
+      "precio": 20.0,
+      "direccion": "IGUAL"
     },
     {
       "site_id": "546b7831-2f9f-4e7a-b5d1-f3457692ef3d",
@@ -223900,7 +223900,7 @@
       "dia": "viernes",
       "fecha": "2026-10-23",
       "precio": 18.9,
-      "direccion": "IGUAL"
+      "direccion": "BAJO"
     },
     {
       "site_id": "546b7831-2f9f-4e7a-b5d1-f3457692ef3d",
@@ -225594,8 +225594,8 @@
       "periodo": "ACTUAL",
       "dia": "miercoles",
       "fecha": "2026-10-28",
-      "precio": 21.29,
-      "direccion": "IGUAL"
+      "precio": 20.19,
+      "direccion": "BAJO"
     },
     {
       "site_id": "5531b748-3eee-40e4-8754-816a2b95f1b4",
@@ -225610,7 +225610,7 @@
       "dia": "jueves",
       "fecha": "2026-10-29",
       "precio": 20.19,
-      "direccion": "BAJO"
+      "direccion": "IGUAL"
     },
     {
       "site_id": "5531b748-3eee-40e4-8754-816a2b95f1b4",
@@ -225624,8 +225624,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 20.19,
-      "direccion": "IGUAL"
+      "precio": 21.29,
+      "direccion": "SUBIO"
     },
     {
       "site_id": "5531b748-3eee-40e4-8754-816a2b95f1b4",
@@ -225654,8 +225654,8 @@
       "periodo": "PASADA",
       "dia": "martes",
       "fecha": "2026-10-20",
-      "precio": 21.89,
-      "direccion": "SUBIO"
+      "precio": 20.59,
+      "direccion": "IGUAL"
     },
     {
       "site_id": "5531b748-3eee-40e4-8754-816a2b95f1b4",
@@ -225670,7 +225670,7 @@
       "dia": "miercoles",
       "fecha": "2026-10-21",
       "precio": 20.59,
-      "direccion": "BAJO"
+      "direccion": "IGUAL"
     },
     {
       "site_id": "5531b748-3eee-40e4-8754-816a2b95f1b4",
@@ -225684,8 +225684,8 @@
       "periodo": "PASADA",
       "dia": "jueves",
       "fecha": "2026-10-22",
-      "precio": 21.89,
-      "direccion": "SUBIO"
+      "precio": 20.59,
+      "direccion": "IGUAL"
     },
     {
       "site_id": "5531b748-3eee-40e4-8754-816a2b95f1b4",
@@ -225699,7 +225699,7 @@
       "periodo": "PASADA",
       "dia": "viernes",
       "fecha": "2026-10-23",
-      "precio": 21.89,
+      "precio": 20.59,
       "direccion": "IGUAL"
     },
     {
@@ -225714,8 +225714,8 @@
       "periodo": "PASADA",
       "dia": "sabado",
       "fecha": "2026-10-24",
-      "precio": 20.59,
-      "direccion": "BAJO"
+      "precio": 21.89,
+      "direccion": "SUBIO"
     },
     {
       "site_id": "5531b748-3eee-40e4-8754-816a2b95f1b4",
@@ -225730,7 +225730,7 @@
       "dia": "domingo",
       "fecha": "2026-10-25",
       "precio": 21.89,
-      "direccion": "SUBIO"
+      "direccion": "IGUAL"
     },
     {
       "site_id": "5568bee5-d248-4a25-93e4-300f3c985ef4",
@@ -225924,7 +225924,7 @@
       "periodo": "ACTUAL",
       "dia": "lunes",
       "fecha": "2026-10-26",
-      "precio": 23.15,
+      "precio": 21.45,
       "direccion": "IGUAL"
     },
     {
@@ -225939,8 +225939,8 @@
       "periodo": "ACTUAL",
       "dia": "martes",
       "fecha": "2026-10-27",
-      "precio": 21.45,
-      "direccion": "BAJO"
+      "precio": 23.15,
+      "direccion": "SUBIO"
     },
     {
       "site_id": "5568bee5-d248-4a25-93e4-300f3c985ef4",
@@ -225955,7 +225955,7 @@
       "dia": "miercoles",
       "fecha": "2026-10-28",
       "precio": 21.45,
-      "direccion": "IGUAL"
+      "direccion": "BAJO"
     },
     {
       "site_id": "5568bee5-d248-4a25-93e4-300f3c985ef4",
@@ -226029,8 +226029,8 @@
       "periodo": "PASADA",
       "dia": "miercoles",
       "fecha": "2026-10-21",
-      "precio": 21.45,
-      "direccion": "IGUAL"
+      "precio": 23.15,
+      "direccion": "SUBIO"
     },
     {
       "site_id": "5568bee5-d248-4a25-93e4-300f3c985ef4",
@@ -226045,7 +226045,7 @@
       "dia": "jueves",
       "fecha": "2026-10-22",
       "precio": 23.15,
-      "direccion": "SUBIO"
+      "direccion": "IGUAL"
     },
     {
       "site_id": "5568bee5-d248-4a25-93e4-300f3c985ef4",
@@ -226059,8 +226059,8 @@
       "periodo": "PASADA",
       "dia": "viernes",
       "fecha": "2026-10-23",
-      "precio": 23.15,
-      "direccion": "IGUAL"
+      "precio": 21.45,
+      "direccion": "BAJO"
     },
     {
       "site_id": "5568bee5-d248-4a25-93e4-300f3c985ef4",
@@ -226075,7 +226075,7 @@
       "dia": "sabado",
       "fecha": "2026-10-24",
       "precio": 23.15,
-      "direccion": "IGUAL"
+      "direccion": "SUBIO"
     },
     {
       "site_id": "5568bee5-d248-4a25-93e4-300f3c985ef4",
@@ -231744,8 +231744,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 24.99,
-      "direccion": "IGUAL"
+      "precio": 24.79,
+      "direccion": "BAJO"
     },
     {
       "site_id": "585c9941-0caf-4a1b-9848-d980433cf28c",
@@ -231924,8 +231924,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 23.79,
-      "direccion": "IGUAL"
+      "precio": 23.59,
+      "direccion": "BAJO"
     },
     {
       "site_id": "585c9941-0caf-4a1b-9848-d980433cf28c",
@@ -236784,8 +236784,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 23.39,
-      "direccion": "IGUAL"
+      "precio": 22.49,
+      "direccion": "BAJO"
     },
     {
       "site_id": "5a85f218-a89e-4e64-b3aa-1d1a5842a6f4",
@@ -236964,8 +236964,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 21.99,
-      "direccion": "IGUAL"
+      "precio": 20.99,
+      "direccion": "BAJO"
     },
     {
       "site_id": "5a85f218-a89e-4e64-b3aa-1d1a5842a6f4",
@@ -244884,8 +244884,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 23.34,
-      "direccion": "IGUAL"
+      "precio": 23.29,
+      "direccion": "BAJO"
     },
     {
       "site_id": "5d9ce7de-6765-4227-9608-7a4c60a94e64",
@@ -245064,8 +245064,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 22.19,
-      "direccion": "IGUAL"
+      "precio": 21.99,
+      "direccion": "BAJO"
     },
     {
       "site_id": "5d9ce7de-6765-4227-9608-7a4c60a94e64",
@@ -268284,8 +268284,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 24.65,
-      "direccion": "IGUAL"
+      "precio": 24.69,
+      "direccion": "SUBIO"
     },
     {
       "site_id": "6968e0a7-c300-406a-9d87-758e0e9db1c6",
@@ -268464,8 +268464,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 7.45,
-      "direccion": "IGUAL"
+      "precio": 7.49,
+      "direccion": "SUBIO"
     },
     {
       "site_id": "6968e0a7-c300-406a-9d87-758e0e9db1c6",
@@ -282264,7 +282264,7 @@
       "periodo": "ACTUAL",
       "dia": "lunes",
       "fecha": "2026-10-26",
-      "precio": 23.99,
+      "precio": 22.3,
       "direccion": "IGUAL"
     },
     {
@@ -282279,8 +282279,8 @@
       "periodo": "ACTUAL",
       "dia": "martes",
       "fecha": "2026-10-27",
-      "precio": 22.3,
-      "direccion": "BAJO"
+      "precio": 23.99,
+      "direccion": "SUBIO"
     },
     {
       "site_id": "6e334824-3100-43e7-b99d-b6a763eb5c3d",
@@ -282294,7 +282294,7 @@
       "periodo": "ACTUAL",
       "dia": "miercoles",
       "fecha": "2026-10-28",
-      "precio": 22.3,
+      "precio": 23.99,
       "direccion": "IGUAL"
     },
     {
@@ -282309,8 +282309,8 @@
       "periodo": "ACTUAL",
       "dia": "jueves",
       "fecha": "2026-10-29",
-      "precio": 23.99,
-      "direccion": "SUBIO"
+      "precio": 22.3,
+      "direccion": "BAJO"
     },
     {
       "site_id": "6e334824-3100-43e7-b99d-b6a763eb5c3d",
@@ -282324,7 +282324,7 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 23.99,
+      "precio": 22.3,
       "direccion": "IGUAL"
     },
     {
@@ -282354,8 +282354,8 @@
       "periodo": "PASADA",
       "dia": "martes",
       "fecha": "2026-10-20",
-      "precio": 22.3,
-      "direccion": "IGUAL"
+      "precio": 23.99,
+      "direccion": "SUBIO"
     },
     {
       "site_id": "6e334824-3100-43e7-b99d-b6a763eb5c3d",
@@ -282369,7 +282369,7 @@
       "periodo": "PASADA",
       "dia": "miercoles",
       "fecha": "2026-10-21",
-      "precio": 22.3,
+      "precio": 23.99,
       "direccion": "IGUAL"
     },
     {
@@ -282385,7 +282385,7 @@
       "dia": "jueves",
       "fecha": "2026-10-22",
       "precio": 23.99,
-      "direccion": "SUBIO"
+      "direccion": "IGUAL"
     },
     {
       "site_id": "6e334824-3100-43e7-b99d-b6a763eb5c3d",
@@ -282429,8 +282429,8 @@
       "periodo": "PASADA",
       "dia": "domingo",
       "fecha": "2026-10-25",
-      "precio": 22.3,
-      "direccion": "BAJO"
+      "precio": 23.99,
+      "direccion": "IGUAL"
     },
     {
       "site_id": "6e489255-ba8e-433d-90c3-83f75ff03345",
@@ -283224,8 +283224,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 26.15,
-      "direccion": "IGUAL"
+      "precio": 25.79,
+      "direccion": "BAJO"
     },
     {
       "site_id": "6ed13413-64df-4b4f-88db-dfb4fa2a73cc",
@@ -291504,8 +291504,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 26.49,
-      "direccion": "IGUAL"
+      "precio": 26.19,
+      "direccion": "BAJO"
     },
     {
       "site_id": "73819bcd-caec-4ad0-91a2-0129bcf77ee7",
@@ -291684,8 +291684,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 23.99,
-      "direccion": "IGUAL"
+      "precio": 23.69,
+      "direccion": "BAJO"
     },
     {
       "site_id": "73819bcd-caec-4ad0-91a2-0129bcf77ee7",
@@ -291864,8 +291864,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 21.99,
-      "direccion": "IGUAL"
+      "precio": 21.89,
+      "direccion": "BAJO"
     },
     {
       "site_id": "73819bcd-caec-4ad0-91a2-0129bcf77ee7",
@@ -293109,21 +293109,6 @@
       "periodo": "ACTUAL",
       "dia": "jueves",
       "fecha": "2026-10-29",
-      "precio": 19.99,
-      "direccion": "IGUAL"
-    },
-    {
-      "site_id": "74435905-0926-4a17-82dc-6485d13f2a8a",
-      "competidor": "WP SANTO TOMAS - Grifo y Serv, Transp. Sto Tomas",
-      "marca": "WP",
-      "es_propio": false,
-      "producto": "Regular",
-      "departamento": "Loreto",
-      "provincia": "Maynas",
-      "distrito": "Punchana",
-      "periodo": "ACTUAL",
-      "dia": "viernes",
-      "fecha": "2026-10-30",
       "precio": 18.99,
       "direccion": "BAJO"
     },
@@ -293136,6 +293121,21 @@
       "departamento": "Loreto",
       "provincia": "Maynas",
       "distrito": "Punchana",
+      "periodo": "ACTUAL",
+      "dia": "viernes",
+      "fecha": "2026-10-30",
+      "precio": 19.99,
+      "direccion": "SUBIO"
+    },
+    {
+      "site_id": "74435905-0926-4a17-82dc-6485d13f2a8a",
+      "competidor": "WP SANTO TOMAS - Grifo y Serv, Transp. Sto Tomas",
+      "marca": "WP",
+      "es_propio": false,
+      "producto": "Regular",
+      "departamento": "Loreto",
+      "provincia": "Maynas",
+      "distrito": "Punchana",
       "periodo": "PASADA",
       "dia": "lunes",
       "fecha": "2026-10-19",
@@ -293169,8 +293169,8 @@
       "periodo": "PASADA",
       "dia": "miercoles",
       "fecha": "2026-10-21",
-      "precio": 20.29,
-      "direccion": "SUBIO"
+      "precio": 19.09,
+      "direccion": "IGUAL"
     },
     {
       "site_id": "74435905-0926-4a17-82dc-6485d13f2a8a",
@@ -293184,7 +293184,7 @@
       "periodo": "PASADA",
       "dia": "jueves",
       "fecha": "2026-10-22",
-      "precio": 20.29,
+      "precio": 19.09,
       "direccion": "IGUAL"
     },
     {
@@ -293199,7 +293199,7 @@
       "periodo": "PASADA",
       "dia": "viernes",
       "fecha": "2026-10-23",
-      "precio": 20.29,
+      "precio": 19.09,
       "direccion": "IGUAL"
     },
     {
@@ -293214,8 +293214,8 @@
       "periodo": "PASADA",
       "dia": "sabado",
       "fecha": "2026-10-24",
-      "precio": 19.09,
-      "direccion": "BAJO"
+      "precio": 20.29,
+      "direccion": "SUBIO"
     },
     {
       "site_id": "74435905-0926-4a17-82dc-6485d13f2a8a",
@@ -293229,8 +293229,8 @@
       "periodo": "PASADA",
       "dia": "domingo",
       "fecha": "2026-10-25",
-      "precio": 20.29,
-      "direccion": "SUBIO"
+      "precio": 19.09,
+      "direccion": "BAJO"
     },
     {
       "site_id": "745315aa-a318-4a94-9ce1-ad31a752e74c",
@@ -298344,8 +298344,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 7.95,
-      "direccion": "IGUAL"
+      "precio": 8.22,
+      "direccion": "SUBIO"
     },
     {
       "site_id": "75f1ad0b-f18f-4675-80b6-92ebe170adf5",
@@ -322284,8 +322284,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 7.9,
-      "direccion": "IGUAL"
+      "precio": 8.0,
+      "direccion": "SUBIO"
     },
     {
       "site_id": "7fadecf3-382a-4c5a-adea-04486abe6ff3",
@@ -329964,7 +329964,7 @@
       "periodo": "ACTUAL",
       "dia": "lunes",
       "fecha": "2026-10-26",
-      "precio": 22.29,
+      "precio": 18.19,
       "direccion": "IGUAL"
     },
     {
@@ -329980,7 +329980,7 @@
       "dia": "martes",
       "fecha": "2026-10-27",
       "precio": 22.29,
-      "direccion": "IGUAL"
+      "direccion": "SUBIO"
     },
     {
       "site_id": "830da1cc-15c8-438f-9166-c3adfb339adf",
@@ -329994,8 +329994,8 @@
       "periodo": "ACTUAL",
       "dia": "miercoles",
       "fecha": "2026-10-28",
-      "precio": 18.19,
-      "direccion": "BAJO"
+      "precio": 22.29,
+      "direccion": "IGUAL"
     },
     {
       "site_id": "830da1cc-15c8-438f-9166-c3adfb339adf",
@@ -330009,8 +330009,8 @@
       "periodo": "ACTUAL",
       "dia": "jueves",
       "fecha": "2026-10-29",
-      "precio": 18.19,
-      "direccion": "IGUAL"
+      "precio": 22.09,
+      "direccion": "BAJO"
     },
     {
       "site_id": "830da1cc-15c8-438f-9166-c3adfb339adf",
@@ -330025,7 +330025,7 @@
       "dia": "viernes",
       "fecha": "2026-10-30",
       "precio": 22.09,
-      "direccion": "SUBIO"
+      "direccion": "IGUAL"
     },
     {
       "site_id": "830da1cc-15c8-438f-9166-c3adfb339adf",
@@ -330039,7 +330039,7 @@
       "periodo": "PASADA",
       "dia": "lunes",
       "fecha": "2026-10-19",
-      "precio": 22.29,
+      "precio": 18.19,
       "direccion": "IGUAL"
     },
     {
@@ -330055,7 +330055,7 @@
       "dia": "martes",
       "fecha": "2026-10-20",
       "precio": 18.19,
-      "direccion": "BAJO"
+      "direccion": "IGUAL"
     },
     {
       "site_id": "830da1cc-15c8-438f-9166-c3adfb339adf",
@@ -330084,8 +330084,8 @@
       "periodo": "PASADA",
       "dia": "jueves",
       "fecha": "2026-10-22",
-      "precio": 22.29,
-      "direccion": "SUBIO"
+      "precio": 18.19,
+      "direccion": "IGUAL"
     },
     {
       "site_id": "830da1cc-15c8-438f-9166-c3adfb339adf",
@@ -330100,7 +330100,7 @@
       "dia": "viernes",
       "fecha": "2026-10-23",
       "precio": 18.19,
-      "direccion": "BAJO"
+      "direccion": "IGUAL"
     },
     {
       "site_id": "830da1cc-15c8-438f-9166-c3adfb339adf",
@@ -330129,8 +330129,8 @@
       "periodo": "PASADA",
       "dia": "domingo",
       "fecha": "2026-10-25",
-      "precio": 22.29,
-      "direccion": "SUBIO"
+      "precio": 18.19,
+      "direccion": "IGUAL"
     },
     {
       "site_id": "8320dcfa-ddae-43da-9ef2-ffb07dfeb5c9",
@@ -331269,8 +331269,8 @@
       "periodo": "ACTUAL",
       "dia": "jueves",
       "fecha": "2026-10-29",
-      "precio": 18.99,
-      "direccion": "BAJO"
+      "precio": 19.99,
+      "direccion": "IGUAL"
     },
     {
       "site_id": "83dc2f46-7a09-4907-8482-01508cec8040",
@@ -331284,7 +331284,7 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 18.99,
+      "precio": 19.99,
       "direccion": "IGUAL"
     },
     {
@@ -331329,8 +331329,8 @@
       "periodo": "PASADA",
       "dia": "miercoles",
       "fecha": "2026-10-21",
-      "precio": 20.29,
-      "direccion": "SUBIO"
+      "precio": 19.29,
+      "direccion": "IGUAL"
     },
     {
       "site_id": "83dc2f46-7a09-4907-8482-01508cec8040",
@@ -331344,7 +331344,7 @@
       "periodo": "PASADA",
       "dia": "jueves",
       "fecha": "2026-10-22",
-      "precio": 20.29,
+      "precio": 19.29,
       "direccion": "IGUAL"
     },
     {
@@ -331359,7 +331359,7 @@
       "periodo": "PASADA",
       "dia": "viernes",
       "fecha": "2026-10-23",
-      "precio": 20.29,
+      "precio": 19.29,
       "direccion": "IGUAL"
     },
     {
@@ -331374,7 +331374,7 @@
       "periodo": "PASADA",
       "dia": "sabado",
       "fecha": "2026-10-24",
-      "precio": 20.29,
+      "precio": 19.29,
       "direccion": "IGUAL"
     },
     {
@@ -331390,7 +331390,7 @@
       "dia": "domingo",
       "fecha": "2026-10-25",
       "precio": 20.29,
-      "direccion": "IGUAL"
+      "direccion": "SUBIO"
     },
     {
       "site_id": "83e1e5d4-997e-4595-ba64-cbbf5718671e",
@@ -345864,8 +345864,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 8.29,
-      "direccion": "IGUAL"
+      "precio": 8.15,
+      "direccion": "BAJO"
     },
     {
       "site_id": "8a8c52e3-c17d-4fc6-904e-c9884277abee",
@@ -349644,8 +349644,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 27.45,
-      "direccion": "IGUAL"
+      "precio": 27.09,
+      "direccion": "BAJO"
     },
     {
       "site_id": "8b448051-a574-4dd3-85b9-126bfd4c39a5",
@@ -350004,8 +350004,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 21.79,
-      "direccion": "IGUAL"
+      "precio": 21.59,
+      "direccion": "BAJO"
     },
     {
       "site_id": "8b448051-a574-4dd3-85b9-126bfd4c39a5",
@@ -366564,8 +366564,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 8.49,
-      "direccion": "IGUAL"
+      "precio": 8.79,
+      "direccion": "SUBIO"
     },
     {
       "site_id": "9199ea59-b549-4a60-9c08-9346b40809ef",
@@ -366924,8 +366924,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 22.79,
-      "direccion": "IGUAL"
+      "precio": 22.59,
+      "direccion": "BAJO"
     },
     {
       "site_id": "9199ea59-b549-4a60-9c08-9346b40809ef",
@@ -367104,8 +367104,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 20.99,
-      "direccion": "IGUAL"
+      "precio": 20.89,
+      "direccion": "BAJO"
     },
     {
       "site_id": "9199ea59-b549-4a60-9c08-9346b40809ef",
@@ -373404,8 +373404,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 26.15,
-      "direccion": "IGUAL"
+      "precio": 25.79,
+      "direccion": "BAJO"
     },
     {
       "site_id": "940ba5e0-f8e5-464e-9061-ff3509c9eb45",
@@ -395169,8 +395169,8 @@
       "periodo": "ACTUAL",
       "dia": "jueves",
       "fecha": "2026-10-29",
-      "precio": 21.4,
-      "direccion": "IGUAL"
+      "precio": 23.12,
+      "direccion": "SUBIO"
     },
     {
       "site_id": "9b4be950-bdb5-4802-8122-746261e98105",
@@ -395185,7 +395185,7 @@
       "dia": "viernes",
       "fecha": "2026-10-30",
       "precio": 21.4,
-      "direccion": "IGUAL"
+      "direccion": "BAJO"
     },
     {
       "site_id": "9b4be950-bdb5-4802-8122-746261e98105",
@@ -395244,8 +395244,8 @@
       "periodo": "PASADA",
       "dia": "jueves",
       "fecha": "2026-10-22",
-      "precio": 21.4,
-      "direccion": "BAJO"
+      "precio": 23.12,
+      "direccion": "IGUAL"
     },
     {
       "site_id": "9b4be950-bdb5-4802-8122-746261e98105",
@@ -395260,7 +395260,7 @@
       "dia": "viernes",
       "fecha": "2026-10-23",
       "precio": 21.4,
-      "direccion": "IGUAL"
+      "direccion": "BAJO"
     },
     {
       "site_id": "9b4be950-bdb5-4802-8122-746261e98105",
@@ -395274,8 +395274,8 @@
       "periodo": "PASADA",
       "dia": "sabado",
       "fecha": "2026-10-24",
-      "precio": 21.4,
-      "direccion": "IGUAL"
+      "precio": 23.12,
+      "direccion": "SUBIO"
     },
     {
       "site_id": "9b4be950-bdb5-4802-8122-746261e98105",
@@ -395289,7 +395289,7 @@
       "periodo": "PASADA",
       "dia": "domingo",
       "fecha": "2026-10-25",
-      "precio": 21.4,
+      "precio": 23.12,
       "direccion": "IGUAL"
     },
     {
@@ -399144,8 +399144,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 25.99,
-      "direccion": "IGUAL"
+      "precio": 25.79,
+      "direccion": "BAJO"
     },
     {
       "site_id": "9cc689fd-d8a3-4f98-b77c-3f1d4c651c1c",
@@ -399504,8 +399504,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 23.59,
-      "direccion": "IGUAL"
+      "precio": 23.25,
+      "direccion": "BAJO"
     },
     {
       "site_id": "9cc689fd-d8a3-4f98-b77c-3f1d4c651c1c",
@@ -399684,8 +399684,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 21.99,
-      "direccion": "IGUAL"
+      "precio": 21.55,
+      "direccion": "BAJO"
     },
     {
       "site_id": "9cc689fd-d8a3-4f98-b77c-3f1d4c651c1c",
@@ -405984,8 +405984,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 25.49,
-      "direccion": "IGUAL"
+      "precio": 25.29,
+      "direccion": "BAJO"
     },
     {
       "site_id": "a0c1560d-3bf0-4508-a132-c70abdf4661d",
@@ -417684,8 +417684,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 25.29,
-      "direccion": "IGUAL"
+      "precio": 24.99,
+      "direccion": "BAJO"
     },
     {
       "site_id": "a3b1fd8f-42b4-45ff-8338-60ba6d564bbd",
@@ -418224,8 +418224,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 22.99,
-      "direccion": "IGUAL"
+      "precio": 22.69,
+      "direccion": "BAJO"
     },
     {
       "site_id": "a3b1fd8f-42b4-45ff-8338-60ba6d564bbd",
@@ -418764,8 +418764,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 7.89,
-      "direccion": "IGUAL"
+      "precio": 7.59,
+      "direccion": "BAJO"
     },
     {
       "site_id": "a3fe9424-aea9-4161-ad98-640476ae43dc",
@@ -422544,8 +422544,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 7.5,
-      "direccion": "IGUAL"
+      "precio": 7.89,
+      "direccion": "SUBIO"
     },
     {
       "site_id": "a71e3fed-3696-477d-9369-aff04cc228d4",
@@ -423984,8 +423984,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 27.69,
-      "direccion": "IGUAL"
+      "precio": 27.49,
+      "direccion": "BAJO"
     },
     {
       "site_id": "a7a8e08b-5b82-4121-91b1-aa86ebc10a76",
@@ -424344,8 +424344,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 24.49,
-      "direccion": "IGUAL"
+      "precio": 23.99,
+      "direccion": "BAJO"
     },
     {
       "site_id": "a7a8e08b-5b82-4121-91b1-aa86ebc10a76",
@@ -424524,8 +424524,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 22.19,
-      "direccion": "IGUAL"
+      "precio": 21.99,
+      "direccion": "BAJO"
     },
     {
       "site_id": "a7a8e08b-5b82-4121-91b1-aa86ebc10a76",
@@ -427044,8 +427044,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 24.45,
-      "direccion": "IGUAL"
+      "precio": 24.85,
+      "direccion": "SUBIO"
     },
     {
       "site_id": "a91cdac4-7a5b-4cfc-9d25-0e262b307bac",
@@ -427224,8 +427224,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 7.99,
-      "direccion": "IGUAL"
+      "precio": 8.09,
+      "direccion": "SUBIO"
     },
     {
       "site_id": "a91cdac4-7a5b-4cfc-9d25-0e262b307bac",
@@ -427404,8 +427404,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 23.29,
-      "direccion": "IGUAL"
+      "precio": 23.39,
+      "direccion": "SUBIO"
     },
     {
       "site_id": "a91cdac4-7a5b-4cfc-9d25-0e262b307bac",
@@ -427584,8 +427584,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 20.99,
-      "direccion": "IGUAL"
+      "precio": 21.09,
+      "direccion": "SUBIO"
     },
     {
       "site_id": "a91cdac4-7a5b-4cfc-9d25-0e262b307bac",
@@ -439764,7 +439764,7 @@
       "periodo": "ACTUAL",
       "dia": "lunes",
       "fecha": "2026-10-26",
-      "precio": 20.0,
+      "precio": 21.4,
       "direccion": "IGUAL"
     },
     {
@@ -439780,7 +439780,7 @@
       "dia": "martes",
       "fecha": "2026-10-27",
       "precio": 21.4,
-      "direccion": "SUBIO"
+      "direccion": "IGUAL"
     },
     {
       "site_id": "acc99931-e346-49fd-8ac1-d06a2fd9dbc3",
@@ -439794,8 +439794,8 @@
       "periodo": "ACTUAL",
       "dia": "miercoles",
       "fecha": "2026-10-28",
-      "precio": 20.0,
-      "direccion": "BAJO"
+      "precio": 21.4,
+      "direccion": "IGUAL"
     },
     {
       "site_id": "acc99931-e346-49fd-8ac1-d06a2fd9dbc3",
@@ -439809,7 +439809,7 @@
       "periodo": "ACTUAL",
       "dia": "jueves",
       "fecha": "2026-10-29",
-      "precio": 20.0,
+      "precio": 21.4,
       "direccion": "IGUAL"
     },
     {
@@ -439824,7 +439824,7 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 20.0,
+      "precio": 21.4,
       "direccion": "IGUAL"
     },
     {
@@ -439869,8 +439869,8 @@
       "periodo": "PASADA",
       "dia": "miercoles",
       "fecha": "2026-10-21",
-      "precio": 21.4,
-      "direccion": "SUBIO"
+      "precio": 20.0,
+      "direccion": "IGUAL"
     },
     {
       "site_id": "acc99931-e346-49fd-8ac1-d06a2fd9dbc3",
@@ -439884,8 +439884,8 @@
       "periodo": "PASADA",
       "dia": "jueves",
       "fecha": "2026-10-22",
-      "precio": 20.0,
-      "direccion": "BAJO"
+      "precio": 21.4,
+      "direccion": "SUBIO"
     },
     {
       "site_id": "acc99931-e346-49fd-8ac1-d06a2fd9dbc3",
@@ -439900,7 +439900,7 @@
       "dia": "viernes",
       "fecha": "2026-10-23",
       "precio": 21.4,
-      "direccion": "SUBIO"
+      "direccion": "IGUAL"
     },
     {
       "site_id": "acc99931-e346-49fd-8ac1-d06a2fd9dbc3",
@@ -443424,8 +443424,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 22.29,
-      "direccion": "IGUAL"
+      "precio": 22.09,
+      "direccion": "BAJO"
     },
     {
       "site_id": "ae665760-3680-48b5-bf50-7658801294a7",
@@ -443604,8 +443604,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 24.65,
-      "direccion": "IGUAL"
+      "precio": 24.78,
+      "direccion": "SUBIO"
     },
     {
       "site_id": "ae7feea1-912b-4798-9b07-40c69c819560",
@@ -443784,8 +443784,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 7.18,
-      "direccion": "IGUAL"
+      "precio": 7.54,
+      "direccion": "SUBIO"
     },
     {
       "site_id": "ae7feea1-912b-4798-9b07-40c69c819560",
@@ -447324,7 +447324,7 @@
       "periodo": "ACTUAL",
       "dia": "lunes",
       "fecha": "2026-10-26",
-      "precio": 20.19,
+      "precio": 21.29,
       "direccion": "IGUAL"
     },
     {
@@ -447339,7 +447339,7 @@
       "periodo": "ACTUAL",
       "dia": "martes",
       "fecha": "2026-10-27",
-      "precio": 20.19,
+      "precio": 21.29,
       "direccion": "IGUAL"
     },
     {
@@ -447355,7 +447355,7 @@
       "dia": "miercoles",
       "fecha": "2026-10-28",
       "precio": 20.19,
-      "direccion": "IGUAL"
+      "direccion": "BAJO"
     },
     {
       "site_id": "afa68cb6-9145-4768-8de1-a09224deb3d8",
@@ -447384,8 +447384,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 20.19,
-      "direccion": "IGUAL"
+      "precio": 21.29,
+      "direccion": "SUBIO"
     },
     {
       "site_id": "afa68cb6-9145-4768-8de1-a09224deb3d8",
@@ -447399,7 +447399,7 @@
       "periodo": "PASADA",
       "dia": "lunes",
       "fecha": "2026-10-19",
-      "precio": 21.89,
+      "precio": 20.59,
       "direccion": "IGUAL"
     },
     {
@@ -447415,7 +447415,7 @@
       "dia": "martes",
       "fecha": "2026-10-20",
       "precio": 20.59,
-      "direccion": "BAJO"
+      "direccion": "IGUAL"
     },
     {
       "site_id": "afa68cb6-9145-4768-8de1-a09224deb3d8",
@@ -447429,21 +447429,6 @@
       "periodo": "PASADA",
       "dia": "miercoles",
       "fecha": "2026-10-21",
-      "precio": 20.59,
-      "direccion": "IGUAL"
-    },
-    {
-      "site_id": "afa68cb6-9145-4768-8de1-a09224deb3d8",
-      "competidor": "PETROPERU SAN CARLOS - Inv. San Carlos SA",
-      "marca": "PETROPERU",
-      "es_propio": false,
-      "producto": "Regular",
-      "departamento": "Loreto",
-      "provincia": "Maynas",
-      "distrito": "Punchana",
-      "periodo": "PASADA",
-      "dia": "jueves",
-      "fecha": "2026-10-22",
       "precio": 21.89,
       "direccion": "SUBIO"
     },
@@ -447457,10 +447442,25 @@
       "provincia": "Maynas",
       "distrito": "Punchana",
       "periodo": "PASADA",
-      "dia": "viernes",
-      "fecha": "2026-10-23",
+      "dia": "jueves",
+      "fecha": "2026-10-22",
       "precio": 20.59,
       "direccion": "BAJO"
+    },
+    {
+      "site_id": "afa68cb6-9145-4768-8de1-a09224deb3d8",
+      "competidor": "PETROPERU SAN CARLOS - Inv. San Carlos SA",
+      "marca": "PETROPERU",
+      "es_propio": false,
+      "producto": "Regular",
+      "departamento": "Loreto",
+      "provincia": "Maynas",
+      "distrito": "Punchana",
+      "periodo": "PASADA",
+      "dia": "viernes",
+      "fecha": "2026-10-23",
+      "precio": 21.89,
+      "direccion": "SUBIO"
     },
     {
       "site_id": "afa68cb6-9145-4768-8de1-a09224deb3d8",
@@ -447489,8 +447489,8 @@
       "periodo": "PASADA",
       "dia": "domingo",
       "fecha": "2026-10-25",
-      "precio": 20.19,
-      "direccion": "IGUAL"
+      "precio": 21.29,
+      "direccion": "SUBIO"
     },
     {
       "site_id": "b033a12e-63f0-45dc-af30-f022c5330d5f",
@@ -447744,8 +447744,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 8.45,
-      "direccion": "IGUAL"
+      "precio": 8.99,
+      "direccion": "SUBIO"
     },
     {
       "site_id": "b033a12e-63f0-45dc-af30-f022c5330d5f",
@@ -452424,8 +452424,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 23.1,
-      "direccion": "SUBIO"
+      "precio": 21.7,
+      "direccion": "IGUAL"
     },
     {
       "site_id": "b200607f-c633-4689-bc03-1e2bb5fcd9b5",
@@ -452454,8 +452454,8 @@
       "periodo": "PASADA",
       "dia": "martes",
       "fecha": "2026-10-20",
-      "precio": 21.7,
-      "direccion": "IGUAL"
+      "precio": 23.1,
+      "direccion": "SUBIO"
     },
     {
       "site_id": "b200607f-c633-4689-bc03-1e2bb5fcd9b5",
@@ -452470,7 +452470,7 @@
       "dia": "miercoles",
       "fecha": "2026-10-21",
       "precio": 21.7,
-      "direccion": "IGUAL"
+      "direccion": "BAJO"
     },
     {
       "site_id": "b200607f-c633-4689-bc03-1e2bb5fcd9b5",
@@ -452514,8 +452514,8 @@
       "periodo": "PASADA",
       "dia": "sabado",
       "fecha": "2026-10-24",
-      "precio": 21.7,
-      "direccion": "IGUAL"
+      "precio": 23.1,
+      "direccion": "SUBIO"
     },
     {
       "site_id": "b200607f-c633-4689-bc03-1e2bb5fcd9b5",
@@ -452529,8 +452529,8 @@
       "periodo": "PASADA",
       "dia": "domingo",
       "fecha": "2026-10-25",
-      "precio": 23.1,
-      "direccion": "SUBIO"
+      "precio": 21.7,
+      "direccion": "BAJO"
     },
     {
       "site_id": "b20d60d3-b59f-4cfe-aa4a-818219a70dcc",
@@ -461544,7 +461544,7 @@
       "periodo": "ACTUAL",
       "dia": "lunes",
       "fecha": "2026-10-26",
-      "precio": 19.9,
+      "precio": 21.0,
       "direccion": "IGUAL"
     },
     {
@@ -461559,7 +461559,7 @@
       "periodo": "ACTUAL",
       "dia": "martes",
       "fecha": "2026-10-27",
-      "precio": 19.9,
+      "precio": 21.0,
       "direccion": "IGUAL"
     },
     {
@@ -461574,7 +461574,7 @@
       "periodo": "ACTUAL",
       "dia": "miercoles",
       "fecha": "2026-10-28",
-      "precio": 19.6,
+      "precio": 20.3,
       "direccion": "BAJO"
     },
     {
@@ -461589,8 +461589,8 @@
       "periodo": "ACTUAL",
       "dia": "jueves",
       "fecha": "2026-10-29",
-      "precio": 20.3,
-      "direccion": "SUBIO"
+      "precio": 19.6,
+      "direccion": "BAJO"
     },
     {
       "site_id": "b6532dca-5cbd-4e98-a157-8d133e9ab05a",
@@ -461605,7 +461605,7 @@
       "dia": "viernes",
       "fecha": "2026-10-30",
       "precio": 20.3,
-      "direccion": "IGUAL"
+      "direccion": "SUBIO"
     },
     {
       "site_id": "b6532dca-5cbd-4e98-a157-8d133e9ab05a",
@@ -461634,8 +461634,8 @@
       "periodo": "PASADA",
       "dia": "martes",
       "fecha": "2026-10-20",
-      "precio": 20.4,
-      "direccion": "BAJO"
+      "precio": 21.8,
+      "direccion": "IGUAL"
     },
     {
       "site_id": "b6532dca-5cbd-4e98-a157-8d133e9ab05a",
@@ -461649,7 +461649,7 @@
       "periodo": "PASADA",
       "dia": "miercoles",
       "fecha": "2026-10-21",
-      "precio": 19.9,
+      "precio": 21.0,
       "direccion": "BAJO"
     },
     {
@@ -461664,21 +461664,6 @@
       "periodo": "PASADA",
       "dia": "jueves",
       "fecha": "2026-10-22",
-      "precio": 21.0,
-      "direccion": "SUBIO"
-    },
-    {
-      "site_id": "b6532dca-5cbd-4e98-a157-8d133e9ab05a",
-      "competidor": "PETROPERU PETROAMAZONAS - Petroleos del Peru",
-      "marca": "PETROPERU",
-      "es_propio": false,
-      "producto": "Regular",
-      "departamento": "Loreto",
-      "provincia": "Maynas",
-      "distrito": "Iquitos",
-      "periodo": "PASADA",
-      "dia": "viernes",
-      "fecha": "2026-10-23",
       "precio": 19.9,
       "direccion": "BAJO"
     },
@@ -461692,9 +461677,24 @@
       "provincia": "Maynas",
       "distrito": "Iquitos",
       "periodo": "PASADA",
+      "dia": "viernes",
+      "fecha": "2026-10-23",
+      "precio": 21.0,
+      "direccion": "SUBIO"
+    },
+    {
+      "site_id": "b6532dca-5cbd-4e98-a157-8d133e9ab05a",
+      "competidor": "PETROPERU PETROAMAZONAS - Petroleos del Peru",
+      "marca": "PETROPERU",
+      "es_propio": false,
+      "producto": "Regular",
+      "departamento": "Loreto",
+      "provincia": "Maynas",
+      "distrito": "Iquitos",
+      "periodo": "PASADA",
       "dia": "sabado",
       "fecha": "2026-10-24",
-      "precio": 19.9,
+      "precio": 21.0,
       "direccion": "IGUAL"
     },
     {
@@ -461710,7 +461710,7 @@
       "dia": "domingo",
       "fecha": "2026-10-25",
       "precio": 21.0,
-      "direccion": "SUBIO"
+      "direccion": "IGUAL"
     },
     {
       "site_id": "b6b2b18b-7b7d-4b57-b0fb-1c75eeff66d6",
@@ -469164,8 +469164,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 2.51,
-      "direccion": "BAJO"
+      "precio": 3.21,
+      "direccion": "IGUAL"
     },
     {
       "site_id": "bab33689-31de-4402-8f2a-17169f5b679a",
@@ -483204,8 +483204,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 21.99,
-      "direccion": "IGUAL"
+      "precio": 21.59,
+      "direccion": "BAJO"
     },
     {
       "site_id": "c129fb8d-3936-4ca0-be78-b83c1a80ee71",
@@ -495984,8 +495984,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 6.99,
-      "direccion": "IGUAL"
+      "precio": 7.35,
+      "direccion": "SUBIO"
     },
     {
       "site_id": "c71d6de0-534b-471c-8f72-45708440e992",
@@ -526404,8 +526404,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 25.55,
-      "direccion": "IGUAL"
+      "precio": 25.19,
+      "direccion": "BAJO"
     },
     {
       "site_id": "d7c68915-3c75-4d25-b7a4-94abd521a0bf",
@@ -542064,8 +542064,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 23.19,
-      "direccion": "IGUAL"
+      "precio": 22.99,
+      "direccion": "BAJO"
     },
     {
       "site_id": "df8a1f40-35af-43d1-91a4-c8141d435dd0",
@@ -542244,8 +542244,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 21.49,
-      "direccion": "IGUAL"
+      "precio": 21.19,
+      "direccion": "BAJO"
     },
     {
       "site_id": "df8a1f40-35af-43d1-91a4-c8141d435dd0",
@@ -549804,8 +549804,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 26.15,
-      "direccion": "IGUAL"
+      "precio": 25.79,
+      "direccion": "BAJO"
     },
     {
       "site_id": "e1e4d1fb-005e-4a53-9520-0be507611f27",
@@ -557139,8 +557139,8 @@
       "periodo": "ACTUAL",
       "dia": "martes",
       "fecha": "2026-10-27",
-      "precio": 20.49,
-      "direccion": "IGUAL"
+      "precio": 19.3,
+      "direccion": "BAJO"
     },
     {
       "site_id": "e3a32474-f2ba-45b9-abda-167a89068a96",
@@ -557155,7 +557155,7 @@
       "dia": "miercoles",
       "fecha": "2026-10-28",
       "precio": 19.3,
-      "direccion": "BAJO"
+      "direccion": "IGUAL"
     },
     {
       "site_id": "e3a32474-f2ba-45b9-abda-167a89068a96",
@@ -557169,8 +557169,8 @@
       "periodo": "ACTUAL",
       "dia": "jueves",
       "fecha": "2026-10-29",
-      "precio": 20.49,
-      "direccion": "SUBIO"
+      "precio": 19.3,
+      "direccion": "IGUAL"
     },
     {
       "site_id": "e3a32474-f2ba-45b9-abda-167a89068a96",
@@ -557184,8 +557184,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 19.3,
-      "direccion": "BAJO"
+      "precio": 20.49,
+      "direccion": "SUBIO"
     },
     {
       "site_id": "e3a32474-f2ba-45b9-abda-167a89068a96",
@@ -557244,8 +557244,8 @@
       "periodo": "PASADA",
       "dia": "jueves",
       "fecha": "2026-10-22",
-      "precio": 19.3,
-      "direccion": "IGUAL"
+      "precio": 20.49,
+      "direccion": "SUBIO"
     },
     {
       "site_id": "e3a32474-f2ba-45b9-abda-167a89068a96",
@@ -557260,7 +557260,7 @@
       "dia": "viernes",
       "fecha": "2026-10-23",
       "precio": 19.3,
-      "direccion": "IGUAL"
+      "direccion": "BAJO"
     },
     {
       "site_id": "e3a32474-f2ba-45b9-abda-167a89068a96",
@@ -557289,8 +557289,8 @@
       "periodo": "PASADA",
       "dia": "domingo",
       "fecha": "2026-10-25",
-      "precio": 19.3,
-      "direccion": "BAJO"
+      "precio": 20.49,
+      "direccion": "IGUAL"
     },
     {
       "site_id": "e3cba593-fbb5-43f7-bf06-dd510682bae4",
@@ -562224,8 +562224,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 8.95,
-      "direccion": "IGUAL"
+      "precio": 8.65,
+      "direccion": "BAJO"
     },
     {
       "site_id": "e6cbe305-3a04-4d55-b8b2-422cba113e4b",
@@ -563484,8 +563484,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 25.55,
-      "direccion": "IGUAL"
+      "precio": 25.19,
+      "direccion": "BAJO"
     },
     {
       "site_id": "e6fd7bec-f10a-48c8-9d92-cb9bf1c59437",
@@ -585804,8 +585804,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 26.49,
-      "direccion": "IGUAL"
+      "precio": 26.19,
+      "direccion": "BAJO"
     },
     {
       "site_id": "ee995aa1-57eb-49b3-8a69-380ba69d0d07",
@@ -586164,8 +586164,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 22.79,
-      "direccion": "IGUAL"
+      "precio": 22.59,
+      "direccion": "BAJO"
     },
     {
       "site_id": "ee995aa1-57eb-49b3-8a69-380ba69d0d07",
@@ -586344,8 +586344,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 21.39,
-      "direccion": "IGUAL"
+      "precio": 21.15,
+      "direccion": "BAJO"
     },
     {
       "site_id": "ee995aa1-57eb-49b3-8a69-380ba69d0d07",
@@ -614964,8 +614964,8 @@
       "periodo": "ACTUAL",
       "dia": "viernes",
       "fecha": "2026-10-30",
-      "precio": 25.55,
-      "direccion": "IGUAL"
+      "precio": 25.19,
+      "direccion": "BAJO"
     },
     {
       "site_id": "f7340d03-b93e-4488-b62b-4df633c5c3a2",
