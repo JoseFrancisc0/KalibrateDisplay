@@ -1,14 +1,5 @@
 /* ==========================================================
    views/index.js — REGISTRO DE VISTAS.
-
-   El orden de este arreglo define el orden de las pestañas,
-   de los paneles del rail y de los contenedores del <main>.
-
-   Para agregar una vista nueva:
-     1. Crear views/<vista>/ con index.js (contrato en core/router.js),
-        state.js, rail.js, acciones.js y su render.
-     2. Importarla y agregarla aquí.
-     3. (Opcional) su CSS en css/views/ y enlazarlo en index.html.
    ========================================================== */
 
 import { matriz } from './matriz/index.js';
@@ -21,16 +12,35 @@ import { competenciaSemanal } from './competencia/index.js';
 import { mapa } from './mapa/index.js';
 import { heatmap } from './heatmap/index.js';
 
-export const VISTAS = [
-  matriz, 
-  analisis, 
-  alineacion, 
-  variacion, 
-  margenMercado, 
-  competenciaSemanal, 
-  mapa, 
-  heatmap
+export const CAPAS = [
+  {
+    id: 'CAPA_CONTROL',
+    label: 'CONTROL ROOM & ESTADO',
+    vistas: [
+      // Aquí entrará 'cockpit' como primera vista
+      matriz,     // 'PRECIOS'
+      analisis,   // 'ANÁLISIS'
+      alineacion  // 'ALINEACIÓN'
+    ]
+  },
+  {
+    id: 'CAPA_TENDENCIAS',
+    label: 'TENDENCIAS & TIEMPO',
+    vistas: [
+      competenciaSemanal, // 'COMPETENCIA SEMANAL'
+      margenMercado,      // 'MERCADO'
+      variacion           // 'VARIACIÓN'
+    ]
+  },
+  {
+    id: 'CAPA_TERRITORIO',
+    label: 'RED & TERRITORIO',
+    vistas: [
+      mapa,    // 'COBERTURA'
+      heatmap  // 'HEATMAP'
+    ]
+  }
 ];
 
-// Nivel de detalle (no es una pestaña: se abre desde la Matriz)
+export const VISTAS = CAPAS.flatMap(c => c.vistas);
 export const NIVEL_ESTACION = estacion;

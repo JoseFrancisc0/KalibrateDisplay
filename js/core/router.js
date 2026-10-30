@@ -17,6 +17,7 @@
    ========================================================== */
 
 import { state } from './state.js';
+import { CAPAS } from '../views/index.js';
 import { viewBarGeneralHTML } from '../layout/view-bar.js';
 
 let vistas = [];
@@ -73,16 +74,32 @@ export function actualizarIndicadorModo() {
   if (vista) modeLabel.innerText = vista.etiquetaModo();
 }
 
-/* ---------- Cambio de vista general ---------- */
+export function setCapa(capaId) {
+  const capa = CAPAS.find(c => c.id === capaId);
+  if (!capa) return;
+
+  state.capaActiva = capaId;
+
+  // Si la vista activa actual no pertenece a la nueva capa, activa la primera de esa capa
+  const vistaEnCapa = capa.vistas.some(v => v.id === state.vistaActiva);
+  if (!vistaEnCapa && capa.vistas.length > 0) {
+    setVista(capa.vistas[0].id);
+  } else {
+    refrescarViewBar();
+  }
+}
 
 /* ---------- Cambio de vista general ---------- */
 export async function setVista(id) {
   state.vistaActiva = id;
-  vistas.forEach(v => {
-    const btn = document.getElementById(v.tabId);
-    if (btn) btn.classList.toggle('active', v.id === id);
-  });
 
+  // Sincronizar la capa activa según la vista seleccionada
+  const capaContenedora = CAPAS.find(c => c.vistas.some(v => v.id === id));
+  if (capaContenedora) {
+    state.capaActiva = capaContenedora.id;
+  }
+
+  // Ocultar todas las vistas y shells
   vistas.forEach(v => mostrar(shellDe(v), 'none'));
   mostrar(document.querySelector(estacion.shellSelector), 'none');
   mostrar(document.getElementById('cmp-tabbar'), 'none');
@@ -98,6 +115,7 @@ export async function setVista(id) {
     if (vista.alEntrar) await vista.alEntrar();
   }
 
+  refrescarViewBar();
   actualizarIndicadorModo();
   render();
 }
